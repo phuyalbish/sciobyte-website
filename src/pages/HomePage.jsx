@@ -1,5 +1,5 @@
 import React from "react";
-import InstagramFeed from "../assets/components/InstagramFeed";
+import InstagramFeed from "../components/InstagramFeed";
 function HomePage() {
   return (
     <div>
