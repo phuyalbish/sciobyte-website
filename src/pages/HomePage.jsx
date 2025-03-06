@@ -1,7 +1,6 @@
 import React from "react";
-import InstagramFeed from "../components/InstagramFeed";
-import Parallex from "../components/pages/home/Parallex";
-import YTSection from "../components/pages/home/YTSection";
+import Parallex from "@/components/pages/home/Parallex.jsx";
+import YTSection from "@/components/pages/home/YTSection.jsx";
 function HomePage() {
   return (
     <div>
