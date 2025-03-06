@@ -133,7 +133,7 @@ export default function Parallax() {
           <span className="font-bold">PRIORITY</span>
         </div>
 
-        <div className="flex gap-5 justify-center">
+        <div className="flex gap-5 justify-center flex-wrap">
           {categories.map((category, index) => (
             <CategoryTile key={index} img={category.img} name={category.name} />
           ))}
