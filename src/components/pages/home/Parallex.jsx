@@ -11,7 +11,7 @@ import img9 from "@/assets/image9.png";
 import catimg1 from "@/assets/hikingCategory.png";
 import catimg2 from "@/assets/toursCategory.png";
 import catimg3 from "@/assets/trekkingCategory.png";
-import CategoryTile from "../../tiles/CategoryTile";
+import CategoryTile from "@/components//tiles/CategoryTile";
 
 export default function Parallax() {
   const { scrollY } = useScroll();
