@@ -2,12 +2,12 @@ const JourneyDetailsPanel = ({ detail }) => {
     console.log(detail);
     return (
         <>
-            <p className="flex gap-[1rem]">
-                <img width="100%" src={detail?.icon} alt="TrekType.svg"
+            <p className="flex justify-between items-center gap-[0.5rem] md:gap-[1rem]">
+                <img width="100%" src={detail?.icon} alt="TrekType.svg" className=""
                 />
                 <span className="text-center">
                     <span className="block text-sm">{detail?.key}</span>
-                    <strong className="block text-base">{detail?.value}</strong>
+                    <strong className="block md:text-base text-sm">{detail?.value}</strong>
                 </span>
             </p>
         </>
@@ -24,7 +24,7 @@ const TrekTile = ({ data }) => {
 
     return (
         <>
-            <div className="max-w-md flex flex-col gap-[0.5rem] rounded-lg overflow-hidden shadow-md bg-white p-5">
+            <div className="max-w-lg flex flex-col gap-[0.5rem] rounded-lg overflow-hidden shadow-md bg-white p-5">
                 <div className="relative">
                     <img className="rounded w-full h-64 object-cover object-center" src={image} alt="Annapurna Base Camp Circuit" />
                     <div className="flex items-center mb-2">
@@ -39,7 +39,7 @@ const TrekTile = ({ data }) => {
                     <span className="text-yellow-500 text-2xl">★★★★☆</span>
                     <p className="text-gray-600 text-right">Price Starting From <br /> <span className="text-primary font-bold text-3xl">USD {price}</span></p>
                 </div>
-                <div className="flex justify-between text-gray-600 text-sm mt-2 gap-[2rem]">
+                <div className="flex justify-between text-gray-600 mt-2 gap-[2rem]">
                     {
                         journeyDetails.map((detail, index) => <JourneyDetailsPanel key={index} detail={detail} />)
                     }
