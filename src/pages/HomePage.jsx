@@ -4,7 +4,8 @@ import TrekSection from "@/components/pages/home/TrekSection.jsx";
 import Parallex from "@/components/pages/home/Parallex.jsx";
 import YTSection from "@/components/pages/home/YTSection.jsx";
 import whatsapp from "@/assets/whatsapp.png";
-import ReviewSection from "../components/pages/home/ReviewSection";
+import ReviewSection from "@/components/pages/home/ReviewSection";
+import InstagramSection from "@/components/pages/home/InstagramSection";
 
 function HomePage() {
   return (
@@ -17,6 +18,7 @@ function HomePage() {
         <YTSection />
         <ReviewSection />
       </div>
+      <InstagramSection />
       <img
         src={whatsapp}
         alt=""

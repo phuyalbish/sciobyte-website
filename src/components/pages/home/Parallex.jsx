@@ -21,7 +21,7 @@ export default function Parallax() {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/categories/all/`)
+      .get(`${API_URL}/categories/all/`)
       .then((response) => {
         console.log(response.data);
         setCategories(response.data.results);
