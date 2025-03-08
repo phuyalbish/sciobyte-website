@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 function ReviewTile({ star, name, reviewDetail, profile }) {
   return (
-    <div className="relative flex flex-col hover:shadow-lg gap-5  md:w-1/3 p-5 justify-start items-start">
+    <div className="relative flex flex-col hover:shadow-lg rounded-md hover:bg-blue-200 gap-5  md:w-1/3 p-5 justify-start items-start">
       <div className="flex gap-1">
         {Array.from({ length: star || 0 }).map((_, index) => (
           <FaStar key={index} className="text-yellow-300" size={20} />
