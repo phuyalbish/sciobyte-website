@@ -66,7 +66,7 @@ export default function Parallax() {
         <motion.img
           src={img1}
           alt=""
-          className="absolute z-40 min-w-[102vw]"
+          className="absolute z-40 md:min-w-[102vw]"
           style={{ y: y1, x: x1, top: "350px", left: "0px" }}
         />
       </div>
@@ -74,7 +74,7 @@ export default function Parallax() {
         <motion.img
           src={img2}
           alt=""
-          className="absolute z-30 min-w-[102vw]"
+          className="absolute z-30 md:min-w-[102vw]"
           style={{ y: y2, x: x2, top: "550px", right: "0px" }}
         />
       </div>
