@@ -3,6 +3,7 @@ import Parallex from "@/components/pages/home/Parallex.jsx";
 import YTSection from "@/components/pages/home/YTSection.jsx";
 import SplashSection from "@/components/pages/home/SplashSection";
 import whatsapp from "@/assets/whatsapp.png";
+import ReviewSection from "../components/pages/home/ReviewSection";
 
 function HomePage() {
   return (
@@ -79,6 +80,7 @@ function HomePage() {
         libero earum mollitia id!
       </div>
       <YTSection />
+      <ReviewSection />
       <div className="p-20">
         iatur id nostrum, facilis blanditiis necessitatibus magnam dolorum odio
         qui ex rerum quisquam eius debitis cumque corporis similique. Ea
