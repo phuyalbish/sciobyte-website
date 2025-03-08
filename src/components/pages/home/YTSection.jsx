@@ -55,7 +55,7 @@ function YTSection() {
         <div className="fixed w-screen h-screen top-0 left-0 z-50   bg-black/75 p-5 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
           <ImCross
             className="text-white right-5 self-end"
-            size={30}
+            size={20}
             onClick={() => {
               setIsOpenYTSection(false);
             }}
