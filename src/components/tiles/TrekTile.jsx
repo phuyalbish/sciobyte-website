@@ -1,12 +1,10 @@
-import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react';
-
 const JourneyDetailsPanel = ({ detail }) => {
     console.log(detail);
     return (
         <>
             <p className="flex gap-[1rem]">
-                <img src={detail?.icon} alt="TrekType.svg" />
+                <img width="100%" src={detail?.icon} alt="TrekType.svg"
+                />
                 <span className="text-center">
                     <span className="block text-sm">{detail?.key}</span>
                     <strong className="block text-base">{detail?.value}</strong>
@@ -26,7 +24,7 @@ const TrekTile = ({ data }) => {
 
     return (
         <>
-            <div className="max-w-sm flex flex-col gap-[0.5rem] rounded overflow-hidden shadow-md bg-white p-5">
+            <div className="max-w-md flex flex-col gap-[0.5rem] rounded-lg overflow-hidden shadow-md bg-white p-5">
                 <div className="relative">
                     <img className="rounded w-full h-64 object-cover object-center" src={image} alt="Annapurna Base Camp Circuit" />
                     <div className="flex items-center mb-2">
