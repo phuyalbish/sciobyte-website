@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --primary: #010180;
-  --secondary: #9a9afe;
+  --primary: #41BBE0;
+  --secondary: #00A991;
   --tertiary: #ebebeb;
   --dark-primary: #01014d;
   --text: #000000;
@@ -18,6 +18,11 @@
 body {
   font-family: "Work Sans", sans-serif;
   color: var(--text);
+}
+
+.container{
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 /* Text */
