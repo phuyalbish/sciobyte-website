@@ -1,10 +1,9 @@
 import React from "react";
 import Parallex from "@/components/pages/home/Parallex.jsx";
 import YTSection from "@/components/pages/home/YTSection.jsx";
-import PageLayout from "@/components/PageLayout";
 function HomePage() {
   return (
-    <PageLayout>
+    <>
       <div className="p-20">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam dolorum
         dolore voluptas impedit id similique ipsum, facere omnis est quae
@@ -146,7 +145,7 @@ function HomePage() {
         libero earum mollitia id!
       </div>
       <YTSection />
-    </PageLayout>
+    </>
   );
 }
 
