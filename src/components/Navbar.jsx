@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 function Navbar() {
   const [isTrekkingDropDownOpen, setIsTrekkingDropDownOpen] = useState(false);
@@ -6,7 +7,7 @@ function Navbar() {
   const [isTipsDropDownOpen, setIsTipsDropDownOpen] = useState(false);
   return (
     <>
-      <div className="bg-blue-500 z-50 text-white shadow-md px-[4.63rem] py-4   w-screen flex flex-row   justify-center gap-24">
+      <div className="bg-blue-500 z-50 text-white shadow-md md:px-[4.63rem] py-4   w-screen flex flex-row  justify-evenly  md:justify-center text-sm md:text-base  sm:gap-5 md:gap-10 lg:gap-24">
         <button
           className="flex items-center gap-1"
           onClick={() => {
@@ -28,7 +29,7 @@ function Navbar() {
           Day Hikes <IoIosArrowDown />
         </button>
         <button
-          className="flex items-center gap-1"
+          className="sm:flex hidden items-center gap-1 "
           onClick={() => {
             setIsTrekkingDropDownOpen(false);
             setIsHikeDropDownOpen(false);
@@ -37,8 +38,8 @@ function Navbar() {
         >
           Travel Tips <IoIosArrowDown />
         </button>
-        <a href="">Blogs</a>
-        <a href="">About Us</a>
+        <Link to="/blogs">Blogs</Link>
+        <Link to="/about">About Us</Link>
       </div>
       {isTrekkingDropDownOpen && (
         <div className="relative w-screen bg-white p-5 shadow-md transition-all duration-300 ease-in-out">
