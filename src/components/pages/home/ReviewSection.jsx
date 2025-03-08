@@ -48,7 +48,7 @@ function ReviewSection() {
         What our <span className="text-white underline ">Friends</span> Have to
         Say
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col items-center">
         <div className="flex flex-row justify-center gap-5">
           <div
             className={`flex flex-row  rounded-t-md ${
@@ -80,7 +80,7 @@ function ReviewSection() {
           </div>
         </div>
         {isGoogleReview && (
-          <div className="relative  bg-white p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
+          <div className="relative md:w-[70vw]  bg-white p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
             {Array.isArray(reviews) && reviews.length > 0 ? (
               reviews.map((review, index) => (
                 <ReviewTile
@@ -97,8 +97,20 @@ function ReviewSection() {
           </div>
         )}
         {!isGoogleReview && (
-          <div className="relative  bg-white p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out">
-            <p className="text-black">Trip Advisor...</p>
+          <div className="relative  md:w-[70vw]   bg-white p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
+            {Array.isArray(reviews) && reviews.length > 0 ? (
+              reviews.map((review, index) => (
+                <ReviewTile
+                  key={index}
+                  star={review.stars}
+                  profile={review.profile}
+                  reviewDetail={review.reviewDetail}
+                  name={review.name}
+                />
+              ))
+            ) : (
+              <p className="text-gray-500">No Google Categories available</p>
+            )}
           </div>
         )}
       </div>
