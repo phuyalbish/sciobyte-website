@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --primary: #41BBE0;
+  --primary: #418BE0;
   --secondary: #00A991;
   --tertiary: #ebebeb;
   --dark-primary: #01014d;
@@ -14,13 +14,14 @@
 * {
   padding: 0px;
   margin: 0px;
+  font-family: "Red Hat Display", sans-serif;
 }
 body {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Red Hat Display", sans-serif;
   color: var(--text);
 }
 
-.container{
+.container {
   max-width: 1440px;
   margin: 0 auto;
 }
