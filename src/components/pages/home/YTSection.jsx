@@ -28,7 +28,7 @@ function YTSection() {
           <a
             href="https://www.youtube.com/@Welcomenepal"
             target="_blank"
-            className="text-red-500 font-base text-3xl md:text-7xl flex gap-5 items-start  "
+            className="text-red-500 font-base text-3xl md:text-7xl flex  gap-5 items-center"
           >
             <FaYoutube />
             Youtube
