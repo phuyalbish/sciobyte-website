@@ -5,11 +5,11 @@ import Navbar from "@/components/Navbar";
 export default function PageLayout({ children }) {
   return (
     <div className="flex flex-col ">
-      <div className="flex fixed top-0 w-screen flex-col z-50">
+      <div className="flex sticky top-0 w-screen flex-col z-50">
         <Header />
         <Navbar />
       </div>
-      <main className="flex-1 bg-gray-100 pt-[10vh] overflow-auto">
+      <main className="flex-1 bg-gray-100  overflow-auto">
         {children}
       </main>
       <Footer />

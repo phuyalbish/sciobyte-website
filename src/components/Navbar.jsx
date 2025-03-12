@@ -7,7 +7,7 @@ function Navbar() {
   const [isTipsDropDownOpen, setIsTipsDropDownOpen] = useState(false);
   return (
     <>
-      <div className="bg-blue-500 z-50 text-white shadow-md md:px-[4.63rem] py-4   w-screen flex flex-row  justify-evenly  md:justify-center text-sm md:text-base  sm:gap-5 md:gap-10 lg:gap-24">
+      <div className="bg-blue-500 z-50 text-white shadow-md md:px-[4.63rem] py-4   w-full flex flex-row  justify-evenly  md:justify-center text-sm md:text-base  sm:gap-5 md:gap-10 lg:gap-24">
         <button
           className="flex items-center gap-1"
           onClick={() => {

@@ -47,6 +47,7 @@ const NeedToKnowSection = () => {
   return (
     <>
       <section className="container">
+        {/* <div className="px-[2rem] md:px-[4.5rem]"> */}
         <div className="px-[2rem] md:px-[4.5rem]">
           <h1 className="mb-[3rem] text-6xl text-G200 reenie-beanie">
             You need to know these
