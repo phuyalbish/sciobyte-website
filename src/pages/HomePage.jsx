@@ -9,10 +9,11 @@ import HomeStaySection from "@/components/pages/home/HomeStaySection.jsx";
 import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection.jsx";
 import ReviewSection from "@/components/pages/home/ReviewSection";
 import InstagramSection from "@/components/pages/home/InstagramSection";
+import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
 
 function HomePage() {
   return (
-    <div className="flex flex-col gap-[3rem]">
+    <div className="flex flex-col gap-[3rem] mb-20">
       <SplashSection />
       <TrekSection />
       <Parallex />
