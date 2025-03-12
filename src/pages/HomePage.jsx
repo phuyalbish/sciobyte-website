@@ -6,6 +6,7 @@ import Parallex from "@/components/pages/home/Parallex.jsx";
 import YTSection from "@/components/pages/home/YTSection.jsx";
 import whatsapp from "@/assets/whatsapp.png";
 import HomeStaySection from "@/components/pages/home/HomeStaySection.jsx";
+import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection.jsx";
 import ReviewSection from "@/components/pages/home/ReviewSection";
 import InstagramSection from "@/components/pages/home/InstagramSection";
 
@@ -21,6 +22,7 @@ function HomePage() {
         <ReviewSection />
       </div>
       <InstagramSection />
+      <NeedToKnowSection />
       <FAQSection />
       <img
         src={whatsapp}
