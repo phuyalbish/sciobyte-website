@@ -1,18 +1,18 @@
 import React from "react";
 
-const handleWord = (word) => {
-  const numberOfWords = word.split(" ").length;
-  const keyName = numberOfWords > 0 ? word.split(" ") : word;
-  return (
-    <span className="flex">
-      {keyName.length > 0
-        ? keyName.map((name) => (
-            <pre style={{ fontFamily: "inherit" }}>{`${name} `}</pre>
-          ))
-        : keyName}
-    </span>
-  );
-};
+// const handleWord = (word) => {
+//   const numberOfWords = word.split(" ").length;
+//   const keyName = numberOfWords > 0 ? word.split(" ") : word;
+//   return (
+//     <span className="flex">
+//       {keyName.length > 0
+//         ? keyName.map((name) => (
+//             <pre style={{ fontFamily: "inherit" }}>{`${name} `}</pre>
+//           ))
+//         : keyName}
+//     </span>
+//   );
+// };
 
 const NavItems = ({ item }) => {
   const { title, items } = item;
@@ -164,8 +164,8 @@ function Footer() {
 
         <div className="flex flex-col md:flex-row gap-[2.88rem] md:gap-[7.75rem] justify-center items-center md:items-start">
           <div className="flex flex-col md:flex-row justify-between gap-[2.88rem] md:gap-[2.625rem]">
-            {menuItems.slice(0, 2).map((item) => (
-              <NavItems item={item} />
+            {menuItems.slice(0, 2).map((item, index) => (
+              <NavItems item={item} key={index} />
             ))}
           </div>
 
@@ -179,8 +179,8 @@ function Footer() {
           </div>
 
           <div className="flex flex-col md:flex-row justify-between gap-[2.88rem] md:gap-[2.625rem]">
-            {menuItems.slice(2).map((item) => (
-              <NavItems item={item} />
+            {menuItems.slice(2).map((item, index) => (
+              <NavItems item={item} key={index} />
             ))}
           </div>
         </div>

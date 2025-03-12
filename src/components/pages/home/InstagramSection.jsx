@@ -52,7 +52,7 @@ function InstagramSection() {
         <div className="flex flex-row flex-wrap">
           {Array.isArray(insta_post) && insta_post.length > 0 ? (
             insta_post.map((post, index) => (
-              <div className="flex w-1/3 p-0.5">
+              <div className="flex w-1/3 p-0.5" key={index}>
                 <img src={post} alt="" className="w-fit cursor-pointer" />
               </div>
             ))

@@ -1,13 +1,13 @@
 const GoogleReview = () => {
   return (
-    <div class="p-4 pe-8 bg-white shadow-lg  text-left rounded-r-[1rem] flex flex-col gap-[0.5rem]">
-      <div class="flex text-left">
-        <span class="mr-2">
-          <img src="/google-logo.png" alt="Google Logo" class="h-6 w-6" />
+    <div className="p-4 pe-8 bg-white shadow-lg  text-left rounded-r-[1rem] flex flex-col gap-[0.5rem]">
+      <div className="flex text-left">
+        <span className="mr-2">
+          <img src="/google-logo.png" alt="Google Logo" className="h-6 w-6" />
         </span>
         <div className="flex gap-3 items-center">
-          <span class="text-lg font-bold text-[#418BE0]">4.8</span>
-          <div class="text-yellow-500 flex">
+          <span className="text-lg font-bold text-[#418BE0]">4.8</span>
+          <div className="text-yellow-500 flex">
             <span>⭐</span>
             <span>⭐</span>
             <span>⭐</span>
@@ -16,7 +16,7 @@ const GoogleReview = () => {
           </div>
         </div>
       </div>
-      <a href="#" class=" hover:underline text-[#418BE0]">
+      <a href="#" className=" hover:underline text-[#418BE0]">
         See our Reviews
       </a>
     </div>
