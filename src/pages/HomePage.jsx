@@ -6,10 +6,9 @@ import Parallex from "@/components/pages/home/Parallex.jsx";
 import YTSection from "@/components/pages/home/YTSection.jsx";
 import whatsapp from "@/assets/whatsapp.png";
 import HomeStaySection from "@/components/pages/home/HomeStaySection.jsx";
+import ReviewSection from "@/components/pages/home/ReviewSection.jsx";
+import InstagramSection from "@/components/pages/home/InstagramSection.jsx";
 import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection.jsx";
-import ReviewSection from "@/components/pages/home/ReviewSection";
-import InstagramSection from "@/components/pages/home/InstagramSection";
-import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
 
 function HomePage() {
   return (
