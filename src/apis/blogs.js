@@ -7,7 +7,6 @@ export const fetchBlogs = async () => {
       url: `${BASE_API_URL}/blogs/all/`,
       method: "GET",
     });
-    console.log("Response from .js ", response);
     return response;
   } catch (error) {
     console.log("Error while fetching trek data: ", error);

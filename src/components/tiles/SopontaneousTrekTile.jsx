@@ -1,6 +1,4 @@
 const JourneyDetailsPanel = ({ detail }) => {
-  console.log(detail);
-
   return (
     <>
       <p className="flex justify-between items-center gap-[0.5rem] md:gap-[1rem]">

@@ -20,11 +20,11 @@ function SpontaneousTrekSection() {
     <>
       <div className="flex flex-col mt-10 gap-5 ">
         <div className="text-3xl  ">
-          <span className="font-bold text-white bg-green-700 p-2 rounded-2xl mx-2">
+          <span className="font-bold text-white bg-G200 p-2 rounded-2xl mx-2">
             SPONTANEOUS
           </span>
           Decision
-          <span className="font-bold text-white bg-green-700 p-2 rounded-2xl mx-2">
+          <span className="font-bold text-white bg-G200 p-2 rounded-2xl mx-2">
             ADVENTEROUS
           </span>
           Trials

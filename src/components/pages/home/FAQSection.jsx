@@ -7,26 +7,30 @@ const FAQSection = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetchFAQs();
-      const faqsData = response?.data?.results;
-      setFaqs(faqsData);
+      try {
+        const response = await fetchFAQs();
+        const faqsData = response?.data?.results || []; // Ensure it's always an array
+
+        if (!Array.isArray(faqsData)) {
+          setFaqs([]);
+          return;
+        }
+
+        setFaqs(faqsData);
+      } catch (error) {
+        console.error("Error fetching FAQs:", error);
+        setFaqs([]); // Fallback in case of an error
+      }
     })();
   }, []);
   return (
-    <>
-      <div className="container ">
-        <div className="px-[2rem] md:px-[4.5rem]">
-          <h1 className="text-[2.3rem] mb-[3rem] font-semibold">
-            Frequently Asked Questions
-          </h1>
-          <div className="flex flex-col gap-2">
-            {faqs.map((faq, index) => (
-              <FAQ faq={faq} key={index} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </>
+    <div className="flex flex-col gap-2">
+      {Array.isArray(faqs) && faqs.length > 0 ? (
+        faqs.map((faq, index) => <FAQ faq={faq} key={index} />)
+      ) : (
+        <p>Loading FAQs...</p>
+      )}
+    </div>
   );
 };
 

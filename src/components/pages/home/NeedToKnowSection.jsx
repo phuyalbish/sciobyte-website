@@ -13,28 +13,34 @@ const NeedToKnowSection = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetchBlogs();
-      const blogsData = response?.data?.results;
-      const chunkedBlogsData = _.chunk(blogsData.slice(1), 2);
-      setBlogs([blogsData[0], chunkedBlogsData]);
+      try {
+        const response = await fetchBlogs();
+        const blogsData = response?.data?.results || []; // Ensure it's an array
+
+        if (!Array.isArray(blogsData) || blogsData.length === 0) {
+          setBlogs([]);
+          return;
+        }
+
+        const chunkedBlogsData = _.chunk(blogsData.slice(1), 2);
+        setBlogs([blogsData[0], chunkedBlogsData]);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+        setBlogs([]);
+      }
     })();
   }, []);
 
-  useEffect(() => {
-    console.log(blogs[1]);
-  }, [blogs]);
-
-  const carouselRef = useRef(null); // Reference to the Carousel
-
+  const carouselRef = useRef(null);
   const nextSlide = () => {
     if (carouselRef.current) {
-      carouselRef.current.increment(); // Go to the next slide
+      carouselRef.current.increment();
     }
   };
 
   const prevSlide = () => {
     if (carouselRef.current) {
-      carouselRef.current.decrement(); // Go to the previous slide
+      carouselRef.current.decrement();
     }
   };
 
@@ -46,15 +52,20 @@ const NeedToKnowSection = () => {
             You need to know these
           </h1>
           <div className=" flex flex-col md:flex-row gap-[2.5rem]">
-            <div className=" md:w-[40%]">
-              <BlogVerticalTile
-                title={blogs[0]?.heading}
-                date="Mar 25, 2025"
-                location="Nepal"
-                category="Travel Tips"
-                imageUrl={blogs[0]?.images?.image}
-              />
-            </div>
+            {blogs.length > 0 && blogs[0] ? (
+              <div className=" md:w-[40%]">
+                <BlogVerticalTile
+                  title={blogs[0]?.heading}
+                  date="Mar 25, 2025"
+                  location="Nepal"
+                  category="Travel Tips"
+                  imageUrl={blogs[0]?.images?.image}
+                />
+              </div>
+            ) : (
+              <p>Loading blogs...</p>
+            )}
+
             <div
               id="blog-carousel"
               className="flex flex-col gap-[2.5rem]   md:w-[60%]"

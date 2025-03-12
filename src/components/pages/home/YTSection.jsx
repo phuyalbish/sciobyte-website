@@ -43,7 +43,6 @@ function YTSection() {
               className="cursor-pointer md:min-w-[30vw]  w-[50vw] object-cover"
               onClick={() => {
                 setIsOpenYTSection(true);
-                console.log(s.link);
                 setytLink(s.link);
               }}
             />
