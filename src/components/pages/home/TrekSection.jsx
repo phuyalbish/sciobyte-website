@@ -17,7 +17,7 @@ const TrekSection = ()  => {
 
     return(
         <>
-            <section className="p-4">
+            <section className="px-[2rem] md:px-[4.5rem]">
                 <h1 className="text-[2.3rem] mb-[3rem] font-semibold">Your Tale Begins <span className="text-primary">NOW!</span></h1>
                 <div className="flex flex-wrap gap-[1.5rem] place-items-center justify-center items-center">
                     {
