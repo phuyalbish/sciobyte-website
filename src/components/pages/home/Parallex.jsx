@@ -21,9 +21,8 @@ export default function Parallax() {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/api/categories/all/`)
+      .get(`${API_URL}/categories/all/`)
       .then((response) => {
-        console.log(response.data);
         setCategories(response.data.results);
         setLoading(false);
       })
@@ -35,7 +34,7 @@ export default function Parallax() {
   }, []);
 
   const maxScroll = 1000;
-  const scrollThreshold = 300;
+  const scrollThreshold = 1000;
   const scrollYAdjusted = useTransform(
     scrollY,
     [scrollThreshold, maxScroll + scrollThreshold],
