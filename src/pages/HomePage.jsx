@@ -6,10 +6,9 @@ import Parallex from "@/components/pages/home/Parallex.jsx";
 import YTSection from "@/components/pages/home/YTSection.jsx";
 import whatsapp from "@/assets/whatsapp.png";
 import HomeStaySection from "@/components/pages/home/HomeStaySection.jsx";
-import ReviewSection from "@/components/pages/home/ReviewSection";
-import InstagramSection from "@/components/pages/home/InstagramSection";
-import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
-import SpontaneousTrekSection from "@/components/pages/home/SpontaneousTrekSection";
+import ReviewSection from "@/components/pages/home/ReviewSection.jsx";
+import InstagramSection from "@/components/pages/home/InstagramSection.jsx";
+import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection.jsx";
 
 function HomePage() {
   return (
@@ -24,7 +23,6 @@ function HomePage() {
         <ReviewSection />
       </div>
       <InstagramSection />
-      <TrekSection />
       <NeedToKnowSection />
       <FAQSection />
       <img
