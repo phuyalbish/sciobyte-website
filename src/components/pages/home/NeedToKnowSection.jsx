@@ -68,12 +68,12 @@ const NeedToKnowSection = () => {
                           key={blog.id || index}
                           title={blog.heading}
                           date={format(
-                            parseISO(blog.created_at),
+                            parseISO(blog?.created_at),
                             "MMMM d, yyyy"
                           )}
                           location="Nepal"
                           category="Travel Tips"
-                          imageUrl={blog.images.image}
+                          imageUrl={blog?.images?.image}
                         />
                       ))}
                     </div>

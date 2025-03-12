@@ -23,7 +23,6 @@ export default function Parallax() {
     axios
       .get(`${API_URL}/categories/all/`)
       .then((response) => {
-        console.log(response.data);
         setCategories(response.data.results);
         setLoading(false);
       })

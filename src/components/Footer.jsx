@@ -16,7 +16,6 @@ import React from "react";
 
 const NavItems = ({ item }) => {
   const { title, items } = item;
-  console.log("items: ", items);
   return (
     <>
       <div>
