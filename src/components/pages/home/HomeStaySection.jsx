@@ -1,6 +1,6 @@
 const GoogleReview = () => {
   return (
-    <div className="p-4 pe-8 bg-white shadow-lg  text-left rounded-r-[1rem] flex flex-col gap-[0.5rem]">
+    <div className="p-4 pe-8 bg-white shadow-lg  text-left   lg:rounded-r-[1rem] rounded-l-[1rem]   flex flex-col gap-[0.5rem]">
       <div className="flex text-left">
         <span className="mr-2">
           <img src="/google-logo.png" alt="Google Logo" className="h-6 w-6" />
@@ -25,7 +25,7 @@ const GoogleReview = () => {
 const HomeStaySection = () => {
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col lg:gap-0 gap-10">
         <div className="container">
           <div className="px-[2rem] md:px-[4.5rem]">
             <h1 className="text-[2.3rem] mb-[3rem] font-semibold">
@@ -60,7 +60,7 @@ const HomeStaySection = () => {
           </div>
         </div>
         <div className="relative ">
-          <div className="flex flex-col lg:flex-row ">
+          <div className="flex flex-col justify-center items-center  lg:flex-row ">
             <div className="w-96 lg:w-full lg:absolute top-[20%] flex flex-col-reverse lg:flex-row gap-3 justify-between px-[2rem] md:px-[4.5rem]">
               <GoogleReview />
               <a
@@ -73,7 +73,7 @@ const HomeStaySection = () => {
                   alt=""
                   className="w-[2.5rem] h-[2.5rem]"
                 />
-                <p className="text-[1.3125rem] font-semibold text-black lg:text-white">
+                <p className="text-lg font-semibold text-black lg:text-white mr-5">
                   @nepalwelcomesyou
                 </p>
               </a>
