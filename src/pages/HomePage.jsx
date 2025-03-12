@@ -24,7 +24,7 @@ function HomePage() {
         <ReviewSection />
       </div>
       <InstagramSection />
-      <NeedToKnowSection />
+      {/* <NeedToKnowSection /> */}
       <FAQSection />
       <img
         src={whatsapp}

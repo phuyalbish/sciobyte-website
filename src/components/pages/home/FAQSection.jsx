@@ -20,8 +20,8 @@ const FAQSection = () => {
             Frequently Asked Questions
           </h1>
           <div className="flex flex-col gap-2">
-            {faqs.map((faq) => (
-              <FAQ faq={faq} />
+            {faqs.map((faq, index) => (
+              <FAQ faq={faq} key={index} />
             ))}
           </div>
         </div>
