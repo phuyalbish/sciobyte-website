@@ -2,6 +2,10 @@ import { format } from "date-fns";
 import DOMPurify from "dompurify";
 import { Link } from "react-router-dom";
 
+import { AiFillEdit } from "react-icons/ai";
+import { MdDateRange } from "react-icons/md";
+import { IoMdShare } from "react-icons/io";
+
 const SingleBlogSection = ({ latestBlog }) => {
     const sanitizedContent = DOMPurify.sanitize(latestBlog?.content)
     const content = sanitizedContent.length > 600
@@ -32,13 +36,15 @@ const SingleBlogSection = ({ latestBlog }) => {
 
                                 <div className="flex items-center gap-6 text-sm text-gray-600">
                                     <div className="flex items-center gap-2">
+                                        <AiFillEdit />
                                         <span className="font-medium">by {latestBlog?.authors?.fullname || "Unknown"}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
+                                        <MdDateRange />
                                         <time>{format(new Date(latestBlog?.created_at || Date.now()), "MMMM d, yyyy")}</time>
                                     </div>
                                     <button className="flex items-center gap-1 hover:text-gray-900 transition-colors">
-                                        {/* <Share2 className="w-4 h-4" /> */}
+                                        <IoMdShare />
                                         <span>Share</span>
                                     </button>
                                 </div>

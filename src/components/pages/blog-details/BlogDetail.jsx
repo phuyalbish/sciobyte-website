@@ -5,6 +5,8 @@ import { fetchBlogBySlug } from "@/apis/blogs.js";
 import { format } from "date-fns";
 import DOMPurify from "dompurify";
 import { AiFillEdit } from "react-icons/ai";
+import { MdDateRange } from "react-icons/md";
+import { IoMdShare } from "react-icons/io";
 
 const BlogDetail = () => {
     const { slug } = useParams();
@@ -46,9 +48,12 @@ const BlogDetail = () => {
                                     <AiFillEdit />
                                     <span className="font-medium">by {blog?.authors?.fullname || "Unknown"}</span>
                                 </div>
-                                <time>{format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy")}</time>
+                                <div className="flex items-center gap-2">
+                                    <MdDateRange />
+                                    <time>{format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy")}</time>
+                                </div>
                                 <button className="flex items-center gap-1 hover:text-gray-900 transition-colors">
-                                    {/* <Share2 className="w-4 h-4" /> */}
+                                    <IoMdShare />
                                     <span>Share</span>
                                 </button>
                             </div>
