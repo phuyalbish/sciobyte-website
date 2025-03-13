@@ -11,7 +11,7 @@ const BlogVerticalTile = ({
     <div className="h-full p-[1rem] max-w-full rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-xl">
       <div className="relative">
         <img
-          className="w-full h-48 sm:h-96 object-cover rounded-lg"
+          className="w-full h-48 sm:h-64 object-cover rounded-lg"
           src={imageUrl}
           alt={title}
         />
