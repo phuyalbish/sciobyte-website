@@ -1,0 +1,88 @@
+import React from "react";
+
+import { Link } from "react-router-dom";
+import TrekHeadingTile from "@/components/tiles/TrekHeadingTile";
+import { BsClockHistory } from "react-icons/bs";
+import { CiLocationOn } from "react-icons/ci";
+import { GiPathDistance } from "react-icons/gi";
+import { RiPinDistanceFill } from "react-icons/ri";
+
+import { FaPeopleGroup } from "react-icons/fa6";
+import { FaTent } from "react-icons/fa6";
+import { GiWalkingBoot } from "react-icons/gi";
+import { FaMountainSun } from "react-icons/fa6";
+
+export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+
+function TrekBasicInformation({ data }) {
+  const trekBasicHeadings = [
+    {
+      icon: BsClockHistory,
+      heading: "Duration",
+      description: data?.duration + +" Days",
+    },
+    {
+      icon: RiPinDistanceFill,
+      heading: "Distance",
+      description: data?.distance + " Kms",
+    },
+    {
+      icon: FaPeopleGroup,
+      heading: "Group Size",
+      description:
+        data?.min_group_range + " - " + data?.max_group_range + " People",
+    },
+    {
+      icon: GiPathDistance,
+      heading: "Start and End",
+      description: data?.start_point + " - " + data?.end_point,
+    },
+    {
+      icon: () => (
+        <img src={BASE_MEDIA_URL + data?.difficulty?.icon} className="w-5" />
+      ),
+      heading: "Difficulty",
+      description: data?.difficulty?.name,
+    },
+
+    {
+      icon: FaTent,
+      heading: "Accomodation",
+      description: data?.accomodation,
+    },
+
+    {
+      icon: GiWalkingBoot,
+      heading: "Activity",
+      description: data?.activity,
+    },
+
+    {
+      icon: FaMountainSun,
+      heading: "Altitude",
+      description: data?.altitude,
+    },
+  ];
+  return (
+    <div className="flex flex-col gap-5">
+      <div className="flex flex-col items-start justify-start">
+        <div className="text-4xl font-bold">{data?.name}</div>
+        <Link
+          to={`/district/${data?.district?.name}`}
+          className="text-xl font-normal flex gap-2 items-center cursor-pointer"
+        >
+          <CiLocationOn />
+          {data?.district?.name}
+        </Link>
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {trekBasicHeadings.map((item, index) => (
+          <TrekHeadingTile key={index} {...item} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default TrekBasicInformation;

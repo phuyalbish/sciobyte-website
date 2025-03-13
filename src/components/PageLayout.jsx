@@ -9,7 +9,7 @@ export default function PageLayout({ children }) {
         <Header />
         <Navbar />
       </div>
-      <main className="flex-1 bg-gray-100 pt-[10vh] overflow-auto">
+      <main className="flex-1 bg-gray-100 pt-[16vh] overflow-auto">
         {children}
       </main>
       <Footer />
