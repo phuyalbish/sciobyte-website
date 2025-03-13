@@ -78,10 +78,10 @@ function TrekBasicInformationSection({ data }) {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col items-start justify-start">
-        <div className="text-4xl font-bold">{data?.name}</div>
+        <div className="text-4xl text-left font-bold">{data?.name}</div>
         <Link
           to={`/district/${data?.district?.name}`}
-          className="text-xl font-normal flex gap-2 items-center cursor-pointer"
+          className="text-xl font-normal text-left flex gap-2 items-center cursor-pointer"
         >
           <CiLocationOn />
           {data?.district?.name}

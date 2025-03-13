@@ -13,9 +13,9 @@ const TrekItenaryAccordion = ({ schedule }) => {
   const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
   const [isOpened, setIsOpened] = useState(true);
   const arrowSVG = !isOpened ? (
-    <FaChevronDown className="h-fit w-5 self-center" />
+    <FaChevronDown className="h-fit w-7 self-center bg-G300 p-2 rounded-sm text-white" />
   ) : (
-    <FaChevronUp className="h-fit w-5 self-center" />
+    <FaChevronUp className="h-fit w-7 self-center  bg-G300 p-2 rounded-sm text-white" />
   );
 
   const trekHeadings = [
@@ -116,7 +116,7 @@ const TrekItenaryAccordion = ({ schedule }) => {
       </div>
 
       {isOpenGallerySection && (
-        <div className="fixed w-screen h-screen top-0 left-0 z-50   bg-black/75 p-5 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
+        <div className="fixed w-full h-screen top-0 left-0 z-50   bg-black/75 p-5 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
           <ImCross
             className="text-white right-5 self-end"
             size={20}

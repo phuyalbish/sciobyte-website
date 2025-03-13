@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BreadCrums from "@/components/tiles/BreadCrums";
 import { fetchIndivisualTrek } from "@/apis/treks.js";
-import whatsapp from "@/assets/whatsapp.png";
 import ImageSlideSection from "@/components/pages/indivisualtrek/ImageSlideSection";
 import TrekBasicInformationSection from "@/components/pages/indivisualtrek/TrekBasicInformationSection";
 import TrekOverviewSection from "@/components/pages/indivisualtrek/TrekOverviewSection";
@@ -12,6 +11,7 @@ import TrekItenarySection from "@/components/pages/indivisualtrek/TrekItenarySec
 import TrekFAQSection from "@/components/pages/indivisualtrek/TrekFAQSection";
 import TrekReviewsSection from "@/components/pages/indivisualtrek/TrekReviewsSection";
 import TrekIncludedSection from "@/components/pages/indivisualtrek/TrekIncludedSection";
+import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSection";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function IndivisualTrekPage() {
   const [trek, setTrek] = useState(null);
@@ -32,7 +32,7 @@ function IndivisualTrekPage() {
   }, [id]);
 
   return (
-    <div className="flex flex-col gap-5 my-6 md:px-[4.63rem] px-2">
+    <div className="flex flex-col gap-5 my-6 md:px-[4.63rem] px-10">
       <BreadCrums
         travelType="Trek"
         location="Arnnapurna Base Camp"
@@ -44,46 +44,49 @@ function IndivisualTrekPage() {
         image3={trek?.image}
         image4={trek?.image}
       />
-      <div className="flex md:w-2/3">
-        <div className="flex flex-col gap-24">
+      <div className="flex sticky top-0 h-full gap-10">
+        <div className="flex md:w-2/3 flex-col gap-24">
           <TrekBasicInformationSection data={trek} />
-          <div className="flex flex-col w-100 gap-16 text-left">
-            <div className="flex flex-col gap-5">
-              <div className="py-3 px-1 flex gap-7 text-xl font-bold text-N500">
-                <button
-                  onClick={() => scrollToSection("overview")}
-                  className="hover:underline"
-                >
-                  Overview
-                </button>
-                <button
-                  onClick={() => scrollToSection("itenary")}
-                  className="hover:underline"
-                >
-                  Itenary
-                </button>
-                <button
-                  onClick={() => scrollToSection("included")}
-                  className="hover:underline"
-                >
-                  What's Included
-                </button>
+          <div className="flex flex-col w-100 gap-8 text-left">
+            <div className="py-3 px-1 sticky top-[7vh] z-20 bg-white flex gap-7 text-xl font-bold text-N500">
+              <button
+                onClick={() => scrollToSection("overview")}
+                className="hover:underline"
+              >
+                Overview
+              </button>
+              <button
+                onClick={() => scrollToSection("itenary")}
+                className="hover:underline"
+              >
+                Itenary
+              </button>
+              <button
+                onClick={() => scrollToSection("included")}
+                className="hover:underline"
+              >
+                What's Included
+              </button>
 
-                <button
-                  onClick={() => scrollToSection("faqs")}
-                  className="hover:underline"
-                >
-                  FAQs
-                </button>
-                <button
-                  onClick={() => scrollToSection("reviews")}
-                  className="hover:underline"
-                >
-                  Reviews
-                </button>
-              </div>
-              <TrekOverviewSection data={trek?.description} />
+              <button
+                onClick={() => scrollToSection("faqs")}
+                className="hover:underline"
+              >
+                FAQs
+              </button>
+              <button
+                onClick={() => scrollToSection("reviews")}
+                className="hover:underline"
+              >
+                Reviews
+              </button>
             </div>
+            <TrekOverviewSection data={trek?.description} />
+
+            <div className="block md:hidden">
+              <TrekPricingSection price={trek?.price} map={trek?.map_image} />
+            </div>
+
             <TrekItenarySection data={trek?.schedules} />
             <TrekIncludedSection
               includes={trek?.includes}
@@ -97,7 +100,10 @@ function IndivisualTrekPage() {
               />
             </div>
 
-            <div className="flex flex-col gap-5">
+            <div
+              className="flex flex-col gap-5 "
+              onClick={() => scrollToSection("maps")}
+            >
               <div className="text-2xl font-bold">Elevation Graph:</div>
               <img
                 src={BASE_MEDIA_URL + trek?.elevation_graph}
@@ -108,13 +114,10 @@ function IndivisualTrekPage() {
             <TrekReviewsSection />
           </div>
         </div>
+        <div className="md:flex sticky top-[10vh] hidden w-1/3 h-[80vh]">
+          <TrekPricingSection price={trek?.price} map={trek?.map_image} />
+        </div>
       </div>
-
-      <img
-        src={whatsapp}
-        alt=""
-        className="w-16 h-16  object-cover z-40 fixed bottom-5 left-5 "
-      />
     </div>
   );
 }

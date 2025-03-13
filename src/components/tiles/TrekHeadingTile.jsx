@@ -4,7 +4,7 @@ export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function TrekHeadingTile({ icon, heading, description, bg = "True" }) {
   return (
     <div
-      className={` py-2 px-4 rounded-xl flex gap-3 items-center ${
+      className={` py-2 px-4 rounded-xl flex gap-3 items-center border hover:border-B75 ${
         bg == "False" ? "bg-transparent" : "bg-B75"
       }`}
     >
