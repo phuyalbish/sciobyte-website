@@ -26,11 +26,6 @@ function HomePage() {
       <InstagramSection />
       <NeedToKnowSection />
       <FAQSection />
-      <img
-        src={whatsapp}
-        alt=""
-        className="w-16 h-16  object-cover z-40 fixed bottom-5 left-5 "
-      />
     </div>
   );
 }
