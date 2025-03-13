@@ -42,17 +42,17 @@ function Navbar() {
         <Link to="/about">About Us</Link>
       </div>
       {isTrekkingDropDownOpen && (
-        <div className="relative w-screen bg-white p-5 shadow-md transition-all duration-300 ease-in-out">
+        <div className="relative w-full bg-white p-5 shadow-md transition-all duration-300 ease-in-out">
           <p className="text-black">Trekking options will be listed here...</p>
         </div>
       )}
       {isHikeDropDownOpen && (
-        <div className="relative w-screen bg-white p-5 shadow-md transition-all duration-300 ease-in-out">
+        <div className="relative w-full bg-white p-5 shadow-md transition-all duration-300 ease-in-out">
           <p className="text-black">Hikes options will be listed here...</p>
         </div>
       )}
       {isTipsDropDownOpen && (
-        <div className="relative w-screen bg-white p-5 shadow-md transition-all duration-300 ease-in-out">
+        <div className="relative w-full bg-white p-5 shadow-md transition-all duration-300 ease-in-out">
           <p className="text-black">Tips options will be listed here...</p>
         </div>
       )}
