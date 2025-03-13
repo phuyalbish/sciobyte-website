@@ -7,6 +7,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { GiPathDistance } from "react-icons/gi";
 import { RiPinDistanceFill } from "react-icons/ri";
 
+import { MdFastfood } from "react-icons/md";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaTent } from "react-icons/fa6";
 import { GiWalkingBoot } from "react-icons/gi";
@@ -14,7 +15,7 @@ import { FaMountainSun } from "react-icons/fa6";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-function TrekBasicInformation({ data }) {
+function TrekBasicInformationSection({ data }) {
   const trekBasicHeadings = [
     {
       icon: BsClockHistory,
@@ -62,6 +63,17 @@ function TrekBasicInformation({ data }) {
       heading: "Altitude",
       description: data?.altitude,
     },
+    {
+      icon: MdFastfood,
+      heading: "Meal",
+      description: data?.meal_name?.map((meal, index, arr) =>
+        index == 0
+          ? `${meal}`
+          : index === arr.length - 1
+          ? ` & ${meal}`
+          : `,${meal}`
+      ),
+    },
   ];
   return (
     <div className="flex flex-col gap-5">
@@ -75,14 +87,17 @@ function TrekBasicInformation({ data }) {
           {data?.district?.name}
         </Link>
       </div>
-
       <div className="flex flex-wrap gap-2">
-        {trekBasicHeadings.map((item, index) => (
-          <TrekHeadingTile key={index} {...item} />
-        ))}
+        {trekBasicHeadings.map((item, index) =>
+          item?.description ? (
+            <TrekHeadingTile key={index} {...item} />
+          ) : (
+            <span key={index}></span>
+          )
+        )}
       </div>
     </div>
   );
 }
 
-export default TrekBasicInformation;
+export default TrekBasicInformationSection;

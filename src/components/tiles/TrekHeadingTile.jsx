@@ -1,14 +1,13 @@
 import React from "react";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-function TrekHeadingTile({
-  icon,
-  heading,
-  description,
-  extraTextInDescription,
-}) {
+function TrekHeadingTile({ icon, heading, description, bg = "True" }) {
   return (
-    <div className="bg-B75 py-2 px-4 rounded-xl flex gap-3 items-center">
+    <div
+      className={` py-2 px-4 rounded-xl flex gap-3 items-center ${
+        bg == "False" ? "bg-transparent" : "bg-B75"
+      }`}
+    >
       {icon &&
         React.createElement(icon, {
           className: "text-3xl text-N500",

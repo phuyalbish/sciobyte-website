@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
 
-const FAQ = ({ faq }) => {
+const TrekFAQ = ({ faq }) => {
   const [isOpened, setIsOpened] = useState(false);
   const arrowSVG = !isOpened ? (
     <FaChevronDown className="h-fit w-5 self-center" />
@@ -18,7 +18,7 @@ const FAQ = ({ faq }) => {
 
   return (
     <>
-      <div className="cursor-pointer w-full md:w-[60%] mx-auto select-none">
+      <div className="cursor-pointer w-full  mx-auto select-none">
         <div
           className={`${question_default_bg_color} hover:bg-[#91BCED] p-4 rounded-md shadow-md transition duration-300 ease-in-out `}
           onClick={() => setIsOpened(!isOpened)}
@@ -39,7 +39,7 @@ const FAQ = ({ faq }) => {
   );
 };
 
-export default FAQ;
+export default TrekFAQ;
 
 {
   /* <style> */
