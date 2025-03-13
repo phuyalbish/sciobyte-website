@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const BlogHorizontalTile = ({
     title,
@@ -6,6 +7,7 @@ const BlogHorizontalTile = ({
     location,
     imageUrl,
     category,
+    slug,
 }) => {
     return (
         <div className="sm:h-[15.35rem] p-[1rem] flex flex-col sm:flex-row max-w-full flex rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-xl">
@@ -31,9 +33,11 @@ const BlogHorizontalTile = ({
                         <span className="text-sm">{location}</span>
                     </div>
                 </div>
-                <h2 className="font-bold text-xl mb-3 text-gray-800 text-left">
-                    {title}
-                </h2>
+                <Link to={`/blog/${slug}`}>
+                    <h2 className="font-bold text-xl mb-3 text-gray-800 text-left">
+                        {title}
+                    </h2>
+                </Link>
             </div>
         </div>
     );
