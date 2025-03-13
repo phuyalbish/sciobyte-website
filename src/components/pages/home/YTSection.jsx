@@ -50,7 +50,6 @@ function YTSection() {
             ))}
           </YTCarousel>
         </div>
-
         {isOpenYTSection && (
           <div className="fixed w-full h-screen top-0 left-0 z-50   bg-black/75 p-5 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
             <ImCross

@@ -7,9 +7,9 @@ function SplashSection() {
       <img
         src={img}
         alt=""
-        className="w-full h-[60vh] md:h-[80vh] lg:h-full  object-cover z-0 absolute"
+        className="w-full h-[60vh] md:h-[80vh] lg:h-screen  object-cover z-0 absolute"
       />
-      <div className="relative w-full h-[60vh] md:h-[80vh] lg:h-full gap-10 md:gap-20 flex flex-col  items-center justify-end">
+      <div className="relative w-full h-[60vh] md:h-[80vh] lg:h-screen gap-10 md:gap-20 flex flex-col  items-center justify-end">
         <div className="flex flex-col gap-10 top-[40%]  w-[60vw] items-center justify-center">
           <div className="lg:text-7xl md:text-5xl text-3xl text-white font-bold z-40 ">
             Creating your Tales from our Trails

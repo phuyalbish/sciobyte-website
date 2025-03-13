@@ -31,7 +31,7 @@ function SpontaneousTrekSection() {
         </div>
         <div className="text-lg">Last Moment Deals</div>
       </div>
-      <div className="flex relative flex-wrap gap-[1.5rem] place-items-center justify-center items-center">
+      <div className="flex relative flex-wrap gap-1 w-[90vw] ml-[5vh] place-items-center justify-center items-center">
         {treks?.map((trek) => (
           <SopontaneousTrekTile key={uuidv4()} data={trek} />
         ))}
