@@ -25,7 +25,7 @@ const SingleBlogSection = ({ latestBlog }) => {
                         <div className="h-full">
                             <div className="flex flex-col gap-4">
                                 <Link to={`/blog/${latestBlog?.slug}`}>
-                                    <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                                    <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 text-left">
                                         {latestBlog?.heading}
                                     </h1>
                                 </Link>

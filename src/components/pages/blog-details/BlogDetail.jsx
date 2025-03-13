@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { fetchBlogBySlug } from "@/apis/blogs.js";
 import { format } from "date-fns";
 import DOMPurify from "dompurify";
+import { AiFillEdit } from "react-icons/ai";
 
 const BlogDetail = () => {
     const { slug } = useParams();
@@ -36,12 +37,13 @@ const BlogDetail = () => {
                     {/* Main Content */}
                     <div className="lg:flex-1">
                         <article className="prose prose-lg max-w-none">
-                            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-left">
                                 {blog?.heading}
                             </h1>
 
                             <div className="flex items-center gap-6 text-sm text-gray-600 mb-6">
                                 <div className="flex items-center gap-2">
+                                    <AiFillEdit />
                                     <span className="font-medium">by {blog?.authors?.fullname || "Unknown"}</span>
                                 </div>
                                 <time>{format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy")}</time>
@@ -83,8 +85,8 @@ const BlogDetail = () => {
 
                     {/* Sidebar */}
                     <div className="hidden lg:block w-64 shrink-0">
-                        <div className="sticky top-36">
-                            <div className="bg-white rounded-lg shadow-sm p-6">
+                        <div className="sticky top-40">
+                            <div className="bg-white rounded-lg shadow-sm p-6 text-left">
                                 <h2 className="text-lg font-semibold text-gray-900 mb-4">Content</h2>
                                 <nav className="space-y-3">
                                     <a href="#introduction" className="block text-blue-600 hover:text-blue-700">
