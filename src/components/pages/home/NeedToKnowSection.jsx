@@ -4,6 +4,7 @@ import { fetchBlogs } from "@/apis/blogs.js";
 import { useState, useEffect, useRef } from "react";
 import { parseISO, format } from "date-fns";
 import { Carousel } from "react-responsive-carousel";
+import {Link} from "react-router-dom";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import _ from "lodash";
@@ -86,6 +87,7 @@ const NeedToKnowSection = () => {
                           location="Nepal"
                           category="Travel Tips"
                           imageUrl={blog?.images?.image}
+                          slug={blog?.slug}
                         />
                       ))}
                     </div>
