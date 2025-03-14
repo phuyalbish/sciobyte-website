@@ -4,6 +4,7 @@ import { fetchBlogs } from "@/apis/blogs.js";
 import { useState, useEffect, useRef } from "react";
 import { parseISO, format } from "date-fns";
 import { Carousel } from "react-responsive-carousel";
+import {Link} from "react-router-dom";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import _ from "lodash";
@@ -47,6 +48,7 @@ const NeedToKnowSection = () => {
   return (
     <>
       <section className="container">
+        {/* <div className="px-[2rem] md:px-[4.5rem]"> */}
         <div className="px-[2rem] md:px-[4.5rem]">
           <h1 className="mb-[3rem] text-6xl text-G200 reenie-beanie">
             You need to know these
@@ -85,6 +87,7 @@ const NeedToKnowSection = () => {
                           location="Nepal"
                           category="Travel Tips"
                           imageUrl={blog?.images?.image}
+                          slug={blog?.slug}
                         />
                       ))}
                     </div>

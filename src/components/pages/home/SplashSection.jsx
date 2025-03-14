@@ -7,11 +7,11 @@ function SplashSection() {
       <img
         src={img}
         alt=""
-        className="w-screen h-[60vh] md:h-[80vh] lg:h-screen  object-cover z-0 absolute"
+        className="w-full h-[60vh] md:h-[80vh] lg:h-screen  object-cover z-0 absolute"
       />
-      <div className="relative w-screen h-[60vh] md:h-[80vh] lg:h-screen gap-10 md:gap-20 flex flex-col  items-center justify-end">
-        <div className="flex flex-col gap-10 top-[40%]  w-[60vw] items-center justify-center">
-          <div className="lg:text-7xl md:text-5xl text-3xl text-white font-bold z-40 ">
+      <div className="relative w-full h-[60vh] md:h-[80vh] lg:h-screen gap-10 md:gap-20 flex flex-col  items-center justify-end">
+        <div className="flex flex-col gap-10 top-[40%]  w-[70vw] items-center justify-center">
+          <div className="lg:text-6xl md:text-6xl text-4xl text-white font-bold z-40 ">
             Creating your Tales from our Trails
           </div>
           <div className="bg-white z-40  rounded-md overflow-hidden md:w-[50vw]">
@@ -22,7 +22,7 @@ function SplashSection() {
             />
           </div>
         </div>
-        <img src={imgVector} alt="" className="w-screen  object-cover  z-40 " />
+        <img src={imgVector} alt="" className="w-full  object-cover  z-40 " />
       </div>
     </div>
   );

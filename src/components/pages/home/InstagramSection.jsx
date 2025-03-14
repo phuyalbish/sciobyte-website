@@ -43,9 +43,9 @@ function InstagramSection() {
         <div className="flex justify-between px-0.5">
           <div className="flex gap-2 items-center">
             <FaInstagram size="24" />
-            <p className="text-xl">@hellotrekkersnamaste</p>
+            <p className="text-base md:text-xl">@hellotrekkersnamaste</p>
           </div>
-          <div className="cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2">
+          <div className=" text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2">
             Follow us
           </div>
         </div>

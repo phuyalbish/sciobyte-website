@@ -9,6 +9,18 @@ export const fetchBlogs = async () => {
     });
     return response;
   } catch (error) {
-    console.log("Error while fetching trek data: ", error);
+    console.log("Error while fetching blog data: ", error);
   }
 };
+
+export const fetchBlogBySlug = async (slug) => {
+  try {
+    const response = await axios({
+      url: `${BASE_API_URL}/blogs/${slug}/`,
+      method: "GET",
+    });
+    return response;
+  } catch (error) {
+    console.log("Error while fetching blog data: ", error);
+  }
+}

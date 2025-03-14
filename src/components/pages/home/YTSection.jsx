@@ -13,11 +13,11 @@ function YTSection() {
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
   return (
-    <div className="relative  w-screen h-[80vh] ">
+    <div className="relative  w-full h-[80vh] ">
       <img
         src={ytbg}
         alt=""
-        className="w-screen h-full object-cover absolute z-0"
+        className="w-full h-full object-cover absolute z-0"
       />
 
       <div className="relative z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center gap-5 ">
@@ -49,9 +49,8 @@ function YTSection() {
           ))}
         </YTCarousel>
       </div>
-
       {isOpenYTSection && (
-        <div className="fixed w-screen h-screen top-0 left-0 z-50   bg-black/75 p-5 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
+        <div className="fixed w-full h-screen top-0 left-0 z-50   bg-black/75 p-5 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
           <ImCross
             className="text-white right-5 self-end"
             size={20}

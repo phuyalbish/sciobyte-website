@@ -1,25 +1,25 @@
 import axios from "axios";
 import { BASE_API_URL } from "@/config/baseurl.js";
-export const fetchTreks = async () => {
+export const fetchCategories = async () => {
   try {
     const response = await axios({
-      url: `${BASE_API_URL}/treks/all/`,
+      url: `${BASE_API_URL}/categories/all/`,
       method: "GET",
     });
     return response;
   } catch (error) {
-    console.log("Error while fetching trek data: ", error);
+    console.log("Error while fetching categories data: ", error);
   }
 };
-export const fetchIndivisualTrek = async (id) => {
+export const fetchIndivisualCategories = async (id) => {
   try {
     const response = await axios({
-      url: `${BASE_API_URL}/treks/${id}/`,
+      url: `${BASE_API_URL}/categories/${id}/`,
       method: "GET",
     });
     console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log("Error while fetching trek data: ", error);
+    console.log("Error while fetching category data: ", error);
   }
 };

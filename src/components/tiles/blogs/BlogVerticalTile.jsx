@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const BlogVerticalTile = ({
   title,
@@ -6,12 +7,13 @@ const BlogVerticalTile = ({
   location,
   imageUrl,
   category,
+  slug,
 }) => {
   return (
     <div className="h-full p-[1rem] max-w-full rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-xl">
       <div className="relative">
         <img
-          className="w-full h-48 sm:h-96 object-cover rounded-lg"
+          className="w-full h-48 sm:h-64 object-cover rounded-lg"
           src={imageUrl}
           alt={title}
         />
@@ -23,9 +25,11 @@ const BlogVerticalTile = ({
         </span>
       </div>
       <div className=" py-4">
-        <h2 className="font-bold text-xl mb-3 text-gray-800 text-left">
-          {title}
-        </h2>
+        <Link to={`/blog/${slug}`}>
+          <h2 className="font-bold text-xl mb-3 text-gray-800 text-left">
+            {title}
+          </h2>
+        </Link>
         <div className="flex items-center gap-4 text-gray-600">
           <div className="flex items-center gap-1">
             <span className="text-sm">{date}</span>

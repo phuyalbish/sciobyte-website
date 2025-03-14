@@ -1,7 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import SingleBlogSection from "@/components/pages/blogs/SingleBlogSection.jsx";
+import LatestTravelBlog from "@/components/pages/blogs/LatestTravelBlog.jsx";
+
+import {fetchBlogs} from "@/apis/blogs.js";
 
 function BlogListPage() {
-  return <div>BlogListPage</div>;
+  // return <h1 className="text-[36px]">Blog</h1>;
+  const [latestBlog, setLatestBlog] = useState({});
+  const [remainingBlogs, setRemainingBlogs] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetchBlogs();
+        const blogsData = response?.data?.results || []; // Ensure it's an array
+
+        if (!Array.isArray(blogsData) || blogsData.length === 0) {
+          setLatestBlog({});
+          setRemainingBlogs([]);
+          return;
+        }
+        console.log("Blogs Data: ", blogsData);
+        const latest = blogsData.length 
+        ? blogsData.reduce((latest, current) => 
+          new Date(current?.created_at) > new Date(latest.created_at) ? current : latest
+        )
+        :{} 
+
+        setLatestBlog(latest)
+        setRemainingBlogs(() => 
+          blogsData.filter(blog => blog?.id !== latest?.id)
+        );
+
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+        setBlogs([]);
+      }
+    })();
+  }, []);
+  return (
+    <>
+      <SingleBlogSection latestBlog={latestBlog} />
+      <LatestTravelBlog latestBlogs={remainingBlogs} />
+    </>
+  );
 }
 
 export default BlogListPage;

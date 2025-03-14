@@ -1,0 +1,96 @@
+import React, { useState } from "react";
+import { IoCloseOutline } from "react-icons/io5";
+
+export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+function ImageSlideSection({ gallery }) {
+  const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
+  return (
+    <>
+      <div className="w-full relative hidden sm:flex h-[616px]  transition-all duration-300 ease-in-out">
+        {gallery?.slice(0, 4).map((item, index) =>
+          index == 3 ? (
+            <div
+              key={index}
+              className="relative object-cover hover:w-2/4 w-1/4 overflow-hidden transition-all duration-500 ease-in-out"
+              onClick={() => {
+                setIsOpenGallerySection(true);
+              }}
+            >
+              <div className="absolute w-full h-full flex justify-center items-center p-5 bg-transparent text-transparent cursor-pointer hover:bg-white/50 hover:text-N500  font-bold">
+                +{gallery?.length - 3} Photos
+              </div>
+              <img
+                src={BASE_MEDIA_URL + item.image}
+                className="object-cover w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
+              />
+            </div>
+          ) : (
+            <img
+              key={index}
+              src={BASE_MEDIA_URL + item.image}
+              className={`object-cover  overflow-hidden transition-all duration-500 ease-in-out 
+                  ${gallery?.length === 1 ? "w-full" : ""}
+                  ${gallery?.length === 2 ? "w-1/2 hover:w-2/3" : ""}
+                  ${gallery?.length === 3 ? "w-1/3 hover:w-2/3" : ""}
+                  ${gallery?.length >= 4 ? "w-1/4 hover:w-2/4" : ""}`}
+            />
+          )
+        )}
+      </div>
+
+      <div className="relative flex  sm:hidden w-full flex-wrap gap-2">
+        {gallery?.slice(0, 3).map((item, index) =>
+          index == 2 ? (
+            <div
+              className="relative w-1/3 flex-grow"
+              key={index}
+              onClick={() => {
+                setIsOpenGallerySection(true);
+              }}
+            >
+              <div className="absolute z-10 rounded-md  w-full h-full bg-white/50 text-white font-bold flex items-center justify-center text-xl">
+                <div className="text-N500 rounded-md">
+                  +{gallery?.length - 2}
+                </div>
+              </div>
+              <img
+                key={index}
+                src={BASE_MEDIA_URL + item.image}
+                className="z-0 bg-black object-cover rounded-md w-100 aspect-ratio overflow-hidden transition-all duration-500 ease-in-out"
+              />
+            </div>
+          ) : (
+            <img
+              key={index}
+              src={BASE_MEDIA_URL + item.image}
+              className={`object-cover transition-all rounded-md duration-500 ease-in-out 
+                  ${index == 0 ? "w-full" : "w-1/3 flex-grow"}`}
+            />
+          )
+        )}
+      </div>
+      {isOpenGallerySection && (
+        <div className="fixed w-full h-full  py-10 px-20 top-0 left-0 z-50   bg-white/85 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
+          <IoCloseOutline
+            className="text-black cursor-pointer absolute right-10 top-4 self-end"
+            size={48}
+            onClick={() => {
+              setIsOpenGallerySection(false);
+            }}
+          />
+          <div className="flex flex-wrap overflow-scroll rounded-md gap-4">
+            {gallery?.map((item, index) => (
+              <img
+                key={index}
+                src={BASE_MEDIA_URL + item.image}
+                className="object-cover transition-all rounded-md duration-500 ease-in-out w-full aspect-video flex-grow"
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+export default ImageSlideSection;
