@@ -30,7 +30,7 @@ const HomeStaySection = () => {
           <div className="px-[2rem] md:px-[4.5rem]">
             <h1 className="text-[2.3rem] mb-[3rem] font-semibold">
               Your{" "}
-              <span className="text-primary">HOMESTAY FAMILY WELCOMES</span> You
+              <span className="text-B300">HOMESTAY FAMILY WELCOMES</span> You
             </h1>
             <div className="flex flex-col lg:flex-row justify-between w-full">
               <div className="w-full lg:w-1/2 flex flex-col gap-[3rem]">
