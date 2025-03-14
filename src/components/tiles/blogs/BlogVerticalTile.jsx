@@ -10,16 +10,27 @@ const BlogVerticalTile = ({ blog }) => {
     category,
     slug,
   } = blog;
+  const isLoading = Object.keys(blog).length === 0;
   const blogUrl = slug ? `/blog/${slug}` : '/';
 
   return (
     <div className="h-full p-[1rem] max-w-full rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-xl">
       <div className="relative">
-        <img
-          className="w-full h-48 sm:h-64 object-cover rounded-lg"
-          src={imageUrl}
-          alt={title}
-        />
+        {
+          isLoading ? (
+            <ImageSkeleton />
+          )
+            : (
+              <>
+                <img
+                  className="w-full h-48 sm:h-64 object-cover rounded-lg"
+                  src={imageUrl}
+                  alt={title}
+                />
+              </>
+            )
+        }
+
         <span className="absolute bottom-4 left-0 bg-white text-black px-3 py-1 rounded-r-md text-[1rem] font-medium">
           {category}
         </span>

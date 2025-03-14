@@ -11,24 +11,26 @@ const BlogHorizontalTile = ({ blog }) => {
     category,
     slug,
   } = blog;
+  const isLoading = Object.keys(blog).length === 0; 
   const blogUrl = slug ? `/blog/${slug}` : '/';
 
   return (
     <div className="sm:h-[15.35rem] p-[1rem] flex flex-col sm:flex-row max-w-full flex rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-xl">
       <div className="relative sm:w-1/2 ">
         {
-          blog ? (
+          isLoading ? (
             <ImageSkeleton />
           )
           : (
-            <></>
+            <>
+              <img
+                src={imageUrl}
+                className="w-full h-48 sm:h-full object-cover rounded-lg"
+                alt={title}
+              />
+            </>
           )
         }
-        <img
-          src={imageUrl}
-          className="w-full h-48 sm:h-full object-cover rounded-lg"
-          alt={title}
-        />
         <span className="absolute bottom-4 left-0 bg-white text-black px-3 py-1 rounded-r-md text-[1rem] font-medium">
           {category}
         </span>
