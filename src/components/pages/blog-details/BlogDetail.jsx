@@ -6,12 +6,15 @@ import { format } from "date-fns";
 import DOMPurify from "dompurify";
 import { AiFillEdit } from "react-icons/ai";
 
+import { HeadingSkeleton, DescriptionSkeleton, LongBlogContentSkeleton, ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
+
 const BlogDetail = () => {
     const { slug } = useParams();
     console.log("slug: ", slug);
 
     const [blog, setBlog] = useState({});
     const [content, setContent] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         (async () => {
@@ -25,6 +28,8 @@ const BlogDetail = () => {
             } catch (error) {
                 console.error("Error fetching blog:", error);
                 setBlog({});
+            } finally {
+                setIsLoading(false);
             }
         })()
     }, [])
@@ -36,32 +41,65 @@ const BlogDetail = () => {
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* Main Content */}
                     <div className="lg:flex-1">
-                        <article className="prose prose-lg max-w-none">
-                            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-left">
-                                {blog?.heading}
-                            </h1>
+                        <article className="prose prose-lg max-w-none text-left">
+                            {
+                                isLoading ? (
+                                    <HeadingSkeleton />
+                                )
+                                    : (
+                                        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                                            {blog?.heading}
+                                        </h1>
+                                    )
+                            }
 
-                            <div className="flex items-center gap-6 text-sm text-gray-600 mb-6">
-                                <div className="flex items-center gap-2">
-                                    <AiFillEdit />
-                                    <span className="font-medium">by {blog?.authors?.fullname || "Unknown"}</span>
-                                </div>
-                                <time>{format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy")}</time>
-                                <button className="flex items-center gap-1 hover:text-gray-900 transition-colors">
-                                    {/* <Share2 className="w-4 h-4" /> */}
-                                    <span>Share</span>
-                                </button>
+                            {
+                                isLoading ? (
+                                    <DescriptionSkeleton />
+                                )
+                                    : (
+                                        <div className="flex items-center gap-6 text-sm text-gray-600 mb-6">
+                                            <div className="flex items-center gap-2">
+                                                <AiFillEdit />
+                                                <span className="font-medium">by {blog?.authors?.fullname || "Unknown"}</span>
+                                            </div>
+                                            <time>{format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy")}</time>
+                                            <button className="flex items-center gap-1 hover:text-gray-900 transition-colors">
+                                                {/* <Share2 className="w-4 h-4" /> */}
+                                                <span>Share</span>
+                                            </button>
+                                        </div>
+
+                                    )
+                            }
+
+
+                            <div className="aspect-[16/9] mb-8 relative">
+                                {
+                                    isLoading ? (
+                                        <ImageSkeleton />
+                                    )
+                                        : (
+
+                                            <img
+                                                src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?auto=format&fit=crop&q=80&w=2069"
+                                                alt="Annapurna Base Camp"
+                                                className="w-full h-full object-cover rounded-xl"
+                                            />
+                                        )
+                                }
                             </div>
 
-                            <div className="aspect-[16/9] mb-8">
-                                <img
-                                    src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?auto=format&fit=crop&q=80&w=2069"
-                                    alt="Annapurna Base Camp"
-                                    className="w-full h-full object-cover rounded-xl"
-                                />
-                            </div>
+                            {
+                                isLoading ? (
+                                    <LongBlogContentSkeleton />
+                                )
+                                    : (
+                                        <div className="space-y-6 text-gray-600 text-left" dangerouslySetInnerHTML={{ __html: content }}></div>
 
-                            <div className="space-y-6 text-gray-600 text-left" dangerouslySetInnerHTML={{ __html: content }}></div>
+                                    )
+                            }
+
 
                             {/* <div className="flex items-center gap-4 mt-8 py-4 border-t">
                                 <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">

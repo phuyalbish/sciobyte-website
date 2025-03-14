@@ -19,7 +19,7 @@ export default function YTCarousel({
     return () => clearInterval(slideInterval);
   }, []);
   return (
-    <div className="relative overflow-hidden   flex flex-col justify-center gap-5 h-[70vh] w-[50vw]  md:w-[30vw]">
+    <div className="relative overflow-hidden   flex flex-col justify-center gap-5 h-[70vh]  w-[80vw]  md:w-[30vw]">
       <div
         className="flex transition-transform ease-out duration-500  "
         style={{ transform: `translateX(-${curr * 100}%)` }}
