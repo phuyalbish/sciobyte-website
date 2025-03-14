@@ -18,21 +18,19 @@ const NavItems = ({ item }) => {
   const { title, items } = item;
   return (
     <>
-      <div>
-        <h1 className="text-center md:text-left text-[1.75rem] py-[0.5rem] px-[0.625rem]">
-          {title}
-        </h1>
-        <ul className="flex flex-col gap-[0.625rem] text-center md:text-left">
-          {items.map((item, index) => (
-            <li
-              key={index}
-              className=" text-[1.3125rem] py-[0.5rem] px-[0.625rem]"
-            >
-              <a href="">{item.name}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <h1 className="text-center md:text-left text-[1.75rem] py-[0.5rem] px-[0.625rem]">
+        {title}
+      </h1>
+      <ul className="flex flex-col gap-[0.625rem] text-center md:text-left">
+        {items.map((item, index) => (
+          <li
+            key={index}
+            className=" text-[1.3125rem] py-[0.5rem] px-[0.625rem]"
+          >
+            <a href="">{item.name}</a>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
@@ -134,7 +132,7 @@ function Footer() {
 
   return (
     <footer className=" bg-[#006557] ">
-      <div className="container text-white text-center relative px-[2rem] md:px-[4.5rem] pt-[1rem]">
+      <div className="relative text-white text-center px-[2rem] md:px-[4.5rem] pt-[1rem]">
         <div className="p-10 flex  flex-col gap-[0.5rem]">
           <h1 className="text-3xl font-medium">WE ARE ASSOCIATED WITH:</h1>
           <div className="flex justify-center items-center gap-5 ">

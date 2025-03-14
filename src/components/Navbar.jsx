@@ -19,16 +19,19 @@ function Navbar() {
   }, []);
   return (
     <>
-      <div className="bg-B300 z-50 text-white shadow-md md:px-[4.63rem] py-4  items-center w-full flex flex-row justify-between text-sm md:text-base ">
-        <img
-          src={logo}
-          className={`w-8 aspect-square transition-all duration-300 ${
-            showLogo ? "scale-100" : "scale-0"
-          }`}
-          alt="Logo"
-        />
+      <div className="bg-B300  text-white shadow-md md:px-[4.63rem] py-4  items-center w-full flex flex-row justify-between text-sm md:text-base ">
+        <Link to="/">
+          <img
+            src={logo}
+            className={`w-8 ml-5 md:ml-0 aspect-square transition-all duration-300 ${
+              showLogo ? "scale-100" : "scale-0"
+            }`}
+            alt="Logo"
+          />
+        </Link>
+
         <div className="flex flex-row  w-full justify-evenly  md:justify-center   sm:gap-5 md:gap-10 lg:gap-24 ">
-          <button
+          {/* <button
             className="flex items-center gap-1"
             onClick={() => {
               setIsHikeDropDownOpen(false);
@@ -57,7 +60,9 @@ function Navbar() {
             }}
           >
             Travel Tips <IoIosArrowDown />
-          </button>
+          </button> */}
+          <Link to="/treks">Treks</Link>
+          <Link to="/hikes">Hikes</Link>
           <Link to="/blogs">Blogs</Link>
           <Link to="/about">About Us</Link>
         </div>

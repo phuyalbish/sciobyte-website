@@ -50,7 +50,7 @@ const TrekItenaryAccordion = ({ schedule }) => {
             </div>
             <div className="text-xl font-bold">{schedule.day}</div>
           </div>
-          <div className="flex justify-between  w-full h-fit ">
+          <div className="flex justify-between  w-full h-fit gap-2">
             <div className="font-bold text-xl">{schedule?.heading}</div>
             {arrowSVG}
           </div>
@@ -82,51 +82,20 @@ const TrekItenaryAccordion = ({ schedule }) => {
               />
             ))}
           </div>
-          <div className="flex gap-2 relative">
-            {schedule?.gallery.slice(0, 4).map((item, index) =>
-              index == 3 ? (
-                <div
-                  className="relative w-1/4"
-                  key={index}
-                  onClick={() => {
-                    setIsOpenGallerySection(true);
-                  }}
-                >
-                  <div className="absolute z-10 w-full  h-full bg-white/50 text-white font-bold flex items-center justify-center text-xl">
-                    <div className="text-N500">
-                      +{schedule.gallery.length - 3}
-                    </div>
-                  </div>
-                  <img
-                    key={index}
-                    src={BASE_MEDIA_URL + item.image}
-                    className="z-0 bg-black object-cover w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
-                  />
-                </div>
-              ) : (
-                <img
-                  key={index}
-                  src={BASE_MEDIA_URL + item.image}
-                  className="object-cover w-1/4 overflow-hidden transition-all duration-500 ease-in-out"
-                />
-              )
-            )}
+          <div className="flex gap-2  relative overflow-x-scroll  w-100 rounded-md">
+            <div className="bg-white/50 text-N400 p-1 px-2 rounded-md absolute bottom-3 right-3">
+              Scroll --
+            </div>
+            {schedule?.gallery.map((item, index) => (
+              <img
+                key={index}
+                src={BASE_MEDIA_URL + item.image}
+                className="object-cover min-w-[400px] aspect-square overflow-hidden transition-all duration-500 ease-in-out rounded-md"
+              />
+            ))}
           </div>
         </div>
       </div>
-
-      {isOpenGallerySection && (
-        <div className="fixed w-full h-screen top-0 left-0 z-50   bg-black/75 p-5 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
-          <ImCross
-            className="text-white right-5 self-end"
-            size={20}
-            onClick={() => {
-              setIsOpenGallerySection(false);
-            }}
-          />
-          <div className="w-[90vw] h-[80vh]"></div>
-        </div>
-      )}
     </>
   );
 };
