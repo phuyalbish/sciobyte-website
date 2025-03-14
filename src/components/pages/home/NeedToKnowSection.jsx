@@ -4,7 +4,7 @@ import { fetchBlogs } from "@/apis/blogs.js";
 import { useState, useEffect, useRef } from "react";
 import { parseISO, format } from "date-fns";
 import { Carousel } from "react-responsive-carousel";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import _ from "lodash";
@@ -57,11 +57,14 @@ const NeedToKnowSection = () => {
             {blogs.length > 0 && blogs[0] ? (
               <div className=" md:w-[40%]">
                 <BlogVerticalTile
-                  title={blogs[0]?.heading}
-                  date="Mar 25, 2025"
-                  location="Nepal"
-                  category="Travel Tips"
-                  imageUrl={blogs[0]?.images?.image}
+                  blog={{
+                    title: blogs[0]?.heading,
+                    date: "Mar 25, 2025",
+                    location: "Nepal",
+                    category: "Travel Tips",
+                    imageUrl: blogs[0]?.images?.image,
+                    slug: blogs[0].slug,
+                  }}
                 />
               </div>
             ) : (
@@ -79,15 +82,17 @@ const NeedToKnowSection = () => {
                       {chunkedBlog.map((blog, index) => (
                         <BlogHorizontalTile
                           key={blog.id || index}
-                          title={blog.heading}
-                          date={format(
-                            parseISO(blog?.created_at),
-                            "MMMM d, yyyy"
-                          )}
-                          location="Nepal"
-                          category="Travel Tips"
-                          imageUrl={blog?.images?.image}
-                          slug={blog?.slug}
+                          blog={{
+                            title: blog.heading,
+                            date: format(
+                              parseISO(blog?.created_at),
+                              "MMMM d, yyyy"
+                            ),
+                            location: "Nepal",
+                            category: "Travel Tips",
+                            imageUrl: blog?.images?.image,
+                            slug: blog?.slug,
+                          }}
                         />
                       ))}
                     </div>

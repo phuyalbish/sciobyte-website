@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const BlogVerticalTile = ({
-  title,
-  date,
-  location,
-  imageUrl,
-  category,
-  slug,
-}) => {
+const BlogVerticalTile = ({ blog }) => {
+  const {
+    title,
+    date,
+    location,
+    imageUrl,
+    category,
+    slug,
+  } = blog;
+  const blogUrl = slug ? `/blog/${slug}` : '/';
+
   return (
     <div className="h-full p-[1rem] max-w-full rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-xl">
       <div className="relative">
@@ -25,7 +28,7 @@ const BlogVerticalTile = ({
         </span>
       </div>
       <div className=" py-4">
-        <Link to={`/blog/${slug}`}>
+        <Link to={blogUrl}>
           <h2 className="font-bold text-xl mb-3 text-gray-800 text-left">
             {title}
           </h2>

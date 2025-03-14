@@ -13,12 +13,14 @@ const LatestTravelBlog = ({latestBlogs}) => {
                             latestBlogs.map((blog, index) => 
                                 <BlogVerticalTile
                                     key={index}
-                                    title={blog?.heading || "Trekking is Awesome"}
-                                    date={format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy")}
-                                    location="Nepal"
-                                    category={blog?.category || "category"}
-                                    imageUrl={blog?.images?.image}
-                                    slug={blog?.slug}
+                                    blog={{
+                                        title:  blog?.heading || "Trekking is Awesome",
+                                        date: format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy"), 
+                                        location:"Nepal",
+                                        category: blog?.category || "category",
+                                        imageUrl: blog?.images?.image,
+                                        slug: blog?.slug
+                                    }}
                                 />
                             )
                         }
