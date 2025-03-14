@@ -27,7 +27,7 @@ const TrekTile = ({ data }) => {
   ];
 
   return (
-    <div className="cursor-pointer w-[350px] h-fit flex-wrap flex-grow  group max-w-lg flex flex-col gap-[1rem] rounded-lg overflow-hidden hover:shadow-xl shadow-md bg-white  p-5 transition-all duration-500">
+    <div className="cursor-pointer w-[80vw] md:w-[350px] h-fit flex-wrap flex-grow  group max-w-lg flex flex-col gap-[1rem] rounded-lg overflow-hidden hover:shadow-xl shadow-md bg-white  p-5 transition-all duration-500">
       <div className="relative">
         <img
           className="rounded w-full h-64 object-cover transition-all duration-300"

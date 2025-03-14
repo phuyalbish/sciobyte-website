@@ -6,6 +6,9 @@
     "serve": "serve -s dist -l tcp://0.0.0.0:5174"
   },
   "dependencies": {
+    "@mantine/carousel": "^7.17.2",
+    "@mantine/core": "^7.17.2",
+    "@mantine/hooks": "^7.17.2",
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.7.9",
     "date-fns": "^4.1.0",
