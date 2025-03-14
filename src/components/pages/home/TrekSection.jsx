@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import { fetchTreks } from "@/apis/treks.js";
-import { v4 as uuidv4 } from "uuid";
-
 const TrekSection = () => {
   const [treks, setTreks] = useState([]);
 
@@ -21,8 +19,8 @@ const TrekSection = () => {
           Your Tale Begins <span className="text-primary">NOW!</span>
         </h1>
         <div className="flex flex-wrap gap-[1.5rem] place-items-center justify-center items-center">
-          {treks?.map((trek) => (
-            <TrekTile key={uuidv4()} data={trek} />
+          {treks?.map((trek, index) => (
+            <TrekTile key={index} data={trek} />
           ))}
         </div>
       </section>
