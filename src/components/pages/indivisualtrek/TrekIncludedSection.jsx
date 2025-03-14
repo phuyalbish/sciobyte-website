@@ -11,8 +11,8 @@ function TrekIncludedSection({ includes, excludes }) {
             <div className="text-xl font-bold">Included</div>
             <div className="flex flex-col gap-2">
               {includes.map((item, index) => (
-                <div className="flex flex-col">
-                  <div className="flex felx-row gap-2 items-start" key={index}>
+                <div className="flex flex-col" key={index}>
+                  <div className="flex felx-row gap-2 items-start">
                     <IoCheckmark className="size-8" />
                     <div className="font-bold">{item.title}</div>
                   </div>
@@ -32,8 +32,8 @@ function TrekIncludedSection({ includes, excludes }) {
             <div className="text-xl font-bold">Excluded</div>
             <div className="flex flex-col gap-2">
               {includes.map((item, index) => (
-                <div className="flex flex-col">
-                  <div className="flex felx-row gap-2 items-start" key={index}>
+                <div className="flex flex-col" key={index}>
+                  <div className="flex felx-row gap-2 items-start">
                     <MdOutlineErrorOutline className="size-8" />
                     <div className="font-bold">{item.title}</div>
                   </div>
