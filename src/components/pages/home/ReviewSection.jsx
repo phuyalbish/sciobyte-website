@@ -45,14 +45,14 @@ function ReviewSection() {
   return (
     <div className="bg-blue-500 p-20 flex flex-col gap-20">
       <div className="text-4xl ">
-        What our <span className="text-white underline ">Friends</span> Have to
+        What our <span className="text-white ">Friends</span> Have to
         Say
       </div>
       <div className="flex flex-col items-center">
         <div className="flex flex-row justify-center gap-5">
           <div
             className={`flex flex-row  rounded-t-md ${
-              isGoogleReview ? "bg-white" : "bg-transparent"
+              isGoogleReview ? "bg-gray-100" : "bg-transparent"
             }`}
             onClick={() => {
               setGoogleReview(true);
@@ -66,7 +66,7 @@ function ReviewSection() {
           </div>
           <div
             className={`flex flex-row rounded-t-md ${
-              !isGoogleReview ? "bg-white" : "bg-transparent"
+              !isGoogleReview ? "bg-gray-100" : "bg-transparent"
             }`}
             onClick={() => {
               setGoogleReview(false);
@@ -80,7 +80,7 @@ function ReviewSection() {
           </div>
         </div>
         {isGoogleReview && (
-          <div className="relative md:w-[70vw]  bg-white p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
+          <div className="relative md:w-[70vw]  bg-gray-100 p-5 shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
             {Array.isArray(reviews) && reviews.length > 0 ? (
               reviews.map((review, index) => (
                 <ReviewTile
@@ -97,7 +97,7 @@ function ReviewSection() {
           </div>
         )}
         {!isGoogleReview && (
-          <div className="relative  md:w-[70vw]   bg-white p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
+          <div className="relative  md:w-[70vw]   bg-gray-100 p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
             {Array.isArray(reviews) && reviews.length > 0 ? (
               reviews.map((review, index) => (
                 <ReviewTile
