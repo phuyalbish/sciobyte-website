@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
-import { MdDateRange } from "react-icons/md";
+import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 
 const BlogHorizontalTile = ({
@@ -39,6 +39,7 @@ const BlogHorizontalTile = ({
                         <span className="text-sm">{date}</span>
                     </div>
                     <div className="flex items-center gap-1">
+                        <MdLocationOn />
                         <span className="text-sm">{location}</span>
                     </div>
                 </div>
