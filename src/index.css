@@ -57,16 +57,17 @@ body {
   color: var(--text);
 }
 
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 /* font */
 .reenie-beanie {
   font-family: "Reenie Beanie";
 }
-.splash-heading {
-  font-size: clamp(1em, 1em * 20vw, 3em);
-}
 
-/* 
 .container {
   max-width: 1440px;
   margin: 0 auto;
-} */
+}

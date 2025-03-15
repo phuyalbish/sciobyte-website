@@ -39,7 +39,7 @@ function InstagramSection() {
         alt=""
         className="hidden md:block left-0 w-[9rem] object-cover absolute z-0"
       />
-      <div className="flex w-[80vw] md:w-[50vw] max-w-[100em] mx-auto border gap-2 flex-col mb-20">
+      <div className="flex w-[80vw] md:w-[50vw] container border gap-2 flex-col mb-20">
         <div className="flex flex-wrap justify-between px-2 py-2">
           <div className="flex gap-2 items-center">
             <FaInstagram size="24" />

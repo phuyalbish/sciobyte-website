@@ -5,7 +5,7 @@ import CategoryTile from "@/components/tiles/CategoryTile";
 const API_URL = import.meta.env.VITE_BASE_API_URL;
 const GoogleReview = () => {
   return (
-    <div className="p-4 pe-8 bg-white shadow-lg  text-left   lg:rounded-r-[1rem] rounded-l-[1rem]   flex flex-col gap-[0.5rem]">
+    <div className="p-4 bg-white shadow-lg  text-left   lg:rounded-r-[1rem] rounded-l-[1rem]   flex flex-col gap-[0.5rem]">
       <div className="flex text-left">
         <span className="mr-2">
           <img src="/google-logo.png" alt="Google Logo" className="h-6 w-6" />
@@ -118,11 +118,11 @@ const HomeStaySection = () => {
             </a>
           </div>
         </div>
-        <div className="relative   ">
+        {/* <div className="relative   ">
           <div className="lg:w-full flex  max-w-[100em] mx-auto  lg:absolute top-[5vh] flex-row gap-3   w-full md:justify-between justify-center md:px-[4.5rem]">
             <GoogleReview />
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="relative   ">
         <img
