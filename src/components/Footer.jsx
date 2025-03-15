@@ -131,62 +131,60 @@ function Footer() {
   ];
 
   return (
-    <footer className=" bg-[#006557] ">
-      <div className="relative text-white text-center px-[2rem] md:px-[4.5rem] pt-[1rem]">
-        <div className="p-10 flex  flex-col gap-[0.5rem]">
-          <h1 className="text-3xl font-medium">WE ARE ASSOCIATED WITH:</h1>
-          <div className="flex justify-center items-center gap-5 ">
-            <img
-              className="h-full w-[4.6875rem] object-cover object-center"
-              src="/national-stamp.png"
-              alt="national-stamp"
-            />
-            <img
-              className="h-full w-[4.6875rem] object-cover object-center"
-              src="/NTB.png"
-              alt="NTB"
-            />
-            <img
-              className="h-full w-[4.6875rem] object-cover object-center"
-              src="/Taan.png"
-              alt="Taan"
-            />
-            <img
-              className="h-full w-[4.6875rem] object-cover object-center"
-              src="/national-flag.png"
-              alt="national-flag"
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-[2.88rem] md:gap-[7.75rem] justify-center items-center md:items-start">
-          <div className="flex flex-col md:flex-row justify-between gap-[2.88rem] md:gap-[2.625rem]">
-            {menuItems.slice(0, 2).map((item, index) => (
-              <NavItems item={item} key={index} />
-            ))}
-          </div>
-
-          <div className="order-[-1] md:order-[0]">
-            <img
-              src="/footer-logo.svg"
-              alt="/footer-logo"
-              className=""
-              style={{ width: "12rem" }}
-            />
-          </div>
-
-          <div className="flex flex-col md:flex-row justify-between gap-[2.88rem] md:gap-[2.625rem]">
-            {menuItems.slice(2).map((item, index) => (
-              <NavItems item={item} key={index} />
-            ))}
-          </div>
-        </div>
-
-        <div className="w-full">
-          <img width="100%" src="/footer-img.png" alt="footer-img" />
+    <div className="relative w-[100vw] overflow-hidden text-white text-center bg-G500">
+      <div className="p-10 flex  flex-col gap-[0.5rem]">
+        <h1 className="text-3xl font-medium">WE ARE ASSOCIATED WITH:</h1>
+        <div className="flex justify-center  items-center gap-5 ">
+          <img
+            className="h-full w-[4.6875rem] object-cover object-center"
+            src="/national-stamp.png"
+            alt="national-stamp"
+          />
+          <img
+            className="h-full w-[4.6875rem] object-cover object-center"
+            src="/NTB.png"
+            alt="NTB"
+          />
+          <img
+            className="h-full w-[4.6875rem] object-cover object-center"
+            src="/Taan.png"
+            alt="Taan"
+          />
+          <img
+            className="h-full w-[4.6875rem] object-cover object-center"
+            src="/national-flag.png"
+            alt="national-flag"
+          />
         </div>
       </div>
-    </footer>
+
+      <div className="flex flex-col md:flex-row gap-[2.88rem] md:gap-[7.75rem] justify-center items-center md:items-start">
+        <div className="flex flex-col md:flex-row justify-between gap-[2.88rem] md:gap-[2.625rem]">
+          {menuItems.slice(0, 2).map((item, index) => (
+            <NavItems item={item} key={index} />
+          ))}
+        </div>
+
+        <div className="order-[-1] md:order-[0]">
+          <img
+            src="/footer-logo.svg"
+            alt="/footer-logo"
+            className=""
+            style={{ width: "12rem" }}
+          />
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between gap-[2.88rem] md:gap-[2.625rem]">
+          {menuItems.slice(2).map((item, index) => (
+            <NavItems item={item} key={index} />
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full">
+        <img src="/footer-img.png" alt="footer-img" />
+      </div>
+    </div>
   );
 }
 

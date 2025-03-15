@@ -21,7 +21,7 @@ function HomePage() {
       <SpontaneousTrekSection />
       <div className="flex flex-col">
         <YTSection />
-        <ReviewSection />
+        {/* <ReviewSection /> */}
       </div>
       <InstagramSection />
       <NeedToKnowSection />

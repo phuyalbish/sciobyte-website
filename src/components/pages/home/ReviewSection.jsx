@@ -43,7 +43,7 @@ const reviews = [
 function ReviewSection() {
   const [isGoogleReview, setGoogleReview] = useState(true);
   return (
-    <div className="bg-blue-500 p-20 flex flex-col gap-20">
+    <div className="bg-blue-500 p-20 flex flex-col gap-20 ">
       <div className="text-4xl ">
         What our <span className="text-white underline ">Friends</span> Have to
         Say
@@ -80,7 +80,7 @@ function ReviewSection() {
           </div>
         </div>
         {isGoogleReview && (
-          <div className="relative md:w-[70vw]  bg-white p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
+          <div className="relative w-[90vw] lg:w-[70vw]  max-w-[100em] mx-auto  bg-white p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
             {Array.isArray(reviews) && reviews.length > 0 ? (
               reviews.map((review, index) => (
                 <ReviewTile
@@ -97,7 +97,7 @@ function ReviewSection() {
           </div>
         )}
         {!isGoogleReview && (
-          <div className="relative  md:w-[70vw]   bg-white p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
+          <div className="relative  w-[90vw] lg:w-[70vw]  max-w-[100em] mx-auto    bg-white p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
             {Array.isArray(reviews) && reviews.length > 0 ? (
               reviews.map((review, index) => (
                 <ReviewTile

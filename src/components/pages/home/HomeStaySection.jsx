@@ -74,7 +74,7 @@ const HomeStaySection = () => {
           </div>
         )}
       </div>
-      <div className="flex flex-col px-10 md:px-[4rem]   lg:gap-0 gap-10">
+      <div className="flex flex-col px-5 md:px-[4rem]  max-w-[100em] mx-auto  lg:gap-0 gap-10">
         <div className="bg-white py-2 px-3 text-center md:text-4xl  md:mb-10 text-2xl rounded-lg">
           Your <span className="font-bold text-B300">HOMESTAY</span> Family{" "}
           <span className="font-bold text-B300">WELCOMES</span> You.
@@ -96,7 +96,7 @@ const HomeStaySection = () => {
               love, and the true essence of family. Welcome!
             </p>
           </div>
-          <div className="relative w-[32rem]">
+          <div className="relative md:w-[32rem]">
             <img
               src="/homestay.png"
               alt="homestay"
@@ -114,17 +114,17 @@ const HomeStaySection = () => {
             </a>
           </div>
         </div>
-      </div>
-      <div className="relative   ">
-        <img
-          src="/homestay-vector.png"
-          alt="homestay-vector"
-          className="w-full   block"
-        />
-        <div className="lg:w-full lg:absolute top-[20%] flex flex-row gap-3   justify-center w-full md:justify-between md:px-[4.5rem]">
-          <GoogleReview />
+        <div className="relative   ">
+          <div className="lg:w-full flex  max-w-[100em] mx-auto  lg:absolute top-[5vh] flex-row gap-3   w-full md:justify-between justify-center md:px-[4.5rem]">
+            <GoogleReview />
+          </div>
         </div>
       </div>
+      <img
+        src="/homestay-vector.png"
+        alt="homestay-vector"
+        className="w-full   block"
+      />
     </div>
   );
 };

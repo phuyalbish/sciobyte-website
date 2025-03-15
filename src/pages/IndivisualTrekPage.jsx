@@ -117,7 +117,7 @@ function IndivisualTrekPage() {
           </div>
         </div>
       </div>
-      <div className="fixed bg-B75 z-10  bottom-0 w-screen h-16 sm:hidden">
+      <div className="fixed bg-B75 z-10  bottom-0 h-16 sm:hidden">
         <div className="p-2 flex justify-end gap-16">
           <div className="flex flex-col justify-start items-start ">
             <div className="text-base font-light text-N300">Connect</div>

@@ -4,20 +4,19 @@ import Navbar from "@/components/Navbar";
 import whatsapp from "@/assets/whatsapp.png";
 export default function PageLayout({ children }) {
   return (
-    <div className="flex relative flex-col">
+    <div className="flex relative w-[100vw] flex-col bg-gray-100">
       <Header />
-      <div className="flex sticky top-0 w-full flex-col z-50">
+      <div className="sticky  top-0 z-50">
         <Navbar />
       </div>
-      <main className="flex-1 relative bg-gray-100">
+      <main className="flex-1  relative ">
         {children}
         <img
           src={whatsapp}
           alt=""
-          className="w-16 h-16  object-cover z-30 fixed bottom-5 left-5"
+          className="w-16 h-16 object-cover z-30 fixed bottom-5 left-5"
         />
       </main>
-
       <Footer />
     </div>
   );
