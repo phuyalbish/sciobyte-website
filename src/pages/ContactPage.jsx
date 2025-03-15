@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { MdLocationOn, MdMail } from "react-icons/md";
-import { FaPhoneVolume, FaSquareWhatsapp } from "react-icons/fa6";
 import { emailSchema, nameSchema, textareaSchema } from "@/validations/validationSchema.js";
+import { sendMail } from "@/apis/sendmail.js";
 
 function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState({});
+  const [successMsg, setSuccessMsg] = useState("");
 
 
   const validationSchema = {
-    fullName: nameSchema,
+    name: nameSchema,
     email: emailSchema,
     message: textareaSchema
   }
   const initialFormState = {
-    fullName: '',
+    name: '',
     email: '',
     phone: '',
     message: ''
@@ -25,19 +25,29 @@ function ContactPage() {
     console.log(errorMsg);
   }, [errorMsg]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      Object.keys(formData).filter(key => key !== "phone").forEach(key => {
-        validateInput(key, formData[key], validationSchema[key]);
-      })
 
-      console.log('Form submitted:', formData);
-      setFormData(initialFormState);
+    try{
+      const errors = Object.keys(formData).filter(key => key !== "phone").map(key => {
+        return validateInput(key, formData[key], validationSchema[key]);
+      });
+
+      if(errors.some(err => err === false)) return
+
+      const response = await sendMail({...formData,});
+
+      if(response.status === 201){
+        setSuccessMsg("Mail sent successfully");
+        setFormData(initialFormState);
+      }
+    }catch(error){
+      console.error(error);
+    }finally{
       setIsSubmitting(false);
-    }, 1500)
-  };
+    }
+}
 
   const handleChange = (e) => {
     setFormData({
@@ -55,6 +65,7 @@ function ContactPage() {
           [type]: ""
         }
       })
+      return true;
     } catch (err) {
       setErrorMsg((prevState) => {
         return {
@@ -63,12 +74,13 @@ function ContactPage() {
         }
       })
       errorMsg[type] = err.errors[0].message;
+      return false;
     }
   }
 
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen  ">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900">Contact Us</h1>
@@ -77,7 +89,7 @@ function ContactPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Information */}
-          <div className="bg-white p-8 rounded-lg shadow-md text-left">
+          <div className=" p-8 text-left">
             <div className="mb-8">
               <h2 className="text-3xl font-bold border-b-2 italic border-B300 b-6">
                 Hello Trekkers Pvt. Ltd
@@ -87,7 +99,7 @@ function ContactPage() {
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 {/* <MapPin className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" /> */}
-                <MdLocationOn size="24px" />
+                <img width="24px" height="24px" src="/location.svg" />
                 <div>
                   <p className="font-medium text-N100">Address</p>
                   <p className="font-semibold">Kirtipur, Kathmandu</p>
@@ -96,7 +108,7 @@ function ContactPage() {
 
               <div className="flex items-center space-x-4">
                 {/* <Phone className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" /> */}
-                <FaPhoneVolume size="24px" />
+                <img width="24px" height="24px" src="/phone-calling.svg" />
                 <div>
                   <p className="font-medium text-N100">Phone Number</p>
                   <p className="font-semibold">+977-9709707037</p>
@@ -105,7 +117,7 @@ function ContactPage() {
 
               <div className="flex items-center space-x-4">
                 {/* <MessageSquare className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" /> */}
-                <FaSquareWhatsapp size="24px" />
+                <img width="24px" height="24px" src="/whatsapp.svg" />
                 <div>
                   <p className="font-medium text-N100">WhatsApp/Viber</p>
                   <p className="font-semibold">+977-9709707037</p>
@@ -114,7 +126,7 @@ function ContactPage() {
 
               <div className="flex items-center space-x-4">
                 {/* <Mail className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" /> */}
-                <MdMail size="24px" />
+                <img width="24px" height="24px" src="/email-blue.svg" />
                 <div>
                   <p className="font-medium text-N100">Email</p>
                   <p className="font-semibold">hellotrekkersnamaste@gmail.com</p>
@@ -123,17 +135,17 @@ function ContactPage() {
             </div>
 
             <div className="mt-8 flex gap-4">
-              <button className="group flex gap-2 items-center px-4 py-2 bg-B200  rounded-md hover:bg-B75 transition-colors">
+              <button className="group flex gap-2 items-center px-4 py-2 bg-B75  rounded-md hover:bg-B100 transition-colors">
                 {/* <Phone className="w-4 h-4 mr-2" /> */}
                 <span className="text-B75 group-hover:text-B200">
-                  <FaPhoneVolume size="24px" />
+                  <img width="24px" height="24px" src="/phone-calling.svg" />
                 </span>
                 Quick Call
               </button>
-              <button className="group flex gap-1 items-center px-4 py-2 bg-G200 rounded-md hover:bg-G75 transition-colors">
+              <button className="group flex gap-1 items-center px-4 py-2 bg-G75 rounded-md hover:bg-G100 transition-colors">
                 {/* <Mail className="w-4 h-4 mr-2" /> */}
                 <span className="text-G75 group-hover:text-G200">
-                  <MdMail size="24px" />
+                  <img width="24px" height="24px" src="/email-green.svg" />
                 </span>
                 Quick Email
               </button>
@@ -141,24 +153,28 @@ function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white p-8 rounded-lg shadow-md text-left">
+          <div className="bg-G50 p-8 rounded-lg shadow-md text-left">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {
+                successMsg &&
+                <p className="text-center text-G300">{successMsg}</p>
+              }
               <div>
-                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                   Full Name*
                 </label>
                 <input
                   type="text"
-                  id="fullName"
-                  name="fullName"
-                  value={formData.fullName}
+                  id="name"
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
                   placeholder="e.g. John Doe"
                   className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
                 {
-                  errorMsg["fullName"] && 
-                  <p className="block text-sm font-medium text-danger">{errorMsg["fullName"]}</p>
+                  errorMsg["name"] &&
+                  <p className="block text-sm font-medium text-danger">{errorMsg["name"]}</p>
                 }
               </div>
 
@@ -176,7 +192,7 @@ function ContactPage() {
                   className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
                 {
-                  errorMsg["email"] && 
+                  errorMsg["email"] &&
                   <p className="block text-sm font-medium text-danger">{errorMsg["email"]}</p>
                 }
               </div>
@@ -215,7 +231,7 @@ function ContactPage() {
                   className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
                 {
-                  errorMsg["message"] && 
+                  errorMsg["message"] &&
                   <p className="block text-sm font-medium text-danger">{errorMsg["message"]}</p>
                 }
               </div>
@@ -223,7 +239,7 @@ function ContactPage() {
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className={`py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white ${isSubmitting ? 'bg-B200 cursor-not-allowed' : 'bg-B300'} hover:bg-B200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
+                  className={`py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white ${isSubmitting ? 'bg-B500 cursor-not-allowed' : 'bg-B300'} hover:bg-B500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Submitting ..." : "Submit"}
