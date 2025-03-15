@@ -186,7 +186,7 @@ function Footer() {
                 return (
                   <>
                     <HTLogo className="hidden lg:block" />
-                    <NavItems item={item} key={index} />
+                    <NavItems item={item} />
                   </>
                 );
               }

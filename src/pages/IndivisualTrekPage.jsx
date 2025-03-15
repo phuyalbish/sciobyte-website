@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BreadCrumbs from "@/components/tiles/BreadCrumbs";
 import { fetchIndivisualTrek } from "@/apis/treks.js";
+import DOMPurify from "dompurify";
 import ImageSlideSection from "@/components/pages/indivisualtrek/ImageSlideSection";
 import TrekBasicInformationSection from "@/components/pages/indivisualtrek/TrekBasicInformationSection";
 import TrekOverviewSection from "@/components/pages/indivisualtrek/TrekOverviewSection";
@@ -15,14 +16,17 @@ import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSec
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function IndivisualTrekPage() {
   const [trek, setTrek] = useState(null);
+  const [map, setMap] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     const getTrek = async () => {
       try {
         const response = await fetchIndivisualTrek(id);
+        const sanitizedMapLink = DOMPurify.sanitize(response?.map);
         console.log();
         setTrek(response);
+        setMap(sanitizedMapLink);
       } catch (error) {
         console.error("Error fetching trek:", error);
       }
@@ -45,7 +49,7 @@ function IndivisualTrekPage() {
           <div className="flex md:w-2/3 w-full flex-col gap-24 ">
             <TrekBasicInformationSection data={trek} />
             <div className="flex flex-col gap-8 text-left">
-              <div className="py-3 px-3 sticky overflow-x-scroll top-[7vh] z-20 bg-white flex flex-nowrap gap-7 text-xl font-bold text-N500">
+              <div className="py-3 px-3 sticky overflow-x-scroll top-[8vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"
@@ -92,10 +96,10 @@ function IndivisualTrekPage() {
               />
               <div id="maps" className="flex flex-col gap-5">
                 <div className="text-2xl font-bold">Map</div>
-                <img
-                  src={BASE_MEDIA_URL + trek?.map_image}
+                <div
                   className="w-full h-[400px] object-cover"
-                />
+                  dangerouslySetInnerHTML={{ __html: map }}
+                ></div>
               </div>
 
               <div
@@ -113,7 +117,11 @@ function IndivisualTrekPage() {
             </div>
           </div>
           <div className="md:flex sticky top-[10vh] hidden md:w-1/3  h-[80vh]">
-            <TrekPricingSection price={trek?.price} map={trek?.map_image} />
+            <TrekPricingSection
+              price={trek?.price}
+              pricings={trek?.pricing}
+              map={map}
+            />
           </div>
         </div>
       </div>
@@ -124,7 +132,7 @@ function IndivisualTrekPage() {
             <div className="text-base text-N500">Send Inquiry</div>
           </div>
 
-          <div className="text-base font-light text-N50 bg-B400 flex justify-center items-center px-2 rounded-md">
+          <div className="text-base font-light text-N50 bg-B400 flex gap-2 justify-center items-center px-2 rounded-md">
             Make a booking
           </div>
         </div>

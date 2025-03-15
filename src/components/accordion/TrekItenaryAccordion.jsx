@@ -61,7 +61,7 @@ const TrekItenaryAccordion = ({ schedule }) => {
             isOpened ? "max-h-[1000px]" : "max-h-0"
           }`}
         >
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap gap-2">
             {trekHeadings.map((item, index) =>
               item?.description ? (
                 <TrekHeadingTile key={index} bg="False" {...item} />
