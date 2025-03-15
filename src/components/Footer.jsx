@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // const handleWord = (word) => {
 //   const numberOfWords = word.split(" ").length;
@@ -36,9 +37,9 @@ const NavItems = ({ item }) => {
         <ul className="flex flex-col gap-[0.625rem] text-center md:text-left">
           {items.map((item, index) => (
             <li key={index} className="  py-[0.5rem] px-[0.625rem] ">
-              <a href="" className="line-clamp-2">
+              <Link to={item.url} className="line-clamp-2">
                 {item.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -128,7 +129,7 @@ function Footer() {
         },
         {
           name: "Contact Us",
-          url: "",
+          url: "/contact",
         },
         {
           name: "Blogs",
@@ -185,7 +186,7 @@ function Footer() {
               if (index === 2) {
                 return (
                   <>
-                    <HTLogo className="hidden lg:block" />
+                    <HTLogo key="HTLogo" className="hidden lg:block" />
                     <NavItems item={item} key={index} />
                   </>
                 );
