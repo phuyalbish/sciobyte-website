@@ -61,10 +61,18 @@ function Navbar() {
           >
             Travel Tips <IoIosArrowDown />
           </button> */}
-          <Link to="/treks">Treks</Link>
-          <Link to="/hikes">Hikes</Link>
-          <Link to="/blogs">Blogs</Link>
-          <Link to="/about">About Us</Link>
+          <span className="transition hover:underline underline-offset-1 hover:text-B500">
+            <Link to="/treks">Treks</Link>
+          </span>
+          <span className="transition hover:underline underline-offset-1 hover:text-B500">
+            <Link to="/hikes">Hikes</Link>
+          </span>
+          <span className="transition hover:underline underline-offset-1 hover:text-B500">
+            <Link to="/blogs">Blogs</Link>
+          </span>
+          <span className="transition hover:underline underline-offset-1 hover:text-B500">
+            <Link to="/about">About Us</Link>
+          </span>
         </div>
       </div>
       {isTrekkingDropDownOpen && (
