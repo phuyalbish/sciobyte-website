@@ -14,7 +14,7 @@ import React from "react";
 //   );
 // };
 
-const HTLogo = ({className}) => (
+const HTLogo = ({ className }) => (
   <div className={className}>
     <img
       src="/footer-logo.svg"
@@ -23,7 +23,7 @@ const HTLogo = ({className}) => (
       style={{ width: "12rem" }}
     />
   </div>
-)
+);
 
 const NavItems = ({ item }) => {
   const { title, items } = item;
@@ -35,11 +35,10 @@ const NavItems = ({ item }) => {
         </h1>
         <ul className="flex flex-col gap-[0.625rem] text-center md:text-left">
           {items.map((item, index) => (
-            <li
-              key={index}
-              className="  py-[0.5rem] px-[0.625rem] "
-            >
-              <a href="" className="line-clamp-2">{item.name}</a>
+            <li key={index} className="  py-[0.5rem] px-[0.625rem] ">
+              <a href="" className="line-clamp-2">
+                {item.name}
+              </a>
             </li>
           ))}
         </ul>
@@ -144,7 +143,7 @@ function Footer() {
   ];
 
   return (
-    <footer className=" bg-[#006557]">
+    <footer className=" bg-G500">
       <div className="relative text-white text-center px-[2rem] md:px-[4.5rem] pt-[1rem]">
         <div className="p-10 flex  flex-col gap-[0.5rem]">
           <h1 className="text-2xl font-medium">WE ARE ASSOCIATED WITH:</h1>
@@ -189,9 +188,9 @@ function Footer() {
                     <HTLogo className="hidden lg:block" />
                     <NavItems item={item} key={index} />
                   </>
-                )
+                );
               }
-              return <NavItems item={item} key={index} />
+              return <NavItems item={item} key={index} />;
             })}
           </div>
         </div>

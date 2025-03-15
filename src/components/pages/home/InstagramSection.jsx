@@ -39,13 +39,13 @@ function InstagramSection() {
         alt=""
         className="hidden md:block left-0 w-[9rem] object-cover absolute z-0"
       />
-      <div className="flex w-[80vw] md:w-[50vw] rounded-t-sm border gap-2 flex-col mb-20">
-        <div className="flex justify-between px-2 py-2 ">
+      <div className="flex w-[80vw] md:w-[50vw] max-w-[100em] mx-auto border gap-2 flex-col mb-20">
+        <div className="flex flex-wrap justify-between px-2 py-2">
           <div className="flex gap-2 items-center">
             <FaInstagram size="24" />
             <p className="text-base md:text-xl">@hellotrekkersnamaste</p>
           </div>
-          <div className=" text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2">
+          <div className="sm:flex hidden text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2">
             Follow us
           </div>
         </div>
@@ -61,6 +61,10 @@ function InstagramSection() {
           ) : (
             <p className="text-gray-500">No categories available</p>
           )}
+        </div>
+
+        <div className="sm:hidden  text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2">
+          Follow us
         </div>
       </div>
       <img src={bottom} alt="" className="bottom-0 object-cover  z-0" />

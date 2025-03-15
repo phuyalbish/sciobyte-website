@@ -3,7 +3,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import SopontaneousTrekTile from "@/components/tiles/SopontaneousTrekTile.jsx";
 import { fetchTreks } from "@/apis/treks.js";
-import { v4 as uuidv4 } from "uuid";
 
 function SpontaneousTrekSection() {
   const [treks, setTreks] = useState([]);
@@ -34,12 +33,12 @@ function SpontaneousTrekSection() {
         </div>
         {/* <div className="flex relative flex-wrap gap-[2rem] w-full px-[1rem] md:px-0 sm:ml-[5vh] place-items-center justify-center items-center"> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative gap-[2rem]">
-          {treks?.map((trek) => (
-            <SopontaneousTrekTile key={uuidv4()} data={trek} />
+          {treks?.map((trek, index) => (
+            <SopontaneousTrekTile key={index} data={trek} />
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
