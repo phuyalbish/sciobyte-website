@@ -18,19 +18,21 @@ const NavItems = ({ item }) => {
   const { title, items } = item;
   return (
     <>
-      <h1 className="text-center md:text-left text-[1.75rem] py-[0.5rem] px-[0.625rem]">
-        {title}
-      </h1>
-      <ul className="flex flex-col gap-[0.625rem] text-center md:text-left">
-        {items.map((item, index) => (
-          <li
-            key={index}
-            className=" text-[1.3125rem] py-[0.5rem] px-[0.625rem]"
-          >
-            <a href="">{item.name}</a>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <h1 className="text-center md:text-left text-[1.75rem] py-[0.5rem] px-[0.625rem]">
+          {title}
+        </h1>
+        <ul className="flex flex-col gap-[0.625rem] text-center md:text-left">
+          {items.map((item, index) => (
+            <li
+              key={index}
+              className=" text-[1.3125rem] py-[0.5rem] px-[0.625rem]"
+            >
+              <a href="">{item.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
