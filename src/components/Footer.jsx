@@ -30,14 +30,14 @@ const NavItems = ({ item }) => {
   return (
     <>
       <div className="">
-        <h1 className="text-center md:text-left text-[1.75rem] py-[0.5rem] px-[0.625rem]">
+        <h1 className="text-center md:text-left text-xl py-[0.5rem] px-[0.625rem]">
           {title}
         </h1>
         <ul className="flex flex-col gap-[0.625rem] text-center md:text-left">
           {items.map((item, index) => (
             <li
               key={index}
-              className=" text-[1.3125rem] py-[0.5rem] px-[0.625rem] "
+              className="  py-[0.5rem] px-[0.625rem] "
             >
               <a href="" className="line-clamp-2">{item.name}</a>
             </li>
@@ -124,7 +124,7 @@ function Footer() {
           url: "",
         },
         {
-          name: "Why Choose Hello Trekkers",
+          name: "Why Hello Trekkers",
           url: "",
         },
         {
@@ -144,10 +144,10 @@ function Footer() {
   ];
 
   return (
-    <footer className=" bg-[#006557] border border-black border-8">
+    <footer className=" bg-[#006557]">
       <div className="relative text-white text-center px-[2rem] md:px-[4.5rem] pt-[1rem]">
         <div className="p-10 flex  flex-col gap-[0.5rem]">
-          <h1 className="text-3xl font-medium">WE ARE ASSOCIATED WITH:</h1>
+          <h1 className="text-2xl font-medium">WE ARE ASSOCIATED WITH:</h1>
           <div className="flex justify-center items-center gap-5 ">
             <img
               className="h-full w-[4.6875rem] object-cover object-center"
@@ -196,7 +196,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="w-full">
+        <div className="w-full -translate-y-[15%] absolute left-0 z-[-1]">
           <img width="100%" src="/footer-img.png" alt="footer-img" />
         </div>
       </div>
