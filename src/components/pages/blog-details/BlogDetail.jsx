@@ -5,8 +5,10 @@ import { fetchBlogBySlug } from "@/apis/blogs.js";
 import { format } from "date-fns";
 import DOMPurify from "dompurify";
 import { AiFillEdit } from "react-icons/ai";
-
+import { MdDateRange } from "react-icons/md";
+import { IoMdShare } from "react-icons/io";
 import { HeadingSkeleton, DescriptionSkeleton, LongBlogContentSkeleton, ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
+
 
 const BlogDetail = () => {
     const { slug } = useParams();

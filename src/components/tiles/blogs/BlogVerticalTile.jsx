@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { AiFillEdit } from "react-icons/ai";
+import { MdDateRange, MdLocationOn } from "react-icons/md";
+import { IoMdShare } from "react-icons/io";
+
 
 const BlogVerticalTile = ({ blog }) => {
   const {
@@ -35,6 +39,7 @@ const BlogVerticalTile = ({ blog }) => {
           {category}
         </span>
         <span className="cursor-pointer absolute top-4 right-4 bg-white text-[#008774] border border-[#008774] px-[1rem] py-[0.5rem] rounded-md text-[0.875rem] font-semibold">
+          <IoMdShare />
           share
         </span>
       </div>
@@ -46,9 +51,15 @@ const BlogVerticalTile = ({ blog }) => {
         </Link>
         <div className="flex items-center gap-4 text-gray-600">
           <div className="flex items-center gap-1">
+            <AiFillEdit />
             <span className="text-sm">{date}</span>
           </div>
           <div className="flex items-center gap-1">
+            <MdDateRange />
+            <span className="text-sm">{date}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <MdLocationOn />
             <span className="text-sm">{location}</span>
           </div>
         </div>
