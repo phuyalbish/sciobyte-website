@@ -20,7 +20,7 @@ function Navbar() {
   return (
     <>
       <div className=" hidden md:flex bg-B300  text-white shadow-md items-center w-full justify-between text-sm md:text-base">
-        <div className="max-w-[100em] w-full mx-auto  flex items-center justify-evenly border border-black py-4">
+        <div className="max-w-[100em] w-full mx-auto  flex items-center justify-between px-[4rem]  py-4">
           <Link to="/">
             <img
               src={logo}
@@ -64,26 +64,6 @@ function Navbar() {
             </button>
             <Link to="/blogs">Blogs</Link>
             <Link to="/about">About Us</Link>
-          </div>
-          <div className="flex gap-5">
-            <Link to="/">
-              <img
-                src={logo}
-                className={`w-6 md:ml-0 aspect-square transition-all duration-300 ${
-                  showLogo ? "scale-100" : "scale-0"
-                }`}
-                alt="Logo"
-              />
-            </Link>
-            <Link to="/">
-              <img
-                src={logo}
-                className={`w-6 md:ml-0 aspect-square transition-all duration-300 ${
-                  showLogo ? "scale-100" : "scale-0"
-                }`}
-                alt="Logo"
-              />
-            </Link>
           </div>
         </div>
       </div>

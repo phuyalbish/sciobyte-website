@@ -9,7 +9,7 @@ export default function PageLayout({ children }) {
       <div className="sticky  top-0 z-50">
         <Navbar />
       </div>
-      <main className="flex-1  relative ">
+      <main className="flex-1  relative bg-gray-100">
         {children}
         <img
           src={whatsapp}

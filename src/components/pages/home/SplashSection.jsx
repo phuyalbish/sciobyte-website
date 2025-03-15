@@ -22,7 +22,7 @@ function SplashSection() {
             />
           </div>
         </div>
-        <img src={imgVector} alt="" className="w-full  object-cover  z-40 " />
+        <img src={imgVector} alt="" className="w-full  object-cover  z-30 " />
       </div>
     </div>
   );
