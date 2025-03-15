@@ -40,8 +40,10 @@ function BlogListPage() {
   }, []);
   return (
     <>
+    <div className="flex flex-col gap-[2rem]">
       <SingleBlogSection latestBlog={latestBlog} />
       <LatestTravelBlog latestBlogs={remainingBlogs} />
+    </div>
     </>
   );
 }

@@ -8,12 +8,10 @@ import { ImageSkeleton, HeadingSkeleton, DescriptionSkeleton, LongBlogContentSke
 
 
 const SingleBlogSection = ({ latestBlog }) => {
-    const sanitizedContent = DOMPurify.sanitize(latestBlog?.content)
+    const sanitizedContent = DOMPurify.sanitize(latestBlog?.content);
     const content = sanitizedContent.length > 600
         ? sanitizedContent.slice(0, 600)
         : sanitizedContent;
-
-
 
     const isLoading = Object.keys(latestBlog).length === 0;
 
@@ -54,13 +52,15 @@ const SingleBlogSection = ({ latestBlog }) => {
                                             : (
                                                 <>
                                                     <div className="flex items-center gap-2">
+                                                        <AiFillEdit />
                                                         <span className="font-medium">by {latestBlog?.authors?.fullname || "Unknown"}</span>
                                                     </div>
                                                     <div className="flex items-center gap-2">
+                                                        <MdDateRange />
                                                         <time>{format(new Date(latestBlog?.created_at || Date.now()), "MMMM d, yyyy")}</time>
                                                     </div>
                                                     <button className="flex items-center gap-1 hover:text-gray-900 transition-colors">
-                                                        {/* <Share2 className="w-4 h-4" /> */}
+                                                        <IoMdShare />
                                                         <span>Share</span>
                                                     </button>
                                                 </>
@@ -71,7 +71,7 @@ const SingleBlogSection = ({ latestBlog }) => {
                                 <div className="flex gap-2">
                                     {!isLoading && (
                                         <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-B75 text-B500">
-                                            {latestBlog?.categories || "Category"}
+                                            {latestBlog?.category?.name || "Category"}
                                         </span>
                                     )}
                                 </div>
@@ -83,7 +83,7 @@ const SingleBlogSection = ({ latestBlog }) => {
                                         : (
                                             <>
                                                 <span className="leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: content }}></span>
-                                                <div className="flex justify-end text-B500 hover:text-B300 font-bold cursor-pointer">
+                                                <div className="flex justify-end text-B500 hover:text-B300 hover:underline font-bold cursor-pointer">
                                                     {
                                                         sanitizedContent.length > 600 &&
                                                         <Link to={`/blog/${latestBlog?.slug}`}>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const JourneyDetailsPanel = ({ detail }) => {
   return (
     <>
-      <p className="flex justify-between items-center gap-[0.5rem] md:gap-[1rem]">
+      <p className="flex justify-between items-center gap-[0.5rem] md:gap-[1rem] bg-gray-100 rounded-lg px-4 py-2">
         <img
           src={detail?.icon}
           alt="TrekType.svg"
@@ -30,18 +30,18 @@ const TrekTile = ({ data }) => {
   return (
     <Link
       to={`/trek/${id}`}
-      className="cursor-pointer group max-w-lg flex flex-col gap-[1rem] rounded-lg overflow-hidden hover:shadow-lg shadow-md bg-white p-5 transition-all duration-500"
+      className="cursor-pointer group flex flex-col gap-[1rem] rounded-lg overflow-hidden hover:shadow-lg shadow-md hover:bg-B50 p-5 transition-all duration-500"
     >
-      <div className="relative">
+      <div className="relative overflow-hidden rounded-xl">
         <img
-          className="rounded w-full h-64 object-cover object-center brightness-[70%] group-hover:brightness-[50%] transition-all duration-300"
+          className=" w-full h-64 object-cover object-center group-hover:scale-110 transition-all duration-300"
           src={image}
           alt="Annapurna Base Camp Circuit"
         />
-        <span className="absolute top-[0.5rem] left-[0.5rem] bg-secondary text-white text-base  rounded-xl font-bold px-[1rem] py-[0.5rem]">
+        <span className="absolute top-[0.5rem] left-[0.5rem] bg-G300 text-white text-base  rounded-xl font-bold px-[1rem] py-[0.5rem]">
           Best Price
         </span>
-        <div className="absolute top-[0.5rem] right-[0.5rem] h-[2.3rem] w-[2.3rem] bg-secondary rounded-xl p-[0.3rem]">
+        <div className="absolute top-[0.5rem] right-[0.5rem] h-[2.3rem] w-[2.3rem] bg-G300 rounded-xl p-[0.3rem]">
           <img className="h-full w-full" src="/group.svg" alt="Group Icon" />
         </div>
         <img
@@ -60,7 +60,7 @@ const TrekTile = ({ data }) => {
           </span>
         </p>
       </div>
-      <div className="flex justify-between text-gray-600 mt-2 gap-[2rem]">
+      <div className="flex justify-between text-gray-600 mt-2 gap-2">
         {journeyDetails.map((detail, index) => (
           <JourneyDetailsPanel key={index} detail={detail} />
         ))}

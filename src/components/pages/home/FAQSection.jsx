@@ -24,7 +24,9 @@ const FAQSection = () => {
     })();
   }, []);
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 w-[100vw]   max-w-[100em] mx-auto ">
+      <h1 className="text-[2.375rem] font-semibold py-[2rem]">FAQs</h1>
+
       {Array.isArray(faqs) && faqs.length > 0 ? (
         faqs.map((faq, index) => <FAQ faq={faq} key={index} />)
       ) : (

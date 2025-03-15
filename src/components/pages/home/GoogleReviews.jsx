@@ -22,7 +22,7 @@ const GoogleReviews = () => {
   }, []);
 
   return (
-    <div className="p-4">
+    <div className="p-4 ">
       <h2 className="text-xl font-bold">Google Reviews</h2>
       {reviews.length > 0 ? (
         reviews.map((review, index) => (

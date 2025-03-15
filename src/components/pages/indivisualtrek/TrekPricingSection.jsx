@@ -3,8 +3,11 @@ import { CiShare2 } from "react-icons/ci";
 import { useParams } from "react-router-dom";
 
 import { scrollToSection } from "@/apis/scrollToSection.js";
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 import { FaStar } from "react-icons/fa";
+
+import { Link } from "react-router-dom";
+
+export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function TrekPricingSection({ price, map }) {
   const { id } = useParams();
 
@@ -62,9 +65,9 @@ function TrekPricingSection({ price, map }) {
         Make a Booking
       </div>
 
-      <div className="rounded-lg bg-G300 hover:bg-G500 text-white text-lg font-bold cursor-pointer flex justify-center items-center p-4">
+      <Link to="/contact" className="rounded-lg bg-G300 hover:bg-G500 text-white text-lg font-bold cursor-pointer flex justify-center items-center p-4">
         Quick Inquiry
-      </div>
+      </Link>
 
       <div className="flex flex-col gap-5 ">
         <div className="text-xl font-bold">Route Map & Elevation</div>

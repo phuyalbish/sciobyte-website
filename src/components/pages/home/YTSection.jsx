@@ -19,7 +19,7 @@ function YTSection() {
         alt=""
         className="w-full h-full object-cover absolute z-0"
       />
-      <div className="container h-full">
+      <div className="container h-full  max-w-[100em] mx-auto">
         <div className="relative  z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center gap-5 ">
           <div className="textConten w-7/12  flex md:flex-col gap-5 md:gap-10 md:pl-20 justify-center   ">
             <div className="text-3xl md:text-5xl text-left text-white font-bold flex flex-col ">

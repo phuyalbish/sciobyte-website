@@ -19,54 +19,65 @@ function Navbar() {
   }, []);
   return (
     <>
-      <div className="bg-B300  text-white shadow-md md:px-[4.63rem] py-4  items-center w-full flex flex-row justify-between text-sm md:text-base ">
-        <Link to="/">
-          <img
-            src={logo}
-            className={`w-8 ml-5 md:ml-0 aspect-square transition-all duration-300 ${
-              showLogo ? "scale-100" : "scale-0"
-            }`}
-            alt="Logo"
-          />
-        </Link>
+      <div className=" hidden md:flex bg-B300  text-white shadow-md items-center w-full justify-between text-sm md:text-base">
+        <div className="max-w-[100em] w-full mx-auto  flex items-center justify-between px-[4rem]  py-4">
+          <Link to="/">
+            <img
+              src={logo}
+              className={`w-8 ml-5 md:ml-0 aspect-square transition-all duration-300 ${
+                showLogo ? "scale-100" : "scale-0"
+              }`}
+              alt="Logo"
+            />
+          </Link>
 
-        <div className="flex flex-row  w-full justify-evenly  md:justify-center   sm:gap-5 md:gap-10 lg:gap-24 ">
-          {/* <button
-            className="flex items-center gap-1"
-            onClick={() => {
-              setIsHikeDropDownOpen(false);
-              setIsTipsDropDownOpen(false);
-              setIsTrekkingDropDownOpen(!isTrekkingDropDownOpen);
-            }}
-          >
-            Trekking <IoIosArrowDown />
-          </button>
-          <button
-            className="flex items-center gap-1"
-            onClick={() => {
-              setIsTrekkingDropDownOpen(false);
-              setIsTipsDropDownOpen(false);
-              setIsHikeDropDownOpen(!isHikeDropDownOpen);
-            }}
-          >
-            Day Hikes <IoIosArrowDown />
-          </button>
-          <button
-            className="sm:flex hidden items-center gap-1 "
-            onClick={() => {
-              setIsTrekkingDropDownOpen(false);
-              setIsHikeDropDownOpen(false);
-              setIsTipsDropDownOpen(!isTipsDropDownOpen);
-            }}
-          >
-            Travel Tips <IoIosArrowDown />
-          </button> */}
-          <Link to="/treks">Treks</Link>
-          <Link to="/hikes">Hikes</Link>
-          <Link to="/blogs">Blogs</Link>
-          <Link to="/about">About Us</Link>
+          <div className="flex flex-row justify-evenly  md:justify-center  gap-10  lg:gap-24 ">
+            <button
+              className="flex items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500"
+              onClick={() => {
+                setIsHikeDropDownOpen(false);
+                setIsTipsDropDownOpen(false);
+                setIsTrekkingDropDownOpen(!isTrekkingDropDownOpen);
+              }}
+            >
+              Trekking <IoIosArrowDown />
+            </button>
+            <button
+              className="flex items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500"
+              onClick={() => {
+                setIsTrekkingDropDownOpen(false);
+                setIsTipsDropDownOpen(false);
+                setIsHikeDropDownOpen(!isHikeDropDownOpen);
+              }}
+            >
+              Day Hikes <IoIosArrowDown />
+            </button>
+            <button
+              className="sm:flex hidden items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500"
+              onClick={() => {
+                setIsTrekkingDropDownOpen(false);
+                setIsHikeDropDownOpen(false);
+                setIsTipsDropDownOpen(!isTipsDropDownOpen);
+              }}
+            >
+              Travel Tips <IoIosArrowDown />
+            </button>
+            <Link
+              to="/blogs"
+              className="transition hover:underline underline-offset-1 hover:text-B500"
+            >
+              Blogs
+            </Link>
+            <Link
+              to="/about"
+              className="transition hover:underline underline-offset-1 hover:text-B500"
+            >
+              About Us
+            </Link>
+          </div>
         </div>
       </div>
+
       {isTrekkingDropDownOpen && (
         <div className="relative w-full bg-white p-5 shadow-md transition-all duration-300 ease-in-out">
           <p className="text-black">Trekking options will be listed here...</p>
