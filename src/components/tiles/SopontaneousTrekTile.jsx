@@ -5,7 +5,7 @@ const JourneyDetailsPanel = ({ detail }) => {
         <img
           src={detail?.icon}
           alt="TrekType.svg"
-          className="h-[1.5rem] w-[1.5rem]"
+          className="h-[1.5rem] w-[1.5rem] "
         />
         <span className="text-center">
           <span className="text-sm flex">{detail?.key}</span>
@@ -27,10 +27,10 @@ const TrekTile = ({ data }) => {
   ];
 
   return (
-    <div className="cursor-pointer w-[80vw] md:w-[350px] h-fit flex-wrap flex-grow  group max-w-lg flex flex-col gap-[1rem] rounded-lg overflow-hidden hover:shadow-xl shadow-md bg-white  p-5 transition-all duration-500">
-      <div className="relative">
+    <div className="group cursor-pointer w-full h-fit flex-wrap flex-grow  group max-w-lg flex flex-col gap-[1rem] rounded-lg overflow-hidden hover:shadow-xl shadow-md hover:bg-G50  p-5 transition-all duration-300">
+      <div className="relative overflow-hidden rounded">
         <img
-          className="rounded w-full h-64 object-cover transition-all duration-300"
+          className="group-hover:scale-110 w-full h-64 object-cover transition-all duration-300"
           src={image}
         />
         <span className="absolute top-[0.5rem] left-0 bg-secondary shadow-lg text-white font-light text-sm  rounded-r-md px-[1rem]">
@@ -41,12 +41,12 @@ const TrekTile = ({ data }) => {
         <div className="font-bold text-xl mb-2 text-left w-7/12 h-fit">
           {name}
         </div>
-        <div className="text-gray-600 text-sm font-extrabold text-right w-5/12 h-fit flex flex-col">
+        {/* <div className="text-gray-600 text-sm font-extrabold text-right w-5/12 h-fit flex flex-col">
           Price Starting From
-          <span className="text-primary font-extrabold text-2xl h-fit">
+          <span className="text-N500 font-extrabold text-2xl h-fit">
             USD {price}
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
