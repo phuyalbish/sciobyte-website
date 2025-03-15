@@ -53,7 +53,7 @@ const NeedToKnowSection = () => {
           <h1 className="mb-[3rem] text-6xl text-G200 reenie-beanie">
             You need to know these
           </h1>
-          <div className=" flex flex-col md:flex-row gap-[2.5rem]">
+          <div className=" flex flex-col md:flex-row gap-[2.5rem] items-center">
             {blogs.length > 0 && blogs[0] ? (
               <div className=" md:w-[40%]">
                 <BlogVerticalTile
@@ -125,7 +125,14 @@ const NeedToKnowSection = () => {
                             </div> */}
             </div>
           </div>
-          <div className="flex justify-end gap-5 py-5">
+          <div>
+            <div className="text-right text-B500 font-bold">
+              <Link to="/blogs" className="hover:underline hover:text-B300">
+                <span>See More ...</span>
+              </Link>
+            </div>
+          </div>
+          {/* <div className="flex justify-end gap-5 py-5">
             <div
               className="rounded-[0.25rem] p-5 bg-[#00A991] cursor-pointer"
               onClick={prevSlide}
@@ -138,7 +145,7 @@ const NeedToKnowSection = () => {
             >
               <img src="/right_keyboard_backspace.svg" alt="" />
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </>
