@@ -47,7 +47,7 @@ const HomeStaySection = () => {
   return (
     <div className="flex flex-col">
       <div className="relative px-10 md:px-[4rem] w-full z-40 flex  mb-20 flex-col gap-10 flex-grow-0 justify-center items-center">
-        <div className="bg-white py-2 px-3 w-fit  md:text-4xl text-xl  rounded-lg">
+        <div className="py-2 px-3 w-fit  md:text-4xl text-xl  rounded-lg">
           Your <span className="font-bold text-B300">PREFERENCE</span> is our{" "}
           <span className="font-bold text-B300">PRIORITY</span>
         </div>
@@ -75,14 +75,14 @@ const HomeStaySection = () => {
         )}
       </div>
       <div className="flex flex-col px-10 md:px-[4rem]   lg:gap-0 gap-10">
-        <div className="bg-white py-2 px-3 text-center md:text-4xl  md:mb-10 text-2xl rounded-lg">
+        <div className="py-2 px-3 text-center md:text-4xl  md:mb-10 text-2xl rounded-lg">
           Your <span className="font-bold text-B300">HOMESTAY</span> Family{" "}
           <span className="font-bold text-B300">WELCOMES</span> You.
         </div>
 
         <div className="flex flex-col lg:flex-row justify-evenly items-center w-full gap-5 ">
           <div className="w-full lg:w-1/2 flex flex-col justify-center gap-[3rem]  ">
-            <h1 className="text-[2rem] font-semibold">
+            <h1 className="text-[2rem] font-semibold text-left">
               Kritipur Comfort Homestay
             </h1>
             <p className="text-[1rem] text-left">
@@ -95,20 +95,24 @@ const HomeStaySection = () => {
               you to be a part of our home, where you’ll experience warmth,
               love, and the true essence of family. Welcome!
             </p>
+            <div className="flex">
+              <GoogleReview />
+            </div>
           </div>
-          <div className="relative w-[32rem]">
+          <div className="relative w-full md:w-[32rem]">
+            <div className="absolute h-full w-full bg-gradient-to-t from-black via-transparent to-transparent"></div>
             <img
               src="/homestay.png"
               alt="homestay"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover rounded-xl"
             />
             <a
-              href="https://www.instagram.com/nepalwelcomesyou"
+              href="https://www.instagram.com/nepalwelcomesyou/"
               target="_future"
-              className="absolute bottom-1 right-1 flex gap-2  items-center"
+              className="absolute bottom-1 right-1 flex gap-2  items-center "
             >
               <img src="/instagram-logo.png" alt="" className="w-6" />
-              <p className="text-lg font-semibold  text-white">
+              <p className="text-lg font-semibold  text-white underline underline-offset-1">
                 @nepalwelcomesyou
               </p>
             </a>
@@ -121,9 +125,8 @@ const HomeStaySection = () => {
           alt="homestay-vector"
           className="w-full   block"
         />
-        <div className="lg:w-full lg:absolute top-[20%] flex flex-row gap-3   justify-center w-full md:justify-between md:px-[4.5rem]">
-          <GoogleReview />
-        </div>
+        {/* <div className="lg:w-full lg:absolute top-[20%] flex flex-row gap-3   justify-center w-full md:justify-between md:px-[4.5rem]">
+        </div> */}
       </div>
     </div>
   );
