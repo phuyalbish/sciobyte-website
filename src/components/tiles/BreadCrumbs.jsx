@@ -15,7 +15,9 @@ function BreadCrumbs({
       {travel_type && (
         <>
           <GoChevronRight className="size-5 md:size-8" />
-          {travel_type}
+          <Link to={`/type/${travel_type}`} className="hover:underline">
+            {travel_type}
+          </Link>
         </>
       )}
       {category_name && (

@@ -34,18 +34,7 @@ function Header() {
           </header>
         </div>
         {isDropDown && (
-          <div className="px-10 w-full h-[100vh] fixed z-50 bg-white p-5 gap-5 shadow-md transition-all duration-300 ease-in-out flex flex-col">
-            <div className="flex  flex-col items-start">
-              <div className="text-base text-slate-600">WhatsApp</div>
-              <div className="lg:text-md text-black">+977-9709707037</div>
-            </div>
-            <div className="flex-col flex items-start">
-              <div className="text-base text-slate-600">Email us</div>
-              <div className="md:text-md text-black">
-                hellotrekkersnamaste@gmail.com
-              </div>
-            </div>
-          </div>
+          <div className="px-10 w-full h-[100vh] fixed z-50 bg-white p-5 gap-5 shadow-md transition-all duration-300 ease-in-out flex flex-col"></div>
         )}
       </div>
     </>

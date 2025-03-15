@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { scrollToSection } from "@/apis/scrollToSection.js";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 import { FaStar } from "react-icons/fa";
-function TrekPricingSection({ price, map, pricings }) {
+function TrekPricingSection({ price, map, pricings, name }) {
   const { id } = useParams();
 
   const [copied, setCopied] = useState(false);
@@ -71,11 +71,14 @@ function TrekPricingSection({ price, map, pricings }) {
       <div className="rounded-lg bg-B300 hover:bg-B500 text-white text-lg font-bold cursor-pointer flex justify-center items-center p-4">
         Make a Booking
       </div>
-
-      <div className="rounded-lg bg-G300 hover:bg-G500 text-white text-lg font-bold cursor-pointer flex justify-center gap-3 items-center p-4">
+      <a
+        href={`https://web.whatsapp.com/send?phone=+9779849828857&amp;text=Hello Aashish, I want to know more about: ${name}`}
+        target="_blank"
+        className="rounded-lg bg-G300 hover:bg-G500 text-white text-lg font-bold cursor-pointer flex justify-center gap-3 items-center p-4"
+      >
         <FaWhatsapp />
         Quick Inquiry
-      </div>
+      </a>
 
       <div className="flex flex-col gap-5 ">
         <div className="text-xl font-bold">Route Map & Elevation</div>

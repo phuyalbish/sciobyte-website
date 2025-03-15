@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BreadCrumbs from "@/components/tiles/BreadCrumbs";
 import { fetchIndivisualTrek } from "@/apis/treks.js";
-import DOMPurify from "dompurify";
 import ImageSlideSection from "@/components/pages/indivisualtrek/ImageSlideSection";
 import TrekBasicInformationSection from "@/components/pages/indivisualtrek/TrekBasicInformationSection";
 import TrekOverviewSection from "@/components/pages/indivisualtrek/TrekOverviewSection";
@@ -16,17 +15,14 @@ import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSec
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function IndivisualTrekPage() {
   const [trek, setTrek] = useState(null);
-  const [map, setMap] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     const getTrek = async () => {
       try {
         const response = await fetchIndivisualTrek(id);
-        const sanitizedMapLink = DOMPurify.sanitize(response?.map);
         console.log();
         setTrek(response);
-        setMap(sanitizedMapLink);
       } catch (error) {
         console.error("Error fetching trek:", error);
       }
@@ -39,7 +35,7 @@ function IndivisualTrekPage() {
     <>
       <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5">
         <BreadCrumbs
-          travel_type={trek?.type}
+          travel_type={trek?.type_name}
           category_name={trek?.category_name}
           category_id={trek?.category}
           name={trek?.name}
@@ -94,22 +90,27 @@ function IndivisualTrekPage() {
                 includes={trek?.includes}
                 excludes={trek?.excludes}
               />
-              <div id="maps" className="flex flex-col gap-5">
+              <div
+                id="maps"
+                className="flex flex-col gap-5  rounded-md overflow-hidden"
+              >
                 <div className="text-2xl font-bold">Map</div>
-                <div
-                  className="w-full h-[400px] object-cover"
-                  dangerouslySetInnerHTML={{ __html: map }}
-                ></div>
+                <a href={trek?.map_link} target="_blank">
+                  <img
+                    src={BASE_MEDIA_URL + trek?.map}
+                    className="w-full h-[400px] object-cover rounded-md"
+                  />
+                </a>
               </div>
 
               <div
-                className="flex flex-col gap-5 "
+                className="flex flex-col gap-5  rounded-md overflow-hidden"
                 onClick={() => scrollToSection("maps")}
               >
                 <div className="text-2xl font-bold">Elevation Graph:</div>
                 <img
                   src={BASE_MEDIA_URL + trek?.elevation_graph}
-                  className="w-full h-[400px] object-cover"
+                  className="w-full h-[400px] object-cover rounded-md"
                 />
               </div>
               <TrekFAQSection faqs={trek?.faqs} />
@@ -120,7 +121,8 @@ function IndivisualTrekPage() {
             <TrekPricingSection
               price={trek?.price}
               pricings={trek?.pricing}
-              map={map}
+              map={trek?.map}
+              name={trek?.name}
             />
           </div>
         </div>
