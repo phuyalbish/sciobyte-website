@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import BreadCrums from "@/components/tiles/BreadCrums";
+import BreadCrumbs from "@/components/tiles/BreadCrumbs";
 import { fetchIndivisualTrek } from "@/apis/treks.js";
 import ImageSlideSection from "@/components/pages/indivisualtrek/ImageSlideSection";
 import TrekBasicInformationSection from "@/components/pages/indivisualtrek/TrekBasicInformationSection";
@@ -34,7 +34,7 @@ function IndivisualTrekPage() {
   return (
     <>
       <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5">
-        <BreadCrums
+        <BreadCrumbs
           travel_type={trek?.type}
           category_name={trek?.category_name}
           category_id={trek?.category}

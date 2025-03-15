@@ -17,7 +17,6 @@ export const fetchIndivisualCategories = async (id) => {
       url: `${BASE_API_URL}/categories/${id}/`,
       method: "GET",
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.log("Error while fetching category data: ", error);

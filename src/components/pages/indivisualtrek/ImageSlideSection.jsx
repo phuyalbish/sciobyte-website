@@ -6,7 +6,7 @@ function ImageSlideSection({ gallery }) {
   const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
   return (
     <>
-      <div className="w-full relative hidden sm:flex h-[616px]  transition-all duration-300 ease-in-out">
+      <div className="w-full relative hidden sm:flex h-[616px] overflow-hidden rounded-md transition-all duration-300 ease-in-out">
         {gallery?.slice(0, 4).map((item, index) =>
           index == 3 ? (
             <div

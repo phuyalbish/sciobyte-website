@@ -2,7 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "@/pages/HomePage.jsx";
 import AboutUs from "@/pages/AboutUsPage.jsx";
-import IndivisualTrek from "@/pages/IndivisualTrekPage.jsx";
+import IndivisualTrekPage from "@/pages/IndivisualTrekPage.jsx";
+import IndivisualCategoryPage from "@/pages/IndivisualCategoryPage.jsx";
 import IndivisualDistrictPage from "@/pages/IndivisualDistrictPage.jsx";
 import Contact from "@/pages/ContactPage.jsx";
 import Blogs from "@/pages/BlogListPage.jsx";
@@ -15,7 +16,8 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<AboutUs />} />
-      <Route path="/trek/:id" element={<IndivisualTrek />} />
+      <Route path="/trek/:id" element={<IndivisualTrekPage />} />
+      <Route path="/category/:id" element={<IndivisualCategoryPage />} />
       <Route path="/district/:id" element={<IndivisualDistrictPage />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<Contact />} />
