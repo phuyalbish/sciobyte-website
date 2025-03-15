@@ -83,7 +83,7 @@ const SingleBlogSection = ({ latestBlog }) => {
                                         : (
                                             <>
                                                 <span className="leading-relaxed text-left" dangerouslySetInnerHTML={{ __html: content }}></span>
-                                                <div className="flex justify-end text-B500 hover:text-B300 font-bold cursor-pointer">
+                                                <div className="flex justify-end text-B500 hover:text-B300 hover:underline font-bold cursor-pointer">
                                                     {
                                                         sanitizedContent.length > 600 &&
                                                         <Link to={`/blog/${latestBlog?.slug}`}>
