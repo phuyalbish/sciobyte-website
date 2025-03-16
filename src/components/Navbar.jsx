@@ -87,7 +87,7 @@ function Navbar() {
                   </button>
 
                   {dropdowns[item.slug] && (
-                    <div className="absolute top-[10vh] m-auto w-[50vw] bg-white/15 backdrop-blur-sm border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
+                    <div className="absolute top-[10vh] m-auto w-[50vw] bg-white/15 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
                       {typeDetails[item.slug]?.treks?.map((trek) => (
                         <NavbarTrekCategoryTile
                           key={trek.id}

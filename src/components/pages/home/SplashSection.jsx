@@ -3,12 +3,17 @@ import img from "@/assets/SplashScreenImg.png";
 import imgVector from "@/assets/vectorSplashImg.png";
 import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
-
+import { fetchSearch } from "@/apis/search.js";
+import SearchTrekCategoryTile from "@/components/tiles/SearchTrekCategoryTile.jsx";
 function SplashSection() {
   const [isSearchTile, setIsSearchTile] = useState(false);
   const [searchText, setSearchText] = useState("");
-  const handleSearch = () => {
+  const [searchData, setSearchData] = useState(null);
+  const handleSearch = async () => {
     if (searchText.trim() !== "") {
+      const response = await fetchSearch(searchText);
+      console.log(response.data);
+      setSearchData(response.data);
       setIsSearchTile(true);
       console.log("Searching for:", searchText);
     } else {
@@ -34,9 +39,7 @@ function SplashSection() {
               Creating your Tales from our Trails
             </div>
           ) : (
-            <div className="w-full h-40 bg-white/15 backdrop-blur-md border border-white/20 rounded-lg">
-              Gradient Background
-            </div>
+            ""
           )}
           <div className="bg-white z-40  rounded-md overflow-hidden flex items-center px-5  h-10  gap-5  md:h-14   md:w-[50vw]">
             <input
@@ -57,6 +60,21 @@ function SplashSection() {
               />
             )}
           </div>
+          {isSearchTile ? (
+            <div className="w-full  bg-white/15 backdrop-blur-md border p-2 gap-2 border-white/20 rounded-lg flex flex-row  overflow-x-scroll">
+              {searchData?.map((item, index) => (
+                <SearchTrekCategoryTile
+                  name={item?.name}
+                  id={item?.id}
+                  type={item?.type_name}
+                  main_type={item?.main_type}
+                  image={item?.image}
+                />
+              ))}
+            </div>
+          ) : (
+            ""
+          )}
         </div>
         <img
           src={imgVector}
