@@ -8,25 +8,106 @@ import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { HeadingSkeleton, DescriptionSkeleton, LongBlogContentSkeleton, ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
+import GotoTop  from "@/components/GotoTop.jsx";
+import { v4 as uuidv4 } from "uuid";
 
+import "@/assets/styles/blogs.css";
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+
+const extractHeadings = (htmlContent) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, "text/html");
+
+    const h1Elements = [...doc.querySelectorAll("h1")].map(h1 => {
+        const id = uuidv4();
+        h1.id = id;
+        return {
+            id: id,
+            content: h1.textContent
+        }
+    });
+
+    return {
+        h1Elements: h1Elements,
+        updatedContent: doc.body.innerHTML
+    }
+}
+
+const Sidebar = ({ headings }) => {
+
+
+    const navigateSidebar = (e, id) => {
+        // console.dir([...e.target.parentNode.children]);
+        const sidebarHeadings = [...e.target.parentNode.children].filter(child => child !== e.target);
+        sidebarHeadings.forEach(heading => heading.classList.remove("text-B400"));
+        e.target.classList.add("text-B400");
+
+        const targetElement = document.getElementById(id);
+        if (targetElement) {
+            (targetElement.previousElementSibling || targetElement)
+                .scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    return (
+        <>
+            <div className="hidden lg:block w-64 shrink-0">
+                <div className="sticky top-40">
+                    <div className="bg-white rounded-lg shadow-sm py-5 text-left">
+                        <h2 className="px-5 text-lg font-semibold text-gray-900 mb-4">Content</h2>
+                        <nav className="p-5 w-full space-y-3 h-[50vh] overflow-x-hidden overflow-y-auto">
+                            {
+                                headings.length === 0 ? (
+                                    <>
+                                        <DescriptionSkeleton />
+                                        <DescriptionSkeleton />
+                                        <DescriptionSkeleton />
+                                        <DescriptionSkeleton />
+                                    </>
+                                ) : (
+                                    <>
+                                        {headings.map((heading, index) => (
+                                            <p
+                                                onClick={(e) => navigateSidebar(e, heading.id)}
+                                                key={index}
+                                                className={`block cursor-pointer ${index === 0 ? 'text-B400' : ''} hover:text-B400`}
+                                            >
+                                                {heading.content}
+                                            </p>
+                                        ))}
+                                    </>
+                                )
+                            }
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
 
 const BlogDetail = () => {
     const { slug } = useParams();
-    console.log("slug: ", slug);
 
     const [blog, setBlog] = useState({});
     const [content, setContent] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+    const [headings, setHeadings] = useState([]);
 
     useEffect(() => {
         (async () => {
             try {
                 const response = await fetchBlogBySlug(slug);
+
+                console.log("response: ", response);
+
                 const blogData = response?.data || {}; // Ensure it's an array
                 const sanitizedContent = DOMPurify.sanitize(blogData?.content)
 
+                const { h1Elements, updatedContent } = extractHeadings(sanitizedContent);
+                setHeadings(h1Elements);
                 setBlog(blogData);
-                setContent(sanitizedContent);
+                setContent(updatedContent);
             } catch (error) {
                 console.error("Error fetching blog:", error);
                 setBlog({});
@@ -66,7 +147,7 @@ const BlogDetail = () => {
                                                 <span className="font-medium">by {blog?.authors?.fullname || "Unknown"}</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                < MdDateRange/>
+                                                < MdDateRange />
                                                 <time>{format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy")}</time>
                                             </div>
 
@@ -88,8 +169,8 @@ const BlogDetail = () => {
                                         : (
 
                                             <img
-                                                src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?auto=format&fit=crop&q=80&w=2069"
-                                                alt="Annapurna Base Camp"
+                                                src={BASE_MEDIA_URL + blog?.images?.image}
+                                                alt={blog?.heading}
                                                 className="w-full h-full object-cover rounded-xl"
                                             />
                                         )
@@ -128,30 +209,8 @@ const BlogDetail = () => {
                     </div>
 
                     {/* Sidebar */}
-                    <div className="hidden lg:block w-64 shrink-0">
-                        <div className="sticky top-40">
-                            <div className="bg-white rounded-lg shadow-sm p-6 text-left">
-                                <h2 className="text-lg font-semibold text-gray-900 mb-4">Content</h2>
-                                <nav className="space-y-3">
-                                    <a href="#introduction" className="block text-blue-600 hover:text-blue-700">
-                                        Introduction
-                                    </a>
-                                    <a href="#features" className="block text-gray-600 hover:text-gray-900">
-                                        Features
-                                    </a>
-                                    <a href="#how-to-use" className="block text-gray-600 hover:text-gray-900">
-                                        How to Use api and this is true for all
-                                    </a>
-                                    <a href="#introduction-2" className="block text-gray-600 hover:text-gray-900">
-                                        Introduction
-                                    </a>
-                                    <a href="#features-2" className="block text-gray-600 hover:text-gray-900">
-                                        Features
-                                    </a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
+                    <Sidebar headings={headings} />
+                    <GotoTop />
                 </div>
             </div>
         </>

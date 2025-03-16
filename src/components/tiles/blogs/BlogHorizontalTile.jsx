@@ -9,6 +9,7 @@ import { ImageSkeleton } from "@/components/skeleton/Skeleton.jsx"
 const BlogHorizontalTile = ({ blog }) => {
     const {
         title,
+        author,
         date,
         location,
         imageUrl,
@@ -37,7 +38,8 @@ const BlogHorizontalTile = ({ blog }) => {
                 <span className="absolute bottom-4 left-0 bg-white text-black px-3 py-1 rounded-r-md text-[1rem] font-medium">
                     {category}
                 </span>
-                <span className="cursor-pointer absolute top-4 right-4 bg-white text-[#008774] border border-[#008774] px-[1rem] py-[0.5rem] rounded-md text-[0.875rem] font-semibold">
+                <span className="flex items-center gap-1 cursor-pointer absolute top-4 right-4 bg-white text-[#008774] border border-[#008774] px-[1rem] py-[0.5rem] rounded-md text-[0.875rem] font-semibold">
+                    <IoMdShare />
                     share
                 </span>
             </div>
@@ -45,7 +47,7 @@ const BlogHorizontalTile = ({ blog }) => {
                 <div className="flex items-center gap-4 text-gray-600">
                     <div className="flex items-center gap-1">
                         <AiFillEdit />
-                        <span className="text-sm">{date}</span>
+                        <span className="text-sm">{author}</span>
                     </div>
                     <div className="flex items-center gap-1">
                         <MdDateRange />
