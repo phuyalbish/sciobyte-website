@@ -14,7 +14,7 @@ function TrekPricingSection({ price, map, pricings, name }) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(
-        "https://hellotrekkers.com/trek/" + id
+        "https://hellotrekkers.com/travel/" + id
       );
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
@@ -73,7 +73,7 @@ function TrekPricingSection({ price, map, pricings, name }) {
         Make a Booking
       </div>
       <a
-        href={`https://web.whatsapp.com/send?phone=+9779849828857&amp;text=Hello Aashish, I want to know more about: ${name}`}
+        href={`https://web.whatsapp.com/send?phone=+9779849828857&text=Hello Aashish, I want to know more about: ${name}`}
         target="_blank"
         className="rounded-lg bg-G300 hover:bg-G500 text-white text-lg font-bold cursor-pointer flex justify-center gap-3 items-center p-4"
       >

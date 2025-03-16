@@ -5,12 +5,13 @@ export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function TrekRequirementSection({ requirements, gears }) {
   return (
     <section id="requirements" className="flex flex-col gap-5">
-      <div className="text-2xl font-bold">Requirement and Gears</div>
+      <div className="text-2xl font-bold">Requirements and Gears</div>
       {requirements}
       <div className="flex flex-wrap gap-2">
         {gears?.length ? (
           gears.map((item, index) => (
             <div
+              key={index}
               className={` py-2 px-4 rounded-xl flex gap-3 items-center border hover:border-B75 bg-transparent`}
             >
               <img

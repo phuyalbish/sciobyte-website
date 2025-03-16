@@ -14,13 +14,13 @@ const TrekFAQ = ({ faq }) => {
   const answer =
     faq?.answer.slice(-1) !== "." ? faq?.question + "." : faq?.question;
 
-  const question_default_bg_color = isOpened ? "bg-[#91BCED]" : "bg-[#ECF3FC]";
+  const question_default_bg_color = isOpened ? "bg-B75" : "bg-white";
 
   return (
     <>
       <div className="cursor-pointer w-full  mx-auto select-none">
         <div
-          className={`${question_default_bg_color} hover:bg-[#91BCED] p-4 rounded-md shadow-md transition duration-300 ease-in-out `}
+          className={`${question_default_bg_color} hover:bg-B75 p-4 rounded-md shadow-xs transition duration-300 ease-in-out `}
           onClick={() => setIsOpened(!isOpened)}
         >
           <div className="flex justify-between items-center">
@@ -30,7 +30,7 @@ const TrekFAQ = ({ faq }) => {
         </div>
 
         {isOpened && (
-          <div className="bg-[#B1CFF2] p-4 rounded-md shadow-md mt-2">
+          <div className="bg-B50 p-4 rounded-md shadow-xs mt-2">
             <span className="text-left font-medium">{answer}</span>
           </div>
         )}
@@ -40,15 +40,3 @@ const TrekFAQ = ({ faq }) => {
 };
 
 export default TrekFAQ;
-
-{
-  /* <style> */
-}
-{
-  /* .transition-transform { */
-}
-// transition: transform 0.3s ease;
-// }
-{
-  /* </style> */
-}
