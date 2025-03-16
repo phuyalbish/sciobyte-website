@@ -7,6 +7,7 @@ import YTSection from "@/components/pages/home/YTSection.jsx";
 import HomeStaySection from "@/components/pages/home/HomeStaySection.jsx";
 import InstagramSection from "@/components/pages/home/InstagramSection";
 import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
+import ReviewSection from "@/components/pages/home/ReviewSection";
 import SpontaneousTrekSection from "@/components/pages/home/SpontaneousTrekSection";
 
 function HomePage() {
@@ -16,9 +17,10 @@ function HomePage() {
       <TrekSection />
       <Parallex />
       <HomeStaySection />
-      <SpontaneousTrekSection />
       <div className="flex flex-col">
+        <SpontaneousTrekSection />
         <YTSection />
+        <ReviewSection />
       </div>
       <InstagramSection />
       <NeedToKnowSection />

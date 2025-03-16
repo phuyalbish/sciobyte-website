@@ -38,3 +38,8 @@
 .read-the-docs {
   color: #888;
 }
+
+img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}

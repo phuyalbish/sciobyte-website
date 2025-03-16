@@ -19,7 +19,7 @@ export default function YTCarousel({
     return () => clearInterval(slideInterval);
   }, []);
   return (
-    <div className="relative overflow-hidden   flex flex-col justify-center gap-5 h-[70vh]  w-[80vw]  md:w-[30vw]">
+    <div className="relative overflow-hidden  rounded-xl flex flex-col justify-center gap-5 h-[70vh]  w-[80vw]  md:w-[30vw]">
       <div
         className="flex transition-transform ease-out duration-500  "
         style={{ transform: `translateX(-${curr * 100}%)` }}
@@ -40,19 +40,6 @@ export default function YTCarousel({
           <FaChevronRight size={20} />
         </button>
       </div>
-
-      {/* <div className="absolute bottom-4 right-0 left-0">
-        <div className="flex items-center justify-center gap-2">
-          {slides.map((_, i) => (
-            <div
-              className={`
-              transition-all w-3 h-3 bg-white rounded-full
-              ${curr === i ? "p-2" : "bg-opacity-50"}
-            `}
-            />
-          ))}
-        </div>
-      </div> */}
     </div>
   );
 }
