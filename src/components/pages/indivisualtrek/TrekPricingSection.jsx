@@ -4,6 +4,10 @@ import { useParams } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { scrollToSection } from "@/apis/scrollToSection.js";
+import { FaStar } from "react-icons/fa";
+
+import { Link } from "react-router-dom";
+
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 import { FaStar } from "react-icons/fa";
 function TrekPricingSection({ price, map, pricings }) {
@@ -68,9 +72,12 @@ function TrekPricingSection({ price, map, pricings }) {
           <p>No Detailed Pricing</p>
         )}
       </div>
-      <div className="rounded-lg bg-B300 hover:bg-B500 text-white text-lg font-bold cursor-pointer flex justify-center items-center p-4">
+      <Link
+        to="/contact"
+        className="rounded-lg bg-B300 hover:bg-B500 text-white text-lg font-bold cursor-pointer flex justify-center items-center p-4"
+      >
         Make a Booking
-      </div>
+      </Link>
 
       <div className="rounded-lg bg-G300 hover:bg-G500 text-white text-lg font-bold cursor-pointer flex justify-center gap-3 items-center p-4">
         <FaWhatsapp />

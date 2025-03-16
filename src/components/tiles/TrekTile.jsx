@@ -38,10 +38,10 @@ const TrekTile = ({ data }) => {
           src={image}
           alt="Annapurna Base Camp Circuit"
         />
-        <span className="absolute top-[0.5rem] left-[0.5rem] bg-secondary text-white text-base  rounded-xl font-bold px-[1rem] py-[0.5rem]">
+        <span className="absolute top-[0.5rem] left-[0.5rem] bg-G300 text-white text-base  rounded-xl font-bold px-[1rem] py-[0.5rem]">
           Best Price
         </span>
-        <div className="absolute top-[0.5rem] right-[0.5rem] h-[2.3rem] w-[2.3rem] bg-secondary rounded-xl p-[0.3rem]">
+        <div className="absolute top-[0.5rem] right-[0.5rem] h-[2.3rem] w-[2.3rem] bg-G300 rounded-xl p-[0.3rem]">
           <img className="h-full w-full" src="/group.svg" alt="Group Icon" />
         </div>
         <img

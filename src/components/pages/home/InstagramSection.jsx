@@ -45,9 +45,9 @@ function InstagramSection() {
             <FaInstagram size="24" />
             <p className="text-base md:text-xl">@hellotrekkersnamaste</p>
           </div>
-          <div className="sm:flex hidden text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2">
+          <a href="https://www.instagram.com/hellotrekkersnamaste/" target="_blank" className="sm:flex hidden text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2">
             Follow us
-          </div>
+          </a>
         </div>
         {/* <div className="flex flex-row flex-wrap"> */}
         <div className="grid grid-cols-3 gap-[0.25rem]">

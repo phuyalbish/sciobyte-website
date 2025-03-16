@@ -15,9 +15,10 @@ const LatestTravelBlog = ({latestBlogs}) => {
                                     key={index}
                                     blog={{
                                         title:  blog?.heading || "Trekking is Awesome",
+                                        author: blog?.authors?.fullname || "unknown",
                                         date: format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy"), 
                                         location:"Nepal",
-                                        category: blog?.category || "category",
+                                        category: blog?.category.name || "category",
                                         imageUrl: blog?.images?.image,
                                         slug: blog?.slug
                                     }}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // const handleWord = (word) => {
 //   const numberOfWords = word.split(" ").length;
@@ -36,9 +37,9 @@ const NavItems = ({ item }) => {
         <ul className="flex flex-col gap-[0.625rem] text-center md:text-left">
           {items.map((item, index) => (
             <li key={index} className="  py-[0.5rem] px-[0.625rem] ">
-              <a href="" className="line-clamp-2">
+              <Link to={item.url} className="line-clamp-2">
                 {item.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -128,7 +129,7 @@ function Footer() {
         },
         {
           name: "Contact Us",
-          url: "",
+          url: "/contact",
         },
         {
           name: "Blogs",
@@ -184,10 +185,10 @@ function Footer() {
             {menuItems.map((item, index) => {
               if (index === 2) {
                 return (
-                  <>
+                  <React.Fragment key={index}>
                     <HTLogo className="hidden lg:block" />
                     <NavItems item={item} />
-                  </>
+                  </React.Fragment>
                 );
               }
               return <NavItems item={item} key={index} />;
@@ -197,6 +198,12 @@ function Footer() {
 
         <div className="w-full -translate-y-[15%] absolute left-0 z-[-1]">
           <img width="100%" src="/footer-img.png" alt="footer-img" />
+          <div className="py-5 bg-black text-white translate-y-[-1%]">
+            <p>
+              All rights reserved ©️ Hello Trekkers Pvt. Ltd, Designed with Love
+              by Webodle
+            </p>
+          </div>
         </div>
       </div>
     </footer>
