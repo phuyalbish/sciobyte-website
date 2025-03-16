@@ -28,7 +28,7 @@ function ImageSlideSection({ gallery }) {
             <img
               key={index}
               src={BASE_MEDIA_URL + item.image}
-              className={`object-cover  overflow-hidden transition-all duration-500 ease-in-out 
+              className={`object-cover pointer-events-auto  overflow-hidden transition-all duration-500 ease-in-out 
                   ${gallery?.length === 1 ? "w-full" : ""}
                   ${gallery?.length === 2 ? "w-1/2 hover:w-2/3" : ""}
                   ${gallery?.length === 3 ? "w-1/3 hover:w-2/3" : ""}
