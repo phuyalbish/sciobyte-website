@@ -198,6 +198,12 @@ function Footer() {
 
         <div className="w-full -translate-y-[15%] absolute left-0 z-[-1]">
           <img width="100%" src="/footer-img.png" alt="footer-img" />
+          <div className="py-5 bg-black text-white translate-y-[-1%]">
+            <p>
+            All rights reserved ©️ Hello Trekkers Pvt. Ltd, 
+            Designed with Love by Webodle
+            </p>
+          </div>
         </div>
       </div>
     </footer>
