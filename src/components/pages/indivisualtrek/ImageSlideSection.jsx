@@ -28,7 +28,7 @@ function ImageSlideSection({ gallery }) {
             <img
               key={index}
               src={BASE_MEDIA_URL + item.image}
-              className={`object-cover  overflow-hidden transition-all duration-500 ease-in-out 
+              className={`object-cover pointer-events-auto  overflow-hidden transition-all duration-500 ease-in-out 
                   ${gallery?.length === 1 ? "w-full" : ""}
                   ${gallery?.length === 2 ? "w-1/2 hover:w-2/3" : ""}
                   ${gallery?.length === 3 ? "w-1/3 hover:w-2/3" : ""}
@@ -56,7 +56,7 @@ function ImageSlideSection({ gallery }) {
               <img
                 key={index}
                 src={BASE_MEDIA_URL + item.image}
-                className="z-0 bg-black object-cover rounded-md w-100 aspect-ratio overflow-hidden transition-all duration-500 ease-in-out"
+                className="z-0 bg-black object-cover rounded-md w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
               />
             </div>
           ) : (
@@ -70,7 +70,7 @@ function ImageSlideSection({ gallery }) {
         )}
       </div>
       {isOpenGallerySection && (
-        <div className="fixed w-full h-full  py-10 px-20 top-0 left-0 z-50   bg-white/85 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
+        <div className="fixed w-full h-full  py-20 md:px-20 top-0 left-0 z-50   bg-white/100 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
           <IoCloseOutline
             className="text-black cursor-pointer absolute right-10 top-4 self-end"
             size={48}

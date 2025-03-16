@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BreadCrumbs from "@/components/tiles/BreadCrumbs";
 import { fetchIndivisualTrek } from "@/apis/treks.js";
-import DOMPurify from "dompurify";
 import ImageSlideSection from "@/components/pages/indivisualtrek/ImageSlideSection";
 import TrekBasicInformationSection from "@/components/pages/indivisualtrek/TrekBasicInformationSection";
 import TrekOverviewSection from "@/components/pages/indivisualtrek/TrekOverviewSection";
@@ -10,23 +9,21 @@ import TrekOverviewSection from "@/components/pages/indivisualtrek/TrekOverviewS
 import { scrollToSection } from "@/apis/scrollToSection.js";
 import TrekItenarySection from "@/components/pages/indivisualtrek/TrekItenarySection";
 import TrekFAQSection from "@/components/pages/indivisualtrek/TrekFAQSection";
+import TrekRequirementSection from "@/components/pages/indivisualtrek/TrekRequirementSection";
 import TrekReviewsSection from "@/components/pages/indivisualtrek/TrekReviewsSection";
 import TrekIncludedSection from "@/components/pages/indivisualtrek/TrekIncludedSection";
 import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSection";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function IndivisualTrekPage() {
   const [trek, setTrek] = useState(null);
-  const [map, setMap] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     const getTrek = async () => {
       try {
         const response = await fetchIndivisualTrek(id);
-        const sanitizedMapLink = DOMPurify.sanitize(response?.map);
         console.log();
         setTrek(response);
-        setMap(sanitizedMapLink);
       } catch (error) {
         console.error("Error fetching trek:", error);
       }
@@ -39,7 +36,7 @@ function IndivisualTrekPage() {
     <>
       <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5">
         <BreadCrumbs
-          travel_type={trek?.type}
+          travel_type={trek?.type_name}
           category_name={trek?.category_name}
           category_id={trek?.category}
           name={trek?.name}
@@ -48,7 +45,7 @@ function IndivisualTrekPage() {
         <div className="flex sticky top-0 h-full gap-10 w-full">
           <div className="flex md:w-2/3 w-full flex-col gap-24 ">
             <TrekBasicInformationSection data={trek} />
-            <div className="flex flex-col gap-8 text-left">
+            <div className="flex flex-col gap-8 text-left mb-10">
               <div className="py-3 px-3 sticky overflow-x-scroll top-[8vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
                 <button
                   onClick={() => scrollToSection("overview")}
@@ -61,6 +58,13 @@ function IndivisualTrekPage() {
                   className="hover:underline"
                 >
                   Itenary
+                </button>
+
+                <button
+                  onClick={() => scrollToSection("requirements")}
+                  className="hover:underline"
+                >
+                  Requirements
                 </button>
                 <button
                   onClick={() => scrollToSection("included")}
@@ -76,56 +80,57 @@ function IndivisualTrekPage() {
                 >
                   FAQs
                 </button>
-                <button
-                  onClick={() => scrollToSection("reviews")}
-                  className="hover:underline"
-                >
-                  Reviews
-                </button>
               </div>
               <TrekOverviewSection data={trek?.description} />
-
               <div className="block md:hidden">
                 <TrekPricingSection price={trek?.price} map={trek?.map_image} />
               </div>
-
               <TrekItenarySection data={trek?.schedules} />
+              <TrekRequirementSection
+                requirements={trek?.requirements}
+                gears={trek?.gears_name}
+              />
               <TrekIncludedSection
                 includes={trek?.includes}
                 excludes={trek?.excludes}
               />
-              <div id="maps" className="flex flex-col gap-5">
-                <div className="text-2xl font-bold">Map</div>
-                <div
-                  className="w-full h-[400px] object-cover"
-                  dangerouslySetInnerHTML={{ __html: map }}
-                ></div>
-              </div>
-
               <div
-                className="flex flex-col gap-5 "
+                id="maps"
+                className="flex flex-col gap-5  rounded-md overflow-hidden"
+              >
+                <div className="text-2xl font-bold">Map</div>
+                <a href={trek?.map_link} target="_blank">
+                  <img
+                    src={BASE_MEDIA_URL + trek?.map}
+                    className="w-full h-[400px] object-cover rounded-md"
+                  />
+                </a>
+              </div>
+              <div
+                className="flex flex-col gap-5  rounded-md overflow-hidden"
                 onClick={() => scrollToSection("maps")}
               >
                 <div className="text-2xl font-bold">Elevation Graph:</div>
                 <img
                   src={BASE_MEDIA_URL + trek?.elevation_graph}
-                  className="w-full h-[400px] object-cover"
+                  className="w-full h-[400px] object-cover rounded-md"
                 />
               </div>
               <TrekFAQSection faqs={trek?.faqs} />
-              <TrekReviewsSection />
+              {/* <TrekReviewsSection /> */}
             </div>
           </div>
           <div className="md:flex sticky top-[10vh] hidden md:w-1/3  h-[80vh]">
             <TrekPricingSection
               price={trek?.price}
               pricings={trek?.pricing}
-              map={map}
+              map={trek?.map}
+              name={trek?.name}
             />
           </div>
         </div>
       </div>
-      <div className="fixed bg-B75 z-10  bottom-0 h-16 sm:hidden">
+      <div className="fixed bg-B75 z-10 w-full  bottom-0 h-16 sm:hidden">
         <div className="p-2 flex justify-end gap-16">
           <div className="flex flex-col justify-start items-start ">
             <div className="text-base font-light text-N300">Connect</div>

@@ -29,7 +29,7 @@ const TrekTile = ({ data }) => {
 
   return (
     <Link
-      to={`/trek/${id}`}
+      to={`/travel/${id}`}
       className="cursor-pointer group flex flex-col gap-[1rem] rounded-lg overflow-hidden hover:shadow-lg shadow-md hover:bg-B50 p-5 transition-all duration-500"
     >
       <div className="relative overflow-hidden rounded-xl">

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 import { FaStar } from "react-icons/fa";
-function TrekPricingSection({ price, map, pricings }) {
+function TrekPricingSection({ price, map, pricings, name }) {
   const { id } = useParams();
 
   const [copied, setCopied] = useState(false);
@@ -18,7 +18,7 @@ function TrekPricingSection({ price, map, pricings }) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(
-        "https://hellotrekkers.com/trek/" + id
+        "https://hellotrekkers.com/travel/" + id
       );
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
@@ -50,24 +50,25 @@ function TrekPricingSection({ price, map, pricings }) {
         </div>
       </div>
       <div className="flex flex-col border gap-2 border-N300 rounded-xl px-4 py-4">
-        <div className="flex justify-between pt-1  border-N200 ">
-          <div className="font-semibold">Group Size</div>
-          <div className="font-semibold">Cost Per Person</div>
-        </div>
-
         {Array.isArray(pricings) && pricings?.length > 0 ? (
-          pricings?.map((item, index) => (
-            <div
-              key={index}
-              className="flex justify-between pt-1 border-t border-N200"
-            >
-              <div>
-                {item?.min_group_range !== 0 && `${item?.min_group_range} - `}
-                {item?.max_group_range} Person
-              </div>
-              <div>${item?.price_per_person}</div>
+          <>
+            <div className="flex justify-between pt-1 border-t border-N200">
+              <div className="font-semibold">Group Size</div>
+              <div className="font-semibold">Cost Per Person</div>
             </div>
-          ))
+            {pricings?.map((item, index) => (
+              <div
+                key={index}
+                className="flex justify-between pt-1 border-t border-N200"
+              >
+                <div>
+                  {item?.min_group_range !== 0 && `${item?.min_group_range} - `}
+                  {item?.max_group_range} Person
+                </div>
+                <div>${item?.price_per_person}</div>
+              </div>
+            ))}
+          </>
         ) : (
           <p>No Detailed Pricing</p>
         )}
@@ -78,11 +79,14 @@ function TrekPricingSection({ price, map, pricings }) {
       >
         Make a Booking
       </Link>
-
-      <div className="rounded-lg bg-G300 hover:bg-G500 text-white text-lg font-bold cursor-pointer flex justify-center gap-3 items-center p-4">
+      <a
+        href={`https://web.whatsapp.com/send?phone=+9779849828857&text=Hello Aashish, I want to know more about: ${name}`}
+        target="_blank"
+        className="rounded-lg bg-G300 hover:bg-G500 text-white text-lg font-bold cursor-pointer flex justify-center gap-3 items-center p-4"
+      >
         <FaWhatsapp />
         Quick Inquiry
-      </div>
+      </a>
 
       <div className="flex flex-col gap-5 ">
         <div className="text-xl font-bold">Route Map & Elevation</div>

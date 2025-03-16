@@ -45,7 +45,11 @@ function InstagramSection() {
             <FaInstagram size="24" />
             <p className="text-base md:text-xl">@hellotrekkersnamaste</p>
           </div>
-          <a href="https://www.instagram.com/hellotrekkersnamaste/" target="_blank" className="sm:flex hidden text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2">
+          <a
+            href="https:/www.instagram.com/hellotrekkersnamaste"
+            target="_blank"
+            className="sm:flex hidden text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2"
+          >
             Follow us
           </a>
         </div>
@@ -63,9 +67,12 @@ function InstagramSection() {
           )}
         </div>
 
-        <div className="sm:hidden  text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2">
+        <a
+          href="https:/www.instagram.com/hellotrekkersnamaste"
+          className="sm:hidden  text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2"
+        >
           Follow us
-        </div>
+        </a>
       </div>
       <img src={bottom} alt="" className="bottom-0 object-cover  z-0" />
     </div>
