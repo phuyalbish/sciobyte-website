@@ -144,7 +144,7 @@ function Footer() {
   ];
 
   return (
-    <footer className=" bg-G500">
+    <footer className="bg-G500">
       <div className="relative text-white text-center px-[2rem] md:px-[4.5rem] pt-[1rem]">
         <div className="p-10 flex  flex-col gap-[0.5rem]">
           <h1 className="text-2xl font-medium">WE ARE ASSOCIATED WITH:</h1>
@@ -173,11 +173,6 @@ function Footer() {
         </div>
 
         <div className="flex flex-col gap-10">
-          {/* <div className="flex flex-col md:flex-row justify-center gap-[2.88rem] md:gap-[2.625rem]">
-            {menuItems.slice(0, 2).map((item, index) => (
-              <NavItems item={item} key={index} />
-            ))}
-          </div> */}
           <HTLogo className="block lg:hidden mx-auto" />
           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-[2rem] justify-center text-center place-content-center">
             {menuItems.map((item, index) => {
@@ -192,7 +187,6 @@ function Footer() {
               return <NavItems item={item} key={index} />;
             })}
           </div>
-          ;
         </div>
 
         <div className="w-full -translate-y-[15%] absolute left-0 z-[-1]">

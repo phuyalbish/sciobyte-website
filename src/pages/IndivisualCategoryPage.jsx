@@ -22,7 +22,7 @@ function IndivisualCategoryPage() {
   }, [id]);
 
   return (
-    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5">
+    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
       <BreadCrumbs travel_type={category?.type_name} name={category?.name} />
       <img
         src={BASE_MEDIA_URL + category?.image}

@@ -47,10 +47,9 @@
   --text-7xl: 90px;
 }
 
-
 ::-webkit-scrollbar {
   width: 5px;
-  height: 2px;
+  height: 12px;
   /* Width of the scrollbar */
 }
 

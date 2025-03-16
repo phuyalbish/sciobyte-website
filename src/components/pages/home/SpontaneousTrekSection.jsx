@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import SopontaneousTrekTile from "@/components/tiles/SopontaneousTrekTile.jsx";
 import { fetchTreks } from "@/apis/treks.js";
 
-import spntaneousbottom from "@/assets/spontaneousBackImg.png";
 function SpontaneousTrekSection() {
   const [treks, setTreks] = useState([]);
 
@@ -38,12 +37,6 @@ function SpontaneousTrekSection() {
           ))}
         </div>
       </div>
-
-      <img
-        src={spntaneousbottom}
-        alt=""
-        className="bottom-0 object-cover  z-0"
-      />
     </div>
   );
 }

@@ -33,8 +33,8 @@ export default function Parallax() {
 
   return (
     <>
-      <div className="relative m-0 p-0 w-[100vw] ">
-        <div className="relative hidden  md:block w-[100vw] h-[100vh] xl:[20vh] overflow-hidden ">
+      <div className="relative m-0 p-0 w-full ">
+        <div className="relative hidden  md:block w-full h-[100vh] xl:[20vh] overflow-hidden ">
           <motion.img
             src={img9}
             alt=""
@@ -86,7 +86,7 @@ export default function Parallax() {
           />
         </div>
 
-        <div className="relative md:hidden w-[100vw] h-[50vh] overflow-hidden ">
+        <div className="relative md:hidden w-full h-[50vh] overflow-hidden ">
           <motion.img
             src={img9}
             alt=""

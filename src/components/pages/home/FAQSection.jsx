@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import FAQ from "@/components/accordion/FAQ.jsx";
 import { fetchFAQs } from "@/apis/faqs.js";
+import spntaneousbottom from "@/assets/spontaneousBackImg.png";
 
 const FAQSection = () => {
   const [faqs, setFaqs] = useState([]);
@@ -24,7 +25,7 @@ const FAQSection = () => {
     })();
   }, []);
   return (
-    <div className="flex flex-col gap-2 w-[100vw]   max-w-[100em] mx-auto ">
+    <div className="flex flex-col gap-2 w-full   max-w-[100em] mx-auto ">
       <h1 className="text-[2.375rem] font-semibold py-[2rem]">FAQs</h1>
 
       {Array.isArray(faqs) && faqs.length > 0 ? (
@@ -32,6 +33,12 @@ const FAQSection = () => {
       ) : (
         <p>Loading FAQs...</p>
       )}
+
+      <img
+        src={spntaneousbottom}
+        alt=""
+        className="bottom-0 object-cover  z-0"
+      />
     </div>
   );
 };
