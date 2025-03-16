@@ -81,13 +81,16 @@ function TrekBasicInformationSection({ data }) {
         <div className="text-2xl lg:text-4xl  text-left font-bold">
           {data?.name}
         </div>
-        <Link
-          to={`/district/${data?.district?.name}`}
-          className="text-xl font-normal text-left flex gap-2 items-center cursor-pointer"
-        >
-          <CiLocationOn />
-          {data?.district?.name}
-        </Link>
+
+        {data?.district_name ? (
+          <Link
+            to={`/district/${data?.district_name}`}
+            className="text-xl font-normal text-left flex gap-2 items-center cursor-pointer hover:underline underline-offset-1"
+          >
+            <CiLocationOn />
+            {data?.district_name}
+          </Link>
+        ) : null}
       </div>
       <div className="flex flex-wrap gap-2">
         {trekBasicHeadings.map((item, index) =>

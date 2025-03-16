@@ -17,7 +17,6 @@ export const fetchIndivisualTrek = async (id) => {
       url: `${BASE_API_URL}/treks/${id}/`,
       method: "GET",
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.log("Error while fetching trek data: ", error);

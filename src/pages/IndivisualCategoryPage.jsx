@@ -22,8 +22,8 @@ function IndivisualCategoryPage() {
   }, [id]);
 
   return (
-    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5">
-      <BreadCrumbs name={category?.name} />
+    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
+      <BreadCrumbs travel_type={category?.type_name} name={category?.name} />
       <img
         src={BASE_MEDIA_URL + category?.image}
         alt=""
@@ -36,7 +36,7 @@ function IndivisualCategoryPage() {
         <div className="text-md text-left">{category?.description}</div>
       </div>
       <div className="text-2xl text-left font-semibold">
-        {category?.trek_count} Trek{category?.trek_count >= 2 ? "s" : ""}
+        {category?.trek_count} Travel{category?.trek_count >= 2 ? "s" : ""}
       </div>
       <div className="flex gap-3 flex-wrap flex-grow w-full sm:items-center">
         {category?.treks?.map((item, index) => (

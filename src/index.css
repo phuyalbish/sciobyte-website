@@ -15,8 +15,8 @@
   --G600: #003b33;
 
   --B50: #ecf3fc;
-  --B75: #b1cff2;
   --B100: #91bced;
+  --B75: #b1cff2;
   --B200: #619fe5;
   --B300: #418be0;
   --B400: #2e619d;
@@ -46,6 +46,30 @@
   --text-6xl: 67px;
   --text-7xl: 90px;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 12px;
+  /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Background of the track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--B75);
+  /* Color of the scrollbar */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* Darker on hover */
+}
+
 * {
   padding: 0px;
   margin: 0px;
@@ -55,11 +79,6 @@
 body {
   font-family: "Red Hat Display", sans-serif;
   color: var(--text);
-}
-
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
 }
 
 /* font */
