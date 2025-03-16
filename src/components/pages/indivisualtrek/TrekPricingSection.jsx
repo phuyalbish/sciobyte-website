@@ -9,7 +9,6 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
-import { FaStar } from "react-icons/fa";
 function TrekPricingSection({ price, map, pricings, name }) {
   const { id } = useParams();
 
