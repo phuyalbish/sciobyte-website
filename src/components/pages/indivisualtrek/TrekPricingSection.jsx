@@ -46,24 +46,25 @@ function TrekPricingSection({ price, map, pricings, name }) {
         </div>
       </div>
       <div className="flex flex-col border gap-2 border-N300 rounded-xl px-4 py-4">
-        <div className="flex justify-between pt-1  border-N200 ">
-          <div className="font-semibold">Group Size</div>
-          <div className="font-semibold">Cost Per Person</div>
-        </div>
-
         {Array.isArray(pricings) && pricings?.length > 0 ? (
-          pricings?.map((item, index) => (
-            <div
-              key={index}
-              className="flex justify-between pt-1 border-t border-N200"
-            >
-              <div>
-                {item?.min_group_range !== 0 && `${item?.min_group_range} - `}
-                {item?.max_group_range} Person
-              </div>
-              <div>${item?.price_per_person}</div>
+          <>
+            <div className="flex justify-between pt-1 border-t border-N200">
+              <div className="font-semibold">Group Size</div>
+              <div className="font-semibold">Cost Per Person</div>
             </div>
-          ))
+            {pricings?.map((item, index) => (
+              <div
+                key={index}
+                className="flex justify-between pt-1 border-t border-N200"
+              >
+                <div>
+                  {item?.min_group_range !== 0 && `${item?.min_group_range} - `}
+                  {item?.max_group_range} Person
+                </div>
+                <div>${item?.price_per_person}</div>
+              </div>
+            ))}
+          </>
         ) : (
           <p>No Detailed Pricing</p>
         )}

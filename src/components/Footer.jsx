@@ -177,22 +177,21 @@ function Footer() {
               <NavItems item={item} key={index} />
             ))}
           </div> */}
-
           <HTLogo className="block lg:hidden mx-auto" />
-
           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-[2rem] justify-center text-center place-content-center">
             {menuItems.map((item, index) => {
               if (index === 2) {
                 return (
-                  <>
+                  <React.Fragment key={index}>
                     <HTLogo className="hidden lg:block" />
                     <NavItems item={item} />
-                  </>
+                  </React.Fragment>
                 );
               }
               return <NavItems item={item} key={index} />;
             })}
           </div>
+          ;
         </div>
 
         <div className="w-full -translate-y-[15%] absolute left-0 z-[-1]">

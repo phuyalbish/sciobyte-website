@@ -36,7 +36,7 @@ function IndivisualCategoryPage() {
         <div className="text-md text-left">{category?.description}</div>
       </div>
       <div className="text-2xl text-left font-semibold">
-        {category?.trek_count} Trek{category?.trek_count >= 2 ? "s" : ""}
+        {category?.trek_count} Travel{category?.trek_count >= 2 ? "s" : ""}
       </div>
       <div className="flex gap-3 flex-wrap flex-grow w-full sm:items-center">
         {category?.treks?.map((item, index) => (

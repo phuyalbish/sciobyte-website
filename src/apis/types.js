@@ -1,24 +1,24 @@
 import axios from "axios";
 import { BASE_API_URL } from "@/config/baseurl.js";
-export const fetchTreks = async () => {
+export const fetchTypes = async () => {
   try {
     const response = await axios({
-      url: `${BASE_API_URL}/treks/all/`,
+      url: `${BASE_API_URL}/types/all/`,
       method: "GET",
     });
     return response;
   } catch (error) {
-    console.log("Error while fetching trek data: ", error);
+    console.log("Error while fetching types data: ", error);
   }
 };
-export const fetchIndivisualTrek = async (id) => {
+export const fetchIndivisualTypes = async (id) => {
   try {
     const response = await axios({
-      url: `${BASE_API_URL}/treks/${id}/`,
+      url: `${BASE_API_URL}/types/${id}/`,
       method: "GET",
     });
     return response.data;
   } catch (error) {
-    console.log("Error while fetching trek data: ", error);
+    console.log("Error while fetching type data: ", error);
   }
 };

@@ -9,6 +9,7 @@ import TrekOverviewSection from "@/components/pages/indivisualtrek/TrekOverviewS
 import { scrollToSection } from "@/apis/scrollToSection.js";
 import TrekItenarySection from "@/components/pages/indivisualtrek/TrekItenarySection";
 import TrekFAQSection from "@/components/pages/indivisualtrek/TrekFAQSection";
+import TrekRequirementSection from "@/components/pages/indivisualtrek/TrekRequirementSection";
 import TrekReviewsSection from "@/components/pages/indivisualtrek/TrekReviewsSection";
 import TrekIncludedSection from "@/components/pages/indivisualtrek/TrekIncludedSection";
 import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSection";
@@ -44,7 +45,7 @@ function IndivisualTrekPage() {
         <div className="flex sticky top-0 h-full gap-10 w-full">
           <div className="flex md:w-2/3 w-full flex-col gap-24 ">
             <TrekBasicInformationSection data={trek} />
-            <div className="flex flex-col gap-8 text-left">
+            <div className="flex flex-col gap-8 text-left mb-10">
               <div className="py-3 px-3 sticky overflow-x-scroll top-[8vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
                 <button
                   onClick={() => scrollToSection("overview")}
@@ -57,6 +58,13 @@ function IndivisualTrekPage() {
                   className="hover:underline"
                 >
                   Itenary
+                </button>
+
+                <button
+                  onClick={() => scrollToSection("requirements")}
+                  className="hover:underline"
+                >
+                  Requirements
                 </button>
                 <button
                   onClick={() => scrollToSection("included")}
@@ -72,20 +80,16 @@ function IndivisualTrekPage() {
                 >
                   FAQs
                 </button>
-                <button
-                  onClick={() => scrollToSection("reviews")}
-                  className="hover:underline"
-                >
-                  Reviews
-                </button>
               </div>
               <TrekOverviewSection data={trek?.description} />
-
               <div className="block md:hidden">
                 <TrekPricingSection price={trek?.price} map={trek?.map_image} />
               </div>
-
               <TrekItenarySection data={trek?.schedules} />
+              <TrekRequirementSection
+                requirements={trek?.requirements}
+                gears={trek?.gears_name}
+              />
               <TrekIncludedSection
                 includes={trek?.includes}
                 excludes={trek?.excludes}
@@ -102,7 +106,6 @@ function IndivisualTrekPage() {
                   />
                 </a>
               </div>
-
               <div
                 className="flex flex-col gap-5  rounded-md overflow-hidden"
                 onClick={() => scrollToSection("maps")}
@@ -114,7 +117,7 @@ function IndivisualTrekPage() {
                 />
               </div>
               <TrekFAQSection faqs={trek?.faqs} />
-              <TrekReviewsSection />
+              {/* <TrekReviewsSection /> */}
             </div>
           </div>
           <div className="md:flex sticky top-[10vh] hidden md:w-1/3  h-[80vh]">
@@ -127,7 +130,7 @@ function IndivisualTrekPage() {
           </div>
         </div>
       </div>
-      <div className="fixed bg-B75 z-10  bottom-0 h-16 sm:hidden">
+      <div className="fixed bg-B75 z-10 w-full  bottom-0 h-16 sm:hidden">
         <div className="p-2 flex justify-end gap-16">
           <div className="flex flex-col justify-start items-start ">
             <div className="text-base font-light text-N300">Connect</div>

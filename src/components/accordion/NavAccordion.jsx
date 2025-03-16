@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
-const FAQ = ({ heading, content, link }) => {
+const FAQ = ({ data }) => {
   const [isOpened, setIsOpened] = useState(false);
   const arrowSVG = !isOpened ? (
     <FaChevronDown className="h-fit w-5 self-center" />
@@ -18,7 +18,7 @@ const FAQ = ({ heading, content, link }) => {
           onClick={() => setIsOpened(!isOpened)}
         >
           <div className="flex justify-between items-center">
-            <span className="font-semibold">{heading}</span>
+            <span className="font-semibold">{data?.name}</span>
             {arrowSVG}
           </div>
         </div>

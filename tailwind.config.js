@@ -31,6 +31,7 @@ export default {
       },
 
       fontSize: {
+        responsiveHeading: "clamp(28px, 10vw, 60px)",
         xs: "var(--text-xs)", // 9px
         sm: "var(--text-sm)", // 12px
         md: "var(--text-md)", // 14px

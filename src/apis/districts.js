@@ -1,24 +1,24 @@
 import axios from "axios";
 import { BASE_API_URL } from "@/config/baseurl.js";
-export const fetchTreks = async () => {
+export const fetchDistricts = async () => {
   try {
     const response = await axios({
-      url: `${BASE_API_URL}/treks/all/`,
+      url: `${BASE_API_URL}/districts/all/`,
       method: "GET",
     });
     return response;
   } catch (error) {
-    console.log("Error while fetching trek data: ", error);
+    console.log("Error while fetching districts data: ", error);
   }
 };
-export const fetchIndivisualTrek = async (id) => {
+export const fetchIndivisualDistricts = async (id) => {
   try {
     const response = await axios({
-      url: `${BASE_API_URL}/treks/${id}/`,
+      url: `${BASE_API_URL}/districts/${id}/`,
       method: "GET",
     });
     return response.data;
   } catch (error) {
-    console.log("Error while fetching trek data: ", error);
+    console.log("Error while fetching district data: ", error);
   }
 };

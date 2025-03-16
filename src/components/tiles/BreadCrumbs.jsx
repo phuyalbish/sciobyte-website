@@ -10,7 +10,7 @@ function BreadCrumbs({
   category_id = null,
 }) {
   return (
-    <div className="flex gap-3 items-center text-md md:text-base ">
+    <div className="flex gap-3 items-center text-md md:text-base flex-wrap">
       <GoHome className="size-5 md:size-8" />
       {travel_type && (
         <>
