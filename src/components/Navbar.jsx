@@ -69,10 +69,10 @@ function Navbar() {
               Blogs
             </Link>
             <Link
-              to="/about"
+              to="/company"
               className="transition hover:underline underline-offset-1 hover:text-B500"
             >
-              About Us
+              Company
             </Link>
           </div>
         </div>
