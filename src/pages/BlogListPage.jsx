@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SingleBlogSection from "@/components/pages/blogs/SingleBlogSection.jsx";
 import LatestTravelBlog from "@/components/pages/blogs/LatestTravelBlog.jsx";
 
-import {fetchBlogs} from "@/apis/blogs.js";
+import { fetchBlogs } from "@/apis/blogs.js";
 
 function BlogListPage() {
   // return <h1 className="text-[36px]">Blog</h1>;
@@ -20,18 +20,18 @@ function BlogListPage() {
           setRemainingBlogs([]);
           return;
         }
-        console.log("Blogs Data: ", blogsData);
-        const latest = blogsData.length 
-        ? blogsData.reduce((latest, current) => 
-          new Date(current?.created_at) > new Date(latest.created_at) ? current : latest
-        )
-        :{} 
+        const latest = blogsData.length
+          ? blogsData.reduce((latest, current) =>
+              new Date(current?.created_at) > new Date(latest.created_at)
+                ? current
+                : latest
+            )
+          : {};
 
-        setLatestBlog(latest)
-        setRemainingBlogs(() => 
-          blogsData.filter(blog => blog?.id !== latest?.id)
+        setLatestBlog(latest);
+        setRemainingBlogs(() =>
+          blogsData.filter((blog) => blog?.id !== latest?.id)
         );
-
       } catch (error) {
         console.error("Error fetching blogs:", error);
         setBlogs([]);
@@ -40,10 +40,10 @@ function BlogListPage() {
   }, []);
   return (
     <>
-    <div className="flex flex-col gap-[2rem]">
-      <SingleBlogSection latestBlog={latestBlog} />
-      <LatestTravelBlog latestBlogs={remainingBlogs} />
-    </div>
+      <div className="flex flex-col gap-[2rem]">
+        <SingleBlogSection latestBlog={latestBlog} />
+        <LatestTravelBlog latestBlogs={remainingBlogs} />
+      </div>
     </>
   );
 }

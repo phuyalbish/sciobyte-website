@@ -88,6 +88,8 @@ const TrekItenaryAccordion = ({ schedule }) => {
             </div>
             {schedule?.gallery.map((item, index) => (
               <img
+                decoding="async"
+                loading="lazy"
                 key={index}
                 src={BASE_MEDIA_URL + item.image}
                 className="object-cover min-w-[400px] aspect-square overflow-hidden transition-all duration-500 ease-in-out rounded-md"

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import React from "react";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import { fetchTreks } from "@/apis/treks.js";
+import EmblaCarousel from "@/components/carousel/EmblaCarousel";
+
 const TrekSection = () => {
   const [treks, setTreks] = useState([]);
-
   useEffect(() => {
     (async () => {
       const response = await fetchTreks();
@@ -15,15 +17,24 @@ const TrekSection = () => {
   return (
     <>
       <section className="container">
-        <div className="px-[2rem] md:px-[4.5rem]">
-          <h1 className="text-[2.3rem] mb-[3rem] font-semibold">
+        <div className="px-5 md:px-[4.5rem]">
+          <h1 className="home-headings mb-[3rem] font-semibold">
             Your Tale Begins <span className="text-primary">NOW!</span>
           </h1>
           {/* <div className="flex flex-wrap gap-[1.5rem] place-items-center justify-center items-center"> */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem]">
+          <div className=" hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem]">
             {treks?.map((trek, index) => (
               <TrekTile key={index} data={trek} />
             ))}
+          </div>
+          <div className="md:hidden">
+            <EmblaCarousel options={{ loop: true }}>
+              {treks?.map((trek, index) => (
+                <div key={index} className="embla__slide min-w-full">
+                  <TrekTile data={trek} />
+                </div>
+              ))}
+            </EmblaCarousel>
           </div>
         </div>
       </section>

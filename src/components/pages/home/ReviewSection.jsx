@@ -3,7 +3,8 @@ import img1 from "@/assets/googleReviews.png";
 import img2 from "@/assets/TripAdvisor.png";
 import testimonial from "@/assets/testimonials.jpeg";
 import ReviewTile from "@/components/tiles/ReviewTile";
-const reviews = [
+import EmblaCarousel from "@/components/carousel/EmblaCarousel";
+const google_reviews = [
   {
     stars: 5,
     profile: testimonial,
@@ -40,17 +41,55 @@ const reviews = [
     name: "Emma",
   },
 ];
+
+const trip_reviews = [
+  {
+    stars: 4,
+    profile: testimonial,
+    reviewDetail:
+      "Loved the adventure! The scenery was breathtaking, and the guides were very helpful.",
+    name: "Daniel",
+  },
+  {
+    stars: 3,
+    profile: testimonial,
+    reviewDetail:
+      "A fantastic journey through the Himalayas. The team was professional and friendly. Highly recommend!",
+    name: "Sophie",
+  },
+  {
+    stars: 5,
+    profile: testimonial,
+    reviewDetail:
+      "A must-try experience for any adventure lover. Everything was well-organized, and I felt safe throughout the trek.",
+    name: "Emma",
+  },
+  {
+    stars: 5,
+    profile: testimonial,
+    reviewDetail:
+      "HelloTrekkers is the best trekking and travel agency in Nepal! The guides were amazing, and the experience was unforgettable.",
+    name: "Julia",
+  },
+  {
+    stars: 4,
+    profile: testimonial,
+    reviewDetail:
+      "Great experience with HelloTrekkers! The trekking routes were well-planned, and the hospitality was top-notch.",
+    name: "Michael",
+  },
+];
 function ReviewSection() {
   const [isGoogleReview, setGoogleReview] = useState(true);
   return (
-    <div className="bg-blue-500 p-20 flex flex-col gap-20 ">
-      <div className="text-4xl ">
+    <div className="bg-blue-500 md:p-20 p-4 relative w-full  flex flex-col gap-5 pt-10 ">
+      <div className="home-headings ">
         What our <span className="text-white ">Friends</span> Have to Say
       </div>
-      <div className="flex flex-col items-center">
-        <div className="flex flex-row justify-center gap-5">
+      <div className="relative w-full flex flex-col items-center ">
+        <div className="relative w-full flex flex-row justify-center gap-5">
           <div
-            className={`flex flex-row  rounded-t-md ${
+            className={`flex flex-row   rounded-t-lg  rounded-b-lg md:rounded-b-none ${
               isGoogleReview ? "bg-gray-100" : "bg-transparent"
             }`}
             onClick={() => {
@@ -58,13 +97,15 @@ function ReviewSection() {
             }}
           >
             <img
+              decoding="async"
+              loading="lazy"
               src={img1}
               alt=""
               className="w-28 cursor-pointer  object-cover z-0  p-2"
             />
           </div>
           <div
-            className={`flex flex-row rounded-t-md ${
+            className={`flex flex-row  rounded-t-lg  rounded-b-lg md:rounded-b-none ${
               !isGoogleReview ? "bg-gray-100" : "bg-transparent"
             }`}
             onClick={() => {
@@ -72,16 +113,18 @@ function ReviewSection() {
             }}
           >
             <img
+              decoding="async"
+              loading="lazy"
               src={img2}
               alt=""
               className="w-28 cursor-pointer  object-cover z-0  p-2"
             />
           </div>
         </div>
-        {isGoogleReview && (
-          <div className="relative w-[90vw] lg:w-[70vw]  max-w-[100em] mx-auto bg-gray-100 p-5 shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
-            {Array.isArray(reviews) && reviews.length > 0 ? (
-              reviews.map((review, index) => (
+        <div className="md:flex hidden w-full relative   lg:w-[70vw] max-w-[100em] mx-auto bg-gray-100 p-5 shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out  flex-row flex-wrap">
+          {isGoogleReview ? (
+            Array.isArray(google_reviews) && google_reviews.length > 0 ? (
+              google_reviews.map((review, index) => (
                 <ReviewTile
                   key={index}
                   star={review.stars}
@@ -91,27 +134,57 @@ function ReviewSection() {
                 />
               ))
             ) : (
-              <p className="text-gray-500">No Google Categories available</p>
-            )}
-          </div>
-        )}
-        {!isGoogleReview && (
-          <div className="relative  w-[90vw] lg:w-[70vw]  max-w-[100em] mx-auto bg-gray-100 p-5 shadow-md rounded-3xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
-            {Array.isArray(reviews) && reviews.length > 0 ? (
-              reviews.map((review, index) => (
-                <ReviewTile
-                  key={index}
-                  star={review.stars}
-                  profile={review.profile}
-                  reviewDetail={review.reviewDetail}
-                  name={review.name}
-                />
-              ))
+              <p className="text-gray-500">No Reviews available</p>
+            )
+          ) : Array.isArray(trip_reviews) && trip_reviews.length > 0 ? (
+            trip_reviews.map((review, index) => (
+              <ReviewTile
+                key={index}
+                star={review.stars}
+                profile={review.profile}
+                reviewDetail={review.reviewDetail}
+                name={review.name}
+              />
+            ))
+          ) : (
+            <p className="text-gray-500">No Reviews available</p>
+          )}
+        </div>
+        <div className="md:hidden relative w-full mt-5 max-w-[100em] mx-auto bg-gray-100 p-5 shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
+          {isGoogleReview ? (
+            Array.isArray(google_reviews) && google_reviews.length > 0 ? (
+              <EmblaCarousel options={{ loop: true }}>
+                {google_reviews.map((review, index) => (
+                  <div key={index} className="embla__slide min-w-full">
+                    <ReviewTile
+                      star={review.stars}
+                      profile={review.profile}
+                      reviewDetail={review.reviewDetail}
+                      name={review.name}
+                    />
+                  </div>
+                ))}
+              </EmblaCarousel>
             ) : (
-              <p className="text-gray-500">No Google Categories available</p>
-            )}
-          </div>
-        )}
+              <p className="text-gray-500">No Reviews available</p>
+            )
+          ) : Array.isArray(trip_reviews) && trip_reviews.length > 0 ? (
+            <EmblaCarousel options={{ loop: true }}>
+              {trip_reviews.map((review, index) => (
+                <div key={index} className="embla__slide min-w-full">
+                  <ReviewTile
+                    star={review.stars}
+                    profile={review.profile}
+                    reviewDetail={review.reviewDetail}
+                    name={review.name}
+                  />
+                </div>
+              ))}
+            </EmblaCarousel>
+          ) : (
+            <p className="text-gray-500">No Reviews available</p>
+          )}
+        </div>
       </div>
     </div>
   );

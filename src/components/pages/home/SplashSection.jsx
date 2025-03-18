@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import img from "@/assets/SplashScreenImg.png";
+import vid from "@/assets/SplashVid.mp4";
 import imgVector from "@/assets/vectorSplashImg.png";
 import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
@@ -22,30 +23,44 @@ function SplashSection() {
   };
 
   return (
-    <div className="relative">
-      <img
-        src={img}
-        alt=""
-        className="w-full h-[60vh] md:h-[80vh] lg:h-screen pb-5   object-cover z-0 absolute"
-      />
-      <div className="relative w-full h-[60vh] md:h-[80vh] lg:h-screen gap-24 sm:gap-20 md:gap-48 lg:gap-32     flex flex-col  items-center justify-end">
+    <div className="relative w-full h-full">
+      <div className="absolute h-full inset-0  w-full">
+        {/* <img
+          decoding="async"
+          loading="lazy"
+          src={img}
+          alt=""
+          className="w-full h-full object-cover pb-5 z-0"
+        /> */}
+        <video
+          src={vid}
+          className="w-full h-full object-cover pb-5 z-0 brightness-75"
+          controls
+          autoPlay
+          loop
+          muted
+        />
+      </div>
+
+      <div className="relative w-full z-30 flex flex-col justify-between h-[60vh] sm:h-[70vh] md:h-[93vh] lg:[98vh]   gap-10 items-center">
+        <div></div>
         <div
-          className={`flex flex-col ${
+          className={`flex flex-col w-full p-10 ${
             !isSearchTile ? "gap-10" : "gap-2"
-          }  md:top-[40%]    w-[70vw] items-center justify-center`}
+          }   items-center justify-center`}
         >
           {!isSearchTile ? (
-            <div className="xl:text-6xl lg:text-5xl md:text-4xl text-3xl  text-white font-bold z-40 select-none">
+            <div className="splash-heading text-white font-bold z-40 select-none">
               Creating your Tales from our Trails
             </div>
           ) : (
             ""
           )}
-          <div className="bg-white z-40  rounded-md overflow-hidden flex items-center px-5  h-10  gap-5  md:h-14   md:w-[50vw]">
+          <div className="bg-white  rounded-md overflow-hidden flex items-center px-5  h-10  gap-5 shadow-xl  md:h-14 max-w-[90vw]  md:w-[50vw]">
             <input
               type="text"
-              className="outline-none bg-white h-full w-full"
-              placeholder="Search Your Trip"
+              className="outline-none bg-transparent h-full w-full md:text-base text-md text-N500 placeholder-N300"
+              placeholder="Search Your Trip and Categories"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
@@ -61,7 +76,7 @@ function SplashSection() {
             )}
           </div>
           {isSearchTile ? (
-            <div className="w-full  bg-white/15 backdrop-blur-md border p-2 gap-2 border-white/20 rounded-lg flex flex-row  overflow-x-scroll">
+            <div className="absolute mt-80 z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-scroll">
               {searchData?.map((item, index) => (
                 <SearchTrekCategoryTile
                   name={item?.name}
@@ -77,9 +92,11 @@ function SplashSection() {
           )}
         </div>
         <img
+          decoding="async"
+          loading="lazy"
           src={imgVector}
           alt=""
-          className="w-full   bottom-1 object-cover  z-30 "
+          className="w-full bottom-1 object-cover z-30"
         />
       </div>
     </div>
@@ -87,3 +104,7 @@ function SplashSection() {
 }
 
 export default SplashSection;
+
+{
+  /* <div className="relative w-full  gap-24 sm:gap-20 md:gap-48 lg:gap-32     flex flex-col  items-center justify-end"></div>; */
+}

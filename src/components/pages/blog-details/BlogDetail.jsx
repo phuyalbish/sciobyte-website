@@ -7,188 +7,212 @@ import DOMPurify from "dompurify";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
-import { HeadingSkeleton, DescriptionSkeleton, LongBlogContentSkeleton, ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
-import GotoTop  from "@/components/GotoTop.jsx";
+import {
+  HeadingSkeleton,
+  DescriptionSkeleton,
+  LongBlogContentSkeleton,
+  ImageSkeleton,
+} from "@/components/skeleton/Skeleton.jsx";
+import GotoTop from "@/components/GotoTop.jsx";
 import { v4 as uuidv4 } from "uuid";
 
 import "@/assets/styles/blogs.css";
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 const extractHeadings = (htmlContent) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlContent, "text/html");
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlContent, "text/html");
 
-    const h1Elements = [...doc.querySelectorAll("h1")].map(h1 => {
-        const id = uuidv4();
-        h1.id = id;
-        return {
-            id: id,
-            content: h1.textContent
-        }
-    });
-
+  const h1Elements = [...doc.querySelectorAll("h1")].map((h1) => {
+    const id = uuidv4();
+    h1.id = id;
     return {
-        h1Elements: h1Elements,
-        updatedContent: doc.body.innerHTML
-    }
-}
+      id: id,
+      content: h1.textContent,
+    };
+  });
+
+  return {
+    h1Elements: h1Elements,
+    updatedContent: doc.body.innerHTML,
+  };
+};
 
 const Sidebar = ({ headings }) => {
+  const navigateSidebar = (e, id) => {
+    // console.dir([...e.target.parentNode.children]);
+    const sidebarHeadings = [...e.target.parentNode.children].filter(
+      (child) => child !== e.target
+    );
+    sidebarHeadings.forEach((heading) => heading.classList.remove("text-B400"));
+    e.target.classList.add("text-B400");
 
-
-    const navigateSidebar = (e, id) => {
-        // console.dir([...e.target.parentNode.children]);
-        const sidebarHeadings = [...e.target.parentNode.children].filter(child => child !== e.target);
-        sidebarHeadings.forEach(heading => heading.classList.remove("text-B400"));
-        e.target.classList.add("text-B400");
-
-        const targetElement = document.getElementById(id);
-        if (targetElement) {
-            (targetElement.previousElementSibling || targetElement)
-                .scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+    const targetElement = document.getElementById(id);
+    if (targetElement) {
+      (targetElement.previousElementSibling || targetElement).scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
+  };
 
-    return (
-        <>
-            <div className="hidden lg:block w-64 shrink-0">
-                <div className="sticky top-40">
-                    <div className="bg-white rounded-lg shadow-sm py-5 text-left">
-                        <h2 className="px-5 text-lg font-semibold text-gray-900 mb-4">Content</h2>
-                        <nav className="p-5 w-full space-y-3 h-[50vh] overflow-x-hidden overflow-y-auto">
-                            {
-                                headings.length === 0 ? (
-                                    <>
-                                        <DescriptionSkeleton />
-                                        <DescriptionSkeleton />
-                                        <DescriptionSkeleton />
-                                        <DescriptionSkeleton />
-                                    </>
-                                ) : (
-                                    <>
-                                        {headings.map((heading, index) => (
-                                            <p
-                                                onClick={(e) => navigateSidebar(e, heading.id)}
-                                                key={index}
-                                                className={`block cursor-pointer ${index === 0 ? 'text-B400' : ''} hover:text-B400`}
-                                            >
-                                                {heading.content}
-                                            </p>
-                                        ))}
-                                    </>
-                                )
-                            }
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+  return (
+    <>
+      <div className="hidden lg:block w-64 shrink-0">
+        <div className="sticky top-40">
+          <div className="bg-white rounded-lg shadow-sm py-5 text-left">
+            <h2 className="px-5 text-lg font-semibold text-gray-900 mb-4">
+              Content
+            </h2>
+            <nav className="p-5 w-full space-y-3 h-[50vh] overflow-x-hidden overflow-y-auto">
+              {headings.length === 0 ? (
+                <>
+                  <DescriptionSkeleton />
+                  <DescriptionSkeleton />
+                  <DescriptionSkeleton />
+                  <DescriptionSkeleton />
+                </>
+              ) : (
+                <>
+                  {headings.map((heading, index) => (
+                    <p
+                      onClick={(e) => navigateSidebar(e, heading.id)}
+                      key={index}
+                      className={`block cursor-pointer ${
+                        index === 0 ? "text-B400" : ""
+                      } hover:text-B400`}
+                    >
+                      {heading.content}
+                    </p>
+                  ))}
+                </>
+              )}
+            </nav>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 const BlogDetail = () => {
-    const { slug } = useParams();
+  const { slug } = useParams();
 
-    const [blog, setBlog] = useState({});
-    const [content, setContent] = useState("");
-    const [isLoading, setIsLoading] = useState(true);
-    const [headings, setHeadings] = useState([]);
+  const [blog, setBlog] = useState({});
+  const [content, setContent] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [headings, setHeadings] = useState([]);
 
-    useEffect(() => {
-        (async () => {
-            try {
-                const response = await fetchBlogBySlug(slug);
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetchBlogBySlug(slug);
 
-                console.log("response: ", response);
+        console.log("response: ", response);
 
-                const blogData = response?.data || {}; // Ensure it's an array
-                const sanitizedContent = DOMPurify.sanitize(blogData?.content)
+        const blogData = response?.data || {}; // Ensure it's an array
+        const sanitizedContent = DOMPurify.sanitize(blogData?.content);
 
-                const { h1Elements, updatedContent } = extractHeadings(sanitizedContent);
-                setHeadings(h1Elements);
-                setBlog(blogData);
-                setContent(updatedContent);
-            } catch (error) {
-                console.error("Error fetching blog:", error);
-                setBlog({});
-            } finally {
-                setIsLoading(false);
-            }
-        })()
-    }, [])
+        const { h1Elements, updatedContent } =
+          extractHeadings(sanitizedContent);
+        setHeadings(h1Elements);
+        setBlog(blogData);
+        setContent(updatedContent);
+      } catch (error) {
+        console.error("Error fetching blog:", error);
+        setBlog({});
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, []);
 
+  const [copied, setCopied] = useState(false);
 
-    return (
-        <>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="flex flex-col lg:flex-row gap-8">
-                    {/* Main Content */}
-                    <div className="lg:flex-1">
-                        <article className="prose prose-lg max-w-none text-left">
-                            {
-                                isLoading ? (
-                                    <HeadingSkeleton />
-                                )
-                                    : (
-                                        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                                            {blog?.heading}
-                                        </h1>
-                                    )
-                            }
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(
+        "https://hellotrekkers.com/blog/" + slug
+      );
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
 
-                            {
-                                isLoading ? (
-                                    <DescriptionSkeleton />
-                                )
-                                    : (
-                                        <div className="flex items-center gap-6 text-sm text-gray-600 mb-6">
-                                            <div className="flex items-center gap-2">
-                                                <AiFillEdit />
-                                                <span className="font-medium">by {blog?.authors?.fullname || "Unknown"}</span>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                < MdDateRange />
-                                                <time>{format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy")}</time>
-                                            </div>
+  return (
+    <>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Main Content */}
+          <div className="lg:flex-1">
+            <article className="prose prose-lg max-w-none text-left">
+              {isLoading ? (
+                <HeadingSkeleton />
+              ) : (
+                <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                  {blog?.heading}
+                </h1>
+              )}
 
-                                            <button className="flex items-center gap-1 hover:text-gray-900 transition-colors">
-                                                <IoMdShare />
-                                                <span>Share</span>
-                                            </button>
-                                        </div>
+              {isLoading ? (
+                <DescriptionSkeleton />
+              ) : (
+                <div className="flex items-center gap-6 text-sm text-gray-600 mb-6">
+                  <div className="flex items-center gap-2">
+                    <AiFillEdit />
+                    <span className="font-medium">
+                      by {blog?.authors?.fullname || "Unknown"}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MdDateRange />
+                    <time>
+                      {format(
+                        new Date(blog?.created_at || Date.now()),
+                        "MMMM d, yyyy"
+                      )}
+                    </time>
+                  </div>
 
-                                    )
-                            }
+                  <IoMdShare
+                    className="flex items-center gap-1 cursor-pointer bg-white/50 hover:bg-white text-N300  p-1 rounded-md size-6"
+                    onClick={handleCopy}
+                  />
 
+                  {copied && (
+                    <div className="text-N500  w-34  text-sm  rounded-md">
+                      Link Copied!
+                    </div>
+                  )}
+                </div>
+              )}
 
-                            <div className="aspect-[16/9] mb-8 relative">
-                                {
-                                    isLoading ? (
-                                        <ImageSkeleton />
-                                    )
-                                        : (
+              <div className="aspect-[16/9] mb-8 relative">
+                {isLoading ? (
+                  <ImageSkeleton />
+                ) : (
+                  <img
+                    decoding="async"
+                    loading="lazy"
+                    src={BASE_MEDIA_URL + blog?.image}
+                    alt={blog?.heading}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                )}
+              </div>
 
-                                            <img
-                                                src={BASE_MEDIA_URL + blog?.images?.image}
-                                                alt={blog?.heading}
-                                                className="w-full h-full object-cover rounded-xl"
-                                            />
-                                        )
-                                }
-                            </div>
+              {isLoading ? (
+                <LongBlogContentSkeleton />
+              ) : (
+                <div
+                  className="space-y-6 text-gray-600 text-left"
+                  dangerouslySetInnerHTML={{ __html: content }}
+                ></div>
+              )}
 
-                            {
-                                isLoading ? (
-                                    <LongBlogContentSkeleton />
-                                )
-                                    : (
-                                        <div className="space-y-6 text-gray-600 text-left" dangerouslySetInnerHTML={{ __html: content }}></div>
-
-                                    )
-                            }
-
-
-                            {/* <div className="flex items-center gap-4 mt-8 py-4 border-t">
+              {/* <div className="flex items-center gap-4 mt-8 py-4 border-t">
                                 <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
                                     <FileText className="w-5 h-5" />
                                 </button>
@@ -205,16 +229,16 @@ const BlogDetail = () => {
                                     <Code className="w-5 h-5" />
                                 </button>
                             </div> */}
-                        </article>
-                    </div>
+            </article>
+          </div>
 
-                    {/* Sidebar */}
-                    <Sidebar headings={headings} />
-                    <GotoTop />
-                </div>
-            </div>
-        </>
-    );
-}
+          {/* Sidebar */}
+          <Sidebar headings={headings} />
+          <GotoTop />
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default BlogDetail;

@@ -49,25 +49,21 @@
 
 ::-webkit-scrollbar {
   width: 5px;
-  height: 12px;
-  /* Width of the scrollbar */
+  height: 3px;
 }
 
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
-  /* Background of the track */
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--B75);
-  /* Color of the scrollbar */
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-  /* Darker on hover */
 }
 
 * {
@@ -76,6 +72,11 @@
   box-sizing: border-box;
   font-family: "Red Hat Display", sans-serif;
 }
+html {
+  overflow: overlay;
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: "Red Hat Display", sans-serif;
   color: var(--text);
@@ -89,4 +90,22 @@ body {
 .container {
   max-width: 1440px;
   margin: 0 auto;
+}
+.splash-heading {
+  font-size: clamp(30px, 6vw, 58px);
+}
+
+.home-headings {
+  font-size: clamp(25px, 2vw, 34px);
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
 }

@@ -30,11 +30,15 @@ function InstagramSection() {
   return (
     <div className="relative flex justify-center  items-center flex-col">
       <img
+        decoding="async"
+        loading="lazy"
         src={right}
         alt=""
         className="hidden md:block right-0 w-[9rem] object-cover absolute z-0"
       />
       <img
+        decoding="async"
+        loading="lazy"
         src={left}
         alt=""
         className="hidden md:block left-0 w-[9rem] object-cover absolute z-0"
@@ -46,7 +50,7 @@ function InstagramSection() {
             <p className="text-base md:text-xl">@hellotrekkersnamaste</p>
           </div>
           <a
-            href="https:/www.instagram.com/hellotrekkersnamaste"
+            href={`https:/www.instagram.com/hellotrekkersnamaste`}
             target="_blank"
             className="sm:flex hidden text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2"
           >
@@ -59,7 +63,13 @@ function InstagramSection() {
             insta_post.map((post, index) => (
               // <div className="flex w-1/3 p-0.5" key={index}>
               <div className="flex w-full" key={index}>
-                <img src={post} alt="" className="w-full cursor-pointer" />
+                <img
+                  decoding="async"
+                  loading="lazy"
+                  src={post}
+                  alt=""
+                  className="w-full cursor-pointer"
+                />
               </div>
             ))
           ) : (
@@ -68,13 +78,19 @@ function InstagramSection() {
         </div>
 
         <a
-          href="https:/www.instagram.com/hellotrekkersnamaste"
+          href={`https:/www.instagram.com/hellotrekkersnamaste`}
           className="sm:hidden  text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2"
         >
           Follow us
         </a>
       </div>
-      <img src={bottom} alt="" className="bottom-0 object-cover  z-0" />
+      <img
+        decoding="async"
+        loading="lazy"
+        src={bottom}
+        alt=""
+        className="bottom-0 object-cover  z-0"
+      />
     </div>
   );
 }

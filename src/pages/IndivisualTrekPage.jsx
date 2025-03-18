@@ -46,7 +46,7 @@ function IndivisualTrekPage() {
           <div className="flex md:w-2/3 w-full flex-col gap-24 ">
             <TrekBasicInformationSection data={trek} />
             <div className="flex flex-col gap-8 text-left mb-10">
-              <div className="py-3 px-3 sticky overflow-x-scroll top-[8vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
+              <div className="py-5 px-3 sticky overflow-x-scroll top-[7.5vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"
@@ -101,6 +101,8 @@ function IndivisualTrekPage() {
                 <div className="text-2xl font-bold">Map</div>
                 <a href={trek?.map_link} target="_blank">
                   <img
+                    decoding="async"
+                    loading="lazy"
                     src={BASE_MEDIA_URL + trek?.map}
                     className="w-full h-[400px] object-cover rounded-md"
                   />
@@ -112,6 +114,8 @@ function IndivisualTrekPage() {
               >
                 <div className="text-2xl font-bold">Elevation Graph:</div>
                 <img
+                  decoding="async"
+                  loading="lazy"
                   src={BASE_MEDIA_URL + trek?.elevation_graph}
                   className="w-full h-[400px] object-cover rounded-md"
                 />

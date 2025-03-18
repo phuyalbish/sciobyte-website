@@ -3,6 +3,8 @@ import Logo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { LiaTimesSolid } from "react-icons/lia";
+import { FaWhatsapp } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { fetchTypes, fetchIndivisualTypes } from "@/apis/types.js";
@@ -62,20 +64,31 @@ function Header() {
                 setIsDropDown(false);
               }}
             >
-              <img src={Logo} className="lg:w-48 md:w-32 sm:w-28 w-24 h-auto" />
+              <img
+                decoding="async"
+                loading="lazy"
+                src={Logo}
+                className="lg:w-48 md:w-32 sm:w-28 w-24 h-auto"
+              />
             </Link>
 
-            <div className="md:flex hidden gap-20">
+            <div className="md:flex hidden items-center gap-20">
               <div className="flex-col justify-end items-end">
-                <div className="text-base text-slate-600">Email us</div>
-                <div className="md:text-md text-black">
+                <div className="text-base text-N300 flex gap-2 items-center justify-end">
+                  <HiOutlineMail />
+                  Email us
+                </div>
+                <div className="md:text-md text-N500">
                   hellotrekkersnamaste@gmail.com
                 </div>
               </div>
 
               <div className="flex  flex-col justify-end items-end">
-                <div className="text-base text-slate-600">WhatsApp</div>
-                <div className="lg:text-md text-black">+977-9709707037</div>
+                <div className="text-base text-N300 flex gap-2 items-center">
+                  <FaWhatsapp className="text-green-500" />
+                  WhatsApp
+                </div>
+                <div className="md:text-md text-N500">+977-9709707037</div>
               </div>
             </div>
             <div className="md:hidden">
@@ -95,9 +108,12 @@ function Header() {
         </div>
         {isDropDown && (
           <div className="px-10 w-full h-[100vh] fixed z-50 bg-white p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-center">
-            {types?.map((item) =>
+            {types?.map((item, index) =>
               item?.showInNavBar ? (
-                <div className="relative flex gap-2 items-center flex-col">
+                <div
+                  key={index}
+                  className="relative flex gap-2 items-center flex-col"
+                >
                   <button
                     className="flex items-center gap-1 transition font-bold hover:underline underline-offset-1 hover:text-B500"
                     onClick={() => toggleDropdown(item.slug)}
@@ -146,14 +162,14 @@ function Header() {
               Travel Tips
             </Link>
             <Link
-              to="/about"
+              to="/company"
               className="transition hover:underline underline-offset-1 hover:text-B500"
               onClick={() => {
                 setIsDropDown(false);
                 setDropdowns({});
               }}
             >
-              About Us
+              Company
             </Link>
           </div>
         )}

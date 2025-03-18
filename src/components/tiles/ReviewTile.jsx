@@ -10,6 +10,8 @@ function ReviewTile({ star, name, reviewDetail, profile }) {
       </div>
       <div className="flex gap-2 justify-center items-center">
         <img
+          decoding="async"
+          loading="lazy"
           src={profile}
           alt=""
           className="w-12 h-12 rounded-full  object-cover z-0 "

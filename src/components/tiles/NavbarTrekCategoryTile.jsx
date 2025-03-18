@@ -11,6 +11,8 @@ function NavbarTrekCategoryTile({ image, type, name, id, onClick }) {
       onClick={onClick}
     >
       <img
+        decoding="async"
+        loading="lazy"
         src={BASE_MEDIA_URL + image}
         className="w-12 h-12 aspect-square rounded-md"
       />
