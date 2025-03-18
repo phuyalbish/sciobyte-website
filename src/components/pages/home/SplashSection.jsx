@@ -35,7 +35,6 @@ function SplashSection() {
         <video
           src={vid}
           className="w-full h-full object-cover pb-5 z-0 brightness-75"
-          controls
           autoPlay
           loop
           muted
@@ -56,21 +55,21 @@ function SplashSection() {
           ) : (
             ""
           )}
-          <div className="bg-white  rounded-md overflow-hidden flex items-center px-5  h-10  gap-5 shadow-xl  md:h-14 max-w-[90vw]  md:w-[50vw]">
+          <div className="bg-white w-full rounded-md overflow-hidden flex items-center px-5  h-10  gap-1 shadow-xl  md:h-14 max-w-[95vw]  md:w-[50vw]">
             <input
               type="text"
               className="outline-none bg-transparent h-full w-full md:text-base text-md text-N500 placeholder-N300"
-              placeholder="Search Your Trip and Categories"
+              placeholder="Nepal welcomes you, dive in!"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
             <IoSearch
-              className="size-8 text-N300 hover:text-N500 cursor-pointer select-none"
+              className=" md:size-8 size-6 text-N300 hover:text-N500 cursor-pointer select-none"
               onClick={handleSearch}
             />
             {isSearchTile && (
               <LiaTimesSolid
-                className="size-8 text-N300 hover:text-N500 cursor-pointer select-none"
+                className="md:size-8 size-6  text-N300 hover:text-N500 cursor-pointer select-none"
                 onClick={() => setIsSearchTile(false)}
               />
             )}
@@ -79,6 +78,7 @@ function SplashSection() {
             <div className="absolute mt-80 z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-scroll">
               {searchData?.map((item, index) => (
                 <SearchTrekCategoryTile
+                  key={index}
                   name={item?.name}
                   id={item?.id}
                   type={item?.type_name}
