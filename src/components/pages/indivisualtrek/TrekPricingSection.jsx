@@ -27,12 +27,12 @@ function TrekPricingSection({ price, map, pricings, name }) {
   };
   return (
     <div className="flex flex-col w-full gap-2">
-      <div className="flex justify-between w-full items-start">
+      <div className="relative flex justify-between w-full items-start ">
         <div className="flex flex-col items-start">
           <div className="text-md text-bold">Price Starting From</div>
           <div className="text-3xl font-bold text-B500">USD {price}</div>
         </div>
-        <div className="flex relative gap-2 items-center ">
+        <div className="flex relative  gap-2 items-center ">
           <div className="hidden lg:flex">
             <FaStar className="text-yellow-300" size={20} />
             <FaStar className="text-yellow-300" size={20} />
@@ -40,13 +40,14 @@ function TrekPricingSection({ price, map, pricings, name }) {
             <FaStar className="text-yellow-300" size={20} />
             <FaStar className="text-yellow-300" size={20} />
           </div>
-          <CiShare2 className="size-8 cursor-pointer" onClick={handleCopy} />
-          {copied && (
-            <div className="absolute w-full left-1/2 transform -translate-x-1/2 text-N500 bg-white p-3 rounded shadow-md">
-              Link Copied!
-            </div>
-          )}
         </div>
+        <CiShare2 className="size-8 cursor-pointer" onClick={handleCopy} />
+
+        {copied && (
+          <div className="text-N500 absolute bottom-0 right-0 w-34 ">
+            Link Copied!
+          </div>
+        )}
       </div>
       <div className="flex flex-col border gap-2 border-N300 rounded-xl px-4 py-4">
         {Array.isArray(pricings) && pricings?.length > 0 ? (
@@ -90,6 +91,8 @@ function TrekPricingSection({ price, map, pricings, name }) {
       <div className="flex flex-col gap-5 ">
         <div className="text-xl font-bold">Route Map & Elevation</div>
         <img
+          decoding="async"
+          loading="lazy"
           src={BASE_MEDIA_URL + map}
           className="w-full h-36 object-cover cursor-pointer rounded-md"
           onClick={() => scrollToSection("maps")}

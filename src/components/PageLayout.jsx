@@ -18,6 +18,8 @@ export default function PageLayout({ children }) {
           className="rounded-lg fixed z-30  bottom-5 left-5 w-16 h-16  text-white text-lg font-bold cursor-pointer flex justify-center gap-3 items-center"
         >
           <img
+            decoding="async"
+            loading="lazy"
             src={whatsapp}
             alt=""
             className="w-14 h-14  object-cover z-30 "

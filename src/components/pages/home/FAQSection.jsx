@@ -35,6 +35,8 @@ const FAQSection = () => {
       )}
 
       <img
+        decoding="async"
+        loading="lazy"
         src={spntaneousbottom}
         alt=""
         className="bottom-0 object-cover  z-0"

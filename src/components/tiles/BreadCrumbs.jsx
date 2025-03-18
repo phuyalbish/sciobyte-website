@@ -4,19 +4,22 @@ import { GoChevronRight } from "react-icons/go";
 
 import { Link } from "react-router-dom";
 function BreadCrumbs({
-  travel_type = null,
+  type_name = null,
   name = null,
   category_name = null,
   category_id = null,
+  type_slug = null,
 }) {
   return (
     <div className="flex gap-3 items-center text-md md:text-base flex-wrap">
-      <GoHome className="size-5 md:size-8" />
-      {travel_type && (
+      <Link to="/">
+        <GoHome className="size-5 md:size-8" />
+      </Link>
+      {type_name && (
         <>
           <GoChevronRight className="size-5 md:size-8" />
-          <Link to={`/type/${travel_type}`} className="hover:underline">
-            {travel_type}
+          <Link to={`/type/${type_slug}/`} className="hover:underline">
+            {type_name}
           </Link>
         </>
       )}

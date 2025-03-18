@@ -15,6 +15,8 @@ function YTSection() {
   return (
     <div className="relative  w-full h-[80vh] ">
       <img
+        decoding="async"
+        loading="lazy"
         src={ytbg}
         alt=""
         className="w-full h-full object-cover absolute z-0 brightness-50"
@@ -37,10 +39,12 @@ function YTSection() {
           <YTCarousel>
             {slides.map((s, index) => (
               <img
+                decoding="async"
+                loading="lazy"
                 key={index}
                 src={s.img}
                 alt={`Slide ${index}`}
-                className="cursor-pointer md:min-w-[30vw]  min-w-[80vw] object-cover"
+                className="cursor-pointer md:min-w-[30vw] pointer-events-auto  min-w-[80vw] object-cover"
                 onClick={() => {
                   setIsOpenYTSection(true);
                   setytLink(s.link);
@@ -59,7 +63,7 @@ function YTSection() {
               }}
             />
             <iframe
-              className="w-[90vw] h-[80vh]"
+              className="h-[80vh]"
               src={`https://www.youtube.com/embed/${ytLink}?autoplay=1&controls=1`}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

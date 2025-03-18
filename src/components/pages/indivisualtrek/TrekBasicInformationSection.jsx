@@ -40,7 +40,12 @@ function TrekBasicInformationSection({ data }) {
     },
     {
       icon: () => (
-        <img src={BASE_MEDIA_URL + data?.difficulty?.icon} className="w-5" />
+        <img
+          decoding="async"
+          loading="lazy"
+          src={BASE_MEDIA_URL + data?.difficulty?.icon}
+          className="w-5"
+        />
       ),
       heading: "Difficulty",
       description: data?.difficulty?.name,

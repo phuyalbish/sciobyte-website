@@ -20,12 +20,16 @@ function ImageSlideSection({ gallery }) {
                 +{gallery?.length - 3} Photos
               </div>
               <img
+                decoding="async"
+                loading="lazy"
                 src={BASE_MEDIA_URL + item.image}
                 className="object-cover w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
               />
             </div>
           ) : (
             <img
+              decoding="async"
+              loading="lazy"
               key={index}
               src={BASE_MEDIA_URL + item.image}
               className={`object-cover pointer-events-auto  overflow-hidden transition-all duration-500 ease-in-out 
@@ -54,6 +58,8 @@ function ImageSlideSection({ gallery }) {
                 </div>
               </div>
               <img
+                decoding="async"
+                loading="lazy"
                 key={index}
                 src={BASE_MEDIA_URL + item.image}
                 className="z-0 bg-black object-cover rounded-md w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
@@ -61,6 +67,8 @@ function ImageSlideSection({ gallery }) {
             </div>
           ) : (
             <img
+              decoding="async"
+              loading="lazy"
               key={index}
               src={BASE_MEDIA_URL + item.image}
               className={`object-cover transition-all rounded-md duration-500 ease-in-out 
@@ -81,6 +89,8 @@ function ImageSlideSection({ gallery }) {
           <div className="flex flex-wrap overflow-scroll rounded-md gap-4">
             {gallery?.map((item, index) => (
               <img
+                decoding="async"
+                loading="lazy"
                 key={index}
                 src={BASE_MEDIA_URL + item.image}
                 className="object-cover transition-all rounded-md duration-500 ease-in-out w-full aspect-video flex-grow"

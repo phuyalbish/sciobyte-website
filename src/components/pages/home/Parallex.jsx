@@ -27,7 +27,6 @@ export default function Parallax() {
   const y5 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -100]);
   const y6 = useTransform(scrollYAdjusted, [0, maxScroll], [0, 20]);
   const y7 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -150]);
-  const y4 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -80]);
   const y8 = useTransform(scrollYAdjusted, [0, maxScroll], [0, 50]);
   const y9 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -50]);
 
@@ -103,7 +102,7 @@ export default function Parallax() {
             src={img8}
             alt=""
             className="absolute  w-full"
-            style={{ y: y3, top: "140px" }}
+            style={{ y: y3, top: "150px" }}
           />
 
           <motion.img

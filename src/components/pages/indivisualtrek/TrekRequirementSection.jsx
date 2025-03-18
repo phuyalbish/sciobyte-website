@@ -15,6 +15,8 @@ function TrekRequirementSection({ requirements, gears }) {
               className={` py-2 px-4 rounded-xl flex gap-3 items-center border hover:border-B75 bg-transparent`}
             >
               <img
+                decoding="async"
+                loading="lazy"
                 src={BASE_MEDIA_URL + item.icon}
                 className="w-8 aspect-square h-8 "
               />
