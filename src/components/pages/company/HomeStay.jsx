@@ -1,3 +1,6 @@
+import homeStay from "@/assets/homestay.png";
+import instagramLogo from "@/assets/instagram-logo.png";
+
 const HomeStay = () => {
   return (
     <>
@@ -27,7 +30,7 @@ const HomeStay = () => {
             <img
               decoding="async"
               loading="lazy"
-              src="/homestay.png"
+              src={homeStay}
               alt="homestay"
               className="h-full w-full object-cover rounded-xl"
             />
@@ -39,7 +42,7 @@ const HomeStay = () => {
               <img
                 decoding="async"
                 loading="lazy"
-                src="/instagram-logo.png"
+                src={instagramLogo}
                 alt=""
                 className="w-6"
               />
