@@ -6,7 +6,7 @@ const HomeStay = () => {
           Our Home Stay
         </div>
 
-        <div className="flex flex-col  justify-evenly items-end w-full gap-5 ">
+        <div className="flex flex-col md:flex-row  justify-evenly items-center w-full gap-5 ">
           <div className="w-full lg:w-1/2 flex flex-col justify-center gap-[1rem]  ">
             <h1 className="text-2xl font-semibold text-left">
               Kritipur Comfort <span className="text-B300">Homestay</span>

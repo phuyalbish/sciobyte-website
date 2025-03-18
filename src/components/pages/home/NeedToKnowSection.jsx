@@ -51,7 +51,7 @@ const NeedToKnowSection = () => {
   return (
     <>
       <section className="container flex flex-col gap-4 relative w-full px-[2rem] md:px-[4.5rem]">
-        <h1 className="mb-[3rem] text-6xl text-G200 reenie-beanie">
+        <h1 className="mb-[3rem] text-4xl md:text-5xl text-G200 reenie-beanie">
           You need to know these
         </h1>
         <div className="hidden md:flex flex-col md:flex-row gap-[2.5rem] items-center">

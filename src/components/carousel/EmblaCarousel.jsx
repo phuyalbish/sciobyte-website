@@ -55,7 +55,7 @@ const EmblaCarousel = ({
         <button
           onClick={scrollPrev}
           disabled={!canScrollPrev}
-          className="disabled:opacity-50  bg-G300 p-1 hover:bg-400 rounded-md"
+          className="disabled:bg-N300  bg-G300 p-1 hover:bg-400 rounded-md"
           aria-label="Previous slide"
         >
           <FiChevronLeft className="size-6 text-white" />
