@@ -1,3 +1,7 @@
+import forest from "@/assets/forest.png";
+import rock from "@/assets/rock.jpeg";
+import companyHeroImg from "@/assets/company-hero-img.png";
+
 const Hero = () => {
   return (
     <>
@@ -10,7 +14,7 @@ const Hero = () => {
             <img
               decoding="async"
               loading="lazy"
-              src="/forest.png"
+              src={forest}
               className="h-full w-full object-cover object-center"
               alt="company-hero-img"
             />
@@ -19,7 +23,7 @@ const Hero = () => {
             <img
               decoding="async"
               loading="lazy"
-              src="/rock.jpeg"
+              src={rock}
               className="h-full w-full object-cover object-center"
               alt="company-hero-img"
             />
@@ -28,7 +32,7 @@ const Hero = () => {
             <img
               decoding="async"
               loading="lazy"
-              src="/company-hero-img.png"
+              src={companyHeroImg}
               className="h-full w-full object-cover object-center"
               alt="company-hero-img"
             />
@@ -37,7 +41,7 @@ const Hero = () => {
             <img
               decoding="async"
               loading="lazy"
-              src="/rock.jpeg"
+              src={rock}
               className="h-full w-full object-cover object-center"
               alt="company-hero-img"
             />
@@ -46,7 +50,7 @@ const Hero = () => {
             <img
               decoding="async"
               loading="lazy"
-              src="/forest.png"
+              src={forest}
               className="h-full w-full object-cover object-center"
               alt="company-hero-img"
             />

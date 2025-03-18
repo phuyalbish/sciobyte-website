@@ -1,3 +1,6 @@
+import nepalWill from "@/assets/nepalwill.png"
+import NW from "@/assets/NW.png"
+
 const HomeStay = () => {
   return (
     <>
@@ -29,7 +32,7 @@ const HomeStay = () => {
             <img
               decoding="async"
               loading="lazy"
-              src="/nepalwill.png"
+              src={nepalWill}
               alt="nepalwill"
               className="h-full w-full object-cover rounded-xl"
             />
@@ -41,7 +44,7 @@ const HomeStay = () => {
               <img
                 decoding="async"
                 loading="lazy"
-                src="/NW.png"
+                src={NW}
                 alt=""
                 className="w-6"
               />

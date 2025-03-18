@@ -1,5 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import nationalStamp from "@/assets/national-stamp.png"
+import NTB from "@/assets/NTB.png"
+import Taan from "@/assets/Taan.png"
+import nationalFlag from "@/assets/national-flag.png"
+import footerLogo from "@/assets/footer-logo.svg"
+import footerImg from "@/assets/footer-img.png"
 
 // const handleWord = (word) => {
 //   const numberOfWords = word.split(" ").length;
@@ -20,7 +26,7 @@ const HTLogo = ({ className }) => (
     <img
       decoding="async"
       loading="lazy"
-      src="/footer-logo.svg"
+      src={footerLogo}
       alt="/footer-logo"
       className=""
       style={{ width: "12rem" }}
@@ -154,29 +160,29 @@ function Footer() {
             <img
               decoding="async"
               loading="lazy"
-              className="h-full w-[4.6875rem] object-cover object-center"
-              src="/national-stamp.png"
+              className="h-14 w-14 object-cover object-center"
+              src={nationalStamp}
               alt="national-stamp"
             />
             <img
               decoding="async"
               loading="lazy"
-              className="h-full w-[4.6875rem] object-cover object-center"
-              src="/NTB.png"
+              className="h-14 w-14 object-cover object-center"
+              src={NTB}
               alt="NTB"
             />
             <img
               decoding="async"
               loading="lazy"
-              className="h-full w-[4.6875rem] object-cover object-center"
-              src="/Taan.png"
+              className="h-14 w-14 object-cover object-center"
+              src={Taan}
               alt="Taan"
             />
             <img
               decoding="async"
               loading="lazy"
-              className="h-full w-[4.6875rem] object-cover object-center"
-              src="/national-flag.png"
+              className="h-14 w-14 object-cover object-center"
+              src={nationalFlag}
               alt="national-flag"
             />
           </div>
@@ -202,15 +208,17 @@ function Footer() {
         <div className="w-full -translate-y-[15%] absolute left-0 z-[-1]">
           <img
             width="100%"
-            src="/footer-img.png"
+            src={footerImg}
             alt="footer-img"
             decoding="async"
             loading="lazy"
           />
-          <div className="py-5 bg-black text-white translate-y-[-1%]">
+          <div className="flex flex-col gap-3 py-5 bg-black text-white translate-y-[-1%]">
             <p>
-              All rights reserved ©️ Hello Trekkers Pvt. Ltd, Designed with Love
-              by Webodle
+              All rights reserved © Hello Trekkers Pvt. Ltd
+            </p>
+            <p> 
+              Designed by Webodle
             </p>
           </div>
         </div>
