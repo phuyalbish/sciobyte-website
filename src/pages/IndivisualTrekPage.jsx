@@ -36,7 +36,8 @@ function IndivisualTrekPage() {
     <>
       <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
         <BreadCrumbs
-          travel_type={trek?.type_name}
+          type_name={trek?.type_name}
+          type_slug={trek?.type_slug}
           category_name={trek?.category_name}
           category_id={trek?.category}
           name={trek?.name}
