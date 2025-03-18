@@ -12,13 +12,13 @@ import SpontaneousTrekSection from "@/components/pages/home/SpontaneousTrekSecti
 
 function HomePage() {
   return (
-    <div className="flex flex-col gap-[3rem]">
+    <div className="flex flex-col gap-16 relative w-full">
       <SplashSection />
       <TrekSection />
       <Parallex />
       <HomeStaySection />
       <SpontaneousTrekSection />
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full relative">
         <YTSection />
         <ReviewSection />
       </div>

@@ -1,48 +1,61 @@
-import React from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 
-
 const BlogVerticalTile = ({ blog }) => {
-  const {
-    title,
-    author,
-    date,
-    location,
-    imageUrl,
-    category,
-    slug,
-  } = blog;
+  const { title, author, date, location, imageUrl, category, slug } = blog;
   const isLoading = Object.keys(blog).length === 0;
-  const blogUrl = slug ? `/blog/${slug}` : '/';
+  const blogUrl = slug ? `/blog/${slug}` : "/";
 
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(
+        "https://hellotrekkers.com" + blogUrl
+      );
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
   return (
     <div className="flex flex-col h-full p-[1rem] max-w-full rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-xl">
       <div className="relative grow overflow-hidden">
-        {
-          isLoading ? (
-            <ImageSkeleton />
-          )
-            : (
-              <>
-                <img
-                  className="w-full h-64 grow object-cover rounded-lg"
-                  src={imageUrl}
-                  alt={title}
-                />
-              </>
-            )
-        }
+        {isLoading ? (
+          <ImageSkeleton />
+        ) : (
+          <>
+            <img
+              decoding="async"
+              loading="lazy"
+              className="w-full h-64 grow
+            object-cover rounded-lg"
+              src={imageUrl}
+              alt={title}
+            />
+          </>
+        )}
 
-        <span className="absolute bottom-4 left-0 bg-white text-black px-3 py-1 rounded-r-md text-[1rem] font-medium">
+        <Link
+          to="/blogs"
+          className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300  p-1 rounded-md text-sm"
+        >
           {category}
-        </span>
-        <span className="flex items-center gap-1 cursor-pointer absolute top-4 right-4 bg-white text-[#008774] border border-[#008774] px-[1rem] py-[0.5rem] rounded-md text-[0.875rem] font-semibold">
-          <IoMdShare />
-          share
-        </span>
+        </Link>
+
+        {copied && (
+          <div className="text-N500 absolute bottom-0 right-0 w-34 bg-white/50 text-sm p-1 m-1 rounded-md">
+            Link Copied!
+          </div>
+        )}
+        <IoMdShare
+          className="flex items-center gap-1 cursor-pointer absolute top-1 right-1 bg-white/50 hover:bg-white text-N300  p-1 rounded-md size-6"
+          onClick={handleCopy}
+        />
       </div>
       <div className=" py-4">
         <Link to={blogUrl}>

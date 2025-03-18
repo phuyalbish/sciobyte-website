@@ -18,6 +18,8 @@ import { Link } from "react-router-dom";
 const HTLogo = ({ className }) => (
   <div className={className}>
     <img
+      decoding="async"
+      loading="lazy"
       src="/footer-logo.svg"
       alt="/footer-logo"
       className=""
@@ -147,24 +149,32 @@ function Footer() {
     <footer className="bg-G500">
       <div className="relative text-white text-center px-[2rem] md:px-[4.5rem] pt-[1rem]">
         <div className="p-10 flex  flex-col gap-[0.5rem]">
-          <h1 className="text-2xl font-medium">WE ARE ASSOCIATED WITH:</h1>
+          <h1 className="text-2xl home-heading">WE ARE ASSOCIATED WITH:</h1>
           <div className="flex justify-center items-center gap-5 ">
             <img
+              decoding="async"
+              loading="lazy"
               className="h-full w-[4.6875rem] object-cover object-center"
               src="/national-stamp.png"
               alt="national-stamp"
             />
             <img
+              decoding="async"
+              loading="lazy"
               className="h-full w-[4.6875rem] object-cover object-center"
               src="/NTB.png"
               alt="NTB"
             />
             <img
+              decoding="async"
+              loading="lazy"
               className="h-full w-[4.6875rem] object-cover object-center"
               src="/Taan.png"
               alt="Taan"
             />
             <img
+              decoding="async"
+              loading="lazy"
               className="h-full w-[4.6875rem] object-cover object-center"
               src="/national-flag.png"
               alt="national-flag"
@@ -190,7 +200,13 @@ function Footer() {
         </div>
 
         <div className="w-full -translate-y-[15%] absolute left-0 z-[-1]">
-          <img width="100%" src="/footer-img.png" alt="footer-img" />
+          <img
+            width="100%"
+            src="/footer-img.png"
+            alt="footer-img"
+            decoding="async"
+            loading="lazy"
+          />
           <div className="py-5 bg-black text-white translate-y-[-1%]">
             <p>
               All rights reserved ©️ Hello Trekkers Pvt. Ltd, Designed with Love

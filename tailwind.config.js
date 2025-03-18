@@ -48,4 +48,11 @@ export default {
     },
   },
   plugins: [],
+
+  compilerOptions: {
+    baseUrl: ".",
+    paths: {
+      "@/*": ["./src/*"],
+    },
+  },
 };

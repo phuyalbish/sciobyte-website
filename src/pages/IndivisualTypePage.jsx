@@ -26,9 +26,11 @@ function IndivisualTypePage() {
     <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
       <BreadCrumbs name={type?.name} />
       <img
+        decoding="async"
+        loading="lazy"
         src={BASE_MEDIA_URL + type?.image}
         alt=""
-        className="w-full h-[60vh] object-cover rounded-md"
+        className="w-full aspect-video max-h-[60vh] object-cover rounded-md"
       />
       <div className="flex flex-col gap-2">
         <div className="text-2xl lg:text-4xl  text-left font-bold">
