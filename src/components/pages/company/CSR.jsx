@@ -44,8 +44,6 @@ const HomeStay = () => {
                 src="/NW.png"
                 alt=""
                 className="w-6"
-                decoding="async"
-                loading="lazy"
               />
               <p className="text-lg font-semibold  text-white underline underline-offset-1">
                 @nepalwill
