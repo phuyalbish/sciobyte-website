@@ -22,7 +22,7 @@ export default function PageLayout({ children }) {
             loading="lazy"
             src={whatsapp}
             alt=""
-            className="w-14 h-14  object-cover z-30 "
+            className="w-14 h-14  object-cover z-50 "
           />
         </a>
       </main>

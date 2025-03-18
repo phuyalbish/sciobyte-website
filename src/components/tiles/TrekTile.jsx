@@ -47,7 +47,7 @@ const TrekTile = ({ data }) => {
   return (
     <Link
       to={`/travel/${id}`}
-      className="relative cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md hover:bg-B50 p-5 transition-all duration-500"
+      className="relative cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-5 transition-all duration-500"
     >
       <div className="relative overflow-hidden rounded-xl">
         <img

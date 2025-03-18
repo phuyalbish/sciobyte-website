@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Logo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
-import { IoIosMenu } from "react-icons/io";
-import { LiaTimesSolid } from "react-icons/lia";
+import { TbMenu3 } from "react-icons/tb";
+import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 
@@ -93,12 +93,12 @@ function Header() {
             </div>
             <div className="md:hidden">
               {isDropDown ? (
-                <LiaTimesSolid
+                <IoClose
                   className="text-N500 size-8 cursor-pointer"
                   onClick={() => setIsDropDown(false)} // Hide dropdown
                 />
               ) : (
-                <IoIosMenu
+                <TbMenu3
                   className="text-N500 size-8 cursor-pointer"
                   onClick={() => setIsDropDown(true)} // Show dropdown
                 />
@@ -107,12 +107,12 @@ function Header() {
           </header>
         </div>
         {isDropDown && (
-          <div className="px-10 w-full h-[100vh] fixed z-50 bg-white p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-center">
+          <div className="px-10 w-full h-[100vh] fixed z-50 bg-white p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
             {types?.map((item, index) =>
               item?.showInNavBar ? (
                 <div
                   key={index}
-                  className="relative flex gap-2 items-center flex-col"
+                  className="relative flex gap-2 items-left w-full flex-col"
                 >
                   <button
                     className="flex items-center gap-1 transition font-bold hover:underline underline-offset-1 hover:text-B500"
@@ -153,7 +153,7 @@ function Header() {
 
             <Link
               to="/blogs"
-              className="transition hover:underline underline-offset-1 hover:text-B500"
+              className="transition hover:underline underline-offset-1 hover:text-B500 text-left"
               onClick={() => {
                 setIsDropDown(false);
                 setDropdowns({});
@@ -163,7 +163,7 @@ function Header() {
             </Link>
             <Link
               to="/company"
-              className="transition hover:underline underline-offset-1 hover:text-B500"
+              className="transition hover:underline underline-offset-1 hover:text-B500 text-left"
               onClick={() => {
                 setIsDropDown(false);
                 setDropdowns({});
