@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import logo from "@/assets/HTWhite.png";
@@ -12,6 +12,29 @@ function Navbar() {
   const [types, setTypes] = useState(null);
   const [typeDetails, setTypeDetails] = useState({});
   const [dropdowns, setDropdowns] = useState({}); // Stores dropdown state for each type
+  const navbarMenuRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideNavbarClick = (event) => {
+      setDropdowns((prevDropdowns) => {
+        if (
+          Object.keys(prevDropdowns).length > 0 &&
+          navbarMenuRef.current &&
+          !navbarMenuRef.current.contains(event.target)
+        ) {
+          return {}; 
+        }
+        return prevDropdowns; 
+      });
+    };
+
+    window.addEventListener("click", handleOutsideNavbarClick);
+
+    return () => {
+      window.removeEventListener("click", handleOutsideNavbarClick);
+    };
+  }, []);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,7 +100,7 @@ function Navbar() {
             />
           </Link>
 
-          <div className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24">
+          <div ref={navbarMenuRef} className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24">
             {types?.map((item, index) =>
               item?.showInNavBar ? (
                 <React.Fragment key={index}>
@@ -97,6 +120,7 @@ function Navbar() {
                           image={trek.image}
                           name={trek.name}
                           id={trek.id}
+                          setDropdowns={setDropdowns}
                         />
                       ))}
                       {typeDetails[item.slug]?.categories?.map((category) => (
@@ -106,6 +130,7 @@ function Navbar() {
                           image={category.image}
                           name={category.name}
                           id={category.id}
+                          setDropdowns={setDropdowns}
                         />
                       ))}
                     </div>
