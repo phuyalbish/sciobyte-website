@@ -19,21 +19,21 @@ function YTSection() {
         loading="lazy"
         src={ytbg}
         alt=""
-        className="w-full h-full object-cover absolute z-0 brightness-50"
+        className="w-full h-full object-cover absolute z-0 brightness-25"
       />
       <div className="container h-full  max-w-[100em] mx-auto">
         <div className="relative  z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center gap-5 ">
-          <div className="textConten w-7/12  flex  flex-col gap-5 md:gap-0 md:pl-20 justify-center   ">
+          <div className="textConten w-7/12  flex  flex-col gap-5 md:gap-0 md:pl-20 justify-center  self-start md:mt-10  md:items-start ">
             <div className="text-3xl md:text-5xl text-left text-white font-bold flex flex-col ">
               Connect us on
             </div>
             <a
-              href="https://www.youtube.com/@Welcomenepal"
+              href="https://www.youtube.com/@hellotrekkers"
               target="_blank"
-              className="text-red-500 font-base text-4xl md:text-7xl flex  gap-5 items-center"
+              className="text-red-500 font-base text-4xl md:text-7xl Fi flex  gap-5 items-center justify-center"
             >
               <FaYoutube />
-              Youtube
+              <div>Youtube</div>
             </a>
           </div>
           <YTCarousel>
@@ -44,7 +44,7 @@ function YTSection() {
                 key={index}
                 src={s.img}
                 alt={`Slide ${index}`}
-                className="cursor-pointer md:min-w-[30vw] pointer-events-auto  min-w-[80vw] object-cover"
+                className="cursor-pointer md:min-w-[30vw] pointer-events-auto  min-w-[80vw] object-cover "
                 onClick={() => {
                   setIsOpenYTSection(true);
                   setytLink(s.link);

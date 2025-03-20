@@ -58,7 +58,7 @@ function IndivisualTrekPage() {
                   onClick={() => scrollToSection("itenary")}
                   className="hover:underline"
                 >
-                  Itenary
+                  Itinerary
                 </button>
 
                 <button
