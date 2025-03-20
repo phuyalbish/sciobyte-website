@@ -1,15 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-function NavbarTrekCategoryTile({ image, type, name, id, onClick }) {
+function NavbarTrekCategoryTile({ image, type, name, id, setDropdowns, onClick }) {
+  const navigate = useNavigate();
   return (
-    <Link
-      to={`/${type}/${id}`}
-      className="flex gap-2 p-1 items-center md:shadow-none shadow-md rounded-md hover:bg-white/25   hover:shadow-sm"
-      onClick={onClick}
-    >
+    <div
+      className="cursor-pointer flex gap-2 p-1 items-center shadow-md rounded-md hover:bg-white/25   hover:shadow-sm"
+      onClick={() => {
+        setDropdowns({})
+        navigate(`/${type}/${id}`)
+      }
+    }
+      >
       <img
         decoding="async"
         loading="lazy"
@@ -20,7 +24,7 @@ function NavbarTrekCategoryTile({ image, type, name, id, onClick }) {
         <div className="text-base text-start">{name}</div>
         <div className="text-md text-N300 text-start">{type}</div>
       </div>
-    </Link>
+    </div>
   );
 }
 
