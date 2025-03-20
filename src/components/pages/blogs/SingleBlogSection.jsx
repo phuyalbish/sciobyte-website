@@ -12,6 +12,8 @@ import {
   LongBlogContentSkeleton,
 } from "@/components/skeleton/Skeleton.jsx";
 
+import {truncate} from "@/utils/truncate.js";
+
 const SingleBlogSection = ({ latestBlog }) => {
   const sanitizedContent = DOMPurify.sanitize(latestBlog?.content);
   const content =
@@ -69,7 +71,7 @@ const SingleBlogSection = ({ latestBlog }) => {
                       <div className="flex items-center gap-2">
                         <AiFillEdit />
                         <span className="font-medium">
-                          by {latestBlog?.authors?.fullname || "Unknown"}
+                          by {latestBlog?.author_name || "Unknown"}
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
@@ -98,9 +100,13 @@ const SingleBlogSection = ({ latestBlog }) => {
                 <div className="flex gap-2">
                   {!isLoading && (
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-B75 text-B500">
-                      {latestBlog?.category?.name || "Category"}
+                      {latestBlog?.category_name || "Category"}
                     </span>
                   )}
+                </div>
+
+                <div className="text-md text-N300 text-start">
+                  {latestBlog?.subheading && truncate(latestBlog?.subheading, 150)}
                 </div>
 
                 {isLoading ? (
