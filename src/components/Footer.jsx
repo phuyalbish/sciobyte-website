@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import nationalStamp from "@/assets/national-stamp.png"
-import NTB from "@/assets/NTB.png"
-import Taan from "@/assets/Taan.png"
-import nationalFlag from "@/assets/national-flag.png"
-import footerLogo from "@/assets/footer-logo.svg"
-import footerImg from "@/assets/footer-img.png"
+import nationalStamp from "@/assets/national-stamp.png";
+import NTB from "@/assets/NTB.png";
+import Taan from "@/assets/Taan.png";
+import nationalFlag from "@/assets/national-flag.png";
+import footerLogo from "@/assets/footer-logo.svg";
+import footerImg from "@/assets/footer-img.png";
 
 // const handleWord = (word) => {
 //   const numberOfWords = word.split(" ").length;
@@ -153,7 +153,7 @@ function Footer() {
 
   return (
     <footer className="bg-G500">
-      <div className="relative text-white text-center px-[2rem] md:px-[4.5rem] pt-[1rem]">
+      <div className="relative text-white text-center px-[2rem] md:px-[4.5rem]  pt-[1rem]">
         <div className="p-10 flex  flex-col gap-[0.5rem]">
           <h1 className="text-2xl home-heading">WE ARE ASSOCIATED WITH:</h1>
           <div className="flex justify-center items-center gap-5 ">
@@ -204,23 +204,18 @@ function Footer() {
             })}
           </div>
         </div>
-
-        <div className="w-full -translate-y-[15%] absolute left-0 z-[-1]">
-          <img
-            width="100%"
-            src={footerImg}
-            alt="footer-img"
-            decoding="async"
-            loading="lazy"
-          />
-          <div className="flex flex-col gap-3 py-5 bg-black text-white translate-y-[-1%]">
-            <p>
-              All rights reserved © Hello Trekkers Pvt. Ltd
-            </p>
-            <p> 
-              Designed by Webodle
-            </p>
-          </div>
+      </div>
+      <div className="relative">
+        <img
+          width="100%"
+          src={footerImg}
+          decoding="async"
+          loading="lazy"
+          className="bg-G500 border border-t-G500 box-border border-l-0  border-b-0   outline-none border-r-0"
+        />
+        <div className="absolute w-full bottom-1 md:bottom-5 flex flex-col  box-border text-sm md:text-md text-white">
+          <p>All rights reserved © Hello Trekkers Pvt. Ltd</p>
+          <p>Designed by Webodle</p>
         </div>
       </div>
     </footer>

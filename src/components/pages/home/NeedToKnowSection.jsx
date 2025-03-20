@@ -64,7 +64,7 @@ const NeedToKnowSection = () => {
                 date: format(parseISO(blogs[0]?.created_at), "MMMM d, yyyy"),
 
                 category: blogs[0].category_name,
-                location: "Nepal",
+                location: blogs[0].location,
                 imageUrl: blogs[0]?.image,
                 slug: blogs[0].slug,
                 description: blogs[0].description,
@@ -92,7 +92,7 @@ const NeedToKnowSection = () => {
                           "MMMM d, yyyy"
                         ),
                         category: blog?.category_name,
-                        location: "Nepal",
+                        location: blogs[0].location,
                         imageUrl: blog?.image,
                         slug: blog?.slug,
                       }}
@@ -118,7 +118,7 @@ const NeedToKnowSection = () => {
                   subheading: item?.heading,
                   date: "Mar 25, 2025",
                   category: item?.category_name,
-                  location: "Nepal",
+                  location: blogs[0].location,
                   imageUrl: item?.image,
                   slug: item.slug,
                 }}

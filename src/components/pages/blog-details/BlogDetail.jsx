@@ -7,6 +7,7 @@ import DOMPurify from "dompurify";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
+import { MdLocationOn } from "react-icons/md";
 import {
   HeadingSkeleton,
   DescriptionSkeleton,
@@ -160,12 +161,21 @@ const BlogDetail = () => {
                 <DescriptionSkeleton />
               ) : (
                 <div className="flex items-center gap-6 text-sm text-gray-600 mb-6">
-                  <div className="flex items-center gap-2">
-                    <AiFillEdit />
-                    <span className="font-medium">
-                      by {blog?.author_name || "Unknown"}
-                    </span>
-                  </div>
+                  {blog?.author_name && (
+                    <div className="flex items-center gap-2">
+                      <AiFillEdit />
+                      <span className="font-medium">
+                        by {blog?.author_name || "Unknown"}
+                      </span>
+                    </div>
+                  )}
+
+                  {blog?.location && (
+                    <div className="flex items-center gap-2">
+                      <MdLocationOn />
+                      <span className="font-medium">{blog?.location}</span>
+                    </div>
+                  )}
                   <div className="flex items-center gap-2">
                     <MdDateRange />
                     <time>
