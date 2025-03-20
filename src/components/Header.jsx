@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Logo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
-import { TbMenu3 } from "react-icons/tb";
+import { IoIosMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
@@ -98,7 +98,7 @@ function Header() {
                   onClick={() => setIsDropDown(false)} // Hide dropdown
                 />
               ) : (
-                <TbMenu3
+                <IoIosMenu
                   className="text-N500 size-8 cursor-pointer"
                   onClick={() => setIsDropDown(true)} // Show dropdown
                 />

@@ -19,7 +19,10 @@ export default function YTCarousel({
     return () => clearInterval(slideInterval);
   }, []);
   return (
-    <div className="relative overflow-hidden  rounded-xl flex flex-col justify-center gap-5 h-[70vh]  w-[80vw]  md:w-[30vw] border-white border-2 ">
+    <div
+      className="relative overflow-hidden  rounded-xl flex flex-col justify-center gap-5 h-[70vh]  w-[80vw]  md:w-[30vw] border-white border-2 box-content shadow-2xl
+ "
+    >
       <div
         className="flex transition-transform ease-out duration-500  "
         style={{ transform: `translateX(-${curr * 100}%)` }}
@@ -41,7 +44,7 @@ export default function YTCarousel({
         </button>
       </div>
 
-      <FaPlay className="text-white absolute top-1/2 left-[50%]" />
+      <FaPlay className="text-white absolute top-1/2 left-[50%] size-10 -translate-y-[50%]  -translate-x-[50%]  hover:hidden" />
     </div>
   );
 }

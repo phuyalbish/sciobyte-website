@@ -60,10 +60,14 @@ const BlogVerticalTile = ({ blog }) => {
             Link Copied!
           </div>
         )}
-        <IoMdShare
-          className="flex items-center gap-1 cursor-pointer absolute top-1 right-1 bg-white/50 hover:bg-white text-N300  p-1 rounded-md size-6"
+
+        <div
+          className="absolute bg-white/50 hover:bg-white text-N300 text-sm flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 rounded-md"
           onClick={handleCopy}
-        />
+        >
+          <IoMdShare className="size-3.5" />
+          Share
+        </div>
       </div>
       <div className="flex justify-start flex-col gap-1">
         <Link to={blogUrl}>
@@ -74,18 +78,23 @@ const BlogVerticalTile = ({ blog }) => {
         </div>
       </div>
       <div className="flex items-center gap-4 text-gray-600">
-        <div className="flex items-center gap-1">
-          <AiFillEdit />
-          <span className="text-sm">{author}</span>
-        </div>
+        {author && (
+          <div className="flex items-center gap-1">
+            <AiFillEdit />
+            <span className="text-sm">{author}</span>
+          </div>
+        )}
         <div className="flex items-center gap-1">
           <MdDateRange />
           <span className="text-sm">{date}</span>
         </div>
-        <div className="flex items-center gap-1">
-          <MdLocationOn />
-          <span className="text-sm">{location}</span>
-        </div>
+
+        {location && (
+          <div className="flex items-center gap-1">
+            <MdLocationOn />
+            <span className="text-sm">{location}</span>
+          </div>
+        )}
       </div>
     </div>
   );

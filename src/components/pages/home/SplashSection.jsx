@@ -25,13 +25,6 @@ function SplashSection() {
   return (
     <div className="relative w-full h-full">
       <div className="absolute h-full inset-0  w-full">
-        {/* <img
-          decoding="async"
-          loading="lazy"
-          src={img}
-          alt=""
-          className="w-full h-full object-cover pb-5 z-0"
-        /> */}
         <video
           src={vid}
           className="w-full h-full object-cover pb-5 z-0 brightness-75"
@@ -41,7 +34,7 @@ function SplashSection() {
         />
       </div>
 
-      <div className="relative w-full z-30 flex flex-col justify-between h-[60vh] sm:h-[70vh] md:h-[93vh] lg:[98vh]   gap-10 items-center">
+      <div className="relative w-full z-30 flex flex-col justify-between h-[60vh] sm:h-[70vh] md:h-[93vh] lg:[100vh]   gap-10 items-center">
         <div></div>
         <div
           className={`flex flex-col w-full p-10 ${

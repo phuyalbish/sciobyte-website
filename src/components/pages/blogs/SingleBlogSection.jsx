@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
+import { MdLocationOn } from "react-icons/md";
 import {
   ImageSkeleton,
   HeadingSkeleton,
@@ -68,12 +69,23 @@ const SingleBlogSection = ({ latestBlog }) => {
                     <DescriptionSkeleton />
                   ) : (
                     <>
-                      <div className="flex items-center gap-2">
-                        <AiFillEdit />
-                        <span className="font-medium">
-                          by {latestBlog?.author_name || "Unknown"}
-                        </span>
-                      </div>
+                      {latestBlog?.author_name && (
+                        <div className="flex items-center gap-2">
+                          <AiFillEdit />
+                          <span className="font-medium">
+                            by {latestBlog?.author_name}
+                          </span>
+                        </div>
+                      )}
+
+                      {latestBlog?.location && (
+                        <div className="flex items-center gap-2">
+                          <MdLocationOn />
+                          <span className="font-medium">
+                            {latestBlog?.location}
+                          </span>
+                        </div>
+                      )}
                       <div className="flex items-center gap-2">
                         <MdDateRange />
                         <time>
@@ -83,11 +95,13 @@ const SingleBlogSection = ({ latestBlog }) => {
                           )}
                         </time>
                       </div>
-                      <IoMdShare
-                        className="flex items-center gap-1 cursor-pointer bg-white/50 hover:bg-white text-N300  p-1 rounded-md size-6"
+                      <div
+                        className="bg-white/50 hover:bg-white text-N300 text-sm flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 rounded-md"
                         onClick={handleCopy}
-                      />
-
+                      >
+                        <IoMdShare className="size-3.5" />
+                        Share
+                      </div>
                       {copied && (
                         <div className="text-N500  w-34  text-sm  rounded-md">
                           Link Copied!
