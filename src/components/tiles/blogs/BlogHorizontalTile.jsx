@@ -4,9 +4,19 @@ import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
+import { truncate } from "@/utils/truncate.js";
 
 const BlogHorizontalTile = ({ blog }) => {
-  const { title, author, date, location, imageUrl, category, slug } = blog;
+  const {
+    heading,
+    subheading,
+    author,
+    date,
+    imageUrl,
+    category,
+    slug,
+    location,
+  } = blog;
   const isLoading = Object.keys(blog).length === 0;
   const blogUrl = slug ? `/blog/${slug}` : "/";
 
@@ -24,7 +34,7 @@ const BlogHorizontalTile = ({ blog }) => {
     }
   };
   return (
-    <div className="sm:h-[15.35rem] p-[1rem] flex-col sm:flex-row max-w-full flex rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-xl">
+    <div className="sm:h-[15.35rem] p-5 gap-2 flex-col sm:flex-row max-w-full flex rounded-xl overflow-hidden mb-4 shadow-md bg-white transition-all duration-300 hover:shadow-lg">
       <div className="relative sm:w-1/2 ">
         {isLoading ? (
           <ImageSkeleton />
@@ -35,7 +45,7 @@ const BlogHorizontalTile = ({ blog }) => {
               loading="lazy"
               src={imageUrl}
               className="w-full h-48 sm:h-full object-cover rounded-lg"
-              alt={title}
+              alt={heading}
             />
           </>
         )}
@@ -57,8 +67,8 @@ const BlogHorizontalTile = ({ blog }) => {
           onClick={handleCopy}
         />
       </div>
-      <div className="sm:px-6 py-4 sm:w-1/2">
-        <div className="flex items-center gap-4 text-gray-600">
+      <div className="py-2 sm:w-1/2">
+        <div className="flex flex-col justify-start gap-4 text-gray-600">
           <div className="flex items-center gap-1">
             <AiFillEdit />
             <span className="text-sm">{author}</span>
@@ -72,11 +82,16 @@ const BlogHorizontalTile = ({ blog }) => {
             <span className="text-sm">{location}</span>
           </div>
         </div>
-        <Link to={blogUrl}>
-          <h2 className="font-bold text-xl mb-3 text-gray-800 text-left">
-            {title}
-          </h2>
-        </Link>
+        <div className="flex justify-start flex-col gap-1">
+          <Link to={blogUrl}>
+            <div className="font-bold text-xl text-N400 text-left">
+              {heading}
+            </div>
+          </Link>
+          <div className="text-md text-N300 text-start">
+            {truncate(subheading, 150)}
+          </div>
+        </div>
       </div>
     </div>
   );

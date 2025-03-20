@@ -49,88 +49,90 @@ const NeedToKnowSection = () => {
   };
 
   return (
-    <>
-      <section className="container flex flex-col gap-4 relative w-full px-[2rem] md:px-[4.5rem]">
-        <h1 className="mb-[3rem] text-4xl md:text-5xl text-G200 reenie-beanie">
-          You need to know these
-        </h1>
-        <div className="hidden md:flex flex-col md:flex-row gap-[2.5rem] items-center">
-          {blogs.length > 0 && blogs[0] ? (
-            <div className=" md:w-[40%]">
-              <BlogVerticalTile
-                blog={{
-                  title: blogs[0]?.heading,
-                  date: format(parseISO(blogs[0]?.created_at), "MMMM d, yyyy"),
-                  location: "Nepal",
-                  category: "Travel Tips",
-                  imageUrl: blogs[0]?.image,
-                  slug: blogs[0].slug,
-                  description: blogs[0].description,
-                }}
-              />
-            </div>
+    <section className="container flex flex-col gap-4 relative w-full md:px-[4.5rem]">
+      <h1 className="text-4xl md:text-5xl text-G200 reenie-beanie">
+        You need to know these
+      </h1>
+      <div className="relative h-full hidden md:flex justify-between gap-5   items-center">
+        {blogs.length > 0 && blogs[0] ? (
+          <div className="relative  h-full  md:w-[50%] ">
+            <BlogVerticalTile
+              blog={{
+                heading: blogs[0]?.heading,
+                subheading: blogs[0]?.subheading,
+                author: blogs[0]?.author_name,
+                date: format(parseISO(blogs[0]?.created_at), "MMMM d, yyyy"),
+
+                category: blogs[0].category_name,
+                location: "Nepal",
+                imageUrl: blogs[0]?.image,
+                slug: blogs[0].slug,
+                description: blogs[0].description,
+              }}
+            />
+          </div>
+        ) : (
+          <p>Loading blogs...</p>
+        )}
+
+        <div id="blog-carousel" className="flex flex-col md:w-[45%] ">
+          {blogs[1] && blogs[1]?.length >= 1 ? (
+            <Carousel ref={carouselRef} showThumbs={false} axis="vertical">
+              {blogs[1]?.map((chunkedBlog, index) => (
+                <div key={index} className="flex flex-col gap-[2.5rem]">
+                  {chunkedBlog.map((blog, index) => (
+                    <BlogHorizontalTile
+                      key={blog.id || index}
+                      blog={{
+                        heading: blog.heading,
+                        author: blog?.author_name,
+                        subheading: blog.subheading,
+                        date: format(
+                          parseISO(blog?.created_at),
+                          "MMMM d, yyyy"
+                        ),
+                        category: blog?.category_name,
+                        location: "Nepal",
+                        imageUrl: blog?.image,
+                        slug: blog?.slug,
+                      }}
+                    />
+                  ))}
+                </div>
+              ))}
+            </Carousel>
           ) : (
             <p>Loading blogs...</p>
           )}
-
-          <div
-            id="blog-carousel"
-            className="flex flex-col gap-[2.5rem]   md:w-[60%]"
-          >
-            {blogs[1] && blogs[1]?.length >= 1 ? (
-              <Carousel ref={carouselRef} showThumbs={false} axis="vertical">
-                {blogs[1]?.map((chunkedBlog, index) => (
-                  <div key={index} className="flex flex-col gap-[2.5rem]">
-                    {chunkedBlog.map((blog, index) => (
-                      <BlogHorizontalTile
-                        key={blog.id || index}
-                        blog={{
-                          title: blog.heading,
-                          date: format(
-                            parseISO(blog?.created_at),
-                            "MMMM d, yyyy"
-                          ),
-                          location: "Nepal",
-                          category: "Travel Tips",
-                          imageUrl: blog?.image,
-                          slug: blog?.slug,
-                        }}
-                      />
-                    ))}
-                  </div>
-                ))}
-              </Carousel>
-            ) : (
-              <p>Loading blogs...</p>
-            )}
-          </div>
         </div>
-        <div className="md:hidden relative w-full">
-          <EmblaCarousel options={{ loop: true }}>
-            {rawBlogs?.map((item, index) => (
-              <div key={index} className="embla__slide min-w-full">
-                <BlogVerticalTile
-                  key={index}
-                  blog={{
-                    title: item?.heading,
-                    date: "Mar 25, 2025",
-                    location: "Nepal",
-                    category: "Travel Tips",
-                    imageUrl: item?.image,
-                    slug: item.slug,
-                  }}
-                />
-              </div>
-            ))}
-          </EmblaCarousel>
-        </div>
-        <div className="hidden md:block text-right text-B500 font-bold">
-          <Link to="/blogs" className="hover:underline hover:text-B300">
-            <span>See More ...</span>
-          </Link>
-        </div>
-      </section>
-    </>
+      </div>
+      <div className="md:hidden relative w-full">
+        <EmblaCarousel>
+          {rawBlogs?.map((item, index) => (
+            <div key={index} className="embla__slide min-w-full">
+              <BlogVerticalTile
+                key={index}
+                blog={{
+                  heading: item?.heading,
+                  author: item?.author_name,
+                  subheading: item?.heading,
+                  date: "Mar 25, 2025",
+                  category: item?.category_name,
+                  location: "Nepal",
+                  imageUrl: item?.image,
+                  slug: item.slug,
+                }}
+              />
+            </div>
+          ))}
+        </EmblaCarousel>
+      </div>
+      <div className="hidden md:block text-right text-B500 font-bold">
+        <Link to="/blogs" className="hover:underline hover:text-B300">
+          <span>See More ...</span>
+        </Link>
+      </div>
+    </section>
   );
 };
 

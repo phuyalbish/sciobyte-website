@@ -23,14 +23,14 @@ function YTSection() {
       />
       <div className="container h-full  max-w-[100em] mx-auto">
         <div className="relative  z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center gap-5 ">
-          <div className="textConten w-7/12  flex md:flex-col gap-5 md:gap-0 md:pl-20 justify-center   ">
+          <div className="textConten w-7/12  flex  flex-col gap-5 md:gap-0 md:pl-20 justify-center   ">
             <div className="text-3xl md:text-5xl text-left text-white font-bold flex flex-col ">
-              Let`s
+              Connect us on
             </div>
             <a
               href="https://www.youtube.com/@Welcomenepal"
               target="_blank"
-              className="text-red-500 font-base text-3xl md:text-7xl flex  gap-5 items-center"
+              className="text-red-500 font-base text-4xl md:text-7xl flex  gap-5 items-center"
             >
               <FaYoutube />
               Youtube
@@ -54,16 +54,16 @@ function YTSection() {
           </YTCarousel>
         </div>
         {isOpenYTSection && (
-          <div className="fixed w-full h-screen top-0 left-0 z-50   bg-black/75 p-5 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
+          <div className="fixed w-full h-screen top-0 left-0 z-50   bg-black/85  shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center justify-center">
             <ImCross
-              className="text-white right-5 self-end"
+              className="text-white right-10 top-10 self-between mt-5 cursor-pointer"
               size={20}
               onClick={() => {
                 setIsOpenYTSection(false);
               }}
             />
             <iframe
-              className="h-[80vh]"
+              className="h-[80vh] w-full"
               src={`https://www.youtube.com/embed/${ytLink}?autoplay=1&controls=1`}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

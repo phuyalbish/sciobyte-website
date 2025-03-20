@@ -163,7 +163,7 @@ const BlogDetail = () => {
                   <div className="flex items-center gap-2">
                     <AiFillEdit />
                     <span className="font-medium">
-                      by {blog?.authors?.fullname || "Unknown"}
+                      by {blog?.author_name || "Unknown"}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">

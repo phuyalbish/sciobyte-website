@@ -18,8 +18,8 @@ function SpontaneousTrekSection() {
 
   return (
     <div className="relative flex justify-center  items-center flex-col">
-      <div className="px-[2rem] md:px-[4.5rem] flex flex-col gap-10 container  ">
-        <div className="flex flex-col mt-10 gap-5  ">
+      <div className="md:px-[4.5rem] flex flex-col gap-10  ">
+        <div className="flex flex-col gap-5 ">
           <div className=" home-headings flex flex-wrap items-center justify-center gap-2 ">
             <span className="font-bold text-white bg-G200 p-2 rounded-2xl  home-headings">
               SPONTANEOUS
@@ -32,14 +32,14 @@ function SpontaneousTrekSection() {
           </div>
           <div className="text-lg">Last Moment Deals</div>
         </div>
-        <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative gap-[2rem]   justify-items-center">
+        <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative gap-10 justify-items-center">
           {treks?.map((trek, index) => (
             <SopontaneousTrekTile key={index} data={trek} />
           ))}
         </div>
 
         <div className="sm:hidden">
-          <EmblaCarousel options={{ loop: true }}>
+          <EmblaCarousel>
             {treks?.map((trek, index) => (
               <div key={index} className="embla__slide min-w-full">
                 <SopontaneousTrekTile key={index} data={trek} />

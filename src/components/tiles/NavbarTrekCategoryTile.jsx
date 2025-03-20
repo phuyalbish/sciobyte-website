@@ -7,7 +7,7 @@ function NavbarTrekCategoryTile({ image, type, name, id, onClick }) {
   return (
     <Link
       to={`/${type}/${id}`}
-      className="flex gap-2 p-1 rounded-md hover:bg-white/25   hover:shadow-sm"
+      className="flex gap-2 p-1 items-center shadow-md rounded-md hover:bg-white/25   hover:shadow-sm"
       onClick={onClick}
     >
       <img
@@ -17,8 +17,8 @@ function NavbarTrekCategoryTile({ image, type, name, id, onClick }) {
         className="w-12 h-12 aspect-square rounded-md"
       />
       <div className="flex flex-col justify-start items-start">
-        <div className="text-base">{name}</div>
-        <div className="text-md text-N300">{type}</div>
+        <div className="text-base text-start">{name}</div>
+        <div className="text-md text-N300 text-start">{type}</div>
       </div>
     </Link>
   );

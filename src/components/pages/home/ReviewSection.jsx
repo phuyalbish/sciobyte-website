@@ -150,10 +150,10 @@ function ReviewSection() {
             <p className="text-gray-500">No Reviews available</p>
           )}
         </div>
-        <div className="md:hidden relative w-full mt-5 max-w-[100em] mx-auto bg-gray-100 p-5 shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
+        <div className="md:hidden relative w-full mt-2 max-w-[100em] mx-auto bg-gray-100 py-5 shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
           {isGoogleReview ? (
             Array.isArray(google_reviews) && google_reviews.length > 0 ? (
-              <EmblaCarousel options={{ loop: true }}>
+              <EmblaCarousel>
                 {google_reviews.map((review, index) => (
                   <div key={index} className="embla__slide min-w-full">
                     <ReviewTile
@@ -169,7 +169,7 @@ function ReviewSection() {
               <p className="text-gray-500">No Reviews available</p>
             )
           ) : Array.isArray(trip_reviews) && trip_reviews.length > 0 ? (
-            <EmblaCarousel options={{ loop: true }}>
+            <EmblaCarousel>
               {trip_reviews.map((review, index) => (
                 <div key={index} className="embla__slide min-w-full">
                   <ReviewTile

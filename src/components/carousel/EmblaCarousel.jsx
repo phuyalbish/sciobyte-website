@@ -46,16 +46,16 @@ const EmblaCarousel = ({
 
   return (
     <div className=" relative w-full flex flex-col gap-3 items-center">
-      <div className="embla relative w-full  my-2">
+      <div className="embla relative w-full ">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">{children}</div>
         </div>
       </div>
-      <div className="w-full relative flex justify-end gap-4 items-center">
+      <div className="w-full relative px-3 flex justify-end gap-4 items-center">
         <button
           onClick={scrollPrev}
           disabled={!canScrollPrev}
-          className="disabled:bg-N300  bg-G300 p-1 hover:bg-400 rounded-md"
+          className="disabled:bg-N50  bg-G300 p-1 hover:bg-G400 rounded-md"
           aria-label="Previous slide"
         >
           <FiChevronLeft className="size-6 text-white" />
@@ -63,7 +63,7 @@ const EmblaCarousel = ({
         <button
           onClick={scrollNext}
           disabled={!canScrollNext}
-          className="disabled:opacity-50  bg-G300 p-1 hover:bg-400 rounded-md"
+          className="disabled:bg-N50  bg-G300 p-1 hover:bg-G400 rounded-md"
           aria-label="Previous slide"
         >
           <FiChevronRight className="size-6 text-white" />

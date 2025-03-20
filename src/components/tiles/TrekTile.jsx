@@ -1,4 +1,10 @@
 import { Link } from "react-router-dom";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import badge from "@/assets/badge.svg";
+import difficult from "@/assets/difficult.svg";
+import group from "@/assets/group.svg";
+import duration_img from "@/assets/duration.svg";
+import trek_type from "@/assets/TrekType.svg";
 const JourneyDetailsPanel = ({ detail }) => {
   return (
     <div className="flex justify-between items-center gap-2  bg-gray-100 rounded-lg">
@@ -6,7 +12,6 @@ const JourneyDetailsPanel = ({ detail }) => {
         decoding="async"
         loading="lazy"
         src={detail?.icon}
-        alt="TrekType.svg"
         className="h-6 w-6"
       />
       <span className="text-left">
@@ -28,17 +33,19 @@ const TrekTile = ({ data }) => {
     tag,
     type_name,
     isBadged,
+
+    star,
     max_group_range,
   } = data;
   const journeyDetails = [
-    { icon: "/TrekType.svg", key: "Type", value: type_name || "None" },
+    { icon: { trek_type }, key: "Type", value: type_name || "None" },
     {
-      icon: "/duration.svg",
+      icon: { duration_img },
       key: "Duration",
       value: duration ? `${duration} Day${duration > 1 ? "s" : ""}` : "0 Day",
     },
     {
-      icon: "/difficult.svg",
+      icon: { difficult },
       key: "Difficulty",
       value: difficulty_name || "Basics",
     },
@@ -68,7 +75,7 @@ const TrekTile = ({ data }) => {
             decoding="async"
             loading="lazy"
             className=" absolute top-2 right-2  h-8 w-8 bg-G300 rounded-xl p-1"
-            src="/group.svg"
+            src={group}
             alt="Group Icon"
           />
         )}
@@ -78,13 +85,17 @@ const TrekTile = ({ data }) => {
           decoding="async"
           loading="lazy"
           className="absolute top-60 w-14 h-14 "
-          src="/badge.svg"
+          src={badge}
           alt="Badge Icon"
         />
       )}
       <h2 className="font-bold text-lg mt-2 text-left">{name}</h2>
       <div className="flex justify-between items-end mb-1 w-full">
-        <span className="text-yellow-500 text-xl">★★★★☆</span>
+        <span className="text-yellow-500 text-xl flex">
+          {[...Array(star)].map((_, index) => (
+            <FaStar key={index} className="text-yellow-500" />
+          ))}
+        </span>
         <div className="flex flex-col items-end">
           <p className="text-N300 text-md font-bold text-right">
             Price Starting From

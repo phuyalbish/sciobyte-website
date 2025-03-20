@@ -33,7 +33,7 @@ export default function Parallax() {
   return (
     <>
       <div className="relative m-0 p-0 w-full ">
-        <div className="relative hidden  md:block w-full h-[100vh] xl:[20vh] overflow-hidden ">
+        <div className="relative hidden  md:block w-full md:h-[100vh]  overflow-hidden ">
           <motion.img
             src={img9}
             alt=""

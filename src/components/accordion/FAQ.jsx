@@ -17,25 +17,23 @@ const FAQ = ({ faq }) => {
   const question_default_bg_color = isOpened ? "bg-[#91BCED]" : "bg-[#ECF3FC]";
 
   return (
-    <>
-      <div className="cursor-pointer w-full md:w-[60%] mx-auto select-none">
-        <div
-          className={`${question_default_bg_color} hover:bg-[#91BCED] p-4 rounded-md shadow-md transition duration-300 ease-in-out `}
-          onClick={() => setIsOpened(!isOpened)}
-        >
-          <div className="flex justify-between items-center">
-            <span className="font-semibold">{question}</span>
-            {arrowSVG}
-          </div>
+    <div className="cursor-pointer p-5 w-full md:w-[60%] mx-auto select-none">
+      <div
+        className={`${question_default_bg_color} hover:bg-[#91BCED] p-4 rounded-md shadow-md transition duration-300 ease-in-out `}
+        onClick={() => setIsOpened(!isOpened)}
+      >
+        <div className="flex justify-between items-center">
+          <span className="font-semibold">{question}</span>
+          {arrowSVG}
         </div>
-
-        {isOpened && (
-          <div className="bg-[#B1CFF2] p-4 rounded-md shadow-md mt-2">
-            <span className="text-left font-medium">{answer}</span>
-          </div>
-        )}
       </div>
-    </>
+
+      {isOpened && (
+        <div className="bg-[#B1CFF2] p-4 rounded-md shadow-md mt-2 flex justify-start">
+          <span className="text-left font-medium">{answer}</span>
+        </div>
+      )}
+    </div>
   );
 };
 

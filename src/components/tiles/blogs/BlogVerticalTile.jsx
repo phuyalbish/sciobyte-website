@@ -4,8 +4,18 @@ import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 
+import { truncate } from "@/utils/truncate.js";
 const BlogVerticalTile = ({ blog }) => {
-  const { title, author, date, location, imageUrl, category, slug } = blog;
+  const {
+    heading,
+    subheading,
+    author,
+    date,
+    imageUrl,
+    category,
+    slug,
+    location,
+  } = blog;
   const isLoading = Object.keys(blog).length === 0;
   const blogUrl = slug ? `/blog/${slug}` : "/";
 
@@ -23,19 +33,17 @@ const BlogVerticalTile = ({ blog }) => {
     }
   };
   return (
-    <div className="flex flex-col h-full p-[1rem] max-w-full rounded-xl overflow-hidden shadow-lg bg-white transition-all duration-300 hover:shadow-xl">
-      <div className="relative grow overflow-hidden">
+    <div className="relative flex flex-col gap-3  p-2 md:p-5 max-w-full m-3 rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg">
+      <div className="relative h-full">
         {isLoading ? (
           <ImageSkeleton />
         ) : (
           <>
             <img
+              src={imageUrl}
               decoding="async"
               loading="lazy"
-              className="w-full h-64 grow
-            object-cover rounded-lg"
-              src={imageUrl}
-              alt={title}
+              className="w-full md:h-96 h-48  object-cover rounded-lg"
             />
           </>
         )}
@@ -57,25 +65,26 @@ const BlogVerticalTile = ({ blog }) => {
           onClick={handleCopy}
         />
       </div>
-      <div className=" py-4">
+      <div className="flex justify-start flex-col gap-1">
         <Link to={blogUrl}>
-          <h2 className="font-bold text-xl mb-3 text-gray-800 text-left">
-            {title}
-          </h2>
+          <div className="font-bold text-xl text-N400 text-left">{heading}</div>
         </Link>
-        <div className="flex items-center gap-4 text-gray-600">
-          <div className="flex items-center gap-1">
-            <AiFillEdit />
-            <span className="text-sm">{author}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <MdDateRange />
-            <span className="text-sm">{date}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <MdLocationOn />
-            <span className="text-sm">{location}</span>
-          </div>
+        <div className="text-md text-N300 text-start">
+          {truncate(subheading, 150)}
+        </div>
+      </div>
+      <div className="flex items-center gap-4 text-gray-600">
+        <div className="flex items-center gap-1">
+          <AiFillEdit />
+          <span className="text-sm">{author}</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <MdDateRange />
+          <span className="text-sm">{date}</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <MdLocationOn />
+          <span className="text-sm">{location}</span>
         </div>
       </div>
     </div>
