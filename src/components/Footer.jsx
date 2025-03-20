@@ -174,7 +174,7 @@ function Footer() {
             <img
               decoding="async"
               loading="lazy"
-              className="h-14 w-14 object-cover object-center"
+              className="h-14 w-10 object-cover object-center"
               src={Taan}
               alt="Taan"
             />

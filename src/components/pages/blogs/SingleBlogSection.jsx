@@ -13,6 +13,8 @@ import {
   LongBlogContentSkeleton,
 } from "@/components/skeleton/Skeleton.jsx";
 
+import {truncate} from "@/utils/truncate.js";
+
 const SingleBlogSection = ({ latestBlog }) => {
   const sanitizedContent = DOMPurify.sanitize(latestBlog?.content);
   const content =
@@ -115,6 +117,10 @@ const SingleBlogSection = ({ latestBlog }) => {
                       {latestBlog?.category_name || "Category"}
                     </span>
                   )}
+                </div>
+
+                <div className="text-md text-N300 text-start">
+                  {latestBlog?.subheading && truncate(latestBlog?.subheading, 150)}
                 </div>
 
                 {isLoading ? (

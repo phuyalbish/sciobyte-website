@@ -5,6 +5,20 @@ import spntaneousbottom from "@/assets/spontaneousBackImg.png";
 
 const FAQSection = () => {
   const [faqs, setFaqs] = useState([]);
+  // const [isOpened, setIsOpened] = useState([]);
+  console.log("faqs: ", faqs);
+
+  const handleFaqState = (id) => {
+    console.log("Clicked FAQ id: ", id);
+    setFaqs(faqs.map(faq => {
+      if(id === faq.id){
+        faq.isOpened = true;
+      }else{
+        faq.isOpened = false;
+      }
+      return faq;
+    }))
+  }
 
   useEffect(() => {
     (async () => {
@@ -17,7 +31,13 @@ const FAQSection = () => {
           return;
         }
 
-        setFaqs(faqsData);
+        let maxLength = faqsData.length;
+        setFaqs(faqsData.map((faq, index) => {
+          return {
+            ...faq,
+            isOpened: index === 0 ? true : false
+          }
+        }));
       } catch (error) {
         console.error("Error fetching FAQs:", error);
         setFaqs([]); // Fallback in case of an error
@@ -28,11 +48,13 @@ const FAQSection = () => {
     <div className="flex flex-col gap-2 w-full   max-w-[100em] mx-auto ">
       <h1 className="text-[2.375rem] font-semibold py-[2rem]">FAQs</h1>
 
-      {Array.isArray(faqs) && faqs.length > 0 ? (
-        faqs.map((faq, index) => <FAQ faq={faq} key={index} />)
-      ) : (
-        <p>Loading FAQs...</p>
-      )}
+      <div className="flex flex-col gap-1">
+        {Array.isArray(faqs) && faqs.length > 0 ? (
+          faqs.map((faq, index) => <FAQ faq={faq} key={index} isOpened={faq.isOpened} handleFaqState={handleFaqState} />)
+        ) : (
+          <p>Loading FAQs...</p>
+        )}
+      </div>
 
       <img
         decoding="async"
