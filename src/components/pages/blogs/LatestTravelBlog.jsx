@@ -11,8 +11,9 @@ const LatestTravelBlog = ({ latestBlogs }) => {
               <BlogVerticalTile
                 key={index}
                 blog={{
-                  title: blog?.heading || "Trekking is Awesome",
-                  author: blog?.authors?.fullname || "unknown",
+                  heading: blog?.heading || "Trekking is Awesome",
+                  subheading: blog?.subheading,
+                  author: blog?.author_name || "unknown",
                   date: format(
                     new Date(blog?.created_at || Date.now()),
                     "MMMM d, yyyy"
