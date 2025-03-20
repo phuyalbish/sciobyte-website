@@ -9,13 +9,17 @@ import InstagramSection from "@/components/pages/home/InstagramSection";
 import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
 import ReviewSection from "@/components/pages/home/ReviewSection";
 import SpontaneousTrekSection from "@/components/pages/home/SpontaneousTrekSection";
+import CategorySection from "@/components/pages/home/CategorySection";
 
 function HomePage() {
   return (
-    <div className="flex flex-col gap-16 relative w-full">
+    <div className="flex flex-col gap-10 md:gap-16 relative w-full">
       <SplashSection />
       <TrekSection />
-      <Parallex />
+      <div className="flex flex-col w-full relative">
+        <Parallex />
+        <CategorySection />
+      </div>
       <HomeStaySection />
       <SpontaneousTrekSection />
       <div className="flex flex-col w-full relative">

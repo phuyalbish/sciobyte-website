@@ -5,12 +5,15 @@ import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
+import { MdLocationOn } from "react-icons/md";
 import {
   ImageSkeleton,
   HeadingSkeleton,
   DescriptionSkeleton,
   LongBlogContentSkeleton,
 } from "@/components/skeleton/Skeleton.jsx";
+
+import {truncate} from "@/utils/truncate.js";
 
 const SingleBlogSection = ({ latestBlog }) => {
   const sanitizedContent = DOMPurify.sanitize(latestBlog?.content);
@@ -66,12 +69,23 @@ const SingleBlogSection = ({ latestBlog }) => {
                     <DescriptionSkeleton />
                   ) : (
                     <>
-                      <div className="flex items-center gap-2">
-                        <AiFillEdit />
-                        <span className="font-medium">
-                          by {latestBlog?.authors?.fullname || "Unknown"}
-                        </span>
-                      </div>
+                      {latestBlog?.author_name && (
+                        <div className="flex items-center gap-2">
+                          <AiFillEdit />
+                          <span className="font-medium">
+                            by {latestBlog?.author_name}
+                          </span>
+                        </div>
+                      )}
+
+                      {latestBlog?.location && (
+                        <div className="flex items-center gap-2">
+                          <MdLocationOn />
+                          <span className="font-medium">
+                            {latestBlog?.location}
+                          </span>
+                        </div>
+                      )}
                       <div className="flex items-center gap-2">
                         <MdDateRange />
                         <time>
@@ -81,11 +95,13 @@ const SingleBlogSection = ({ latestBlog }) => {
                           )}
                         </time>
                       </div>
-                      <IoMdShare
-                        className="flex items-center gap-1 cursor-pointer bg-white/50 hover:bg-white text-N300  p-1 rounded-md size-6"
+                      <div
+                        className="bg-white/50 hover:bg-white text-N300 text-sm flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 rounded-md"
                         onClick={handleCopy}
-                      />
-
+                      >
+                        <IoMdShare className="size-3.5" />
+                        Share
+                      </div>
                       {copied && (
                         <div className="text-N500  w-34  text-sm  rounded-md">
                           Link Copied!
@@ -98,9 +114,13 @@ const SingleBlogSection = ({ latestBlog }) => {
                 <div className="flex gap-2">
                   {!isLoading && (
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-B75 text-B500">
-                      {latestBlog?.category?.name || "Category"}
+                      {latestBlog?.category_name || "Category"}
                     </span>
                   )}
+                </div>
+
+                <div className="text-md text-N300 text-start">
+                  {latestBlog?.subheading && truncate(latestBlog?.subheading, 150)}
                 </div>
 
                 {isLoading ? (

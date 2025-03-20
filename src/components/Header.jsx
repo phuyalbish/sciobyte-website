@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Logo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
-import { TbMenu3 } from "react-icons/tb";
+import { IoIosMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
@@ -56,7 +56,7 @@ function Header() {
   return (
     <>
       <div className="bg-white  shadow-md  sticky top-0 z-50 md:relative ">
-        <div className="container px-10 md:px-[4rem] max-w-[100em] w-full mx-auto">
+        <div className="container px-3 md:px-[4rem] max-w-[100em] w-full mx-auto">
           <header className=" z-30 text-white py-[1rem] w-full flex flex-row  justify-between">
             <Link
               to="/"
@@ -98,7 +98,7 @@ function Header() {
                   onClick={() => setIsDropDown(false)} // Hide dropdown
                 />
               ) : (
-                <TbMenu3
+                <IoIosMenu
                   className="text-N500 size-8 cursor-pointer"
                   onClick={() => setIsDropDown(true)} // Show dropdown
                 />

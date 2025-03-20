@@ -24,7 +24,7 @@ const TrekTile = ({ data }) => {
   const { name, price, image, difficulty, formatted_duration } = data;
 
   return (
-    <div className="group cursor-pointer w-full h-full flex-wrap gap-5 justify-between  group max-w-lg flex flex-col  rounded-lg shadow-lg m-3 md:shadow-none hover:shadow-xl  hover:bg-G50  p-5 transition-all duration-300">
+    <div className="group cursor-pointer w-full flex-wrap gap-4 items-center justify-between flex flex-col shadow-xl mb-5  md:shadow-md p-5 border md:border-B75 rounded-md hover:shadow-lg   transition-all duration-300">
       <img
         decoding="async"
         loading="lazy"

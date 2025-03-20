@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
+import email_blue from "@/assets/email-blue.svg";
+import email_green from "@/assets/email-green.svg";
+import location_img from "@/assets/location.svg";
+import phone_calling from "@/assets/phone-calling.svg";
+import whatsapp_img from "@/assets/whatsapp.svg";
 import {
   emailSchema,
   nameSchema,
   textareaSchema,
 } from "@/validations/validationSchema.js";
 import { sendMail } from "@/apis/sendmail.js";
+import { FaWhatsapp } from "react-icons/fa";
 
 function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -110,7 +116,7 @@ function ContactPage() {
                   loading="lazy"
                   width="24px"
                   height="24px"
-                  src="/location.svg"
+                  src={location_img}
                 />
                 <div>
                   <p className="font-medium text-N100">Address</p>
@@ -125,7 +131,7 @@ function ContactPage() {
                   loading="lazy"
                   width="24px"
                   height="24px"
-                  src="/phone-calling.svg"
+                  src={phone_calling}
                 />
                 <div>
                   <p className="font-medium text-N100">Phone Number</p>
@@ -140,7 +146,7 @@ function ContactPage() {
                   loading="lazy"
                   width="24px"
                   height="24px"
-                  src="/whatsapp.svg"
+                  src={FaWhatsapp_img}
                 />
                 <div>
                   <p className="font-medium text-N100">WhatsApp/Viber</p>
@@ -155,7 +161,7 @@ function ContactPage() {
                   loading="lazy"
                   width="24px"
                   height="24px"
-                  src="/email-blue.svg"
+                  src={email_blue}
                 />
                 <div>
                   <p className="font-medium text-N100">Email</p>
@@ -175,7 +181,7 @@ function ContactPage() {
                     loading="lazy"
                     width="24px"
                     height="24px"
-                    src="/phone-calling.svg"
+                    src={phone_calling}
                   />
                 </span>
                 Quick Call
@@ -188,7 +194,7 @@ function ContactPage() {
                     loading="lazy"
                     width="24px"
                     height="24px"
-                    src="/email-green.svg"
+                    src={email_green}
                   />
                 </span>
                 Quick Email
