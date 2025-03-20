@@ -1,0 +1,24 @@
+import axios from "axios";
+import { BASE_API_URL } from "@/config/baseurl.js";
+export const fetchCategories = async () => {
+  try {
+    const response = await axios({
+      url: `${BASE_API_URL}/categories/all/`,
+      method: "GET",
+    });
+    return response;
+  } catch (error) {
+    console.log("Error while fetching categories data: ", error);
+  }
+};
+export const fetchIndivisualCategories = async (id) => {
+  try {
+    const response = await axios({
+      url: `${BASE_API_URL}/categories/${id}/`,
+      method: "GET",
+    });
+    return response.data;
+  } catch (error) {
+    console.log("Error while fetching category data: ", error);
+  }
+};

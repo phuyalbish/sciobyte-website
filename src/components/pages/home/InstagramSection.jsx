@@ -28,32 +28,48 @@ import { FaInstagram } from "react-icons/fa";
 
 function InstagramSection() {
   return (
-    <div className="relative flex justify-center  items-center flex-col">
+    <div className="relative flex justify-center   items-center flex-col">
       <img
+        decoding="async"
+        loading="lazy"
         src={right}
         alt=""
         className="hidden md:block right-0 w-[9rem] object-cover absolute z-0"
       />
       <img
+        decoding="async"
+        loading="lazy"
         src={left}
         alt=""
         className="hidden md:block left-0 w-[9rem] object-cover absolute z-0"
       />
-      <div className="flex w-[80vw] md:w-[50vw] border borer-black gap-2 flex-col mb-20">
-        <div className="flex justify-between px-0.5">
+      <div className="flex  w-full md:w-[50vw] container  gap-2 flex-col mb-20">
+        <div className="flex flex-wrap justify-between px-2 py-2">
           <div className="flex gap-2 items-center">
             <FaInstagram size="24" />
-            <p className="text-xl">@hellotrekkersnamaste</p>
+            <p className="text-base md:text-xl">@hellotrekkersnamaste</p>
           </div>
-          <div className="cursor-pointer rounded-md bg-blue-500 text-white p-1 px-2">
+          <a
+            href="https://www.instagram.com/hellotrekkersnamaste/"
+            target="_future"
+            className="flex text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-B300 hover:bg-B500 text-white p-1 px-2"
+          >
             Follow us
-          </div>
+          </a>
         </div>
-        <div className="flex flex-row flex-wrap">
+        {/* <div className="flex flex-row flex-wrap"> */}
+        <div className="grid grid-cols-3 gap-0.5 ">
           {Array.isArray(insta_post) && insta_post.length > 0 ? (
             insta_post.map((post, index) => (
-              <div className="flex w-1/3 p-0.5">
-                <img src={post} alt="" className="w-fit cursor-pointer" />
+              // <div className="flex w-1/3 p-0.5" key={index}>
+              <div className="flex w-full" key={index}>
+                <img
+                  decoding="async"
+                  loading="lazy"
+                  src={post}
+                  alt=""
+                  className="w-full cursor-pointer"
+                />
               </div>
             ))
           ) : (
@@ -61,7 +77,13 @@ function InstagramSection() {
           )}
         </div>
       </div>
-      <img src={bottom} alt="" className="bottom-0 object-cover  z-0" />
+      <img
+        decoding="async"
+        loading="lazy"
+        src={bottom}
+        alt=""
+        className="bottom-0 object-cover mt-5  z-0"
+      />
     </div>
   );
 }

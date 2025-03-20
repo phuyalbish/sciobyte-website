@@ -13,63 +13,66 @@ function YTSection() {
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
   return (
-    <div className="relative  w-screen h-[80vh] ">
+    <div className="relative  w-full h-[80vh] ">
       <img
+        decoding="async"
+        loading="lazy"
         src={ytbg}
         alt=""
-        className="w-screen h-full object-cover absolute z-0"
+        className="w-full h-full object-cover absolute z-0 brightness-25"
       />
-
-      <div className="relative z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center gap-5 ">
-        <div className="textConten w-7/12  flex md:flex-col gap-5 md:gap-10 md:pl-20 justify-center   ">
-          <div className="text-3xl md:text-5xl text-left text-white font-bold flex flex-col ">
-            Let`s
+      <div className="container h-full  max-w-[100em] mx-auto">
+        <div className="relative  z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center gap-5 ">
+          <div className="textConten w-7/12  flex  flex-col gap-5 md:gap-0 md:pl-20 justify-center  self-start md:mt-10  md:items-start ">
+            <div className="text-3xl md:text-5xl text-left text-white font-bold flex flex-col ">
+              Connect us on
+            </div>
+            <a
+              href="https://www.youtube.com/@hellotrekkers"
+              target="_blank"
+              className="text-red-500 font-base text-4xl md:text-7xl Fi flex  gap-5 items-center justify-center"
+            >
+              <FaYoutube />
+              <div>Youtube</div>
+            </a>
           </div>
-          <a
-            href="https://www.youtube.com/@Welcomenepal"
-            target="_blank"
-            className="text-red-500 font-base text-3xl md:text-7xl flex gap-5 items-start  "
-          >
-            <FaYoutube />
-            Youtube
-          </a>
+          <YTCarousel>
+            {slides.map((s, index) => (
+              <img
+                decoding="async"
+                loading="lazy"
+                key={index}
+                src={s.img}
+                alt={`Slide ${index}`}
+                className="cursor-pointer md:min-w-[30vw] pointer-events-auto  min-w-[80vw] object-cover "
+                onClick={() => {
+                  setIsOpenYTSection(true);
+                  setytLink(s.link);
+                }}
+              />
+            ))}
+          </YTCarousel>
         </div>
-        <YTCarousel>
-          {slides.map((s, index) => (
-            <img
-              key={index}
-              src={s.img}
-              alt={`Slide ${index}`}
-              className="cursor-pointer md:min-w-[30vw]  w-[50vw] object-cover"
+        {isOpenYTSection && (
+          <div className="fixed w-full h-screen top-0 left-0 z-50   bg-black/85  shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center justify-center">
+            <ImCross
+              className="text-white right-10 top-10 self-between mt-5 cursor-pointer"
+              size={20}
               onClick={() => {
-                setIsOpenYTSection(true);
-                console.log(s.link);
-                setytLink(s.link);
+                setIsOpenYTSection(false);
               }}
             />
-          ))}
-        </YTCarousel>
+            <iframe
+              className="h-[80vh] w-full"
+              src={`https://www.youtube.com/embed/${ytLink}?autoplay=1&controls=1`}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
       </div>
-
-      {isOpenYTSection && (
-        <div className="fixed w-screen h-screen top-0 left-0 z-50   bg-black/75 p-5 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
-          <ImCross
-            className="text-white right-5 self-end"
-            size={20}
-            onClick={() => {
-              setIsOpenYTSection(false);
-            }}
-          />
-          <iframe
-            className="w-[90vw] h-[80vh]"
-            src={`https://www.youtube.com/embed/${ytLink}?autoplay=1&controls=1`}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
-      )}
     </div>
   );
 }
