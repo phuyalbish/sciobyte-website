@@ -26,9 +26,9 @@ function Navbar() {
           navbarMenuRef.current &&
           !navbarMenuRef.current.contains(event.target)
         ) {
-          return {}; 
+          return {};
         }
-        return prevDropdowns; 
+        return prevDropdowns;
       });
     };
 
@@ -38,7 +38,6 @@ function Navbar() {
       window.removeEventListener("click", handleOutsideNavbarClick);
     };
   }, []);
-
 
   const [isSearchTile, setIsSearchTile] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -118,7 +117,10 @@ function Navbar() {
             />
           </Link>
 
-          <div ref={navbarMenuRef} className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24">
+          <div
+            ref={navbarMenuRef}
+            className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24"
+          >
             {types?.map((item, index) =>
               item?.showInNavBar ? (
                 <React.Fragment key={index}>
