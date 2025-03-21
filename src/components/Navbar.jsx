@@ -4,7 +4,11 @@ import { IoIosArrowDown } from "react-icons/io";
 import logo from "@/assets/HTWhite.png";
 import { fetchTypes, fetchIndivisualTypes } from "@/apis/types.js";
 import NavbarTrekCategoryTile from "@/components/tiles/NavbarTrekCategoryTile.jsx";
+import SearchTrekCategoryTile from "@/components/tiles/SearchTrekCategoryTile.jsx";
 
+import { IoSearch } from "react-icons/io5";
+import { LiaTimesSolid } from "react-icons/lia";
+import { fetchSearch } from "@/apis/search.js";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 function Navbar() {
@@ -12,6 +16,21 @@ function Navbar() {
   const [types, setTypes] = useState(null);
   const [typeDetails, setTypeDetails] = useState({});
   const [dropdowns, setDropdowns] = useState({}); // Stores dropdown state for each type
+
+  const [isSearchTile, setIsSearchTile] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [searchData, setSearchData] = useState(null);
+  const handleSearch = async () => {
+    if (searchText.trim() !== "") {
+      const response = await fetchSearch(searchText);
+      console.log(response.data);
+      setSearchData(response.data);
+      setIsSearchTile(true);
+      console.log("Searching for:", searchText);
+    } else {
+      console.log("No search text entered");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,7 +77,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="hidden md:flex bg-B300 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
+      <div className="realtive hidden md:flex bg-B300 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
         <div className="max-w-[100em] w-full mx-auto flex items-center justify-between px-[4rem] py-4">
           <Link
             to="/"
@@ -133,7 +152,43 @@ function Navbar() {
               Company
             </Link>
           </div>
+          <div className="bg-white rounded-md overflow-hidden flex items-center px-2 py-1   gap-1 ">
+            <input
+              type="text"
+              className="outline-none bg-transparent h-full w-full text-sm text-N500 placeholder-N300"
+              placeholder="Search Keywords"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+            <IoSearch
+              className="size-6 text-N300 hover:text-N500 cursor-pointer select-none"
+              onClick={handleSearch}
+            />
+            {isSearchTile && (
+              <LiaTimesSolid
+                className="size-6  text-N300 hover:text-N500 cursor-pointer select-none"
+                onClick={() => setIsSearchTile(false)}
+              />
+            )}
+          </div>
         </div>
+
+        {isSearchTile ? (
+          <div className="absolute mt-80  right-5  z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-scroll">
+            {searchData?.map((item, index) => (
+              <SearchTrekCategoryTile
+                key={index}
+                name={item?.name}
+                id={item?.id}
+                type={item?.type_name}
+                main_type={item?.main_type}
+                image={item?.image}
+              />
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

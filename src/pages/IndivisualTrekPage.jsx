@@ -84,7 +84,13 @@ function IndivisualTrekPage() {
               </div>
               <TrekOverviewSection data={trek?.description} />
               <div className="block md:hidden">
-                <TrekPricingSection price={trek?.price} map={trek?.map_image} />
+                <TrekPricingSection
+                  price={trek?.price}
+                  map={trek?.map_image}
+                  pricings={trek?.pricing}
+                  name={trek?.name}
+                  star={trek?.star}
+                />
               </div>
               <TrekItenarySection data={trek?.schedules} />
               <TrekRequirementSection
@@ -131,6 +137,7 @@ function IndivisualTrekPage() {
               pricings={trek?.pricing}
               map={trek?.map}
               name={trek?.name}
+              star={trek?.star}
             />
           </div>
         </div>

@@ -9,7 +9,7 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
-function TrekPricingSection({ price, map, pricings, name }) {
+function TrekPricingSection({ price, map, pricings, name, star = 0 }) {
   const { id } = useParams();
 
   const [copied, setCopied] = useState(false);
@@ -32,16 +32,14 @@ function TrekPricingSection({ price, map, pricings, name }) {
           <div className="text-md text-bold">Price Starting From</div>
           <div className="text-3xl font-bold text-B500">USD {price}</div>
         </div>
-        <div className="flex relative  gap-2 items-center ">
-          <div className="hidden lg:flex">
-            <FaStar className="text-yellow-300" size={20} />
-            <FaStar className="text-yellow-300" size={20} />
-            <FaStar className="text-yellow-300" size={20} />
-            <FaStar className="text-yellow-300" size={20} />
-            <FaStar className="text-yellow-300" size={20} />
+        <div className="flex relative  gap-2 items-center">
+          <div className="flex gap-1 items-center justify-center">
+            {[...Array(star)].map((_, index) => (
+              <FaStar key={index} className="text-yellow-500" />
+            ))}
           </div>
+          <CiShare2 className="size-8 cursor-pointer" onClick={handleCopy} />
         </div>
-        <CiShare2 className="size-8 cursor-pointer" onClick={handleCopy} />
 
         {copied && (
           <div className="text-N500 absolute bottom-0 right-0 w-34 ">
@@ -90,13 +88,20 @@ function TrekPricingSection({ price, map, pricings, name }) {
 
       <div className="flex flex-col gap-5 ">
         <div className="text-xl font-bold">Route Map & Elevation</div>
-        <img
-          decoding="async"
-          loading="lazy"
-          src={BASE_MEDIA_URL + map}
-          className="w-full h-36 object-cover cursor-pointer rounded-md"
+        <div
+          className="group w-full h-full flex items-center justify-center cursor-pointer"
           onClick={() => scrollToSection("maps")}
-        />
+        >
+          <div className="absolute hidden group-hover:flex border border-white rounded-md px-2 py-1 text-white cursor-pointer">
+            View
+          </div>
+          <img
+            decoding="async"
+            loading="lazy"
+            src={BASE_MEDIA_URL + map}
+            className="w-full h-36 object-cover  rounded-md"
+          />
+        </div>
       </div>
     </div>
   );
