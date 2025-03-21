@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const JourneyDetailsPanel = ({ detail }) => {
   return (
     <>
@@ -21,10 +22,13 @@ const JourneyDetailsPanel = ({ detail }) => {
 };
 
 const TrekTile = ({ data }) => {
-  const { name, price, image, difficulty, formatted_duration } = data;
+  const { name, price, image, difficulty, formatted_duration, id } = data;
 
   return (
-    <div className="relative cursor-pointer group flex flex-col gap-3 items-center aspect-square rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-2 transition-all duration-500 border md:border-none  border-B75 border-0.5">
+    <Link
+      to={`/travel/${id}`}
+      className="relative cursor-pointer group flex flex-col gap-3 items-center aspect-square rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-2 transition-all duration-500 border md:border-none  border-B75 border-0.5"
+    >
       <div className="relative overflow-hidden rounded-xl w-full h-[90%]">
         <img
           decoding="async"
@@ -34,7 +38,7 @@ const TrekTile = ({ data }) => {
         />
       </div>
       <div className="font-bold  text-left">{name}</div>
-    </div>
+    </Link>
   );
 };
 
