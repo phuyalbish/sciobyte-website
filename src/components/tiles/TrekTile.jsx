@@ -1,22 +1,17 @@
 import { Link } from "react-router-dom";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import badge from "@/assets/badge.svg";
-import difficult from "@/assets/difficult.svg";
+import difficulty_img from "@/assets/difficult.svg";
 import group from "@/assets/group.svg";
 import duration_img from "@/assets/duration.svg";
-import trek_type from "@/assets/TrekType.svg";
-const JourneyDetailsPanel = ({ detail }) => {
+import type_img from "@/assets/TrekType.svg";
+const JourneyDetailsPanel = ({ icon, value, type }) => {
   return (
     <div className="flex justify-between items-center gap-2  bg-gray-100 rounded-lg">
-      <img
-        decoding="async"
-        loading="lazy"
-        src={detail?.icon}
-        className="h-6 w-6"
-      />
+      <img decoding="async" loading="lazy" src={icon} className="h-6 w-6" />
       <span className="text-left">
-        <span className="text-sm flex">{detail?.key}</span>
-        <strong className="block text-sm">{detail?.value}</strong>
+        <span className="text-sm flex">{type}</span>
+        <strong className="block text-sm">{value}</strong>
       </span>
     </div>
   );
@@ -37,24 +32,10 @@ const TrekTile = ({ data }) => {
     star,
     max_group_range,
   } = data;
-  const journeyDetails = [
-    { icon: { trek_type }, key: "Type", value: type_name || "None" },
-    {
-      icon: { duration_img },
-      key: "Duration",
-      value: duration ? `${duration} Day${duration > 1 ? "s" : ""}` : "0 Day",
-    },
-    {
-      icon: { difficult },
-      key: "Difficulty",
-      value: difficulty_name || "Basics",
-    },
-  ];
-
   return (
     <Link
       to={`/travel/${id}`}
-      className="relative cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-5 transition-all duration-500"
+      className="relative cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-5 transition-all duration-500 border md:border-none  border-B75 border-0.5"
     >
       <div className="relative overflow-hidden rounded-xl">
         <img
@@ -89,26 +70,36 @@ const TrekTile = ({ data }) => {
           alt="Badge Icon"
         />
       )}
-      <h2 className="font-bold text-lg mt-2 text-left">{name}</h2>
-      <div className="flex justify-between items-end mb-1 w-full">
-        <span className="text-yellow-500 text-xl flex">
-          {[...Array(star)].map((_, index) => (
-            <FaStar key={index} className="text-yellow-500" />
-          ))}
-        </span>
-        <div className="flex flex-col items-end">
-          <p className="text-N300 text-md font-bold text-right">
-            Price Starting From
-          </p>
-          <span className="text-primary font-extrabold text-xl">
-            USD {Math.floor(price)}
+      <div className="flex flex-col justify-between  gap-2">
+        <h2 className="font-bold text-lg mt-2 text-left">{name}</h2>
+        <div className="flex justify-between items-center mb-1 w-full">
+          <span className="text-yellow-500 text-xl flex">
+            {[...Array(star)].map((_, index) => (
+              <FaStar key={index} className="text-yellow-500" />
+            ))}
           </span>
+          <div className="flex flex-col items-end">
+            <p className="text-N300 text-md font-bold text-right">
+              Price Starting From
+            </p>
+            <span className="text-primary font-extrabold text-xl">
+              USD {Math.floor(price)}
+            </span>
+          </div>
         </div>
-      </div>
-      <div className="flex justify-between text-gray-600 mt-2 gap-2">
-        {journeyDetails.map((detail, index) => (
-          <JourneyDetailsPanel key={index} detail={detail} />
-        ))}
+        <div className="flex justify-between text-gray-600 mt-2 gap-2">
+          <JourneyDetailsPanel type="Type" value={type_name} icon={type_img} />
+          <JourneyDetailsPanel
+            type="Duration"
+            value={`${duration} Days`}
+            icon={duration_img}
+          />
+          <JourneyDetailsPanel
+            type="Difficulty"
+            value={difficulty_name}
+            icon={difficulty_img}
+          />
+        </div>
       </div>
     </Link>
   );
