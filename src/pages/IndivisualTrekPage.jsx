@@ -44,9 +44,9 @@ function IndivisualTrekPage() {
         />
         <ImageSlideSection gallery={trek?.gallery} />
         <div className="flex sticky top-0 h-full gap-10 w-full">
-          <div className="flex md:w-2/3 w-full flex-col gap-24 ">
+          <div className="flex md:w-2/3 w-full flex-col gap-4 ">
             <TrekBasicInformationSection data={trek} />
-            <div className="flex flex-col gap-8 text-left mb-10">
+            <div className="flex flex-col gap-5 text-left">
               <div className="py-5  sticky overflow-x-scroll top-[7.5vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
                 <button
                   onClick={() => scrollToSection("overview")}
@@ -103,7 +103,7 @@ function IndivisualTrekPage() {
               />
               <div
                 id="maps"
-                className="flex flex-col gap-5  rounded-md overflow-hidden"
+                className="flex flex-col gap-2  rounded-md overflow-hidden"
               >
                 <div className="text-2xl font-bold">Map</div>
                 <a href={trek?.map_link} target="_blank">
@@ -116,7 +116,7 @@ function IndivisualTrekPage() {
                 </a>
               </div>
               <div
-                className="flex flex-col gap-5  rounded-md overflow-hidden"
+                className="flex flex-col gap-2  rounded-md overflow-hidden"
                 onClick={() => scrollToSection("maps")}
               >
                 <div className="text-2xl font-bold">Elevation Graph:</div>

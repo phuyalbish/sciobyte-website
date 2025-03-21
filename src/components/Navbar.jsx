@@ -15,12 +15,11 @@ function Navbar({ activeMenu, setActiveMenu }) {
   const [showLogo, setShowLogo] = useState(false);
   const [types, setTypes] = useState(null);
   const [typeDetails, setTypeDetails] = useState({});
-  const [dropdowns, setDropdowns] = useState({}); // Stores dropdown state for each type
+  const [dropdowns, setDropdowns] = useState({});
   const navbarMenuRef = useRef(null);
-
-  // useEffect(() => {
-  //   console.log("activeMenu: ", activeMenu);
-  // }, [activeMenu]);
+  const [isSearchTile, setIsSearchTile] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [searchData, setSearchData] = useState(null);
 
   useEffect(() => {
     const handleOutsideNavbarClick = (event) => {
@@ -43,9 +42,6 @@ function Navbar({ activeMenu, setActiveMenu }) {
     };
   }, []);
 
-  const [isSearchTile, setIsSearchTile] = useState(false);
-  const [searchText, setSearchText] = useState("");
-  const [searchData, setSearchData] = useState(null);
   const handleSearch = async () => {
     if (searchText.trim() !== "") {
       const response = await fetchSearch(searchText);
@@ -77,7 +73,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
   }, []);
 
   const getIndivisualType = async (slug) => {
-    if (typeDetails[slug]) return; // Avoid re-fetching if data already exists
+    if (typeDetails[slug]) return;
     try {
       const response = await fetchIndivisualTypes(slug);
       setTypeDetails((prev) => ({ ...prev, [slug]: response }));
