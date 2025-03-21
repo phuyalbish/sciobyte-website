@@ -8,11 +8,11 @@ import { HiOutlineMail } from "react-icons/hi";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { fetchTypes, fetchIndivisualTypes } from "@/apis/types.js";
-import NavbarTrekCategoryTile from "@/components/tiles/NavbarTrekCategoryTile.jsx";
+import HeaderTrekCategoryTile from "@/components/tiles/HeaderTrekCategoryTile.jsx";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-function Header({setActiveMenu}) {
+function Header({ setActiveMenu }) {
   const [isDropDown, setIsDropDown] = useState(false);
 
   const [types, setTypes] = useState(null);
@@ -61,7 +61,7 @@ function Header({setActiveMenu}) {
             <Link
               to="/"
               onClick={() => {
-                setActiveMenu({})
+                setActiveMenu({});
                 setIsDropDown(false);
               }}
             >
@@ -123,29 +123,25 @@ function Header({setActiveMenu}) {
                   </button>
 
                   {dropdowns[item.slug] && (
-                    <div className="w-full bg-white p-3 transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
+                    <div className="w-full bg-white  transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
                       {typeDetails[item.slug]?.treks?.map((trek) => (
-                        <NavbarTrekCategoryTile
+                        <HeaderTrekCategoryTile
                           key={trek.id}
                           type="travel"
                           image={trek.image}
                           name={trek.name}
                           id={trek.id}
-                          setDropdowns={setDropdowns}
-                          onClick={() => {
-                            setIsDropDown(false);
-                          }}
+                          onclick={() => setIsDropDown(false)}
                         />
                       ))}
                       {typeDetails[item.slug]?.categories?.map((category) => (
-                        <NavbarTrekCategoryTile
+                        <HeaderTrekCategoryTile
                           key={category.id}
                           type="category"
                           image={category.image}
                           name={category.name}
                           id={category.id}
-                          setDropdowns={setDropdowns}
-                          onClick={() => setIsDropDown(false)}
+                          onclick={() => setIsDropDown(false)}
                         />
                       ))}
                     </div>
