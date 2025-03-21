@@ -62,6 +62,7 @@ function CategorySection() {
                     key={index}
                     img={category.image}
                     name={category.name}
+                    id={category.id}
                   />
                 </div>
               ))}

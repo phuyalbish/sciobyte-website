@@ -1,13 +1,18 @@
+import { useState } from "react";
+
 import Footer from "@/components/Footer.jsx";
 import Header from "@/components/Header.jsx";
 import Navbar from "@/components/Navbar";
 import whatsapp from "@/assets/whatsapp.png";
 export default function PageLayout({ children }) {
+  const [activeMenu, setActiveMenu] = useState({});
+
+
   return (
     <div className="flex relative w-full flex-col bg-gray-100">
-      <Header />
+      <Header setActiveMenu={setActiveMenu} />
       <div className="sticky  top-0 z-50">
-        <Navbar />
+        <Navbar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       </div>
       <main className="flex-1  relative bg-gray-100 ">
         {children}

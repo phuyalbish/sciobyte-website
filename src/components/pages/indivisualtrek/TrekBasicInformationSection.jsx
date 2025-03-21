@@ -81,7 +81,7 @@ function TrekBasicInformationSection({ data }) {
     },
   ];
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5  items-start">
       <div className="flex flex-col items-start justify-start">
         <div className="text-2xl lg:text-4xl  text-left font-bold">
           {data?.name}
@@ -97,7 +97,7 @@ function TrekBasicInformationSection({ data }) {
           </Link>
         ) : null}
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap  self-start">
         {trekBasicHeadings.map((item, index) =>
           item?.description ? (
             <TrekHeadingTile key={index} {...item} />
