@@ -12,7 +12,7 @@ import NavbarTrekCategoryTile from "@/components/tiles/NavbarTrekCategoryTile.js
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-function Header() {
+function Header({setActiveMenu}) {
   const [isDropDown, setIsDropDown] = useState(false);
 
   const [types, setTypes] = useState(null);
@@ -61,6 +61,7 @@ function Header() {
             <Link
               to="/"
               onClick={() => {
+                setActiveMenu({})
                 setIsDropDown(false);
               }}
             >
@@ -130,6 +131,7 @@ function Header() {
                           image={trek.image}
                           name={trek.name}
                           id={trek.id}
+                          setDropdowns={setDropdowns}
                           onClick={() => {
                             setIsDropDown(false);
                           }}
@@ -142,6 +144,7 @@ function Header() {
                           image={category.image}
                           name={category.name}
                           id={category.id}
+                          setDropdowns={setDropdowns}
                           onClick={() => setIsDropDown(false)}
                         />
                       ))}

@@ -11,12 +11,16 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { fetchSearch } from "@/apis/search.js";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-function Navbar() {
+function Navbar({activeMenu, setActiveMenu}) {
   const [showLogo, setShowLogo] = useState(false);
   const [types, setTypes] = useState(null);
   const [typeDetails, setTypeDetails] = useState({});
   const [dropdowns, setDropdowns] = useState({}); // Stores dropdown state for each type
   const navbarMenuRef = useRef(null);
+
+  useEffect(() => {
+    console.log("activeMenu: ", activeMenu)
+  }, [activeMenu]);
 
   useEffect(() => {
     const handleOutsideNavbarClick = (event) => {
@@ -98,41 +102,44 @@ function Navbar() {
 
   return (
     <>
-      <div className="realtive hidden md:flex bg-B300 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
-        <div className="max-w-[100em] w-full mx-auto flex items-center justify-between px-[4rem] py-4">
+      <div className="hidden md:flex bg-B300 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
+        <div className="w-full mx-auto flex items-center justify-between px-[4rem] py-4">
+
           <Link
             to="/"
             onClick={() => {
+              setActiveMenu({});
               setDropdowns({});
             }}
           >
             <img
-              decoding="async"
+              decoding="async"// Avoid re-fetching if data already exists
               loading="lazy"
               src={logo}
-              className={`w-8 ml-5 md:ml-0 aspect-square transition-all duration-300 ${
-                showLogo ? "scale-100" : "scale-0"
-              }`}
+              className={`w-8 ml-5 md:ml-0 aspect-square transition-all duration-300 ${showLogo ? "scale-100" : "scale-0"
+                }`}
               alt="Logo"
             />
           </Link>
 
-          <div
-            ref={navbarMenuRef}
-            className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24"
-          >
+          <div ref={navbarMenuRef} className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24 relative">
+
             {types?.map((item, index) =>
               item?.showInNavBar ? (
                 <React.Fragment key={index}>
                   <button
-                    className="flex items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500"
-                    onClick={() => toggleDropdown(item.slug)}
+                    className={`${activeMenu[item.name] ? "text-B500" : "text-white"} flex items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500`}
+                    onClick={() => {
+                      setActiveMenu(() => ({ [item.name]: true }))
+                      toggleDropdown(item.slug)
+                    }}
                   >
                     {item.name} <IoIosArrowDown />
                   </button>
 
+
                   {dropdowns[item.slug] && (
-                    <div className="absolute top-[10vh] m-auto w-[50vw] bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
+                    <div className="absolute top-14 left-0 m-auto w-full bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
                       {typeDetails[item.slug]?.treks?.map((trek) => (
                         <NavbarTrekCategoryTile
                           key={trek.id}
@@ -143,6 +150,7 @@ function Navbar() {
                           setDropdowns={setDropdowns}
                         />
                       ))}
+                      
                       {typeDetails[item.slug]?.categories?.map((category) => (
                         <NavbarTrekCategoryTile
                           key={category.id}
@@ -161,8 +169,9 @@ function Navbar() {
 
             <Link
               to="/blogs"
-              className="transition hover:underline underline-offset-1 hover:text-B500"
+              className={`${activeMenu["blogs"] ? "text-B500" : "text-white"} transition hover:underline underline-offset-1 hover:text-B500`}
               onClick={() => {
+                setActiveMenu({ blogs: true });
                 setDropdowns({});
               }}
             >
@@ -170,8 +179,9 @@ function Navbar() {
             </Link>
             <Link
               to="/company"
-              className="transition hover:underline underline-offset-1 hover:text-B500"
+              className={`${activeMenu["company"] ? "text-B500" : "text-white"} transition hover:underline underline-offset-1 hover:text-B500`}
               onClick={() => {
+                setActiveMenu({ company: true });
                 setDropdowns({});
               }}
             >
