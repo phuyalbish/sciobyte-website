@@ -63,7 +63,6 @@ function Navbar() {
   };
   const toggleDropdown = (slug) => {
     setDropdowns((prev) => {
-      // Close all dropdowns, but toggle only the selected one
       const newState = Object.keys(prev).reduce((acc, key) => {
         acc[key] = false;
         return acc;
@@ -152,7 +151,11 @@ function Navbar() {
               Company
             </Link>
           </div>
-          <div className="bg-white rounded-md overflow-hidden flex items-center px-2 py-1   gap-1 ">
+          <div
+            className={` bg-white rounded-md overflow-hidden flex items-center px-2 py-1   gap-1 transition-all duration-300 ${
+              showLogo ? "scale-100" : "scale-0"
+            }`}
+          >
             <input
               type="text"
               className="outline-none bg-transparent h-full w-full text-sm text-N500 placeholder-N300"
