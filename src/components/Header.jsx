@@ -131,6 +131,7 @@ function Header({setActiveMenu}) {
                           image={trek.image}
                           name={trek.name}
                           id={trek.id}
+                          setDropdowns={setDropdowns}
                           onClick={() => {
                             setIsDropDown(false);
                           }}
@@ -143,6 +144,7 @@ function Header({setActiveMenu}) {
                           image={category.image}
                           name={category.name}
                           id={category.id}
+                          setDropdowns={setDropdowns}
                           onClick={() => setIsDropDown(false)}
                         />
                       ))}
