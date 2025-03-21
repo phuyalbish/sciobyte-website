@@ -4,7 +4,11 @@ import { IoIosArrowDown } from "react-icons/io";
 import logo from "@/assets/HTWhite.png";
 import { fetchTypes, fetchIndivisualTypes } from "@/apis/types.js";
 import NavbarTrekCategoryTile from "@/components/tiles/NavbarTrekCategoryTile.jsx";
+import SearchTrekCategoryTile from "@/components/tiles/SearchTrekCategoryTile.jsx";
 
+import { IoSearch } from "react-icons/io5";
+import { LiaTimesSolid } from "react-icons/lia";
+import { fetchSearch } from "@/apis/search.js";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 function Navbar({activeMenu, setActiveMenu}) {
@@ -39,6 +43,20 @@ function Navbar({activeMenu, setActiveMenu}) {
     };
   }, []);
 
+  const [isSearchTile, setIsSearchTile] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [searchData, setSearchData] = useState(null);
+  const handleSearch = async () => {
+    if (searchText.trim() !== "") {
+      const response = await fetchSearch(searchText);
+      console.log(response.data);
+      setSearchData(response.data);
+      setIsSearchTile(true);
+      console.log("Searching for:", searchText);
+    } else {
+      console.log("No search text entered");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,7 +89,6 @@ function Navbar({activeMenu, setActiveMenu}) {
   };
   const toggleDropdown = (slug) => {
     setDropdowns((prev) => {
-      // Close all dropdowns, but toggle only the selected one
       const newState = Object.keys(prev).reduce((acc, key) => {
         acc[key] = false;
         return acc;
@@ -87,6 +104,7 @@ function Navbar({activeMenu, setActiveMenu}) {
     <>
       <div className="hidden md:flex bg-B300 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
         <div className="w-full mx-auto flex items-center justify-between px-[4rem] py-4">
+
           <Link
             to="/"
             onClick={() => {
@@ -105,6 +123,7 @@ function Navbar({activeMenu, setActiveMenu}) {
           </Link>
 
           <div ref={navbarMenuRef} className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24 relative">
+
             {types?.map((item, index) =>
               item?.showInNavBar ? (
                 <React.Fragment key={index}>
@@ -169,7 +188,47 @@ function Navbar({activeMenu, setActiveMenu}) {
               Company
             </Link>
           </div>
+          <div
+            className={` bg-white rounded-md overflow-hidden flex items-center px-2 py-1   gap-1 transition-all duration-300 ${
+              showLogo ? "scale-100" : "scale-0"
+            }`}
+          >
+            <input
+              type="text"
+              className="outline-none bg-transparent h-full w-full text-sm text-N500 placeholder-N300"
+              placeholder="Search Keywords"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+            <IoSearch
+              className="size-6 text-N300 hover:text-N500 cursor-pointer select-none"
+              onClick={handleSearch}
+            />
+            {isSearchTile && (
+              <LiaTimesSolid
+                className="size-6  text-N300 hover:text-N500 cursor-pointer select-none"
+                onClick={() => setIsSearchTile(false)}
+              />
+            )}
+          </div>
         </div>
+
+        {isSearchTile ? (
+          <div className="absolute mt-80  right-5  z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-scroll">
+            {searchData?.map((item, index) => (
+              <SearchTrekCategoryTile
+                key={index}
+                name={item?.name}
+                id={item?.id}
+                type={item?.type_name}
+                main_type={item?.main_type}
+                image={item?.image}
+              />
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

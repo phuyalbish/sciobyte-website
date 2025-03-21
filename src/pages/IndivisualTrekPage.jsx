@@ -47,7 +47,7 @@ function IndivisualTrekPage() {
           <div className="flex md:w-2/3 w-full flex-col gap-24 ">
             <TrekBasicInformationSection data={trek} />
             <div className="flex flex-col gap-8 text-left mb-10">
-              <div className="py-5 px-3 sticky overflow-x-scroll top-[7.5vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
+              <div className="py-5  sticky overflow-x-scroll top-[7.5vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"
@@ -84,7 +84,13 @@ function IndivisualTrekPage() {
               </div>
               <TrekOverviewSection data={trek?.description} />
               <div className="block md:hidden">
-                <TrekPricingSection price={trek?.price} map={trek?.map_image} />
+                <TrekPricingSection
+                  price={trek?.price}
+                  map={trek?.map}
+                  pricings={trek?.pricing}
+                  name={trek?.name}
+                  star={trek?.star}
+                />
               </div>
               <TrekItenarySection data={trek?.schedules} />
               <TrekRequirementSection
@@ -105,7 +111,7 @@ function IndivisualTrekPage() {
                     decoding="async"
                     loading="lazy"
                     src={BASE_MEDIA_URL + trek?.map}
-                    className="w-full h-[400px] object-cover rounded-md"
+                    className="w-full h-auto object-cover rounded-md"
                   />
                 </a>
               </div>
@@ -118,7 +124,7 @@ function IndivisualTrekPage() {
                   decoding="async"
                   loading="lazy"
                   src={BASE_MEDIA_URL + trek?.elevation_graph}
-                  className="w-full h-[400px] object-cover rounded-md"
+                  className="w-full h-auto object-cover rounded-md"
                 />
               </div>
               <TrekFAQSection faqs={trek?.faqs} />
@@ -131,6 +137,7 @@ function IndivisualTrekPage() {
               pricings={trek?.pricing}
               map={trek?.map}
               name={trek?.name}
+              star={trek?.star}
             />
           </div>
         </div>

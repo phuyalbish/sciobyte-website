@@ -24,13 +24,15 @@ const TrekTile = ({ data }) => {
   const { name, price, image, difficulty, formatted_duration } = data;
 
   return (
-    <div className="group cursor-pointer w-full flex-wrap gap-4 items-center justify-between flex flex-col shadow-xl mb-5  md:shadow-md p-5 border md:border-B75 rounded-md hover:shadow-lg   transition-all duration-300">
-      <img
-        decoding="async"
-        loading="lazy"
-        className="group-hover:scale-110 rounded-md  w-full h-64 object-cover transition-all duration-300"
-        src={image}
-      />
+    <div className="relative cursor-pointer group flex flex-col gap-3 items-center aspect-square rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-2 transition-all duration-500 border md:border-none  border-B75 border-0.5">
+      <div className="relative overflow-hidden rounded-xl w-full h-[90%]">
+        <img
+          decoding="async"
+          loading="lazy"
+          className="group-hover:scale-110 rounded-md  w-full h-full  object-cover transition-all duration-300"
+          src={image}
+        />
+      </div>
       <div className="font-bold  text-left">{name}</div>
     </div>
   );
