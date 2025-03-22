@@ -13,7 +13,7 @@ function YTSection() {
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
   return (
-    <div className="relative  w-full h-[80vh] ">
+    <div className="relative  w-full h-[80vh]">
       <img
         decoding="async"
         loading="lazy"
@@ -21,16 +21,16 @@ function YTSection() {
         alt=""
         className="w-full h-full object-cover absolute z-0 brightness-25"
       />
-      <div className="container h-full  max-w-[100em] mx-auto">
+      <div className="container h-full  max-w-[100em] ">
         <div className="relative  z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center gap-5 ">
-          <div className="textConten md:w-7/12  flex  flex-col gap-5 md:gap-0 md:pl-20 justify-center w-full  self-start md:mt-10  md:items-start items-center">
-            <div className="text-3xl md:text-5xl text-left text-white font-bold flex flex-col ">
+          <div className="textConten md:w-7/12  flex  flex-col gap-5 md:gap-0 md:pl-20 justify-center w-full  self-start md:mt-10  md:items-start items-center ">
+            <div className="text-3xl md:text-5xl text-left text-white font-bold flex flex-col">
               Connect us on
             </div>
             <a
               href="https://www.youtube.com/@hellotrekkers"
               target="_blank"
-              className="text-red-500 font-base text-4xl md:text-7xl Fi flex  gap-5 items-center justify-center"
+              className="text-red-500 font-base text-4xl md:text-7xl  flex  gap-5 items-center justify-center"
             >
               <FaYoutube />
               <div>Youtube</div>
@@ -44,7 +44,7 @@ function YTSection() {
                 key={index}
                 src={s.img}
                 alt={`Slide ${index}`}
-                className="cursor-pointer md:min-w-[30vw] h-auto pointer-events-auto  min-w-[80vw] object-cover "
+                className="cursor-pointer md:min-w-[30vw] h-auto pointer-events-auto  min-w-[80vw] object-cover test"
                 onClick={() => {
                   setIsOpenYTSection(true);
                   setytLink(s.link);
