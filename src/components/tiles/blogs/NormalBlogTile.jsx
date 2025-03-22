@@ -77,7 +77,7 @@ const NormalBlogTile = ({ blog }) => {
           {truncate(subheading, 150)}
         </div>
       </div>
-      <div className="flex items-center gap-4 text-gray-600">
+      <div className="flex items-center gap-2 text-gray-600">
         {author && (
           <div className="flex items-center gap-1">
             <AiFillEdit />
