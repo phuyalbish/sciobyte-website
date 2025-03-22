@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import img from "@/assets/SplashScreenImg.png";
 import vid from "@/assets/SplashVid.mp4";
+import SplashVidGif from "@/assets/SplashVideo.gif";
 import imgVector from "@/assets/vectorSplashImg.png";
 import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
@@ -25,12 +26,17 @@ function SplashSection() {
   return (
     <div className="relative w-full h-full">
       <div className="absolute h-full inset-0  w-full">
-        <video
+        {/* <video
           src={vid}
           className="w-full h-full object-cover pb-5 z-0 brightness-75"
           autoPlay
           loop
           muted
+        /> */}
+        <img 
+          className="w-full h-full object-cover pb-5 z-0 brightness-75"
+          src={SplashVidGif}
+          alt="SplashVidGif"
         />
       </div>
 
