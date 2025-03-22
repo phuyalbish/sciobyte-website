@@ -80,7 +80,7 @@ const NeedToKnowSection = () => {
           className="flex flex-col md:w-[45%] bottom_popup"
         >
           {blogs[1] && blogs[1]?.length >= 1 ? (
-            <Carousel ref={carouselRef} showThumbs={false} axis="vertical">
+            <Carousel ref={carouselRef} showStatus={false} showThumbs={false} axis="vertical">
               {blogs[1]?.map((chunkedBlog, index) => (
                 <div key={index} className="flex flex-col gap-[2.5rem]">
                   {chunkedBlog.map((blog, index) => (
