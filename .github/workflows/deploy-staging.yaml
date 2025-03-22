@@ -25,17 +25,17 @@ jobs:
       - name: Deploy via Rsync
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Map secret to env variable
-          SSH_HOST: ${{ secrets.SSH_HOST }}  # Map secret to env variable
-          SSH_USER: ${{ secrets.SSH_USER }}  # Map secret to env variable
+          SERVER_IP: ${{ secrets.SERVER_IP }}  # Map secret to env variable
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}  # Map secret to env variable
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
 
           # Test SSH connection with explicit key
-          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_ed25519 $SSH_USERNAME@$SSH_HOST exit
+          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_ed25519 $SSH_USERNAME@$SERVER_IP exit
 
           # Rsync with key specified
           rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new" \
             dist/ \
-            $SSH_USERNAME@$SSH_HOST:/home/hellotre/seejn/
+            $SSH_USERNAME@$SERVER_IP:/home/hellotre/seejn/
