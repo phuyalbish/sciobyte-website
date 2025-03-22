@@ -18,15 +18,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
-      - run: npm i
-      - run: npm run build
-
+     
       - name: create .env file
         run: |
            touch .env
             echo "VITE_BASE_API_URL=${{ secrets.VITE_BASE_API_URL }}" >> .env
             echo "VITE_BASE_MEDIA_URL=${{ secrets.VITE_BASE_MEDIA_URL }}" >> .env
+     
+      
+      - name: build project
+        run: npm i
+        run: npm run build
+
 
       - name: Deploy via Rsync
         env:
