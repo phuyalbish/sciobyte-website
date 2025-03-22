@@ -61,7 +61,7 @@ const HomeStaySection = () => {
               <GoogleReview />
             </div>
           </div>
-          <div className="relative md:w-[32rem] w-full right_popup">
+          <div className="relative md:w-[32rem] w-full ">
             <div className="absolute h-full w-full bg-gradient-to-t from-black via-transparent to-transparent"></div>
             <img
               decoding="async"
