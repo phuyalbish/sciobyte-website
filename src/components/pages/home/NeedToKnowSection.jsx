@@ -7,7 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 import { Link } from "react-router-dom";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "@/assets/styles/carousel.min.css";
 import _ from "lodash";
 
 const NeedToKnowSection = () => {
