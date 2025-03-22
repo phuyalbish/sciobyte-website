@@ -38,4 +38,4 @@ jobs:
           # Rsync with key specified
           rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new" \
             dist/ \
-            $SSH_USERNAME@$SERVER_IP:/home/hellotre/seejn/
+            $SSH_USERNAME@$SERVER_IP:/home/hellotre/staging.hellotrekkers.com/
