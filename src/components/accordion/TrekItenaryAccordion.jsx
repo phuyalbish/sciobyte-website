@@ -76,7 +76,6 @@ const TrekItenaryAccordion = ({ schedule }) => {
             {schedule?.extra_headings.map((item, index) => (
               <TrekScheduleExtraHeadingTile
                 key={index}
-                icon={item?.icon}
                 name={item?.name}
                 description={item?.description}
               />

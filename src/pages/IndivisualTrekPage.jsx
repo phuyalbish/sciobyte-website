@@ -82,7 +82,10 @@ function IndivisualTrekPage() {
                   FAQs
                 </button>
               </div>
-              <TrekOverviewSection data={trek?.description} />
+              <TrekOverviewSection
+                description={trek?.description}
+                challenges={trek?.challenges_name}
+              />
               <div className="block md:hidden">
                 <TrekPricingSection
                   price={trek?.price}
