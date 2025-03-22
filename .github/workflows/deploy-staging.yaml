@@ -22,6 +22,12 @@ jobs:
       - run: npm i
       - run: npm run build
 
+      - name: create .env file
+        run: |
+           touch .env
+            echo "VITE_BASE_API_URL=${{ secrets.VITE_BASE_API_URL }}" >> .env
+            echo "VITE_BASE_MEDIA_URL=${{ secrets.VITE_BASE_MEDIA_URL }}" >> .env
+
       - name: Deploy via Rsync
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Map secret to env variable
