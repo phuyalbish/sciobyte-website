@@ -44,7 +44,8 @@ function IndivisualCategoryPage() {
       <div className="text-2xl text-left font-semibold">
         {category?.trek_count} Travel{category?.trek_count >= 2 ? "s" : ""}
       </div>
-      <div className="flex gap-3 flex-wrap flex-grow w-full sm:items-center">
+
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem] ">
         {category?.treks?.map((item, index) => (
           <TrekTile
             key={index}

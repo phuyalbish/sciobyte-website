@@ -44,10 +44,10 @@ function IndivisualTrekPage() {
         />
         <ImageSlideSection gallery={trek?.gallery} />
         <div className="flex sticky top-0 h-full gap-10 w-full">
-          <div className="flex md:w-2/3 w-full flex-col gap-24 ">
+          <div className="flex md:w-2/3 w-full flex-col gap-4 ">
             <TrekBasicInformationSection data={trek} />
-            <div className="flex flex-col gap-8 text-left mb-10">
-              <div className="py-5 px-3 sticky overflow-x-scroll top-[7.5vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
+            <div className="flex flex-col gap-5 text-left">
+              <div className="py-5  sticky overflow-x-scroll top-[7.5vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"
@@ -82,9 +82,18 @@ function IndivisualTrekPage() {
                   FAQs
                 </button>
               </div>
-              <TrekOverviewSection data={trek?.description} />
+              <TrekOverviewSection
+                description={trek?.description}
+                challenges={trek?.challenges_name}
+              />
               <div className="block md:hidden">
-                <TrekPricingSection price={trek?.price} map={trek?.map_image} />
+                <TrekPricingSection
+                  price={trek?.price}
+                  map={trek?.map}
+                  pricings={trek?.pricing}
+                  name={trek?.name}
+                  star={trek?.star}
+                />
               </div>
               <TrekItenarySection data={trek?.schedules} />
               <TrekRequirementSection
@@ -97,7 +106,7 @@ function IndivisualTrekPage() {
               />
               <div
                 id="maps"
-                className="flex flex-col gap-5  rounded-md overflow-hidden"
+                className="flex flex-col gap-2  rounded-md overflow-hidden"
               >
                 <div className="text-2xl font-bold">Map</div>
                 <a href={trek?.map_link} target="_blank">
@@ -105,12 +114,12 @@ function IndivisualTrekPage() {
                     decoding="async"
                     loading="lazy"
                     src={BASE_MEDIA_URL + trek?.map}
-                    className="w-full h-[400px] object-cover rounded-md"
+                    className="w-full h-auto object-cover rounded-md"
                   />
                 </a>
               </div>
               <div
-                className="flex flex-col gap-5  rounded-md overflow-hidden"
+                className="flex flex-col gap-2  rounded-md overflow-hidden"
                 onClick={() => scrollToSection("maps")}
               >
                 <div className="text-2xl font-bold">Elevation Graph:</div>
@@ -118,7 +127,7 @@ function IndivisualTrekPage() {
                   decoding="async"
                   loading="lazy"
                   src={BASE_MEDIA_URL + trek?.elevation_graph}
-                  className="w-full h-[400px] object-cover rounded-md"
+                  className="w-full h-auto object-cover rounded-md"
                 />
               </div>
               <TrekFAQSection faqs={trek?.faqs} />
@@ -131,6 +140,7 @@ function IndivisualTrekPage() {
               pricings={trek?.pricing}
               map={trek?.map}
               name={trek?.name}
+              star={trek?.star}
             />
           </div>
         </div>

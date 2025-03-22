@@ -15,8 +15,8 @@ function SearchTrekCategoryTile({ image, main_type, type, name, id }) {
         src={BASE_MEDIA_URL + image}
         className="w-fit aspect-square object-cover rounded-md "
       />
-      <div className="text-sm text-left">{truncate(name, 50)}</div>
-      <div className="text-sm text-N300 text-left">
+      <div className="text-sm text-left text-N500">{truncate(name, 50)}</div>
+      <div className="text-sm  text-left text-N300">
         {main_type}
         {type ? ` of ${type}` : ""}
       </div>

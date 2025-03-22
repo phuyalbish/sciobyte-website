@@ -70,8 +70,8 @@ const BlogHorizontalTile = ({ blog }) => {
           Share
         </div>
       </div>
-      <div className="py-2 sm:w-1/2">
-        <div className="flex flex-col justify-start gap-4 text-gray-600">
+      <div className="flex flex-col gap-4 py-2 sm:w-1/2">
+        <div className="flex flex-wrap justify-start gap-2 text-gray-600">
           {author && (
             <div className="flex items-center gap-1">
               <AiFillEdit />

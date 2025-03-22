@@ -8,6 +8,8 @@ import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 import { Link } from "react-router-dom";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "@/assets/styles/carousel.min.css";
+
 import _ from "lodash";
 
 const NeedToKnowSection = () => {
@@ -55,7 +57,7 @@ const NeedToKnowSection = () => {
       </h1>
       <div className="relative h-full hidden md:flex justify-between gap-5   items-center">
         {blogs.length > 0 && blogs[0] ? (
-          <div className="relative  h-full  md:w-[50%] ">
+          <div className="relative  h-full  md:w-[50%] left_popup ">
             <BlogVerticalTile
               blog={{
                 heading: blogs[0]?.heading,
@@ -75,9 +77,12 @@ const NeedToKnowSection = () => {
           <p>Loading blogs...</p>
         )}
 
-        <div id="blog-carousel" className="flex flex-col md:w-[45%] ">
+        <div
+          id="blog-carousel"
+          className="flex flex-col md:w-[45%] bottom_popup"
+        >
           {blogs[1] && blogs[1]?.length >= 1 ? (
-            <Carousel ref={carouselRef} showThumbs={false} axis="vertical">
+            <Carousel ref={carouselRef} showStatus={false} showThumbs={false} axis="vertical">
               {blogs[1]?.map((chunkedBlog, index) => (
                 <div key={index} className="flex flex-col gap-[2.5rem]">
                   {chunkedBlog.map((blog, index) => (

@@ -1,13 +1,6 @@
 import TeamCard from "@/components/tiles/TeamCard.jsx";
 import aashish from "@/assets/aashish.jpeg";
 const Team = () => {
-  const teams = [
-    {
-      name: "Aashish Regmi",
-      title: "Founder",
-      imageUrl: { aashish },
-    },
-  ];
   return (
     <>
       <div>
@@ -15,9 +8,7 @@ const Team = () => {
           Meet Our Team
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[2rem]">
-          {teams.map((team, index) => (
-            <TeamCard key={index} team={team} />
-          ))}
+          <TeamCard name="Aashish Regmi" title="Founder" imgUrl={aashish} />
         </div>
       </div>
     </>
