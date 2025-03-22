@@ -15,7 +15,7 @@ const TrekSection = () => {
   }, []);
 
   return (
-    <div className="md:px-[4.5rem]">
+    <div className="md:px-[4.5rem] bottom_popup ">
       <h1 className="home-headings font-semibold">
         Your Tale Begins <span className="text-B400">NOW!</span>
       </h1>

@@ -43,7 +43,7 @@ const HomeStaySection = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row justify-evenly items-center lg:items-end w-full gap-5 ">
-          <div className="w-full lg:w-1/2 flex flex-col justify-center gap-4 ">
+          <div className="w-full lg:w-1/2 flex flex-col justify-center gap-4 left_popup">
             <div className="home-headings  font-semibold text-left">
               Kritipur Comfort Homestay
             </div>
@@ -61,7 +61,7 @@ const HomeStaySection = () => {
               <GoogleReview />
             </div>
           </div>
-          <div className="relative md:w-[32rem] w-full ">
+          <div className="relative md:w-[32rem] w-full right_popup">
             <div className="absolute h-full w-full bg-gradient-to-t from-black via-transparent to-transparent"></div>
             <img
               decoding="async"

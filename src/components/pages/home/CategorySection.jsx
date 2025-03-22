@@ -22,7 +22,7 @@ function CategorySection() {
       });
   }, []);
   return (
-    <div className="relative md:px-[4rem] bg-black pb-10  w-full flex flex-col gap-3 md:gap-7 flex-grow-0 justify-center items-center">
+    <div className="relative md:px-[4rem] bg-black pb-10  w-full flex flex-col gap-3 md:gap-7 flex-grow-0 justify-center items-center ">
       <div className="flex items-center justify-center gap-2 flex-wrap home-headings">
         <span className="text-white">Your</span>
         <span className="font-bold text-B300">PREFERENCE</span>
@@ -36,7 +36,7 @@ function CategorySection() {
         <p className="text-red-500">{error}</p>
       ) : (
         <>
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem]">
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem] bottom_popup">
             {Array.isArray(categories) && categories.length > 0 ? (
               categories
                 .slice(0, 2)
@@ -51,7 +51,7 @@ function CategorySection() {
               <p className="text-gray-500">No categories available</p>
             )}
           </div>
-          <div className="w-full md:hidden">
+          <div className="w-full md:hidden bottom_popup">
             <EmblaCarousel>
               {categories.slice(0, 2).map((category, index) => (
                 <div
