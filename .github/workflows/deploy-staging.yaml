@@ -1,7 +1,7 @@
 name: Deploy HelloTrekkers Staging
 on:
   push:
-    branches: [ staging ]
+    branches: [staging]
 
 jobs:
   build:
@@ -18,33 +18,29 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-     
-      - name: create .env file
+
+      - name: Create .env file
         run: |
-           touch .env
-            echo "VITE_BASE_API_URL=${{ secrets.VITE_BASE_API_URL }}" >> .env
-            echo "VITE_BASE_MEDIA_URL=${{ secrets.VITE_BASE_MEDIA_URL }}" >> .env
-     
-      
-      - name: build project
-        run: npm i
+          touch .env
+          echo "VITE_BASE_API_URL=${{ secrets.VITE_BASE_API_URL }}" >> .env
+          echo "VITE_BASE_MEDIA_URL=${{ secrets.VITE_BASE_MEDIA_URL }}" >> .env
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
         run: npm run build
 
-
       - name: Deploy via Rsync
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Map secret to env variable
-          SERVER_IP: ${{ secrets.SERVER_IP }}  # Map secret to env variable
-          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}  # Map secret to env variable
         run: |
           mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
 
-          # Test SSH connection with explicit key
-          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_ed25519 $SSH_USERNAME@$SERVER_IP exit
+          # Test SSH connection
+          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USERNAME }}@${{ secrets.SERVER_IP }} exit
 
           # Rsync with key specified
           rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new" \
             dist/ \
-            $SSH_USERNAME@$SERVER_IP:/home/hellotre/staging.hellotrekkers.com/
+            ${{ secrets.SSH_USERNAME }}@${{ secrets.SERVER_IP }}:/home/hellotre/staging.hellotrekkers.com/
