@@ -15,7 +15,7 @@ function HomePage() {
   return (
     <div className="flex flex-col gap-10 md:gap-16 relative w-full">
       <SplashSection />
-      <TrekSection />
+      <TrekSection plainText="Your Tale begins" blueText="Now!" />
       <div className="flex flex-col w-full relative">
         <Parallex />
         <CategorySection />
@@ -28,6 +28,7 @@ function HomePage() {
       </div>
       <InstagramSection />
       <NeedToKnowSection />
+      <TrekSection plainText="The Adventure Awaits" blueText="You!" />
       <FAQSection />
     </div>
   );
