@@ -10,7 +10,7 @@ function CategoryTile({ img, name, id }) {
         decoding="async"
         loading="lazy"
         src={img}
-        className="w-full aspect-square"
+        className="w-full aspect-square rounded-md"
       />
       <p className="text-md md:text-lg">{name}</p>
     </Link>

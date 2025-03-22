@@ -4,7 +4,7 @@ import TrekTile from "@/components/tiles/TrekTile.jsx";
 import { fetchTreks } from "@/apis/treks.js";
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 
-const TrekSection = () => {
+const TrekSection = ({ plainText, blueText }) => {
   const [treks, setTreks] = useState([]);
   useEffect(() => {
     (async () => {
@@ -17,7 +17,7 @@ const TrekSection = () => {
   return (
     <div className="md:px-[4.5rem] bottom_popup ">
       <h1 className="home-headings font-semibold">
-        Your Tale Begins <span className="text-B400">NOW!</span>
+        {plainText} <span className="text-B400"> {blueText}</span>
       </h1>
       <div className=" hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem]">
         {treks?.map((trek, index) => (
