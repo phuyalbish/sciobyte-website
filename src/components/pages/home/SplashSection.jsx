@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import img from "@/assets/SplashScreenImg.png";
-import vid from "@/assets/SplashVid.mp4";
+// import vid from "@/assets/SplashVid.mp4";
 import SplashVidGif from "@/assets/SplashVideo.gif";
 import imgVector from "@/assets/vectorSplashImg.png";
 import { IoSearch } from "react-icons/io5";
