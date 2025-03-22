@@ -33,9 +33,9 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
 
           # Test SSH connection with explicit key
-          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_ed25519 $SSH_USER@$SSH_HOST || exit
+          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_ed25519 $SSH_USERNAME@$SSH_HOST || exit
 
           # Rsync with key specified
           rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new" \
             dist/ \
-            $SSH_USER@$SSH_HOST:/home/hellotre/seejn/
+            $SSH_USERNAME@$SSH_HOST:/home/hellotre/seejn/
