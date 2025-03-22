@@ -1,0 +1,41 @@
+name: Deploy HelloTrekkers Staging
+on:
+  push:
+    branches: [ staging ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: npm i
+      - run: npm run build
+
+      - name: Deploy via Rsync
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Map secret to env variable
+          SSH_HOST: ${{ secrets.SSH_HOST }}  # Map secret to env variable
+          SSH_USER: ${{ secrets.SSH_USER }}  # Map secret to env variable
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          # Test SSH connection with explicit key
+          ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/id_ed25519 $SSH_USER@$SSH_HOST || exit
+
+          # Rsync with key specified
+          rsync -avz --delete -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new" \
+            dist/ \
+            $SSH_USER@$SSH_HOST:/home/hellotre/seejn/
