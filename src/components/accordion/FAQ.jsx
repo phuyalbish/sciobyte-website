@@ -13,7 +13,7 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
   const answer =
     faq?.answer.slice(-1) !== "." ? faq?.question + "." : faq?.question;
 
-  const question_default_bg_color = isOpened ? "bg-[#91BCED]" : "bg-[#ECF3FC]";
+  const question_default_bg_color = isOpened ? "bg-B75" : "bg-white";
 
   return (
     <div className="cursor-pointer px-5 w-full md:w-[60%] mx-auto select-none">
@@ -28,7 +28,7 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
       </div>
 
       {isOpened && (
-        <div className="bg-B50 p-4 rounded-md shadow-xs mt-2">
+        <div className="bg-B50 p-4 rounded-md shadow-xs mt-2 text-left">
           <span className="text-left font-medium">{answer}</span>
         </div>
       )}
