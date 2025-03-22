@@ -55,7 +55,7 @@ const NeedToKnowSection = () => {
       </h1>
       <div className="relative h-full hidden md:flex justify-between gap-5   items-center">
         {blogs.length > 0 && blogs[0] ? (
-          <div className="relative  h-full  md:w-[50%] ">
+          <div className="relative  h-full  md:w-[50%] left_popup ">
             <BlogVerticalTile
               blog={{
                 heading: blogs[0]?.heading,
@@ -75,7 +75,10 @@ const NeedToKnowSection = () => {
           <p>Loading blogs...</p>
         )}
 
-        <div id="blog-carousel" className="flex flex-col md:w-[45%] ">
+        <div
+          id="blog-carousel"
+          className="flex flex-col md:w-[45%] bottom_popup"
+        >
           {blogs[1] && blogs[1]?.length >= 1 ? (
             <Carousel ref={carouselRef} showThumbs={false} axis="vertical">
               {blogs[1]?.map((chunkedBlog, index) => (

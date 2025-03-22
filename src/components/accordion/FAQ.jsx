@@ -13,12 +13,12 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
   const answer =
     faq?.answer.slice(-1) !== "." ? faq?.question + "." : faq?.question;
 
-  const question_default_bg_color = isOpened ? "bg-[#91BCED]" : "bg-[#ECF3FC]";
+  const question_default_bg_color = isOpened ? "bg-B75" : "bg-white";
 
   return (
     <div className="cursor-pointer px-5 w-full md:w-[60%] mx-auto select-none">
       <div
-        className={`${question_default_bg_color} hover:bg-[#91BCED] p-4 rounded-md shadow-md transition duration-300 ease-in-out `}
+        className={`${question_default_bg_color}  hover:bg-B75 p-4 rounded-md shadow-xs transition duration-300 ease-in-out `}
         onClick={() => handleFaqState(faq.id)}
       >
         <div className="flex justify-between items-center">
@@ -28,7 +28,7 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
       </div>
 
       {isOpened && (
-        <div className="bg-[#B1CFF2] p-4 rounded-md shadow-md mt-2 flex justify-start">
+        <div className="bg-B50 p-4 rounded-md shadow-xs mt-2 text-left">
           <span className="text-left font-medium">{answer}</span>
         </div>
       )}

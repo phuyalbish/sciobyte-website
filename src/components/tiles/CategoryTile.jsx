@@ -1,16 +1,19 @@
 import React from "react";
-
-function CategoryTile({ img, name }) {
+import { Link } from "react-router-dom";
+function CategoryTile({ img, name, id }) {
   return (
-    <div className="p-2 w-full md:max-w-[300px] cursor-pointer shadow-lg md:shadow-none m-2 hover:shadow-lg transition-all duration-300 ease-in-out rounded-md flex flex-col gap-3 bg-white">
+    <Link
+      to={`/category/${id}`}
+      className="p-2 w-full md:max-w-[300px] cursor-pointer shadow-lg md:shadow-none m-2 hover:shadow-lg transition-all duration-300 ease-in-out rounded-md flex flex-col gap-3 bg-white"
+    >
       <img
         decoding="async"
         loading="lazy"
         src={img}
-        className="w-full aspect-square"
+        className="w-full aspect-square rounded-md"
       />
       <p className="text-md md:text-lg">{name}</p>
-    </div>
+    </Link>
   );
 }
 

@@ -146,7 +146,7 @@ function ContactPage() {
                   loading="lazy"
                   width="24px"
                   height="24px"
-                  src={FaWhatsapp_img}
+                  src={whatsapp_img}
                 />
                 <div>
                   <p className="font-medium text-N100">WhatsApp/Viber</p>

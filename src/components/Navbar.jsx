@@ -4,19 +4,22 @@ import { IoIosArrowDown } from "react-icons/io";
 import logo from "@/assets/HTWhite.png";
 import { fetchTypes, fetchIndivisualTypes } from "@/apis/types.js";
 import NavbarTrekCategoryTile from "@/components/tiles/NavbarTrekCategoryTile.jsx";
+import SearchTrekCategoryTile from "@/components/tiles/SearchTrekCategoryTile.jsx";
 
+import { IoSearch } from "react-icons/io5";
+import { LiaTimesSolid } from "react-icons/lia";
+import { fetchSearch } from "@/apis/search.js";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-function Navbar({activeMenu, setActiveMenu}) {
+function Navbar({ activeMenu, setActiveMenu }) {
   const [showLogo, setShowLogo] = useState(false);
   const [types, setTypes] = useState(null);
   const [typeDetails, setTypeDetails] = useState({});
-  const [dropdowns, setDropdowns] = useState({}); // Stores dropdown state for each type
+  const [dropdowns, setDropdowns] = useState({});
   const navbarMenuRef = useRef(null);
-
-  useEffect(() => {
-    console.log("activeMenu: ", activeMenu)
-  }, [activeMenu]);
+  const [isSearchTile, setIsSearchTile] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [searchData, setSearchData] = useState(null);
 
   useEffect(() => {
     const handleOutsideNavbarClick = (event) => {
@@ -39,6 +42,15 @@ function Navbar({activeMenu, setActiveMenu}) {
     };
   }, []);
 
+  const handleSearch = async () => {
+    if (searchText.trim() !== "") {
+      const response = await fetchSearch(searchText);
+      setSearchData(response.data);
+      setIsSearchTile(true);
+    } else {
+      console.log("No search text entered");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +73,7 @@ function Navbar({activeMenu, setActiveMenu}) {
   }, []);
 
   const getIndivisualType = async (slug) => {
-    if (typeDetails[slug]) return; // Avoid re-fetching if data already exists
+    if (typeDetails[slug]) return;
     try {
       const response = await fetchIndivisualTypes(slug);
       setTypeDetails((prev) => ({ ...prev, [slug]: response }));
@@ -71,7 +83,6 @@ function Navbar({activeMenu, setActiveMenu}) {
   };
   const toggleDropdown = (slug) => {
     setDropdowns((prev) => {
-      // Close all dropdowns, but toggle only the selected one
       const newState = Object.keys(prev).reduce((acc, key) => {
         acc[key] = false;
         return acc;
@@ -95,29 +106,34 @@ function Navbar({activeMenu, setActiveMenu}) {
             }}
           >
             <img
-              decoding="async"// Avoid re-fetching if data already exists
+              decoding="async" // Avoid re-fetching if data already exists
               loading="lazy"
               src={logo}
-              className={`w-8 ml-5 md:ml-0 aspect-square transition-all duration-300 ${showLogo ? "scale-100" : "scale-0"
-                }`}
+              className={`w-8 ml-5 md:ml-0 aspect-square transition-all duration-300 ${
+                showLogo ? "scale-100" : "scale-0"
+              }`}
               alt="Logo"
             />
           </Link>
 
-          <div ref={navbarMenuRef} className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24 relative">
+          <div
+            ref={navbarMenuRef}
+            className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24 relative"
+          >
             {types?.map((item, index) =>
               item?.showInNavBar ? (
                 <React.Fragment key={index}>
                   <button
-                    className={`${activeMenu[item.name] ? "text-B500" : "text-white"} flex items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500`}
+                    className={`${
+                      activeMenu[item.name] ? "text-B500" : "text-white"
+                    } flex items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500`}
                     onClick={() => {
-                      setActiveMenu(() => ({ [item.name]: true }))
-                      toggleDropdown(item.slug)
+                      setActiveMenu(() => ({ [item.name]: true }));
+                      toggleDropdown(item.slug);
                     }}
                   >
                     {item.name} <IoIosArrowDown />
                   </button>
-
 
                   {dropdowns[item.slug] && (
                     <div className="absolute top-14 left-0 m-auto w-full bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
@@ -131,7 +147,7 @@ function Navbar({activeMenu, setActiveMenu}) {
                           setDropdowns={setDropdowns}
                         />
                       ))}
-                      
+
                       {typeDetails[item.slug]?.categories?.map((category) => (
                         <NavbarTrekCategoryTile
                           key={category.id}
@@ -150,7 +166,9 @@ function Navbar({activeMenu, setActiveMenu}) {
 
             <Link
               to="/blogs"
-              className={`${activeMenu["blogs"] ? "text-B500" : "text-white"} transition hover:underline underline-offset-1 hover:text-B500`}
+              className={`${
+                activeMenu["blogs"] ? "text-B500" : "text-white"
+              } transition hover:underline underline-offset-1 hover:text-B500`}
               onClick={() => {
                 setActiveMenu({ blogs: true });
                 setDropdowns({});
@@ -160,7 +178,9 @@ function Navbar({activeMenu, setActiveMenu}) {
             </Link>
             <Link
               to="/company"
-              className={`${activeMenu["company"] ? "text-B500" : "text-white"} transition hover:underline underline-offset-1 hover:text-B500`}
+              className={`${
+                activeMenu["company"] ? "text-B500" : "text-white"
+              } transition hover:underline underline-offset-1 hover:text-B500`}
               onClick={() => {
                 setActiveMenu({ company: true });
                 setDropdowns({});
@@ -169,7 +189,47 @@ function Navbar({activeMenu, setActiveMenu}) {
               Company
             </Link>
           </div>
+          <div
+            className={` bg-white rounded-md overflow-hidden flex items-center px-2 py-1   gap-1 transition-all duration-300 ${
+              showLogo ? "scale-100" : "scale-0"
+            }`}
+          >
+            <input
+              type="text"
+              className="outline-none bg-transparent h-full w-full text-sm text-N500 placeholder-N300"
+              placeholder="Search Keywords"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+            <IoSearch
+              className="size-6 text-N300 hover:text-N500 cursor-pointer select-none"
+              onClick={handleSearch}
+            />
+            {isSearchTile && (
+              <LiaTimesSolid
+                className="size-6  text-N300 hover:text-N500 cursor-pointer select-none"
+                onClick={() => setIsSearchTile(false)}
+              />
+            )}
+          </div>
         </div>
+
+        {isSearchTile ? (
+          <div className="absolute mt-80  right-5  z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-scroll">
+            {searchData?.map((item, index) => (
+              <SearchTrekCategoryTile
+                key={index}
+                name={item?.name}
+                id={item?.id}
+                type={item?.type_name}
+                main_type={item?.main_type}
+                image={item?.image}
+              />
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

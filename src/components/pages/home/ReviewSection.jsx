@@ -150,7 +150,7 @@ function ReviewSection() {
             <p className="text-gray-500">No Reviews available</p>
           )}
         </div>
-        <div className="md:hidden relative w-full mt-2 max-w-[100em] mx-auto bg-gray-100 py-5 shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
+        <div className="md:hidden relative  w-full mt-2 max-w-[100em] mx-auto bg-gray-100 py-5 shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
           {isGoogleReview ? (
             Array.isArray(google_reviews) && google_reviews.length > 0 ? (
               <EmblaCarousel>

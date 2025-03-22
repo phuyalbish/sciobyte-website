@@ -1,5 +1,4 @@
 import React from "react";
-import TrekHeadingTile from "@/components/tiles/TrekHeadingTile";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function TrekRequirementSection({ requirements, gears }) {
@@ -12,7 +11,7 @@ function TrekRequirementSection({ requirements, gears }) {
           gears.map((item, index) => (
             <div
               key={index}
-              className={` py-2 px-4 rounded-xl flex gap-3 items-center border hover:border-B75 bg-transparent`}
+              className={` py-2 px-4 rounded-xl flex gap-3 items-center border hover:border-B75 bg-transparent cursor-pointer`}
             >
               <img
                 decoding="async"

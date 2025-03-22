@@ -47,8 +47,8 @@ const EmblaCarousel = ({
   return (
     <div className=" relative w-full flex flex-col gap-3 items-center">
       <div className="embla relative w-full ">
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">{children}</div>
+        <div className="overflow-hidden " ref={emblaRef}>
+          <div className="flex gap-2 pb-2">{children}</div>
         </div>
       </div>
       <div className="w-full relative px-3 flex justify-end gap-4 items-center">
