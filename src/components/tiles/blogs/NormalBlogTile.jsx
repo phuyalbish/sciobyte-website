@@ -33,7 +33,7 @@ const NormalBlogTile = ({ blog }) => {
     }
   };
   return (
-    <div className="relative flex flex-col gap-3  p-2 md:p-5 max-w-full m-3 rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg">
+    <div className="relative flex flex-col gap-3  p-2 md:p-5 max-w-full rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg">
       <div className="relative h-full">
         {isLoading ? (
           <ImageSkeleton />
