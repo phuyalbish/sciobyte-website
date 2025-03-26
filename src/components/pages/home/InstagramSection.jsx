@@ -52,7 +52,7 @@ function InstagramSection() {
           <a
             href="https://www.instagram.com/hellotrekkersnamaste/"
             target="_future"
-            className="flex text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-B300 hover:bg-B500 text-white p-1 px-2"
+            className="flex text-sm sm:text-base md:text-lg cursor-pointer rounded-md bg-B500 hover:bg-B500 text-white p-1 px-2"
           >
             Follow us
           </a>

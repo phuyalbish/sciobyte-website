@@ -53,7 +53,7 @@ function CategorySection() {
           </div>
           <div className="w-full md:hidden bottom_popup">
             <EmblaCarousel>
-              {categories.slice(0, 2).map((category, index) => (
+              {categories?.slice(0, 2).map((category, index) => (
                 <div
                   key={index}
                   className="embla__slide min-w-full  flex  justify-center"

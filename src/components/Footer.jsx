@@ -6,21 +6,6 @@ import Taan from "@/assets/Taan.png";
 import nationalFlag from "@/assets/national-flag.png";
 import footerLogo from "@/assets/footer-logo.svg";
 import footerImg from "@/assets/footer-img.png";
-
-// const handleWord = (word) => {
-//   const numberOfWords = word.split(" ").length;
-//   const keyName = numberOfWords > 0 ? word.split(" ") : word;
-//   return (
-//     <span className="flex">
-//       {keyName.length > 0
-//         ? keyName.map((name) => (
-//             <pre style={{ fontFamily: "inherit" }}>{`${name} `}</pre>
-//           ))
-//         : keyName}
-//     </span>
-//   );
-// };
-
 const HTLogo = ({ className }) => (
   <div className={className}>
     <img
@@ -129,11 +114,7 @@ function Footer() {
       items: [
         {
           name: "About Us",
-          url: "",
-        },
-        {
-          name: "Why Hello Trekkers",
-          url: "",
+          url: "/about",
         },
         {
           name: "Contact Us",
@@ -144,8 +125,12 @@ function Footer() {
           url: "",
         },
         {
-          name: "Discover",
-          url: "",
+          name: "Privacy Polocy",
+          url: "/privacy",
+        },
+        {
+          name: "Terms and Condition",
+          url: "/termsandcondition",
         },
       ],
     },

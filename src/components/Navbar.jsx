@@ -177,7 +177,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
               Travel Tips
             </Link>
             <Link
-              to="/company"
+              to="/about"
               className={`${
                 activeMenu["company"] ? "text-B500" : "text-white"
               } transition hover:underline underline-offset-1 hover:text-B500`}
@@ -186,13 +186,11 @@ function Navbar({ activeMenu, setActiveMenu }) {
                 setDropdowns({});
               }}
             >
-              Company
+              About
             </Link>
           </div>
           <div
-            className={` bg-white rounded-md overflow-hidden flex items-center px-2 py-1   gap-1 transition-all duration-300 ${
-              showLogo ? "scale-100" : "scale-0"
-            }`}
+            className={` bg-white rounded-md overflow-hidden flex items-center px-2 py-1   gap-1 transition-all duration-300`}
           >
             <input
               type="text"

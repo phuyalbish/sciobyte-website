@@ -6,6 +6,8 @@ import IndivisualTrekPage from "@/pages/IndivisualTrekPage.jsx";
 import IndivisualTypePage from "@/pages/IndivisualTypePage.jsx";
 import IndivisualCategoryPage from "@/pages/IndivisualCategoryPage.jsx";
 import IndivisualDistrictPage from "@/pages/IndivisualDistrictPage.jsx";
+import PrivacyPolicy from "@/pages/PrivacyPolicy.jsx";
+import TermsAndCondition from "@/pages/TermsAndCondition.jsx";
 import Contact from "@/pages/ContactPage.jsx";
 import Blogs from "@/pages/BlogListPage.jsx";
 import BlogDetail from "@/pages/BlogDetailPage.jsx";
@@ -16,7 +18,9 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/company" element={<Company />} />
+      <Route path="/about" element={<Company />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
+      <Route path="/termsandcondition" element={<TermsAndCondition />} />
       <Route path="/travel/:id" element={<IndivisualTrekPage />} />
       <Route path="/type/:id" element={<IndivisualTypePage />} />
       <Route path="/category/:id" element={<IndivisualCategoryPage />} />

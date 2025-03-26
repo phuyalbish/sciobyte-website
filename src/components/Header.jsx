@@ -161,14 +161,14 @@ function Header({ setActiveMenu }) {
               Travel Tips
             </Link>
             <Link
-              to="/company"
+              to="/about"
               className="transition hover:underline underline-offset-1 hover:text-B500 text-left"
               onClick={() => {
                 setIsDropDown(false);
                 setDropdowns({});
               }}
             >
-              Company
+              About
             </Link>
           </div>
         )}
