@@ -41,7 +41,7 @@ const SingleBlogSection = ({ latestBlog }) => {
     <>
       <div className="container">
         <h1 className="home-headings font-semibold py-[2rem]">Blog</h1>
-        <div className="mx-auto px-[2rem] md:px-[4.5rem]">
+        <div className="mx-auto px-3 md:px-[4.5rem]">
           <article className=" rounded-xl grid grid-cols-1 md:grid-cols-2 gap-[2.5rem] items-center p-[1.25rem] bg-white  shadow-lg overflow-hidden">
             <div className="relative h-full">
               {isLoading ? (
