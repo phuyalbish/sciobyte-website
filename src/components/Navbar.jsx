@@ -12,6 +12,7 @@ import { fetchSearch } from "@/apis/search.js";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 function Navbar({ activeMenu, setActiveMenu }) {
+  const [isCompanyDropDown, setCompanyDropDown] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
   const [types, setTypes] = useState(null);
   const [typeDetails, setTypeDetails] = useState({});
@@ -103,6 +104,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
             onClick={() => {
               setActiveMenu({});
               setDropdowns({});
+              setCompanyDropDown(false);
             }}
           >
             <img
@@ -129,6 +131,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     } flex items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500`}
                     onClick={() => {
                       setActiveMenu(() => ({ [item.name]: true }));
+                      setCompanyDropDown(false);
                       toggleDropdown(item.slug);
                     }}
                   >
@@ -172,22 +175,126 @@ function Navbar({ activeMenu, setActiveMenu }) {
               onClick={() => {
                 setActiveMenu({ blogs: true });
                 setDropdowns({});
+                setCompanyDropDown(false);
               }}
             >
-              Travel Tips
+              Blogs and Tips
             </Link>
-            <Link
-              to="/about"
-              className={`${
-                activeMenu["company"] ? "text-B500" : "text-white"
-              } transition hover:underline underline-offset-1 hover:text-B500`}
-              onClick={() => {
-                setActiveMenu({ company: true });
-                setDropdowns({});
-              }}
-            >
-              About
-            </Link>
+            <div className="relative">
+              <button
+                className={`${
+                  activeMenu["company"] ? "text-B500" : "text-white"
+                } flex items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500`}
+                onClick={() => {
+                  setActiveMenu({ company: true });
+                  setDropdowns({});
+                  setCompanyDropDown(!isCompanyDropDown);
+                }}
+              >
+                Company <IoIosArrowDown />
+              </button>
+
+              {isCompanyDropDown && (
+                <div className="absolute top-14 left-0 m-auto w-64 justify-start items-start  bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
+                  <Link
+                    to="/about"
+                    className={`${
+                      activeMenu["company"] ? "text-B500" : "text-white"
+                    } transition hover:underline underline-offset-1 hover:text-B500`}
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    About Us
+                  </Link>
+
+                  <Link
+                    to="/team"
+                    className={`${
+                      activeMenu["company"] ? "text-B500" : "text-white"
+                    } transition hover:underline underline-offset-1 hover:text-B500`}
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    Team
+                  </Link>
+
+                  <Link
+                    to="/contact"
+                    className={`${
+                      activeMenu["company"] ? "text-B500" : "text-white"
+                    } transition hover:underline underline-offset-1 hover:text-B500`}
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    Contact Us
+                  </Link>
+
+                  <Link
+                    to="/whyhellotrekkers"
+                    className={`${
+                      activeMenu["company"] ? "text-B500" : "text-white"
+                    } transition hover:underline underline-offset-1 hover:text-B500`}
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    Why Hellotrekkers?
+                  </Link>
+
+                  <Link
+                    to="/socialinitiative"
+                    className={`${
+                      activeMenu["company"] ? "text-B500" : "text-white"
+                    } transition hover:underline underline-offset-1 hover:text-B500`}
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    Social Initiative
+                  </Link>
+                  <Link
+                    to="/booking"
+                    className={`${
+                      activeMenu["company"] ? "text-B500" : "text-white"
+                    } transition hover:underline underline-offset-1 hover:text-B500`}
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    Booking and Payments
+                  </Link>
+
+                  <Link
+                    to="/termsandcondition"
+                    className={`${
+                      activeMenu["company"] ? "text-B500" : "text-white"
+                    } transition hover:underline underline-offset-1 hover:text-B500`}
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    Terms and Condition
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
           <div
             className={` bg-white rounded-md overflow-hidden flex items-center px-2 py-1   gap-1 transition-all duration-300`}
