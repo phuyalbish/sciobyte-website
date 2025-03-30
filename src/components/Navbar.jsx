@@ -2,19 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import logo from "@/assets/HTWhite.png";
-import { fetchTypes, fetchIndivisualTypes } from "@/apis/types.js";
+import { fetchIndivisualTypes } from "@/apis/types.js";
 import NavbarTrekCategoryTile from "@/components/tiles/NavbarTrekCategoryTile.jsx";
 import SearchTrekCategoryTile from "@/components/tiles/SearchTrekCategoryTile.jsx";
 
 import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
 import { fetchSearch } from "@/apis/search.js";
+import types from "@/data/Types.json";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 function Navbar({ activeMenu, setActiveMenu }) {
   const [isCompanyDropDown, setCompanyDropDown] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
-  const [types, setTypes] = useState(null);
   const [typeDetails, setTypeDetails] = useState({});
   const [dropdowns, setDropdowns] = useState({});
   const navbarMenuRef = useRef(null);
@@ -61,18 +61,6 @@ function Navbar({ activeMenu, setActiveMenu }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const getType = async () => {
-      try {
-        const response = await fetchTypes();
-        setTypes(response?.data?.results);
-      } catch (error) {
-        console.error("Error fetching types:", error);
-      }
-    };
-    getType();
-  }, []);
-
   const getIndivisualType = async (slug) => {
     if (typeDetails[slug]) return;
     try {
@@ -94,7 +82,6 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
     getIndivisualType(slug);
   };
-
   return (
     <>
       <div className="hidden md:flex bg-B300 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
@@ -122,50 +109,48 @@ function Navbar({ activeMenu, setActiveMenu }) {
             ref={navbarMenuRef}
             className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24 relative"
           >
-            {types?.map((item, index) =>
-              item?.showInNavBar ? (
-                <React.Fragment key={index}>
-                  <button
-                    className={`${
-                      activeMenu[item.name] ? "text-B500" : "text-white"
-                    } flex items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500`}
-                    onClick={() => {
-                      setActiveMenu(() => ({ [item.name]: true }));
-                      setCompanyDropDown(false);
-                      toggleDropdown(item.slug);
-                    }}
-                  >
-                    {item.name} <IoIosArrowDown />
-                  </button>
+            {types?.map((item, index) => (
+              <React.Fragment key={index}>
+                <button
+                  className={`${
+                    activeMenu[item.name] ? "text-B500" : "text-white"
+                  } flex items-center gap-1 transition hover:underline underline-offset-1 hover:text-B500`}
+                  onClick={() => {
+                    setActiveMenu(() => ({ [item.name]: true }));
+                    setCompanyDropDown(false);
+                    toggleDropdown(item.slug);
+                  }}
+                >
+                  {item.name} <IoIosArrowDown />
+                </button>
 
-                  {dropdowns[item.slug] && (
-                    <div className="absolute top-14 left-0 m-auto w-full bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
-                      {typeDetails[item.slug]?.treks?.map((trek) => (
-                        <NavbarTrekCategoryTile
-                          key={trek.id}
-                          type="travel"
-                          image={trek.image}
-                          name={trek.name}
-                          id={trek.id}
-                          setDropdowns={setDropdowns}
-                        />
-                      ))}
+                {dropdowns[item.slug] && (
+                  <div className="absolute top-14 left-0 m-auto w-full bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
+                    {typeDetails[item.slug]?.treks?.map((trek) => (
+                      <NavbarTrekCategoryTile
+                        key={trek.id}
+                        type="travel"
+                        image={trek.image}
+                        name={trek.name}
+                        id={trek.id}
+                        setDropdowns={setDropdowns}
+                      />
+                    ))}
 
-                      {typeDetails[item.slug]?.categories?.map((category) => (
-                        <NavbarTrekCategoryTile
-                          key={category.id}
-                          type="category"
-                          image={category.image}
-                          name={category.name}
-                          id={category.id}
-                          setDropdowns={setDropdowns}
-                        />
-                      ))}
-                    </div>
-                  )}
-                </React.Fragment>
-              ) : null
-            )}
+                    {typeDetails[item.slug]?.categories?.map((category) => (
+                      <NavbarTrekCategoryTile
+                        key={category.id}
+                        type="category"
+                        image={category.image}
+                        name={category.name}
+                        id={category.id}
+                        setDropdowns={setDropdowns}
+                      />
+                    ))}
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
 
             <Link
               to="/blogs"

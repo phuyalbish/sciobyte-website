@@ -6,6 +6,7 @@ import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 
+import types from "@/data/Types.json";
 import { IoIosArrowDown } from "react-icons/io";
 import { fetchTypes, fetchIndivisualTypes } from "@/apis/types.js";
 import HeaderTrekCategoryTile from "@/components/tiles/HeaderTrekCategoryTile.jsx";
@@ -15,21 +16,8 @@ export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function Header({ setActiveMenu }) {
   const [isDropDown, setIsDropDown] = useState(false);
 
-  const [types, setTypes] = useState(null);
   const [typeDetails, setTypeDetails] = useState({});
   const [dropdowns, setDropdowns] = useState({});
-
-  useEffect(() => {
-    const getType = async () => {
-      try {
-        const response = await fetchTypes();
-        setTypes(response?.data?.results);
-      } catch (error) {
-        console.error("Error fetching types:", error);
-      }
-    };
-    getType();
-  }, []);
 
   const getIndivisualType = async (slug) => {
     if (typeDetails[slug]) return;
