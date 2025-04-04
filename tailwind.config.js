@@ -30,20 +30,33 @@ export default {
         danger: "var(--danger)",
       },
 
-      fontSize: {
-        responsiveHeading: "clamp(28px, 10vw, 60px)",
-        xs: "var(--text-xs)", // 9px
-        sm: "var(--text-sm)", // 12px
-        md: "var(--text-md)", // 14px
-        base: "var(--text-base)", // 16px
-        lg: "var(--text-lg)", // 18px
-        xl: "var(--text-xl)", // 21px
-        "2xl": "var(--text-2xl)", // 23px
-        "3xl": "var(--text-3xl)", // 28px
-        "4xl": "var(--text-4xl)", // 38px
-        "5xl": "var(--text-5xl)", // 51px
-        "6xl": "var(--text-6xl)", // 67px
-        "7xl": "var(--text-7xl)", // 90px
+      // fontSize: {
+      //   responsiveHeading: "clamp(28px, 10vw, 60px)",
+      //   xs: "var(--text-xs)", // 9px
+      //   sm: "var(--text-sm)", // 12px
+      //   md: "var(--text-md)", // 14px
+      //   base: "var(--text-base)", // 16px
+      //   lg: "var(--text-lg)", // 18px
+      //   xl: "var(--text-xl)", // 21px
+      //   "2xl": "var(--text-2xl)", // 23px
+      //   "3xl": "var(--text-3xl)", // 28px
+      //   "4xl": "var(--text-4xl)", // 38px
+      //   "5xl": "var(--text-5xl)", // 51px
+      //   "6xl": "var(--text-6xl)", // 67px
+      //   "7xl": "var(--text-7xl)", // 90px
+      // },
+
+        fontSize: {
+        xs: ['var(--text-xs)', { lineHeight: 'var(--lineheight-base)' }],
+        sm: ['var(--text-sm)', { lineHeight: 'var(--lineheight-base)' }],
+        base: ['var(--text-base)', { lineHeight: 'var(--lineheight-md)' }],
+        md: ['var(--text-md)', { lineHeight: 'var(--lineheight-lg)' }],
+        lg: ['var(--text-lg)', { lineHeight: 'var(--lineheight-xl)' }],
+        xl: ['var(--text-xl)', { lineHeight: 'var(--lineheight-2xl)' }],
+        "2xl": ['var(--text-2xl)', { lineHeight: 'var(--lineheight-3xl)' }],
+        "3xl": ['var(--text-3xl)', { lineHeight: 'var(--lineheight-4xl)' }],
+        "4xl": ['var(--text-4xl)', { lineHeight: 'var(--lineheight-5xl)' }],
+        "5xl": ['var(--text-5xl)', { lineHeight: 'var(--lineheight-6xl)' }],
       },
     },
   },
