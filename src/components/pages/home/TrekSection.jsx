@@ -15,9 +15,9 @@ const TrekSection = ({ plainText, blueText }) => {
   }, []);
 
   return (
-    <div className="md:px-[4.5rem] bottom_popup ">
-      <h1 className="home-headings font-semibold">
-        {plainText} <span className="text-B400"> {blueText}</span>
+    <div className="md:px-[4.5rem] bottom_popup">
+      <h1 className="text-2xl font-liches md:text-5xl font-regular ">
+        {plainText} <span className="text-B400 text-2xl font-liches md:text-5xl font-regular "> {blueText}</span>
       </h1>
       <div className=" hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem]">
         {treks?.map((trek, index) => (

@@ -31,7 +31,7 @@ function TrekPricingSection({ price, map, pricings, name, star = 0 }) {
         <div className="relative flex justify-between w-full items-start ">
           <div className="flex flex-col items-start">
             <div className="text-md text-bold">Price Starting From</div>
-            <div className="text-3xl font-bold text-B500">USD {price}</div>
+            <div className="text-xl font-bold text-B500">USD {price}</div>
           </div>
           <div className="flex relative  gap-2 items-center">
             <div className="flex gap-1 items-center justify-center">
@@ -75,14 +75,14 @@ function TrekPricingSection({ price, map, pricings, name, star = 0 }) {
         </div>
         <Link
           to="/contact"
-          className="rounded-lg bg-B300 hover:bg-B500 text-white text-lg font-bold cursor-pointer flex justify-center items-center p-4"
+          className="rounded-lg bg-B300 hover:bg-B500 text-white text-base font-bold cursor-pointer flex justify-center items-center p-4"
         >
           Make a Booking
         </Link>
         <a
           href={`https://web.whatsapp.com/send?phone=+9779849828857&text=Hello Aashish, I want to know more about: ${name}`}
           target="_blank"
-          className="rounded-lg bg-G300 hover:bg-G500 text-white text-lg font-bold cursor-pointer flex justify-center gap-3 items-center p-4"
+          className="rounded-lg bg-G300 hover:bg-G500 text-white text-base font-bold cursor-pointer flex justify-center gap-3 items-center p-4"
         >
           <FaWhatsapp />
           Quick Inquiry

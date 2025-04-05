@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-function HeaderTrekCategoryTile({ image, type, name, id, onclick }) {
+function NavbarTrekRegionTile({ image, type, name, id, setDropdowns }) {
   const navigate = useNavigate();
   return (
     <div
-      className="cursor-pointer  flex gap-2 p-1 items-center shadow-lg w-full  rounded-md hover:bg-white/25 "
+      className="cursor-pointer  flex gap-2 p-1 items-center rounded-md hover:bg-white/25   hover:shadow-sm"
       onClick={() => {
-        onclick();
+        setDropdowns({});
         navigate(`/${type}/${id}`);
       }}
     >
@@ -27,4 +27,4 @@ function HeaderTrekCategoryTile({ image, type, name, id, onclick }) {
   );
 }
 
-export default HeaderTrekCategoryTile;
+export default NavbarTrekRegionTile;

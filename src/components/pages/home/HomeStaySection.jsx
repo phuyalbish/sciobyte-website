@@ -1,13 +1,13 @@
 import homestay from "@/assets/homestay.png";
-import homestay_vector from "@/assets/homestay-vector.png";
-import mobile_homestay_vector from "@/assets/mobile-homestay-vector.png";
+import homestay_vector from "@/assets/homestay-vector.svg";
+import mobile_homestay_vector from "@/assets/homestay-mobile-vector.svg";
 
-import google_logo from "@/assets/google-logo.png";
+import google_logo from "@/assets/google-logo.svg";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 const GoogleReview = () => {
   return (
     <div className="p-4 bg-white shadow-lg  text-left   lg:rounded-r-[1rem] rounded-l-[1rem]   flex flex-col gap-[0.5rem]">
-      <div className="flex text-left">
+      <div className="flex text-left items-center">
         <span className="mr-2">
           <img
             decoding="async"
@@ -37,14 +37,14 @@ const HomeStaySection = () => {
   return (
     <div className="flex flex-col">
       <div className="flex flex-col px-5 md:px-[4rem] max-w-[100em] mx-auto gap-5">
-        <div className="py-2 px-3 text-center home-headings  md:mb-10 rounded-lg">
-          Your <span className="font-bold text-B300">HOMESTAY</span> Family{" "}
-          <span className="font-bold text-B300">WELCOMES</span> You.
+        <div className="py-2 px-3 text-center text-3xl md:text-4xl font-liches font-light   md:mb-10 rounded-lg">
+          Your <span className=" text-B300  font-liches font-light">HOMESTAY</span> Family{" "}
+          <span className=" text-B300  font-liches font-light">WELCOMES</span> You.
         </div>
 
         <div className="flex flex-col lg:flex-row justify-evenly items-center lg:items-end w-full gap-5 ">
           <div className="w-full lg:w-1/2 flex flex-col justify-center gap-4 left_popup">
-            <div className="home-headings  font-semibold text-left">
+            <div className="text-xl sm:text-2xl md:text-3xl  font-semibold text-left">
               Kritipur Comfort Homestay
             </div>
             <p className="text-[1rem] text-left">

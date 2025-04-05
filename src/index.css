@@ -26,8 +26,8 @@
   --B900: #0D1C2D;
   
   --N100: #e6e6e6;
-  --N200: #b3b3b3;
-  --N300: #cccccc;
+  --N200: #cccccc;
+  --N300: #b3b3b3;
   --N400: #999999;
   --N500: #7f7f7f;
   --N600: #666666;
@@ -39,6 +39,10 @@
   --danger: #ff0000;
 
 
+  --font-liches:"Staatliches", sans-serif;
+  --font-reenie: "Reenie Beanie", cursive;
+  --font-manrope: "Manrope", sans-serif;
+  --font-dance: "Dancing Script", cursive;
 
   --lineheight-base: 16px;
   --lineheight-md: 24px;
@@ -85,7 +89,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 html {
   overflow: overlay;
@@ -93,7 +97,7 @@ html {
 }
 
 body {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Manrope", sans-serif;
   color: var(--text);
 }
 
@@ -110,9 +114,6 @@ body {
   font-size: clamp(30px, 6vw, 58px);
 }
 
-.home-headings {
-  font-size: clamp(25px, 2vw, 34px);
-}
 
 .embla {
   overflow: hidden;
@@ -123,4 +124,14 @@ body {
 .embla__slide {
   flex: 0 0 100%;
   min-width: 0;
+}
+
+
+
+.test{
+  border: 1px solid black;
+}
+
+.testw{
+  border: 1px solid white;
 }

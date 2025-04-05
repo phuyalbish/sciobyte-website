@@ -47,7 +47,7 @@ const FAQSection = () => {
   }, []);
   return (
     <div className="flex flex-col gap-2 w-full   max-w-[100em] mx-auto ">
-      <h1 className="text-[2.375rem] font-semibold py-[2rem]">FAQs</h1>
+      <h1 className="text-3xl   font-semibold ">Frequently asked questions</h1>
 
       <div className="flex flex-col gap-1">
         {Array.isArray(faqs) && faqs.length > 0 ? (

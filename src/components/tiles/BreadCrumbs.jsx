@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 function BreadCrumbs({
   type_name = null,
   name = null,
-  category_name = null,
-  category_id = null,
+  region_name = null,
+  region_id = null,
   type_slug = null,
 }) {
   return (
@@ -23,11 +23,11 @@ function BreadCrumbs({
           </Link>
         </>
       )}
-      {category_name && (
+      {region_name && (
         <>
           <GoChevronRight className="size-5 md:size-8" />
-          <Link to={`/category/${category_id}`} className="hover:underline">
-            {category_name}
+          <Link to={`/region/${region_id}`} className="hover:underline">
+            {region_name}
           </Link>
         </>
       )}

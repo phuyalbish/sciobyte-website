@@ -9,16 +9,19 @@ import InstagramSection from "@/components/pages/home/InstagramSection";
 import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
 import ReviewSection from "@/components/pages/home/ReviewSection";
 import SpontaneousTrekSection from "@/components/pages/home/SpontaneousTrekSection";
-import CategorySection from "@/components/pages/home/CategorySection";
+import RegionSection from "@/components/pages/home/RegionSection";
 
 function HomePage() {
   return (
     <div className="flex flex-col gap-10 md:gap-16 relative w-full">
+      <div className="flex flex-col">
+
       <SplashSection />
-      <TrekSection plainText="Your Tale begins" blueText="Now!" />
+      <TrekSection plainText="YOUR TALE BEGINS" blueText="NOW!" />
+      </div>
       <div className="flex flex-col w-full relative">
         <Parallex />
-        <CategorySection />
+        <RegionSection />
       </div>
       <HomeStaySection />
       <SpontaneousTrekSection />
@@ -26,10 +29,19 @@ function HomePage() {
         <YTSection />
         <ReviewSection />
       </div>
+
+      <div className="flex flex-col w-full relative">
       <InstagramSection />
+      <div className="w-full bg-G200 py-6 pt-10">
+        <h1 className="text-3xl font-dance md:text-5xl font-regular ">
+        Discover and Explore
+      </h1>
+      <TrekSection/>
+      </div>
+      </div>
       <NeedToKnowSection />
-      <TrekSection plainText="The Adventure Awaits" blueText="You!" />
       <FAQSection />
+      <TrekSection plainText="The Adventure Awaits" blueText="You!" />
     </div>
   );
 }

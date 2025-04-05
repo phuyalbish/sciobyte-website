@@ -6,7 +6,7 @@ import imgVector from "@/assets/vectorSplashImg.png";
 import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
 import { fetchSearch } from "@/apis/search.js";
-import SearchTrekCategoryTile from "@/components/tiles/SearchTrekCategoryTile.jsx";
+import SearchTrekRegionTile from "@/components/tiles/SearchTrekRegionTile.jsx";
 function SplashSection() {
   const [isSearchTile, setIsSearchTile] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -48,7 +48,7 @@ function SplashSection() {
           }   items-center justify-center`}
         >
           {!isSearchTile ? (
-            <div className="splash-heading text-white font-bold z-40 select-none">
+            <div className=" text-white font-bold z-40 select-none font-dance text-3xl md:text-5xl">
               Creating your Tales from our Trails
             </div>
           ) : (
@@ -76,7 +76,7 @@ function SplashSection() {
           {isSearchTile ? (
             <div className="absolute mt-80 z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-scroll">
               {searchData?.map((item, index) => (
-                <SearchTrekCategoryTile
+                <SearchTrekRegionTile
                   key={index}
                   name={item?.name}
                   id={item?.id}
