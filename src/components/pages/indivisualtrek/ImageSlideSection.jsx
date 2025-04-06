@@ -11,12 +11,12 @@ function ImageSlideSection({ gallery }) {
           index == 3 ? (
             <div
               key={index}
-              className="relative object-cover hover:w-2/4 w-1/4 overflow-hidden transition-all duration-500 ease-in-out"
+              className="relative object-cover hover:w-2/4 w-1/4 px-0.5 overflow-hidden rounded-md transition-all duration-500 ease-in-out"
               onClick={() => {
                 setIsOpenGallerySection(true);
               }}
             >
-              <div className="absolute w-full h-full flex justify-center items-center p-5 bg-transparent text-transparent cursor-pointer hover:bg-white/50 hover:text-N500  font-bold">
+              <div className="absolute w-full h-full flex justify-center items-center p-5 bg-transparent text-transparent cursor-pointer hover:bg-white/50 hover:text-N900  font-bold">
                 +{gallery?.length - 3} Photos
               </div>
               <img
@@ -32,7 +32,7 @@ function ImageSlideSection({ gallery }) {
               loading="lazy"
               key={index}
               src={BASE_MEDIA_URL + item.image}
-              className={`object-cover pointer-events-auto  overflow-hidden transition-all duration-500 ease-in-out 
+              className={`object-cover pointer-events-auto px-0.5 overflow-hidden transition-all rounded-md duration-500 ease-in-out 
                   ${gallery?.length === 1 ? "w-full" : ""}
                   ${gallery?.length === 2 ? "w-1/2 hover:w-2/3" : ""}
                   ${gallery?.length === 3 ? "w-1/3 hover:w-2/3" : ""}

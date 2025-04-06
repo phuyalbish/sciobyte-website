@@ -13,10 +13,24 @@ import TrekRequirementSection from "@/components/pages/indivisualtrek/TrekRequir
 import TrekReviewsSection from "@/components/pages/indivisualtrek/TrekReviewsSection";
 import TrekIncludedSection from "@/components/pages/indivisualtrek/TrekIncludedSection";
 import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSection";
+import SopontaneousTrekTile from "@/components/tiles/SopontaneousTrekTile.jsx";
+import { fetchTreks } from "@/apis/treks.js";
+
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+
 function IndivisualTrekPage() {
   const [trek, setTrek] = useState(null);
   const { id } = useParams();
+
+   const [treks, setTreks] = useState([]);
+  
+    useEffect(() => {
+      (async () => {
+        const response = await fetchTreks();
+        const treksData = response?.data?.results;
+        setTreks(treksData);
+      })();
+    }, []);
 
   useEffect(() => {
     const getTrek = async () => {
@@ -47,7 +61,7 @@ function IndivisualTrekPage() {
           <div className="flex md:w-2/3 w-full flex-col gap-4 ">
             <TrekBasicInformationSection data={trek} />
             <div className="flex flex-col gap-5 text-left">
-              <div className="p-3   sticky overflow-x-scroll top-[7vh]  md:top-[9vh] z-20 bg-B400 flex flex-nowrap gap-7 text-md  font-bold text-N100">
+              <div className="p-3   sticky overflow-x-auto top-[7vh]  md:top-[8vh] z-20 bg-B400 flex flex-nowrap gap-7 text-md  font-bold text-N100">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"
@@ -104,11 +118,14 @@ function IndivisualTrekPage() {
                 includes={trek?.includes}
                 excludes={trek?.excludes}
               />
+              <div className="flex flex-col  p-4 bg-G200 gap-10">
+
+              
               <div
                 id="maps"
                 className="flex flex-col gap-2  rounded-md overflow-hidden"
               >
-                <div className="text-2xl font-bold">Map</div>
+                <div className="text-xl font-bold">Map</div>
                 <a href={trek?.map_link} target="_blank">
                   <img
                     decoding="async"
@@ -122,7 +139,7 @@ function IndivisualTrekPage() {
                 className="flex flex-col gap-2  rounded-md overflow-hidden"
                 onClick={() => scrollToSection("maps")}
               >
-                <div className="text-2xl font-bold">Elevation Graph:</div>
+                <div className="text-xl font-bold">Elevation Graph:</div>
                 <img
                   decoding="async"
                   loading="lazy"
@@ -130,8 +147,11 @@ function IndivisualTrekPage() {
                   className="w-full h-auto object-cover rounded-md"
                 />
               </div>
+              </div>
               <TrekFAQSection faqs={trek?.faqs} />
               {/* <TrekReviewsSection /> */}
+
+
             </div>
           </div>
           <div className="md:flex sticky top-[10vh] hidden md:w-1/3  h-[80vh]">
@@ -157,6 +177,20 @@ function IndivisualTrekPage() {
           </div>
         </div>
       </div>
+
+
+              <div className="flex   w-full flex-col gap-4 md:px-[4.5rem] px-5">
+                      <h1 className="text-xl font-liches md:text-2xl font-regular w-full text-left">
+                      YOU MIGHT ALSO LIKE
+                    </h1>
+                    <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative gap-10 justify-items-center bottom_popup">
+                {treks?.map((trek, index) => (
+                  <SopontaneousTrekTile key={index} data={trek} />
+                ))}
+              </div>
+              
+          </div>
+              
     </>
   );
 }
