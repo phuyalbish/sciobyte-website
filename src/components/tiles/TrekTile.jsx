@@ -35,7 +35,7 @@ const TrekTile = ({ data }) => {
   return (
     <Link
       to={`/travel/${id}`}
-      className="relative cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-5 transition-all duration-500 border md:border-none  border-B75 border-0.5"
+      className="relative  bg-white cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-5 transition-all duration-500 border md:border-none  border-B75 border-0.5"
     >
       <div className="relative overflow-hidden rounded-xl">
         <img
@@ -43,10 +43,10 @@ const TrekTile = ({ data }) => {
           loading="lazy"
           className=" w-full h-64 object-cover object-center group-hover:scale-110 transition-all duration-300"
           src={image}
-          alt="Annapurna Base Camp Circuit"
+          alt={name}
         />
         {tag && (
-          <span className="absolute top-2 left-2 bg-G300 text-white text-md rounded-md font-light px-2 py-1">
+          <span className="absolute top-2 left-2 bg-G300 text-white text-sm rounded-md font-light px-2 py-1">
             {tag}
           </span>
         )}
@@ -71,7 +71,7 @@ const TrekTile = ({ data }) => {
         />
       )}
       <div className="flex flex-col justify-between  gap-2">
-        <h2 className="font-bold text-lg mt-2 text-left">{name}</h2>
+        <h2 className="font-bold text-lg text-left">{name}</h2>
         <div className="flex justify-between items-center mb-1 w-full">
           <span className="text-yellow-500 text-xl flex">
             {[...Array(star)].map((_, index) => (
@@ -79,7 +79,7 @@ const TrekTile = ({ data }) => {
             ))}
           </span>
           <div className="flex flex-col items-end">
-            <p className="text-N300 text-md font-bold text-right">
+            <p className="text-N300 text-base font-bold text-right">
               Price Starting From
             </p>
             <span className="text-primary font-extrabold text-xl">

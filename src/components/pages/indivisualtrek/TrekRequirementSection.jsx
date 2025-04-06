@@ -4,7 +4,7 @@ export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function TrekRequirementSection({ requirements, gears }) {
   return (
     <section id="requirements" className="flex flex-col gap-5">
-      <div className="text-xl font-bold">Requirements and Gears</div>
+      <div className="text-lg font-bold">Requirements and Gears</div>
       {requirements}
       <div className="flex flex-wrap gap-2">
         {gears?.length ? (

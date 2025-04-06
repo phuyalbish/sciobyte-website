@@ -33,7 +33,7 @@ function HomePage() {
 
       <div className="flex flex-col w-full relative">
       <InstagramSection />
-      <div className="w-full bg-G200 py-6 pt-10">
+      <div className="w-full flex flex-col gap-10 bg-G200 py-6 pt-10">
         <h1 className="text-3xl font-dance md:text-5xl font-regular ">
         Discover and Explore
       </h1>

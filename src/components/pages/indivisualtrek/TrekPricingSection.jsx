@@ -75,21 +75,21 @@ function TrekPricingSection({ price, map, pricings, name, star = 0 }) {
         </div>
         <Link
           to="/contact"
-          className="rounded-lg bg-B300 hover:bg-B500 text-white text-base font-bold cursor-pointer flex justify-center items-center p-4"
+          className="rounded-lg bg-B500 hover:bg-B700 text-white text-base font-bold cursor-pointer flex justify-center items-center p-4"
         >
           Make a Booking
         </Link>
         <a
           href={`https://web.whatsapp.com/send?phone=+9779849828857&text=Hello Aashish, I want to know more about: ${name}`}
           target="_blank"
-          className="rounded-lg bg-G300 hover:bg-G500 text-white text-base font-bold cursor-pointer flex justify-center gap-3 items-center p-4"
+          className="rounded-lg bg-G600 hover:bg-G700 text-white text-base font-bold cursor-pointer flex justify-center gap-3 items-center p-4"
         >
           <FaWhatsapp />
           Quick Inquiry
         </a>
       </div>
       <div className="flex flex-col gap-3 ">
-        <div className="text-xl font-bold">Route Map & Elevation</div>
+        <div className="text-lg text-left font-bold">Route Map & Elevation</div>
         <div
           className="group w-full h-full flex items-center justify-center cursor-pointer"
           onClick={() => scrollToSection("maps")}
