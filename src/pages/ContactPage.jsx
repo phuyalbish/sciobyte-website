@@ -4,6 +4,7 @@ import email_green from "@/assets/email-green.svg";
 import location_img from "@/assets/location.svg";
 import phone_calling from "@/assets/phone-calling.svg";
 import whatsapp_img from "@/assets/whatsapp.svg";
+import FooterVector from "@/assets/footer/FooterContact.svg"
 import {
   emailSchema,
   nameSchema,
@@ -315,6 +316,8 @@ function ContactPage() {
           </div>
         </div>
       </div>
+      <img src={FooterVector} alt="" className="w-full" />
+         
     </div>
   );
 }

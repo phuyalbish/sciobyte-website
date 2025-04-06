@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import img from "@/assets/SplashScreenImg.png";
 // import vid from "@/assets/SplashVid.mp4";
 import SplashVidGif from "@/assets/SplashVideo.gif";
 import imgVector from "@/assets/vectorSplashImg.png";
@@ -26,13 +25,6 @@ function SplashSection() {
   return (
     <div className="relative w-full h-full">
       <div className="absolute h-full inset-0  w-full">
-        {/* <video
-          src={vid}
-          className="w-full h-full object-cover pb-5 z-0 brightness-75"
-          autoPlay
-          loop
-          muted
-        /> */}
         <img 
           className="w-full h-full object-cover pb-5 z-0 brightness-75"
           src={SplashVidGif}
@@ -103,7 +95,3 @@ function SplashSection() {
 }
 
 export default SplashSection;
-
-{
-  /* <div className="relative w-full  gap-24 sm:gap-20 md:gap-48 lg:gap-32     flex flex-col  items-center justify-end"></div>; */
-}

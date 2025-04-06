@@ -47,7 +47,7 @@ const FAQSection = () => {
   }, []);
   return (
     <div className="flex flex-col gap-2 w-full   max-w-[100em] mx-auto ">
-      <h1 className="text-3xl   font-semibold ">Frequently asked questions</h1>
+      <h1 className="text-2xl md:text-3xl  font-liches  font-semibold ">Frequently asked questions</h1>
 
       <div className="flex flex-col gap-1">
         {Array.isArray(faqs) && faqs.length > 0 ? (
@@ -63,14 +63,6 @@ const FAQSection = () => {
           <p>Loading FAQs...</p>
         )}
       </div>
-
-      <img
-        decoding="async"
-        loading="lazy"
-        src={spntaneousbottom}
-        alt=""
-        className="bottom-0 object-cover  z-0"
-      />
     </div>
   );
 };

@@ -10,6 +10,7 @@ import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
 import ReviewSection from "@/components/pages/home/ReviewSection";
 import SpontaneousTrekSection from "@/components/pages/home/SpontaneousTrekSection";
 import RegionSection from "@/components/pages/home/RegionSection";
+import FooterVector from "@/assets/footer/FooterHome.svg"
 
 function HomePage() {
   return (
@@ -41,7 +42,8 @@ function HomePage() {
       </div>
       <NeedToKnowSection />
       <FAQSection />
-      <TrekSection plainText="The Adventure Awaits" blueText="You!" />
+
+      <img src={FooterVector} alt="" className="w-full" />
     </div>
   );
 }

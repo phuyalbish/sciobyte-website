@@ -6,7 +6,10 @@ import Taan from "@/assets/Taan.png";
 import nationalFlag from "@/assets/national-flag.png";
 import footerLogo from "@/assets/footer-img.svg";
 import footerImg from "@/assets/footer-img.png";
-
+import Location from "@/assets/icons/Location.svg"
+import Email from "@/assets/icons/Email.svg"
+import Phone from "@/assets/icons/Phone.svg"
+import Whatsapp from "@/assets/icons/Whatsapp.svg"
 
 const NavItems = ({ item }) => {
   const { title, items } = item;
@@ -165,17 +168,21 @@ function Footer() {
             <div className="flex flex-col md:justify-start justify-center gap-6">
                <img src={footerLogo} alt="" />
               <ul className="flex flex-col  items-start gap-4 text-N100">
-                <li>
+                <li className="flex gap-2 items-center"> 
+                  <img src={Location} alt="" className="w-7 aspect-square" />
                    Kirtipur, Kathmandu
                 </li>
-                <li>
+                <li className="flex gap-2 items-center"> 
+                  <img src={Email} alt="" className="w-7 aspect-square" />
                    info@hellotrekkers@gmail.com
                 </li>
-                <li>
+                <li className="flex gap-2 items-center"> 
+                  <img src={Phone} alt="" className="w-7 aspect-square" />
                    +977-9709707037(Office)
                 </li>
-                <li>
-                   977-9709707037
+                <li className="flex gap-2 items-center"> 
+                  <img src={Whatsapp} alt="" className="w-7 aspect-square" />
+                  +977-9709707037
                 </li>
               </ul>
             </div>
