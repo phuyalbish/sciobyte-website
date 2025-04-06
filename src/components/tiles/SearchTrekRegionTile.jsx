@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { truncate } from "@/utils/truncate.js";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-function SearchTrekCategoryTile({ image, main_type, type, name, id }) {
+function SearchTrekRegionTile({ image, main_type, type, name, id }) {
   return (
     <Link
       to={`/${main_type}/${id}`}
@@ -24,4 +24,4 @@ function SearchTrekCategoryTile({ image, main_type, type, name, id }) {
   );
 }
 
-export default SearchTrekCategoryTile;
+export default SearchTrekRegionTile;

@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "@/pages/HomePage.jsx";
 import Company from "@/pages/CompanyPage.jsx";
 import IndivisualTrekPage from "@/pages/IndivisualTrekPage.jsx";
-import IndivisualTypePage from "@/pages/IndivisualTypePage.jsx";
 import IndivisualCategoryPage from "@/pages/IndivisualCategoryPage.jsx";
+import IndivisualRegionPage from "@/pages/IndivisualRegionPage.jsx";
 import IndivisualDistrictPage from "@/pages/IndivisualDistrictPage.jsx";
 import PrivacyPolicy from "@/pages/PrivacyPolicy.jsx";
 import TermsAndCondition from "@/pages/TermsAndCondition.jsx";
@@ -22,8 +22,8 @@ const AppRoutes = () => {
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/termsandcondition" element={<TermsAndCondition />} />
       <Route path="/travel/:id" element={<IndivisualTrekPage />} />
-      <Route path="/type/:id" element={<IndivisualTypePage />} />
       <Route path="/category/:id" element={<IndivisualCategoryPage />} />
+      <Route path="/region/:id" element={<IndivisualRegionPage />} />
       <Route path="/district/:id" element={<IndivisualDistrictPage />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/blogs" element={<Blogs />} />

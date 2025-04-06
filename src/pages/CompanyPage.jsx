@@ -3,6 +3,7 @@ import Hero from "@/components/pages/company/Hero.jsx";
 import Team from "@/components/pages/company/Team.jsx";
 import HomeStay from "@/components/pages/company/HomeStay.jsx";
 import CSR from "@/components/pages/company/CSR.jsx";
+import FooterVector from "@/assets/footer/FooterAbout.svg"
 
 function CompanyPage() {
   return (
@@ -73,6 +74,8 @@ function CompanyPage() {
           <CSR />
         </div>
       </div>
+
+        <img src={FooterVector} alt="" className="w-full" />
     </>
   );
 }

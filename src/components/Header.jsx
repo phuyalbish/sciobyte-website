@@ -6,24 +6,24 @@ import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 
-import types from "@/data/Types.json";
+import categories from "@/data/Categories.json";
 import { IoIosArrowDown } from "react-icons/io";
-import { fetchTypes, fetchIndivisualTypes } from "@/apis/types.js";
-import HeaderTrekCategoryTile from "@/components/tiles/HeaderTrekCategoryTile.jsx";
+import {  fetchIndivisualCategories } from "@/apis/categories.js";
+import HeaderTrekRegionTile from "@/components/tiles/HeaderTrekRegionTile.jsx";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 function Header({ setActiveMenu }) {
   const [isDropDown, setIsDropDown] = useState(false);
 
-  const [typeDetails, setTypeDetails] = useState({});
+  const [categoryDetails, setcategoryDetails] = useState({});
   const [dropdowns, setDropdowns] = useState({});
 
-  const getIndivisualType = async (slug) => {
-    if (typeDetails[slug]) return;
+  const getIndivisualcategory = async (slug) => {
+    if (categoryDetails[slug]) return;
     try {
-      const response = await fetchIndivisualTypes(slug);
-      setTypeDetails((prev) => ({ ...prev, [slug]: response }));
+      const response = await fetchIndivisualCategories(slug);
+      setcategoryDetails((prev) => ({ ...prev, [slug]: response }));
     } catch (error) {
       console.error("Error fetching trek:", error);
     }
@@ -38,7 +38,7 @@ function Header({ setActiveMenu }) {
       return { ...newState, [slug]: !prev[slug] };
     });
 
-    getIndivisualType(slug);
+    getIndivisualcategory(slug);
   };
 
   return (
@@ -63,21 +63,21 @@ function Header({ setActiveMenu }) {
 
             <div className="md:flex hidden items-center gap-20">
               <div className="flex-col justify-end items-end">
-                <div className="text-base text-N300 flex gap-2 items-center justify-end">
+                <div className="text-base text-N900 flex gap-2 items-center justify-end">
                   <HiOutlineMail />
                   Email us
                 </div>
-                <div className="md:text-md text-N500">
+                <div className="md:text-md text-N900 font-bold">
                   hellotrekkersnamaste@gmail.com
                 </div>
               </div>
 
               <div className="flex  flex-col justify-end items-end">
-                <div className="text-base text-N300 flex gap-2 items-center">
+                <div className="text-base text-N900 flex gap-2 items-center justify-end">
                   <FaWhatsapp className="text-green-500" />
                   WhatsApp
                 </div>
-                <div className="md:text-md text-N500">+977-9709707037</div>
+                <div className="md:text-md text-N900 font-bold">+977-9709707037</div>
               </div>
             </div>
             <div className="md:hidden">
@@ -97,8 +97,7 @@ function Header({ setActiveMenu }) {
         </div>
         {isDropDown && (
           <div className="px-10 w-full h-[100vh] fixed z-50 bg-white p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
-            {types?.map((item, index) =>
-              item?.showInNavBar ? (
+            {categories?.map((item, index) =>
                 <div
                   key={index}
                   className="relative flex gap-2 items-left w-full flex-col"
@@ -112,30 +111,29 @@ function Header({ setActiveMenu }) {
 
                   {dropdowns[item.slug] && (
                     <div className="w-full bg-white  transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
-                      {typeDetails[item.slug]?.treks?.map((trek) => (
-                        <HeaderTrekCategoryTile
+                      {categoryDetails[item.slug]?.treks?.map((trek) => (
+                        <HeaderTrekRegionTile
                           key={trek.id}
-                          type="travel"
+                          category="travel"
                           image={trek.image}
                           name={trek.name}
                           id={trek.id}
                           onclick={() => setIsDropDown(false)}
                         />
                       ))}
-                      {typeDetails[item.slug]?.categories?.map((category) => (
-                        <HeaderTrekCategoryTile
-                          key={category.id}
-                          type="category"
-                          image={category.image}
-                          name={category.name}
-                          id={category.id}
+                      {categoryDetails[item.slug]?.regions?.map((region) => (
+                        <HeaderTrekRegionTile
+                          key={region.id}
+                          category="region"
+                          image={region.image}
+                          name={region.name}
+                          id={region.id}
                           onclick={() => setIsDropDown(false)}
                         />
                       ))}
                     </div>
                   )}
                 </div>
-              ) : null
             )}
 
             <Link

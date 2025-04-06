@@ -38,8 +38,8 @@ function IndivisualTrekPage() {
         <BreadCrumbs
           type_name={trek?.type_name}
           type_slug={trek?.type_slug}
-          category_name={trek?.category_name}
-          category_id={trek?.category}
+          region_name={trek?.region_name}
+          region_id={trek?.region}
           name={trek?.name}
         />
         <ImageSlideSection gallery={trek?.gallery} />
@@ -47,7 +47,7 @@ function IndivisualTrekPage() {
           <div className="flex md:w-2/3 w-full flex-col gap-4 ">
             <TrekBasicInformationSection data={trek} />
             <div className="flex flex-col gap-5 text-left">
-              <div className="py-5  sticky overflow-x-scroll top-[7.5vh] z-20 bg-gray-100 flex flex-nowrap gap-7 text-xl font-bold text-N500">
+              <div className="p-3   sticky overflow-x-scroll top-[7vh]  md:top-[9vh] z-20 bg-B400 flex flex-nowrap gap-7 text-md  font-bold text-N100">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"

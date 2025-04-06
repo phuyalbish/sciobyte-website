@@ -13,7 +13,7 @@ const BlogHorizontalTile = ({ blog }) => {
     author,
     date,
     imageUrl,
-    category,
+    region,
     slug,
     location,
   } = blog;
@@ -54,7 +54,7 @@ const BlogHorizontalTile = ({ blog }) => {
           to="/blogs"
           className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300  p-1 rounded-md text-sm"
         >
-          {category}
+          {region}
         </Link>
 
         {copied && (

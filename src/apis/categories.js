@@ -8,7 +8,7 @@ export const fetchCategories = async () => {
     });
     return response;
   } catch (error) {
-    console.log("Error while fetching categories data: ", error);
+    console.log("Error while fetching types data: ", error);
   }
 };
 export const fetchIndivisualCategories = async (id) => {
@@ -19,6 +19,6 @@ export const fetchIndivisualCategories = async (id) => {
     });
     return response.data;
   } catch (error) {
-    console.log("Error while fetching category data: ", error);
+    console.log("Error while fetching type data: ", error);
   }
 };

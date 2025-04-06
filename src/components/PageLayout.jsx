@@ -14,7 +14,7 @@ export default function PageLayout({ children }) {
       <div className="sticky  top-0 z-50">
         <Navbar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       </div>
-      <main className="flex-1  relative bg-gray-100 ">
+      <main className="flex-1  relative bg-gray-100">
         {children}
 
         <a
@@ -31,7 +31,8 @@ export default function PageLayout({ children }) {
           />
         </a>
       </main>
-      <Footer />
+        <Footer />
+
     </div>
   );
 }
