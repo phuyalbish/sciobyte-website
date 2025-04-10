@@ -4,7 +4,7 @@ import { GoChevronRight } from "react-icons/go";
 
 import { Link } from "react-router-dom";
 function BreadCrumbs({
-  type_name = null,
+  category_name = null,
   name = null,
   region_name = null,
   region_id = null,
@@ -15,11 +15,11 @@ function BreadCrumbs({
       <Link to="/">
         <GoHome className="size-5 md:size-8" />
       </Link>
-      {type_name && (
+      {category_name && (
         <>
           <GoChevronRight className="size-5 md:size-8" />
           <Link to={`/type/${type_slug}/`} className="hover:underline">
-            {type_name}
+            {category_name}
           </Link>
         </>
       )}

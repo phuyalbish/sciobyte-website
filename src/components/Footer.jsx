@@ -15,14 +15,14 @@ const NavItems = ({ item }) => {
   const { title, items } = item;
   return (
     
-      <div className="flex flex-col  items-start gap-6">
+      <div className="flex  flex-col  items-center  md:items-start  gap-6 w-full  justify-center md:justify-start" >
         <h1 className="text-md font-bold text-N100">
           {title}
         </h1>
-        <ul className="flex flex-col  items-start gap-4 text-N100">
+        <ul className="flex flex-col  items-center md:items-start gap-4 text-N100">
           {items.map((item, index) => (
             <li key={index} className=" ">
-              <Link to={item.url} className="line-clamp-2">
+              <Link to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
                 {item.name}
               </Link>
             </li>
@@ -164,8 +164,8 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-row px-8 justify-evenly items-start gap-16 flex-wrap">
-            <div className="flex flex-col md:justify-start justify-center gap-6">
+        <div className="flex flex-row px-8 justify-center md:justify-evenly items-start gap-10  flex-wrap mb-16">
+            <div className="flex flex-col md:justify-start justify-center gap-6 ">
                <img src={footerLogo} alt="" />
               <ul className="flex flex-col  items-start gap-4 text-N100">
                 <li className="flex gap-2 items-center"> 
@@ -186,10 +186,11 @@ function Footer() {
                 </li>
               </ul>
             </div>
-          {/* <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-[2rem] justify-center text-center place-content-center"> */}
+            <div className="flex flex-col md:flex-row justify-center md:justify-evenly gap-10 tes w-8/12 items-justify">
             {menuItems.map((item, index) => {
               return <NavItems item={item} key={index} />
             })}
+            </div>
         </div>
       <div className="relative">
         <img

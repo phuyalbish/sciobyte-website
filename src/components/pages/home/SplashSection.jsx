@@ -72,7 +72,7 @@ function SplashSection() {
                   key={index}
                   name={item?.name}
                   id={item?.id}
-                  type={item?.type_name}
+                  type={item?.category_name}
                   main_type={item?.main_type}
                   image={item?.image}
                 />

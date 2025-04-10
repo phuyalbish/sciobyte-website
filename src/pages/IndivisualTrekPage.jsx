@@ -50,7 +50,7 @@ function IndivisualTrekPage() {
     <>
       <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
         <BreadCrumbs
-          type_name={trek?.type_name}
+          category_name={trek?.category_name}
           type_slug={trek?.type_slug}
           region_name={trek?.region_name}
           region_id={trek?.region}
@@ -118,14 +118,14 @@ function IndivisualTrekPage() {
                 includes={trek?.includes}
                 excludes={trek?.excludes}
               />
-              <div className="flex flex-col  p-4 bg-G200 gap-10">
+              <div className="flex flex-col  p-6  rounded-lg bg-G200 gap-10">
 
               
               <div
                 id="maps"
                 className="flex flex-col gap-2  rounded-md overflow-hidden"
               >
-                <div className="text-xl font-bold">Map</div>
+                <div className="text-lg font-bold">Map</div>
                 <a href={trek?.map_link} target="_blank">
                   <img
                     decoding="async"
@@ -139,7 +139,7 @@ function IndivisualTrekPage() {
                 className="flex flex-col gap-2  rounded-md overflow-hidden"
                 onClick={() => scrollToSection("maps")}
               >
-                <div className="text-xl font-bold">Elevation Graph:</div>
+                <div className="text-lg font-bold">Elevation Graph:</div>
                 <img
                   decoding="async"
                   loading="lazy"

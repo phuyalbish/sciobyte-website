@@ -47,13 +47,15 @@ const BlogVerticalTile = ({ blog }) => {
             />
           </>
         )}
-
+    {region ? (
         <Link
+          
           to="/blogs"
           className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300  p-1 rounded-md text-sm"
         >
           {region}
         </Link>
+      ) : "" }
 
         {copied && (
           <div className="text-N500 absolute bottom-0 right-0 w-34 bg-white/50 text-sm p-1 m-1 rounded-md">
@@ -62,21 +64,24 @@ const BlogVerticalTile = ({ blog }) => {
         )}
 
         <div
-          className="absolute bg-white/50 hover:bg-white text-N300 text-sm flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 rounded-md"
-          onClick={handleCopy}
-        >
-          <IoMdShare className="size-3.5" />
-          Share
-        </div>
+                  className="absolute bg-G400 hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2 rounded-md"
+                  onClick={handleCopy}
+                >
+                  <IoMdShare className="size-3.5" />
+                  Share
+                </div>
       </div>
-      <div className="flex justify-start flex-col gap-1">
-        <Link to={blogUrl}>
-          <div className="font-bold text-xl text-N400 text-left">{heading}</div>
-        </Link>
-        <div className="text-md text-N300 text-start">
-          {truncate(subheading, 150)}
-        </div>
-      </div>
+      
+              <div className="flex justify-start flex-col gap-1">
+                <Link to={blogUrl}>
+                  <div className="font-bold text-md text-N900 text-left">
+                    {heading}
+                  </div>
+                </Link>
+                <div className="text-base text-N500 text-start">
+                  {truncate(subheading, 150)}
+                </div>
+              </div>
       <div className="flex items-center gap-2 text-gray-600">
         {author && (
           <div className="flex items-center gap-1">

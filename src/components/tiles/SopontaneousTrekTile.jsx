@@ -26,7 +26,7 @@ const TrekTile = ({ data }) => {
     difficulty_name,
     duration,
     tag,
-    type_name,
+    category_name,
     isBadged,
 
     star,
@@ -46,7 +46,7 @@ const TrekTile = ({ data }) => {
           alt={name}
         />
         {tag && (
-          <span className="absolute top-2 left-2 bg-G300 text-white text-sm rounded-md font-light px-2 py-1">
+          <span className="absolute top-2 left-2 bg-G300 text-white rounded-md font-light px-2 py-1 text-xs">
             {tag}
           </span>
         )}
@@ -55,7 +55,7 @@ const TrekTile = ({ data }) => {
           <img
             decoding="async"
             loading="lazy"
-            className=" absolute top-2 right-2  h-7 w-7 bg-G300 rounded-xl p-1"
+            className=" absolute top-2 right-2  h-7 w-7 bg-G300 rounded-md p-1"
             src={group}
             alt="Group Icon"
           />
@@ -79,16 +79,16 @@ const TrekTile = ({ data }) => {
             ))}
           </span>
           <div className="flex flex-col items-end">
-            <p className="text-N300 text-sm font-bold text-right">
+            <p className="text-N300 text-xs  text-right">
               Price Starting From
             </p>
-            <span className="text-primary font-extrabold text-md">
+            <span className="text-primary font-bold text-md">
               USD {Math.floor(price)}
             </span>
           </div>
         </div>
         <div className="flex justify-between text-gray-600  gap-2">
-          <JourneyDetailsPanel type="Type" value={type_name} icon={type_img} />
+          <JourneyDetailsPanel type="Type" value={category_name} icon={type_img} />
           <JourneyDetailsPanel
             type="Duration"
             value={`${duration} Days`}

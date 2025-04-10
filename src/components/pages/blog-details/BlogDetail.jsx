@@ -8,6 +8,8 @@ import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { MdLocationOn } from "react-icons/md";
+
+import {truncate} from "@/utils/truncate.js";
 import {
   HeadingSkeleton,
   DescriptionSkeleton,
@@ -60,7 +62,7 @@ const Sidebar = ({ headings }) => {
   return (
     <>
       <div className="hidden lg:block w-64 shrink-0">
-        <div className="sticky top-40">
+        <div className="sticky top-14">
           <div className="bg-white rounded-lg shadow-sm py-5 text-left">
             <h2 className="px-5 text-lg font-semibold text-gray-900 mb-4">
               Content
@@ -109,7 +111,7 @@ const BlogDetail = () => {
       try {
         const response = await fetchBlogBySlug(slug);
 
-        console.log("response: ", response);
+        
 
         const blogData = response?.data || {}; // Ensure it's an array
         const sanitizedContent = DOMPurify.sanitize(blogData?.content);
@@ -152,9 +154,16 @@ const BlogDetail = () => {
               {isLoading ? (
                 <HeadingSkeleton />
               ) : (
-                <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                <div className="flex flex-col mb-4 gap-1">
+                <h1 className="text-lg sm:text-xl font-bold text-gray-900">
                   {blog?.heading}
                 </h1>
+
+                                <div className="text-base text-N600 text-start">
+                                  {blog?.subheading && truncate(blog?.subheading, 150)}
+                                </div>
+                                </div>
+                
               )}
 
               {isLoading ? (
@@ -186,10 +195,14 @@ const BlogDetail = () => {
                     </time>
                   </div>
 
+                  <div className="flex gap-2 items-center cursor-pointer"
+                    onClick={handleCopy}>
+
                   <IoMdShare
                     className="flex items-center gap-1 cursor-pointer bg-white/50 hover:bg-white text-N300  p-1 rounded-md size-6"
-                    onClick={handleCopy}
                   />
+                  Share
+                  </div>
 
                   {copied && (
                     <div className="text-N500  w-34  text-sm  rounded-md">

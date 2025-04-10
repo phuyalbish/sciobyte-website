@@ -84,7 +84,7 @@ function ReviewSection() {
   return (
     <div className="bg-blue-500 md:p-20 p-4 relative w-full  flex flex-col gap-5 pt-10 ">
       <div className="flex gap-2 flex-col md:flex-row items-center w-full justify-center">
-        <span className="text-3xl md:text-4xl font-liches ">WHAT OUR</span><span className="text-white  text-3xl md:text-4xl font-reenie"> F. R. I. E. N. D. S </span> <span className="text-3xl md:text-4xl font-liches ">HAVE TO SAY</span>
+        <span className="text-3xl md:text-4xl font-liches ">WHAT OUR </span><span className="text-white  text-3xl md:text-4xl font-reenie"> F. R. I. E. N. D. S </span> <span className="text-3xl md:text-4xl font-liches "> HAVE TO SAY</span>
       </div>
       <div className="relative w-full flex flex-col items-center ">
         <div className="relative w-full flex flex-row justify-center gap-5">

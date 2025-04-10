@@ -24,7 +24,7 @@ function IndivisualRegionPage() {
   return (
     <div className="flex flex-col gap-5 mt-5 w-full  md:px-[4.5rem] px-5 mb-20">
       <BreadCrumbs
-        type_name={region?.type_name}
+        category_name={region?.category_name}
         type_slug={region?.type_slug}
         name={region?.name}
       />
