@@ -14,7 +14,7 @@ export default function Parallax() {
   const { scrollY } = useScroll();
 
   const maxScroll = 1000;
-  const scrollThreshold = 700;
+  const scrollThreshold = 1300;
   const scrollYAdjusted = useTransform(
     scrollY,
     [scrollThreshold, maxScroll + scrollThreshold],
