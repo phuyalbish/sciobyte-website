@@ -100,12 +100,12 @@ const Sidebar = ({ headings }) => {
 
 const BlogDetail = () => {
   const { slug } = useParams();
-
   const [blog, setBlog] = useState({});
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [headings, setHeadings] = useState([]);
 
+  
   useEffect(() => {
     (async () => {
       try {

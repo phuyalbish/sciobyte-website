@@ -40,7 +40,7 @@ function RegionSection() {
                 .map((region, index) => (
                   <RegionTile
                     key={index}
-                    img={region.image}
+                    img={region.icon}
                     name={region.name}
                   />
                 ))
