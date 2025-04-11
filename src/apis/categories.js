@@ -22,3 +22,16 @@ export const fetchIndivisualCategories = async (id) => {
     console.log("Error while fetching type data: ", error);
   }
 };
+
+
+export const fetchIndivisualNavCategories = async (id) => {
+  try {
+    const response = await axios({
+      url: `${BASE_API_URL}/categories/nav/${id}/`,
+      method: "GET",
+    });
+    return response.data;
+  } catch (error) {
+    console.log("Error while fetching type data: ", error);
+  }
+};

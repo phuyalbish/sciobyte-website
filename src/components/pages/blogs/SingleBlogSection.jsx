@@ -40,8 +40,7 @@ const SingleBlogSection = ({ latestBlog }) => {
   return (
     <>
       <div className="container">
-        <h1 className="text-3xl text-md:text-4xl font-semibold py-[2rem]">Blog</h1>
-        <div className="mx-auto px-3 md:px-[4.5rem]">
+        <div className="mx-auto px-3 md:px-[4.5rem] py-10">
           <article className=" rounded-xl grid grid-cols-1 md:grid-cols-2 gap-[2.5rem] items-center p-[1.25rem] bg-white  shadow-lg overflow-hidden">
             <div className="relative h-full">
               {isLoading ? (
@@ -59,7 +58,7 @@ const SingleBlogSection = ({ latestBlog }) => {
             <div className="h-full">
               <div className="flex flex-col gap-4">
                 <Link to={`/blog/${latestBlog?.slug}`}>
-                  <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 text-left">
+                  <h1 className="text-md sm:text-xl font-bold text-gray-900 text-left">
                     {isLoading ? <HeadingSkeleton /> : latestBlog?.heading}
                   </h1>
                 </Link>

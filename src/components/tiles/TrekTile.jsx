@@ -7,26 +7,25 @@ import duration_img from "@/assets/duration.svg";
 import type_img from "@/assets/TrekType.svg";
 const JourneyDetailsPanel = ({ icon, value, type }) => {
   return (
-    <div className="flex justify-between items-center gap-2  bg-gray-100 rounded-lg">
+    <div className="flex justify-between items-center gap-2   rounded-lg">
       <img decoding="async" loading="lazy" src={icon} className="h-6 w-6" />
       <span className="text-left">
-        <span className="text-sm flex">{type}</span>
+        <span className="text-xs flex text-N300">{type}</span>
         <strong className="block text-sm">{value}</strong>
       </span>
     </div>
   );
 };
-
 const TrekTile = ({ data }) => {
   const {
-    id,
+    slug,
     name,
     price,
     image,
     difficulty_name,
     duration,
     tag,
-    type_name,
+    category_name,
     isBadged,
 
     star,
@@ -34,19 +33,19 @@ const TrekTile = ({ data }) => {
   } = data;
   return (
     <Link
-      to={`/travel/${id}`}
-      className="relative  bg-white cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-5 transition-all duration-500 border md:border-none  border-B75 border-0.5"
+      to={`/t/${slug}`}
+      className="relative  bg-white  cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500 border  border-N100 5 border-0.5"
     >
       <div className="relative overflow-hidden rounded-xl">
         <img
           decoding="async"
           loading="lazy"
-          className=" w-full h-64 object-cover object-center group-hover:scale-110 transition-all duration-300"
+          className=" w-full h-52 object-cover object-center group-hover:scale-110 transition-all duration-300"
           src={image}
           alt={name}
         />
         {tag && (
-          <span className="absolute top-2 left-2 bg-G300 text-white text-sm rounded-md font-light px-2 py-1">
+          <span className="absolute text-sm top-2 left-2  text-white  rounded-md font-light px-2 py-1">
             {tag}
           </span>
         )}
@@ -55,7 +54,7 @@ const TrekTile = ({ data }) => {
           <img
             decoding="async"
             loading="lazy"
-            className=" absolute top-2 right-2  h-8 w-8 bg-G300 rounded-xl p-1"
+            className=" absolute top-2 right-2  h-8 w-8  rounded-xl p-1"
             src={group}
             alt="Group Icon"
           />
@@ -65,30 +64,30 @@ const TrekTile = ({ data }) => {
         <img
           decoding="async"
           loading="lazy"
-          className="absolute top-60 w-14 h-14 "
+          className="absolute top-48 w-12 h-12 "
           src={badge}
           alt="Badge Icon"
         />
       )}
-      <div className="flex flex-col justify-between  gap-2">
-        <h2 className="font-bold text-lg text-left">{name}</h2>
+      <div className="flex flex-col justify-between">
+        <h2 className="font-bold text-md text-left">{name}</h2>
         <div className="flex justify-between items-center mb-1 w-full">
-          <span className="text-yellow-500 text-xl flex">
+          <span className="text-yellow-500 text-md  flex">
             {[...Array(star)].map((_, index) => (
               <FaStar key={index} className="text-yellow-500" />
             ))}
           </span>
           <div className="flex flex-col items-end">
-            <p className="text-N300 text-base font-bold text-right">
+            <p className="text-N300 text-sm  text-right">
               Price Starting From
             </p>
-            <span className="text-primary font-extrabold text-xl">
+            <span className="text-primary font-bold text-xl">
               USD {Math.floor(price)}
             </span>
           </div>
         </div>
         <div className="flex justify-between text-gray-600 mt-2 gap-2">
-          <JourneyDetailsPanel type="Type" value={type_name} icon={type_img} />
+          <JourneyDetailsPanel type="Type" value={category_name} icon={type_img} />
           <JourneyDetailsPanel
             type="Duration"
             value={`${duration} Days`}

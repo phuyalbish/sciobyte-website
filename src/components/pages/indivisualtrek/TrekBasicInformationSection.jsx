@@ -87,9 +87,9 @@ function TrekBasicInformationSection({ data }) {
           {data?.name}
         </div>
 
-        {data?.district_name ? (
+        {data?.district_slug ? (
           <Link
-            to={`/district/${data?.district_name}`}
+            to={`/d/${data?.district_slug}`}
             className="text-md font-normal text-left flex gap-2 items-center cursor-pointer hover:underline underline-offset-1"
           >
             <CiLocationOn />
