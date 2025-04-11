@@ -16,7 +16,7 @@ category_name = null,
       <Link to="/">
         <GoHome className="size-3 md:size-6" />
       </Link>
-      {region_name && (
+      {category_name && (
         <>
           <GoChevronRight className="size-3 md:size-6" />
           <Link to={`/c/${category_slug}/`} className="hover:underline">
