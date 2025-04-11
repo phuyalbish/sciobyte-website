@@ -21,10 +21,10 @@ const AppRoutes = () => {
       <Route path="/about" element={<Company />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/termsandcondition" element={<TermsAndCondition />} />
-      <Route path="/travel/:id" element={<IndivisualTrekPage />} />
-      <Route path="/category/:id" element={<IndivisualCategoryPage />} />
-      <Route path="/region/:id" element={<IndivisualRegionPage />} />
-      <Route path="/district/:id" element={<IndivisualDistrictPage />} />
+      <Route path="/t/:id" element={<IndivisualTrekPage />} />
+      <Route path="/c/:id" element={<IndivisualCategoryPage />} />
+      <Route path="/r/:id" element={<IndivisualRegionPage />} />
+      <Route path="/d/:id" element={<IndivisualDistrictPage />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/blogs" element={<Blogs />} />
       <Route path="/blog/:slug" element={<BlogDetail />} />

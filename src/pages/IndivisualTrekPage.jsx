@@ -6,6 +6,7 @@ import ImageSlideSection from "@/components/pages/indivisualtrek/ImageSlideSecti
 import TrekBasicInformationSection from "@/components/pages/indivisualtrek/TrekBasicInformationSection";
 import TrekOverviewSection from "@/components/pages/indivisualtrek/TrekOverviewSection";
 
+import TrekTile from "@/components/tiles/TrekTile.jsx";
 import { scrollToSection } from "@/apis/scrollToSection.js";
 import TrekItenarySection from "@/components/pages/indivisualtrek/TrekItenarySection";
 import TrekFAQSection from "@/components/pages/indivisualtrek/TrekFAQSection";
@@ -46,17 +47,22 @@ function IndivisualTrekPage() {
     getTrek();
   }, [id]);
 
+  console.log(trek)
   return (
-    <>
+    <div className="mb-10">
+        
       <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
         <BreadCrumbs
           category_name={trek?.category_name}
-          type_slug={trek?.type_slug}
+          category_slug={trek?.category_slug}
           region_name={trek?.region_name}
-          region_id={trek?.region}
+          region_slug={trek?.region_slug}
           name={trek?.name}
         />
-        <ImageSlideSection gallery={trek?.gallery} />
+       {Array.isArray(trek?.gallery) && (
+          <ImageSlideSection gallery={trek?.gallery} />
+     
+)}
         <div className="flex sticky top-0 h-full gap-10 w-full">
           <div className="flex md:w-2/3 w-full flex-col gap-4 ">
             <TrekBasicInformationSection data={trek} />
@@ -180,18 +186,21 @@ function IndivisualTrekPage() {
 
 
               <div className="flex   w-full flex-col gap-4 md:px-[4.5rem] px-5">
-                      <h1 className="text-xl font-liches md:text-2xl font-regular w-full text-left">
+                      <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
                       YOU MIGHT ALSO LIKE
                     </h1>
-                    <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative gap-10 justify-items-center bottom_popup">
-                {treks?.map((trek, index) => (
-                  <SopontaneousTrekTile key={index} data={trek} />
-                ))}
-              </div>
+                  <div className="flex gap-3 flex-wrap flex-grow w-full justify-start items-start">
+                          {trek?.reference?.map((item, index) => (
+                            <TrekTile
+                              key={index}
+                              data={{ ...item, image: BASE_MEDIA_URL + item.image }}
+                            />
+                          ))}
+                        </div>
               
           </div>
               
-    </>
+    </div>
   );
 }
 

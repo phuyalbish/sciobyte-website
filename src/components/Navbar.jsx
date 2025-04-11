@@ -311,7 +311,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                 key={index}
                 name={item?.name}
                 id={item?.id}
-                type={item?.category_name}
+                type={item?.region_name}
                 main_type={item?.main_type}
                 image={item?.image}
               />

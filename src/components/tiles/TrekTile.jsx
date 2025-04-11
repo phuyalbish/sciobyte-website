@@ -7,7 +7,7 @@ import duration_img from "@/assets/duration.svg";
 import type_img from "@/assets/TrekType.svg";
 const JourneyDetailsPanel = ({ icon, value, type }) => {
   return (
-    <div className="flex justify-between items-center gap-2  bg-gray-100 rounded-lg">
+    <div className="flex justify-between items-center gap-2   rounded-lg">
       <img decoding="async" loading="lazy" src={icon} className="h-6 w-6" />
       <span className="text-left">
         <span className="text-xs flex text-N300">{type}</span>
@@ -18,7 +18,7 @@ const JourneyDetailsPanel = ({ icon, value, type }) => {
 };
 const TrekTile = ({ data }) => {
   const {
-    id,
+    slug,
     name,
     price,
     image,
@@ -33,8 +33,8 @@ const TrekTile = ({ data }) => {
   } = data;
   return (
     <Link
-      to={`/travel/${id}`}
-      className="relative  bg-white cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-5 transition-all duration-500 border md:border-none  border-B75 border-0.5"
+      to={`/t/${slug}`}
+      className="relative  bg-white  cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500 border  border-N100 5 border-0.5"
     >
       <div className="relative overflow-hidden rounded-xl">
         <img
@@ -45,7 +45,7 @@ const TrekTile = ({ data }) => {
           alt={name}
         />
         {tag && (
-          <span className="absolute text-sm top-2 left-2 bg-G300 text-white  rounded-md font-light px-2 py-1">
+          <span className="absolute text-sm top-2 left-2  text-white  rounded-md font-light px-2 py-1">
             {tag}
           </span>
         )}
@@ -54,7 +54,7 @@ const TrekTile = ({ data }) => {
           <img
             decoding="async"
             loading="lazy"
-            className=" absolute top-2 right-2  h-8 w-8 bg-G300 rounded-xl p-1"
+            className=" absolute top-2 right-2  h-8 w-8  rounded-xl p-1"
             src={group}
             alt="Group Icon"
           />

@@ -19,7 +19,7 @@ const JourneyDetailsPanel = ({ icon, value, type }) => {
 
 const TrekTile = ({ data }) => {
   const {
-    id,
+    slug,
     name,
     price,
     image,
@@ -34,8 +34,8 @@ const TrekTile = ({ data }) => {
   } = data;
   return (
     <Link
-      to={`/travel/${id}`}
-      className="relative  bg-white cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-3 hover:bg-B50 p-5 transition-all duration-500 border md:border-none  border-B75 border-0.5"
+      to={`/t/${slug}`}
+      className="relative  bg-white  cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500 border  border-N100 5 border-0.5"
     >
       <div className="relative overflow-hidden rounded-xl">
         <img
