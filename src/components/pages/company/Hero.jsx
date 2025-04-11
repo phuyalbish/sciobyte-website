@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <>
       <div>
-        <div className="py-[2rem] text-center md:text-4xl  text-2xl rounded-lg font-semibold">
+        <div className="py-[2rem] text-center md:text-xl  font-liches font-light rounded-lg ">
           Who We Are & Our Vision for your New Tales
         </div>
         <div className="group flex justify-center relative h-[30rem]">

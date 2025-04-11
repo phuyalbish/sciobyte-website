@@ -66,15 +66,17 @@ function SplashSection() {
             )}
           </div>
           {isSearchTile ? (
-            <div className="absolute mt-80 z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-scroll">
+            <div className="absolute mt-80 z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
               {searchData?.map((item, index) => (
                 <SearchTrekRegionTile
                   key={index}
-                  name={item?.name}
-                  id={item?.id}
-                  type={item?.region_name}
-                  main_type={item?.main_type}
-                  image={item?.image}
+                name={item?.name}
+                image={item?.image}
+                slug={item?.slug}
+                category_name={item?.category_name}
+                category_slug={item?.category_slug}
+                main_category={item?.main_category}
+                main_category_slug={item?.main_category_slug}
                 />
               ))}
             </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import logo from "@/assets/HTWhite.png";
-import { fetchIndivisualCategories } from "@/apis/categories.js";
+import { fetchIndivisualNavCategories } from "@/apis/categories.js";
 import NavbarTrekRegionTile from "@/components/tiles/NavbarTrekRegionTile.jsx";
 import SearchTrekRegionTile from "@/components/tiles/SearchTrekRegionTile.jsx";
 
@@ -18,6 +18,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
   const [typeDetails, setTypeDetails] = useState({});
   const [dropdowns, setDropdowns] = useState({});
   const navbarMenuRef = useRef(null);
+  const [searchRegionID, setSearchRegionID] = useState(0)
   const [isSearchTile, setIsSearchTile] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [searchData, setSearchData] = useState(null);
@@ -64,7 +65,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
   const getIndivisualType = async (slug) => {
     if (typeDetails[slug]) return;
     try {
-      const response = await fetchIndivisualCategories(slug);
+      const response = await fetchIndivisualNavCategories(slug);
       setTypeDetails((prev) => ({ ...prev, [slug]: response }));
     } catch (error) {
       console.error("Error fetching trek:", error);
@@ -82,10 +83,11 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
     getIndivisualType(slug);
   };
+  console.log(searchData)
   return (
     <>
-      <div className="hidden md:flex bg-B500 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
-        <div className="w-full mx-auto flex items-center justify-between px-[4rem] py-4">
+      <div className="relative hidden md:flex bg-B500 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
+        <div className="w-full mx-auto flex items-center justify-between px-[4rem] gap-6 py-4">
           <Link
             to="/"
             onClick={() => {
@@ -107,14 +109,14 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
           <div
             ref={navbarMenuRef}
-            className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-24 relative"
+            className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-16 w-full relative"
           >
             {categories?.map((item, index) => (
               <React.Fragment key={index}>
                 <button
                   className={`${
                     activeMenu[item.name] ? "text-B900" : "text-white"
-                  } flex items-center gap-1 transition hover:underline underline-offset-4`}
+                  } flex items-center gap-1 transition hover:underline underline-offset-4 text-sm`}
                   onClick={() => {
                     setActiveMenu(() => ({ [item.name]: true }));
                     setCompanyDropDown(false);
@@ -123,32 +125,43 @@ function Navbar({ activeMenu, setActiveMenu }) {
                 >
                   {item.name} <IoIosArrowDown />
                 </button>
+               {dropdowns[item.slug] && typeDetails[item.slug] && (
+            
+                <div className="absolute top-14 left-0 w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
+               
+                  <div className="flex gap-2  text-sm w-full">
+                    <div className=" w-fit   flex-col  ">
 
-                {dropdowns[item.slug] && (
-                  <div className="absolute top-14 left-0 m-auto w-full bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
-                    {typeDetails[item.slug]?.treks?.map((trek) => (
-                      <NavbarTrekRegionTile
-                        key={trek.id}
-                        type="travel"
-                        image={trek.image}
-                        name={trek.name}
-                        id={trek.id}
-                        setDropdowns={setDropdowns}
-                      />
-                    ))}
+                    {typeDetails[item?.slug]?.regions?.map((region, index) => (
+                    <div className= {`${
+                    searchRegionID == index ? "bg-B200" : "bg-transparent"
+                  }  hover:bg-B200 p-2 rounded flex flex-col text-sm w-fit text-start cursor-pointer `} key={index} onClick={ () =>{
+                      setSearchRegionID(index)
+                    }}>{region?.name} ({region?.trek_count})</div>
+                  ))}
 
-                    {typeDetails[item.slug]?.regions?.map((region) => (
-                      <NavbarTrekRegionTile
-                        key={region.id}
-                        type="region"
-                        image={region.image}
-                        name={region.name}
-                        id={region.id}
-                        setDropdowns={setDropdowns}
-                      />
+                    </div>
+
+                    <div className="p-2   justify-start gap-2 items-start  flex-row ">
+                    {typeDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
+                      <Link to={`/t/${trek.slug}`} className="w-fit  items-start text-sm hover:underline  underline-offset-4" key={index} onClick={() => {
+                          setActiveMenu({ blogs: true });
+                          setDropdowns({});
+                          setCompanyDropDown(false);
+                        }}>{trek?.name}</Link>
                     ))}
+                    </div>
                   </div>
-                )}
+                  <div className="flex w-full justify-end">
+              <Link to={`/c/${typeDetails[item.slug].slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
+                setActiveMenu({ blogs: true });
+                setDropdowns({});
+                setCompanyDropDown(false);
+              }}
+              >View all {typeDetails[item?.slug].name}</Link>
+              </div>
+                </div>
+              )}
               </React.Fragment>
             ))}
 
@@ -156,7 +169,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
               to="/blogs"
               className={`${
                 activeMenu["blogs"] ? "text-B900" : "text-white"
-              } transition hover:underline underline-offset-4`}
+              } transition hover:underline underline-offset-4 text-sm`}
               onClick={() => {
                 setActiveMenu({ blogs: true });
                 setDropdowns({});
@@ -169,7 +182,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
               <button
                 className={`${
                   activeMenu["company"] ? "text-B900" : "text-white"
-                } flex items-center gap-1 transition hover:underline underline-offset-4`}
+                } flex items-center gap-1 transition hover:underline underline-offset-4 text-sm`}
                 onClick={() => {
                   setActiveMenu({ company: true });
                   setDropdowns({});
@@ -180,12 +193,10 @@ function Navbar({ activeMenu, setActiveMenu }) {
               </button>
 
               {isCompanyDropDown && (
-                <div className="absolute top-14 left-0 m-auto w-64 justify-start items-start  bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N500">
+                <div className="absolute top-14 left-0 m-auto w-64 justify-start items-start text-N900  bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 text-sm">
                   <Link
                     to="/about"
-                    className={`${
-                      activeMenu["company"] ? "text-B900" : "text-white"
-                    } transition hover:underline underline-offset-4`}
+                    className="text-N900  hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -197,9 +208,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                   <Link
                     to="/team"
-                    className={`${
-                      activeMenu["company"] ? "text-B900" : "text-white"
-                    } transition hover:underline underline-offset-4`}
+                    
+                    className="text-N900 hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -211,11 +221,9 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                   <Link
                     to="/contact"
-                    className={`${
-                      activeMenu["company"] ? "text-B900" : "text-white"
-                    } transition hover:underline underline-offset-4`}
+                    className="text-N900 hover:underline"
+
                     onClick={() => {
-                      setActiveMenu({ company: true });
                       setDropdowns({});
                       setCompanyDropDown(false);
                     }}
@@ -224,10 +232,9 @@ function Navbar({ activeMenu, setActiveMenu }) {
                   </Link>
 
                   <Link
-                    to="/whyhellotrekkers"
-                    className={`${
-                      activeMenu["company"] ? "text-B900" : "text-white"
-                    } transition hover:underline underline-offset-4`}
+                    to="/whyhellotrekkers  hover:underline"
+                    
+                    className="text-N900 hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -239,9 +246,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                   <Link
                     to="/socialinitiative"
-                    className={`${
-                      activeMenu["company"] ? "text-B900" : "text-white"
-                    } transition hover:underline underline-offset-4`}
+                    
+                    className="text-N900  hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -252,9 +258,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
                   </Link>
                   <Link
                     to="/booking"
-                    className={`${
-                      activeMenu["company"] ? "text-B900" : "text-white"
-                    } transition hover:underline underline-offset-4`}
+                    
+                    className="text-N900 hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -266,9 +271,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                   <Link
                     to="/termsandcondition"
-                    className={`${
-                      activeMenu["company"] ? "text-B900" : "text-white"
-                    } transition hover:underline underline-offset-4`}
+                    
+                    className="text-N900 hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -282,7 +286,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
             </div>
           </div>
           <div
-            className={` bg-white rounded-md overflow-hidden flex items-center px-2 py-1   gap-1 transition-all duration-300`}
+
+            className={` bg-white rounded-md overflow-hidden  items-center px-2 py-1   gap-1 transition-all duration-300 hidden lg:flex`}
           >
             <input
               type="text"
@@ -305,15 +310,17 @@ function Navbar({ activeMenu, setActiveMenu }) {
         </div>
 
         {isSearchTile ? (
-          <div className="absolute mt-80  right-5  z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-scroll">
+          <div className="absolute mt-96  right-5  z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
             {searchData?.map((item, index) => (
               <SearchTrekRegionTile
                 key={index}
                 name={item?.name}
-                id={item?.id}
-                type={item?.region_name}
-                main_type={item?.main_type}
                 image={item?.image}
+                slug={item?.slug}
+                category_name={item?.category_name}
+                category_slug={item?.category_slug}
+                main_category={item?.main_category}
+                main_category_slug={item?.main_category_slug}
               />
             ))}
           </div>
