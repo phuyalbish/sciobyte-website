@@ -20,12 +20,12 @@ const TrekTile = ({ data }) => {
   const {
     slug,
     name,
-    price,
+    total_price,
     image,
-    difficulty_name,
-    duration,
+    difficulties,
+    max_duration,
     tag,
-    category_name,
+    categories,
     isBadged,
 
     star,
@@ -82,20 +82,20 @@ const TrekTile = ({ data }) => {
               Price Starting From
             </p>
             <span className="text-primary font-bold text-xl">
-              USD {Math.floor(price)}
+              USD {Math.floor(total_price)}
             </span>
           </div>
         </div>
         <div className="flex justify-between text-gray-600 mt-2 gap-2">
-          <JourneyDetailsPanel type="Type" value={category_name} icon={type_img} />
+          <JourneyDetailsPanel type="Type" value={categories?.name} icon={type_img} />
           <JourneyDetailsPanel
             type="Duration"
-            value={`${duration} Days`}
+            value={`${max_duration} Days`}
             icon={duration_img}
           />
           <JourneyDetailsPanel
             type="Difficulty"
-            value={difficulty_name}
+            value={difficulties?.name}
             icon={difficulty_img}
           />
         </div>

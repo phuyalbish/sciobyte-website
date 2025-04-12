@@ -15,68 +15,84 @@ import { FaMountainSun } from "react-icons/fa6";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-function TrekBasicInformationSection({ data }) {
+function TrekBasicInformationSection({ 
+  travel_name = null,
+  max_duration = null, 
+  max_distance = null, 
+  min_group_range=null,
+  max_group_range = null,
+  start_point = null,
+  end_point = null,
+  difficulties = null,
+  accomodations = null,
+  max_altitude = null,
+  meals = null,
+  districts = null,
+  best_seasons = null,
+
+
+}) {
   const trekBasicHeadings = [
     {
       icon: BsClockHistory,
-      heading: "Duration",
-      description: data?.duration + +" Days",
+      heading: "Max Duration",
+      description: max_duration + +" Days",
     },
     {
       icon: RiPinDistanceFill,
-      heading: "Distance",
-      description: data?.distance + " Kms",
+      heading: "Max Distance",
+      description: max_distance + " Kms",
     },
     {
       icon: FaPeopleGroup,
       heading: "Group Size",
       description:
-        data?.min_group_range + " - " + data?.max_group_range + " People",
+        min_group_range + " - " + max_group_range + " People",
     },
     {
       icon: GiPathDistance,
       heading: "Start and End",
-      description: data?.start_point + " - " + data?.end_point,
+      description: start_point + " - " + end_point,
     },
     {
       icon: () => (
         <img
           decoding="async"
           loading="lazy"
-          src={BASE_MEDIA_URL + data?.difficulty?.icon}
+          src={BASE_MEDIA_URL + difficulties?.icon}
           className="w-5"
         />
       ),
       heading: "Difficulty",
-      description: data?.difficulty?.name,
+      description: difficulties?.name,
     },
 
     {
       icon: FaTent,
       heading: "Accomodation",
-      description: data?.accomodation,
+      description: accomodations?.name,
     },
 
     {
       icon: GiWalkingBoot,
-      heading: "Activity",
-      description: data?.activity,
+      heading: "Best Seasons",
+      description: best_seasons,
     },
 
     {
       icon: FaMountainSun,
-      heading: "Altitude",
-      description: data?.altitude,
+      heading: "Max Altitude",
+      description:max_altitude,
     },
     {
       icon: MdFastfood,
-      heading: "Meal",
-      description: data?.meal_name?.map((meal, index, arr) =>
+      heading: "Meals",
+      description: meals?.map((meal, index, arr) =>
         index == 0
-          ? `${meal}`
+          ? `${meal.name}`
           : index === arr.length - 1
-          ? ` & ${meal}`
-          : `,${meal}`
+          ? ` & ${meal.name}`
+          : `,${meal.name}`
       ),
     },
   ];
@@ -84,18 +100,24 @@ function TrekBasicInformationSection({ data }) {
     <div className="flex flex-col gap-5  items-start">
       <div className="flex flex-col items-start justify-start">
         <div className="text-xl lg:text-2xl  text-left font-bold">
-          {data?.name}
+          {travel_name}
         </div>
 
-        {data?.district_slug ? (
-          <Link
-            to={`/d/${data?.district_slug}`}
-            className="text-md font-normal text-left flex gap-2 items-center cursor-pointer hover:underline underline-offset-1"
-          >
-            <CiLocationOn />
-            {data?.district_name}
-          </Link>
-        ) : null}
+      {Array.isArray(districts) && districts.length > 0 && (
+        <div className="text-md font-normal text-left flex gap-2 items-center flex-wrap">
+          <CiLocationOn />
+          {districts.map((district, index) => (
+            <Link
+              key={district.slug}
+              to={`/d/${district.slug}`}
+              className="hover:underline underline-offset-1"
+            >
+              {district.name}
+              {index < districts.length - 1 && <span>,&nbsp;</span>}
+            </Link>
+          ))}
+        </div>
+      )}
       </div>
       <div className="flex flex-wrap  self-start p-4 rounded-md bg-G200">
         {trekBasicHeadings.map((item, index) =>

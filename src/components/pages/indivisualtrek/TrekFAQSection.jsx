@@ -1,6 +1,5 @@
 import React from "react";
 import TrekFAQ from "@/components/accordion/TrekFAQ.jsx";
-
 function TrekFAQSection({ faqs }) {
   return (
     <section id="faqs">
@@ -12,9 +11,7 @@ function TrekFAQSection({ faqs }) {
               <TrekFAQ faq={faq} key={index} />
             ))}
           </>
-        ) : (
-          <p>Loading FAQs...</p>
-        )}
+        ) : ""}
       </div>
     </section>
   );

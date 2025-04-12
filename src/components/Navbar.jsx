@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import logo from "@/assets/HTWhite.png";
 import { fetchIndivisualNavCategories } from "@/apis/categories.js";
-import NavbarTrekRegionTile from "@/components/tiles/NavbarTrekRegionTile.jsx";
 import SearchTrekRegionTile from "@/components/tiles/SearchTrekRegionTile.jsx";
 
 import { IoSearch } from "react-icons/io5";
@@ -15,7 +14,7 @@ export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function Navbar({ activeMenu, setActiveMenu }) {
   const [isCompanyDropDown, setCompanyDropDown] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
-  const [typeDetails, setTypeDetails] = useState({});
+  const [categoryDetails, setCategoryDetails] = useState({});
   const [dropdowns, setDropdowns] = useState({});
   const navbarMenuRef = useRef(null);
   const [searchRegionID, setSearchRegionID] = useState(0)
@@ -62,15 +61,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const getIndivisualType = async (slug) => {
-    if (typeDetails[slug]) return;
-    try {
-      const response = await fetchIndivisualNavCategories(slug);
-      setTypeDetails((prev) => ({ ...prev, [slug]: response }));
-    } catch (error) {
-      console.error("Error fetching trek:", error);
-    }
-  };
+
+
   const toggleDropdown = (slug) => {
     setDropdowns((prev) => {
       const newState = Object.keys(prev).reduce((acc, key) => {
@@ -81,9 +73,19 @@ function Navbar({ activeMenu, setActiveMenu }) {
       return { ...newState, [slug]: !prev[slug] };
     });
 
-    getIndivisualType(slug);
+
+  const getIndivisualCategory = async (slug) => {
+    if (categoryDetails[slug]) return;
+    try {
+      const response = await fetchIndivisualNavCategories(slug);
+      setCategoryDetails((prev) => ({ ...prev, [slug]: response }));
+    } catch (error) {
+      console.error("Error fetching trek:", error);
+    }
   };
-  console.log(searchData)
+
+    getIndivisualCategory(slug);
+  };
   return (
     <>
       <div className="relative hidden md:flex bg-B500 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
@@ -125,14 +127,16 @@ function Navbar({ activeMenu, setActiveMenu }) {
                 >
                   {item.name} <IoIosArrowDown />
                 </button>
-               {dropdowns[item.slug] && typeDetails[item.slug] && (
+
+
+               {dropdowns[item.slug] && categoryDetails[item.slug] && (
             
                 <div className="absolute top-14 left-0 w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
                
                   <div className="flex gap-2  text-sm w-full">
                     <div className=" w-fit   flex-col  ">
 
-                    {typeDetails[item?.slug]?.regions?.map((region, index) => (
+                    {categoryDetails[item?.slug]?.regions?.map((region, index) => (
                     <div className= {`${
                     searchRegionID == index ? "bg-B200" : "bg-transparent"
                   }  hover:bg-B200 p-2 rounded flex flex-col text-sm w-fit text-start cursor-pointer `} key={index} onClick={ () =>{
@@ -143,8 +147,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     </div>
 
                     <div className="p-2   justify-start gap-2 items-start  flex-row ">
-                    {typeDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
-                      <Link to={`/t/${trek.slug}`} className="w-fit  items-start text-sm hover:underline  underline-offset-4" key={index} onClick={() => {
+                    {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
+                      <Link to={`/t/${trek?.slug}`} className="w-fit  items-start text-sm hover:underline  underline-offset-4" key={index} onClick={() => {
                           setActiveMenu({ blogs: true });
                           setDropdowns({});
                           setCompanyDropDown(false);
@@ -153,12 +157,12 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     </div>
                   </div>
                   <div className="flex w-full justify-end">
-              <Link to={`/c/${typeDetails[item.slug].slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
+              <Link to={`/c/${categoryDetails[item.slug]?.slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
                 setActiveMenu({ blogs: true });
                 setDropdowns({});
                 setCompanyDropDown(false);
               }}
-              >View all {typeDetails[item?.slug].name}</Link>
+              >View all {categoryDetails[item?.slug]?.name}</Link>
               </div>
                 </div>
               )}
@@ -291,7 +295,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
           >
             <input
               type="text"
-              className="outline-none bg-transparent h-full w-full text-sm text-N500 placeholder-N400"
+              className="outline-none bg-transparent h-full w-full text-xs text-N500 placeholder-N400"
               placeholder="Search Keywords"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}

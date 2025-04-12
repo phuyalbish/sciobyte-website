@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
-function ImageSlideSection({ gallery }) {
+function ImageSlideSection({ gallery}) {
   const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
   return (
-    <>
+   
+       <>
+
       <div className="w-full relative hidden sm:flex h-[616px] overflow-hidden rounded-md transition-all duration-300 ease-in-out">
         {gallery?.slice(0, 4).map((item, index) =>
           index == 3 ? (

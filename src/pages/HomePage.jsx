@@ -10,22 +10,36 @@ import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
 import ReviewSection from "@/components/pages/home/ReviewSection";
 import SpontaneousTrekSection from "@/components/pages/home/SpontaneousTrekSection";
 import RegionSection from "@/components/pages/home/RegionSection";
-import FooterVector from "@/assets/footer/FooterHome.svg"
+import FooterVector from "@/assets/footer/FooterHome.svg";
+import { useEffect, useState } from "react";
+import { fetchHomeTreks } from "@/apis/treks.js";
 
 function HomePage() {
+
+const [treks, setTreks] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetchHomeTreks();
+      const treksData = response?.data?.results;
+      setTreks(treksData);
+      console.log(treksData)
+    })();
+  }, []);
+
   return (
-    <div className="flex flex-col gap-10 md:gap-16 relative w-full">
+    <div className="flex flex-col gap-10 md:gap-16 relative w-full scrollbar-gutter-stable ">
       <div className="flex flex-col">
 
       <SplashSection />
-      <TrekSection plainText="YOUR TALE BEGINS" blueText="NOW!" />
+      <TrekSection treks={treks?.slice(0, 3)} plainText="YOUR TALE BEGINS" blueText="NOW!" />
       </div>
       <div className="flex flex-col w-full relative">
         <Parallex />
         <RegionSection />
       </div>
       <HomeStaySection />
-      <SpontaneousTrekSection />
+      <SpontaneousTrekSection  treks={treks} />
       <div className="flex flex-col w-full relative">
         <YTSection />
         <ReviewSection />
@@ -37,7 +51,7 @@ function HomePage() {
         <h1 className="text-3xl font-dance md:text-5xl font-regular ">
         Discover and Explore
       </h1>
-      <TrekSection/>
+      <TrekSection  treks={treks?.slice(0,3)} />
       </div>
       </div>
       <NeedToKnowSection />

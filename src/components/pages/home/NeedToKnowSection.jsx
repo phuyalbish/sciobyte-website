@@ -52,7 +52,7 @@ const NeedToKnowSection = () => {
 
   return (
     <section className="container flex flex-col gap-4 relative w-full md:px-[4.5rem]">
-      <h1 className="text-4xl font-reenie text-B500 sm:text-4xl md:text-5xl  font-light">
+      <h1 className="font-reenie text-B500 text-3xl md:text-5xl  font-light p-2">
         You need to know these
       </h1>
       <div className="relative h-full hidden md:flex justify-between gap-5   items-center">

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BreadCrumbs from "@/components/tiles/BreadCrumbs";
+import RegionTile from "@/components/tiles/RegionTile.jsx";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import DOMPurify from 'dompurify';
 import { fetchIndivisualCategories } from "@/apis/categories.js";
@@ -28,7 +29,7 @@ function IndivisualCategoryPage() {
   }, [id]);
 
   return (
-    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
+    <div className="flex flex-col gap-10 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
       
       <img
         decoding="async"
@@ -43,8 +44,11 @@ function IndivisualCategoryPage() {
         </div>
 
       <div className="text-md text-left" dangerouslySetInnerHTML={{ __html: content }} />
-        {/* <div {category?.description}</div> */}
+      
       </div>
+
+
+<div className="flex flex-col gap-4">
        <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
         {category?.trek_count} Travel{category?.trek_count >= 2 ? "s" : ""}
       </h1>
@@ -55,6 +59,23 @@ function IndivisualCategoryPage() {
             data={{ ...item, image: BASE_MEDIA_URL + item.image }}
           />
         ))}
+      </div>
+      </div>
+
+<div className="flex flex-col gap-4">
+       <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
+        {category?.region_count} Region{category?.region_count >= 2 ? "s" : ""}
+      </h1>
+      <div className="flex gap-3 flex-wrap flex-grow w-full justify-start items-start">
+        {category?.regions?.map((item, index) => (
+          <RegionTile
+            key={index}
+            name={item?.name}
+            id={item?.slug}
+            img ={ BASE_MEDIA_URL + item.image }
+          />
+        ))}
+      </div>
       </div>
     </div>
   );

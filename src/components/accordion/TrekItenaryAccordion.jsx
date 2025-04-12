@@ -5,6 +5,7 @@ import { FaTruckPlane } from "react-icons/fa6";
 import { MdFastfood } from "react-icons/md";
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
+import { FaMountainSun } from "react-icons/fa6";
 import DOMPurify from 'dompurify';
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 import TrekScheduleExtraHeadingTile from "@/components/tiles/trek/TrekScheduleExtraHeadingTile";
@@ -12,7 +13,7 @@ import TrekScheduleExtraHeadingTile from "@/components/tiles/trek/TrekScheduleEx
 const TrekItenaryAccordion = ({ schedule }) => {
 
   const sanitizedContent = DOMPurify.sanitize(schedule?.detail);
-  const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
+  // const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
   const arrowSVG = !isOpened ? (
     <FaChevronDown className="h-fit w-7 self-center bg-G300 p-2 rounded-sm text-white" />
@@ -21,23 +22,36 @@ const TrekItenaryAccordion = ({ schedule }) => {
   );
 
   const trekHeadings = [
+
+        {
+          icon: FaMountainSun,
+          heading: "Max Altitude",
+          description: schedule?.accomodations?.name,
+        },
     {
       icon: FaTent,
       heading: "Accomodation",
-      description: schedule?.accomodation,
+        description: schedule?.accomodations?.map((accomodation, index, arr) => {
+          if (arr.length === 1) return accomodation.name;
+          if (index === arr.length - 1) return ` & ${accomodation.name}`;
+          return `${accomodation.name}, `;
+        }),
     },
     {
       icon: FaTruckPlane,
       heading: "Transportaion",
-      description: schedule?.transportation_name,
+      description: schedule?.transportations?.name,
     },
-    {
-      icon: MdFastfood,
-      heading: "Meal",
-      description: schedule?.meal_name?.map((meal, index, arr) =>
-        index === arr.length - 1 ? ` & ${meal}` : `${meal}, `
-      ),
-    },
+   {
+    icon: MdFastfood,
+    heading: "Meal",
+    description: schedule?.meals?.map((meal, index, arr) => {
+      if (arr.length === 1) return meal.name;
+      if (index === arr.length - 1) return ` & ${meal.name}`;
+      if (index === arr.length - 2) return `${meal.name}`;
+      return `${meal.name}, `;
+    }),
+  }
   ];
   return (
     <>
