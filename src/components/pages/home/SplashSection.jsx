@@ -40,7 +40,7 @@ function SplashSection() {
           }   items-center justify-center`}
         >
           {!isSearchTile ? (
-            <div className=" text-white font-bold z-40 select-none font-dance text-3xl md:text-5xl">
+            <div className=" text-white font-bold z-40 select-none font-dance splash-heading">
               Creating your Tales from our Trails
             </div>
           ) : (
