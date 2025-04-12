@@ -94,7 +94,7 @@ function TrekReviewsSection({reviews, trek_name}) {
                           
        
         {isOpenYTSection && (
-          <div className="relative w-full aspect-video overflow-hidden test  top-0 left-0 z-50 rounded-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center justify-center">
+          <div className="relative w-full aspect-video overflow-hidden   top-0 left-0 rounded-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center justify-center">
             <ImCross
               className="text-B300 bg-white p-2 rounded-full  absolute z-10 right-5 top-20 self-between  cursor-pointer"
               size={32}
