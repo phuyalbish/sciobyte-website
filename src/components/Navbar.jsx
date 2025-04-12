@@ -291,7 +291,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
           >
             <input
               type="text"
-              className="outline-none bg-transparent h-full w-full text-sm text-N500 placeholder-N400"
+              className="outline-none bg-transparent h-full w-full text-xs text-N500 placeholder-N400"
               placeholder="Search Keywords"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}

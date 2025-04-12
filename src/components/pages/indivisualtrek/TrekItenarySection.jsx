@@ -8,9 +8,7 @@ function TrekItenarySection({ data }) {
         data.map((item, index) => (
           <TrekItenaryAccordion schedule={item} key={index} />
         ))
-      ) : (
-        <p>Loading Schedules...</p>
-      )}
+      ) : ""}
     </section>
   );
 }

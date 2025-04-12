@@ -49,7 +49,7 @@ function SplashSection() {
           <div className="bg-white w-full rounded-md overflow-hidden flex items-center px-5  h-10  gap-1 shadow-xl  md:h-14 max-w-[95vw]  md:w-[50vw]">
             <input
               type="text"
-              className="outline-none bg-transparent h-full w-full md:text-base text-md text-N500 placeholder-N300"
+              className="outline-none bg-transparent h-full w-full md:text-base text-sm text-N500 placeholder-N300"
               placeholder="Nepal welcomes you, dive in!"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}

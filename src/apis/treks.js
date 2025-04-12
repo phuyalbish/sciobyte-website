@@ -11,6 +11,21 @@ export const fetchTreks = async () => {
     console.log("Error while fetching trek data: ", error);
   }
 };
+
+
+export const fetchHomeTreks = async () => {
+  try {
+    const response = await axios({
+      url: `${BASE_API_URL}/treks/home/`,
+      method: "GET",
+    });
+    return response;
+  } catch (error) {
+    console.log("Error while fetching trek data: ", error);
+  }
+};
+
+
 export const fetchIndivisualTrek = async (id) => {
   try {
     const response = await axios({

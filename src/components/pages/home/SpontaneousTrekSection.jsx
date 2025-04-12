@@ -5,16 +5,7 @@ import SopontaneousTrekTile from "@/components/tiles/SopontaneousTrekTile.jsx";
 import { fetchTreks } from "@/apis/treks.js";
 
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
-function SpontaneousTrekSection() {
-  const [treks, setTreks] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const response = await fetchTreks();
-      const treksData = response?.data?.results;
-      setTreks(treksData);
-    })();
-  }, []);
+function SpontaneousTrekSection({treks}) {
 
   return (
     <div className="relative flex justify-center  items-center flex-col">
@@ -33,19 +24,30 @@ function SpontaneousTrekSection() {
           <div className=" text-G300 text-3xl">Last Moment Deals</div>
         </div>
         <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative gap-10 justify-items-center bottom_popup">
-          {treks?.map((trek, index) => (
+           {
+        Array.isArray(treks) && treks.length > 0 ? (
+          treks?.map((trek, index) => (
             <SopontaneousTrekTile key={index} data={trek} />
-          ))}
+         )) ) : (
+              <p className="text-gray-500">No Treks available</p>
+            )}
         </div>
 
         <div className="sm:hidden bottom_popup">
+          {
+        Array.isArray(treks) && treks.length > 0 ? (
           <EmblaCarousel>
-            {treks?.map((trek, index) => (
+             {
+            treks?.map((trek, index) => (
               <div key={index} className="embla__slide min-w-full">
                 <SopontaneousTrekTile key={index} data={trek} />
               </div>
-            ))}
+            ))
+          }
           </EmblaCarousel>
+           ) : (
+              <p className="text-gray-500">No Treks available</p>
+            )}
         </div>
       </div>
     </div>
