@@ -8,18 +8,18 @@ import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 function SpontaneousTrekSection({treks}) {
 
   return (
-    <div className="relative flex justify-center  items-center flex-col">
-      <div className="md:px-[4.5rem] flex flex-col gap-10  ">
+    <div className="relative flex justify-center  items-center flex-col w-full">
+      <div className="md:px-[4.5rem] flex flex-col gap-10 relative w-full ">
          <div className="flex flex-col gap-5 ">
-          <div className=" text-xl  md:text-3xl flex flex-col md:flex-row flex-wrap items-center justify-center gap-2 ">
+          <div className=" text-2xl  md:text-3xl flex flex-col md:flex-row flex-wrap items-center justify-center gap-2 ">
             <span className=" font-liches text-white bg-B500 p-2 rounded-2xl  text-xl sm:text-3xl md:text-4xl">
               SPONTANEOUS
             </span>
-            <span className="font-liches text-N900  p-2   text-xl sm:text-2xl md:text-3xl">DECISIONS,</span>
-            <span className="font-liches text-white bg-G500 p-2 rounded-2xl   text-xl sm:text-2xl md:text-3xl">
+            <span className="font-liches text-N900  p-2   text-2xl sm:text-2xl md:text-3xl">DECISIONS,</span>
+            <span className="font-liches text-white bg-G500 p-2 rounded-2xl   text-2xl sm:text-2xl md:text-3xl">
               ADVENTEROUS
             </span>
-            <span className="font-liches text-N900 p-2 rounded-2xl   text-xl sm:text-2xl md:text-3xl">TRAILS.</span>
+            <span className="font-liches text-N900 p-2 rounded-2xl   text-2xl sm:text-2xl md:text-3xl">TRAILS.</span>
           </div>
           <div className=" text-G300  text-lg md:text-3xl">Last Moment Deals</div>
         </div>

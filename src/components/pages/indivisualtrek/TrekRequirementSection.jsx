@@ -6,10 +6,12 @@ function TrekRequirementSection({ requirements, gears }) {
 
   const sanitizedContent = DOMPurify.sanitize(requirements);
   return (
-    <section id="requirements" className="flex flex-col gap-5">
+    <section id="requirements">
+    {requirements && (
+    <div  className="flex flex-col gap-5">
       <div className="text-lg font-bold">Requirements and Gears</div>
       
-          <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+      <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
       <div className="flex flex-wrap gap-2">
         {gears?.length ? (
           gears.map((item, index) => (
@@ -32,6 +34,8 @@ function TrekRequirementSection({ requirements, gears }) {
           ))
         ) : ""}
       </div>
+
+      </div>)}
     </section>
   );
 }

@@ -28,7 +28,7 @@ const [treks, setTreks] = useState([]);
   }, []);
 
   return (
-    <div className="flex flex-col gap-10 md:gap-16 relative w-full">
+    <div className="flex flex-col gap-10 md:gap-16 relative w-full scrollbar-gutter-stable ">
       <div className="flex flex-col">
 
       <SplashSection />
@@ -39,7 +39,7 @@ const [treks, setTreks] = useState([]);
         <RegionSection />
       </div>
       <HomeStaySection />
-      <SpontaneousTrekSection  treks={treks}  />
+      <SpontaneousTrekSection  treks={treks} />
       <div className="flex flex-col w-full relative">
         <YTSection />
         <ReviewSection />

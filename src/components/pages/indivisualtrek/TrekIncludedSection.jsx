@@ -5,7 +5,10 @@ import CheckMark from "@/assets/icons/CheckMark.svg";
 import Exclamation from "@/assets/icons/Exclamation.svg";
 function TrekIncludedSection({ includes, excludes }) {
   return (
-    <section id="included" className="flex md:flex-row flex-col  p-6  rounded-lg bg-B200 gap-5">
+    <section id="included" >
+       {( (Array.isArray(excludes) && excludes.length > 0) ||  (Array.isArray(includes) && includes.length > 0)) && (
+      <div className="flex md:flex-row flex-col  p-6  rounded-lg bg-B200 gap-5">
+
       <div className="flex flex-col md:w-1/2  gap-5">
         {Array.isArray(includes) && includes.length > 0 ? (
           <div className="flex flex-col gap-5">
@@ -47,6 +50,10 @@ function TrekIncludedSection({ includes, excludes }) {
           </div>
         ) : ""}
       </div>
+
+
+       </div>
+       )}
     </section>
   );
 }
