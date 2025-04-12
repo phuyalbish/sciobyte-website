@@ -21,12 +21,12 @@ const TrekTile = ({ data }) => {
   const {
     slug,
     name,
-    price,
+    total_price,
     image,
-    difficulty_name,
-    duration,
+    difficulties,
+    max_duration,
     tag,
-    category_name,
+    categories,
     isBadged,
 
     star,
@@ -35,13 +35,13 @@ const TrekTile = ({ data }) => {
   return (
     <Link
       to={`/t/${slug}`}
-      className="relative  bg-white  cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500 border  border-N100 5 border-0.5"
+      className=" relative border bg-white  cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500   border-N100 5 border-0.5"
     >
       <div className="relative overflow-hidden rounded-xl">
         <img
           decoding="async"
           loading="lazy"
-          className=" w-full aspect-video object-cover object-center group-hover:scale-110 transition-all duration-300"
+          className="w-full aspect-video object-cover object-center group-hover:scale-110 transition-all duration-300"
           src={image}
           alt={name}
         />
@@ -83,20 +83,20 @@ const TrekTile = ({ data }) => {
               Price Starting From
             </p>
             <span className="text-primary font-bold text-md">
-              USD {Math.floor(price)}
+              USD {Math.floor(total_price)}
             </span>
           </div>
         </div>
         <div className="flex justify-between text-gray-600  gap-2">
-          <JourneyDetailsPanel type="Type" value={category_name} icon={type_img} />
+          <JourneyDetailsPanel type="Type" value={categories?.name} icon={type_img} />
           <JourneyDetailsPanel
             type="Duration"
-            value={`${duration} Days`}
+            value={`${max_duration} Days`}
             icon={duration_img}
           />
           <JourneyDetailsPanel
             type="Difficulty"
-            value={difficulty_name}
+            value={difficulties?.name}
             icon={difficulty_img}
           />
         </div>

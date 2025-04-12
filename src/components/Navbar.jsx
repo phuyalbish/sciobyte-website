@@ -83,7 +83,6 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
     getIndivisualType(slug);
   };
-  console.log(searchData)
   return (
     <>
       <div className="relative hidden md:flex bg-B500 text-white shadow-md items-center w-full justify-between text-sm md:text-base">

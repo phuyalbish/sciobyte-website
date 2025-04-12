@@ -23,6 +23,7 @@ const [treks, setTreks] = useState([]);
       const response = await fetchHomeTreks();
       const treksData = response?.data?.results;
       setTreks(treksData);
+      console.log(treksData)
     })();
   }, []);
 
