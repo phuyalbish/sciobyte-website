@@ -1,11 +1,17 @@
 import React from "react";
 
+import DOMPurify from 'dompurify';
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function TrekRequirementSection({ requirements, gears }) {
+
+  const sanitizedContent = DOMPurify.sanitize(requirements);
   return (
-    <section id="requirements" className="flex flex-col gap-5">
-      <div className="text-2xl font-bold">Requirements and Gears</div>
-      {requirements}
+    <section id="requirements">
+    {requirements && (
+    <div  className="flex flex-col gap-5">
+      <div className="text-lg font-bold">Requirements and Gears</div>
+      
+      <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
       <div className="flex flex-wrap gap-2">
         {gears?.length ? (
           gears.map((item, index) => (
@@ -26,10 +32,10 @@ function TrekRequirementSection({ requirements, gears }) {
               </div>
             </div>
           ))
-        ) : (
-          <div>No gears available</div>
-        )}
+        ) : ""}
       </div>
+
+      </div>)}
     </section>
   );
 }

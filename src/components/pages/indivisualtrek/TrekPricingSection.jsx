@@ -9,7 +9,7 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
-function TrekPricingSection({ price, map, pricings, name, star = 0 }) {
+function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }) {
   const { id } = useParams();
 
   const [copied, setCopied] = useState(false);
@@ -17,7 +17,7 @@ function TrekPricingSection({ price, map, pricings, name, star = 0 }) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(
-        "https://hellotrekkers.com/travel/" + id
+        "https://hellotrekkers.com/t/" + id
       );
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
@@ -31,11 +31,11 @@ function TrekPricingSection({ price, map, pricings, name, star = 0 }) {
         <div className="relative flex justify-between w-full items-start ">
           <div className="flex flex-col items-start">
             <div className="text-md text-bold">Price Starting From</div>
-            <div className="text-3xl font-bold text-B500">USD {price}</div>
+            <div className="text-xl font-bold text-B500">USD {total_price}</div>
           </div>
           <div className="flex relative  gap-2 items-center">
             <div className="flex gap-1 items-center justify-center">
-              {[...Array(star)].map((_, index) => (
+              {[...Array(stars)].map((_, index) => (
                 <FaStar key={index} className="text-yellow-500" />
               ))}
             </div>
@@ -48,8 +48,9 @@ function TrekPricingSection({ price, map, pricings, name, star = 0 }) {
             </div>
           )}
         </div>
+         {Array.isArray(pricings) && pricings?.length > 0 ? (
         <div className="flex flex-col border gap-2 border-N300 rounded-xl px-4 py-4">
-          {Array.isArray(pricings) && pricings?.length > 0 ? (
+         
             <>
               <div className="flex justify-between">
                 <div className="font-semibold">Group Size</div>
@@ -69,27 +70,27 @@ function TrekPricingSection({ price, map, pricings, name, star = 0 }) {
                 </div>
               ))}
             </>
-          ) : (
-            <p>No Detailed Pricing</p>
-          )}
+          
         </div>
+        ) : ""}
         <Link
           to="/contact"
-          className="rounded-lg bg-B300 hover:bg-B500 text-white text-lg font-bold cursor-pointer flex justify-center items-center p-4"
+          className="rounded-lg bg-B500 hover:bg-B700 text-white text-base font-bold cursor-pointer flex justify-center items-center p-4"
         >
           Make a Booking
         </Link>
         <a
-          href={`https://web.whatsapp.com/send?phone=+9779849828857&text=Hello Aashish, I want to know more about: ${name}`}
+          href={`https://web.whatsapp.com/send?phone=+9779849828857&text=Hello Aashish, I want to know more about: ${trek_name}`}
           target="_blank"
-          className="rounded-lg bg-G300 hover:bg-G500 text-white text-lg font-bold cursor-pointer flex justify-center gap-3 items-center p-4"
+          className="rounded-lg bg-G600 hover:bg-G700 text-white text-base font-bold cursor-pointer flex justify-center gap-3 items-center p-4"
         >
           <FaWhatsapp />
           Quick Inquiry
         </a>
       </div>
-      <div className="flex flex-col gap-3 ">
-        <div className="text-xl font-bold">Route Map & Elevation</div>
+      {map && (
+        <div className="flex flex-col gap-3 ">
+        <div className="text-lg text-left font-bold">Route Map & Elevation</div>
         <div
           className="group w-full h-full flex items-center justify-center cursor-pointer"
           onClick={() => scrollToSection("maps")}
@@ -105,6 +106,7 @@ function TrekPricingSection({ price, map, pricings, name, star = 0 }) {
           />
         </div>
       </div>
+      )}
     </div>
   );
 }

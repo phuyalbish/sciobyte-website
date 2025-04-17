@@ -17,7 +17,7 @@ const MoreToExploreSection = () => {
     <>
       <section className="bg-[#B0E4DD]">
         <div className="px-[2rem] md:px-[4.5rem] py-5">
-          <div className="home-headings  mb-[3rem] font-semibold">
+          <div className="text-3xl sm:text-4xl md:text-5xl  mb-[3rem] font-semibold">
             Discover more to Explore
           </div>
           <div className="flex flex-wrap gap-[1.5rem] place-items-center justify-center items-center">

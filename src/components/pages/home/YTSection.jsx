@@ -1,19 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import ytbg from "@/assets/YTBG.jpg";
 import { FaYoutube } from "react-icons/fa";
-import YTCarousel from "./YTCarousel";
-import img1 from "@/assets/carousel1.png";
-import img2 from "@/assets/carousel2.png";
 import { ImCross } from "react-icons/im";
-const slides = [
-  { img: img1, link: "8T4lC0-iWjc" },
-  { img: img2, link: "WHG6Y8Az3gg" },
-];
+import { FaPlay } from "react-icons/fa";
+
+
+  import { fetchReviews} from "@/apis/review.js";
+import EmblaReviewCarousel from "@/components/carousel/EmblaReviewCarousel";
+
 function YTSection() {
+
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const response = await fetchReviews();
+      const data = response?.data?.results;
+      setReviews(data);
+    })();
+  }, []);
+
+
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
   return (
-    <div className="relative  w-full h-[80vh]">
+    <div className="relative  w-full h-full">
       <img
         decoding="async"
         loading="lazy"
@@ -21,11 +32,11 @@ function YTSection() {
         alt=""
         className="w-full h-full object-cover absolute z-0 brightness-25"
       />
-      <div className="container h-full  max-w-[100em] ">
+      <div className="relative container h-full">
         <div className="relative  z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center gap-5 ">
           <div className="textConten md:w-7/12  flex  flex-col gap-5 md:gap-0 md:pl-20 justify-center w-full  self-start md:mt-10  md:items-start items-center ">
-            <div className="text-3xl md:text-5xl text-left text-white font-bold flex flex-col">
-              Connect us on
+            <div className="text-3xl sm:text-4xl md:text-5xl text-left text-white font-bold flex flex-col">
+              Let's
             </div>
             <a
               href="https://www.youtube.com/@hellotrekkers"
@@ -36,22 +47,47 @@ function YTSection() {
               <div>Youtube</div>
             </a>
           </div>
-          <YTCarousel>
-            {slides.map((s, index) => (
-              <img
-                decoding="async"
-                loading="lazy"
-                key={index}
-                src={s.img}
-                alt={`Slide ${index}`}
-                className="cursor-pointer md:min-w-[30vw] h-auto pointer-events-auto  min-w-[80vw] object-cover test"
-                onClick={() => {
-                  setIsOpenYTSection(true);
-                  setytLink(s.link);
-                }}
-              />
-            ))}
-          </YTCarousel>
+          
+                 {Array.isArray(reviews) && reviews.length > 0 ? (
+                              <EmblaReviewCarousel>
+                                          {
+                                         reviews?.map((review, index) => (
+                                           <div key={index} className="embla__slide min-w-full">
+                                            <div className="flex w-full p-3  md:p-0  md:w-96 h-full shadow-md rounded-md" >
+                                              <div className="group flex relative border border-B500 rounded-md overflow-hidden  cursor-pointer " onClick={() => {
+                                                    setIsOpenYTSection(true);
+                                                    setytLink(review?.video_url);
+                                                  }}>
+                                                    <div className="absolute z-10 flex flex-col items-center justify-center w-full h-full">
+                                                    <div></div>
+                                                      <FaPlay  className="opacity-0 group-hover:opacity-100 transition-all duration-500"/>
+
+                                                     <div className="absolute z-10 flex flex-col justify-end items-center bg-gradient-to-t h-1/3 from-black to-transparent w-full bottom-0 p-2">
+                                                
+                                                    <div className="text-md font-light text-N100 line-clamp-1">{review?.description}</div>
+
+                                                    <div className="text-xs font-light text-N300">{review?.traveller_name} ({review?.country})</div>
+                                                  </div>
+                                                </div>
+                                                <img
+                                                  decoding="async"
+                                                  loading="lazy"
+                                                  key={index}
+                                                  src={review?.traveller_image}
+                                                  alt={`Slide ${index}`}
+                                                  className="rounded-md  pointer-events-auto w-96 h-full object-cover scale-100 transition-all group-hover:scale-105 duration-500 ease-in-out"
+                                                />
+                                              </div>
+                                               
+                                            </div>
+                                               
+                                           </div>
+                                         ))
+                                       }
+                                       </EmblaReviewCarousel>
+                                        )
+                                         : ""}
+          
         </div>
         {isOpenYTSection && (
           <div className="fixed w-full h-screen top-0 left-0 z-50   bg-black  shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center justify-center">

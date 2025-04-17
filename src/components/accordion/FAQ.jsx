@@ -8,12 +8,8 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
   ) : (
     <FaChevronUp className="h-fit w-5 self-center" />
   );
-  const question =
-    faq?.question.slice(-1) !== "?" ? faq?.question + "?" : faq?.question;
-  const answer =
-    faq?.answer.slice(-1) !== "." ? faq?.question + "." : faq?.question;
 
-  const question_default_bg_color = isOpened ? "bg-B75" : "bg-white";
+ const question_default_bg_color = isOpened ? "bg-B200" : "bg-white";
 
   return (
     <div className="cursor-pointer px-5 w-full md:w-[60%] mx-auto select-none">
@@ -22,14 +18,21 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
         onClick={() => handleFaqState(faq.id)}
       >
         <div className="flex justify-between items-center">
-          <span className="font-semibold">{question}</span>
+          <span className="font-semibold">{faq.question}</span>
           {arrowSVG}
         </div>
       </div>
 
       {isOpened && (
-        <div className="bg-B50 p-4 rounded-md shadow-xs mt-2 text-left">
-          <span className="text-left font-medium">{answer}</span>
+        <div className="group bg-B50 p-4 rounded-md shadow-xs mt-2 bg-B100 text-left flex justify-between ">
+          <span className="text-left font-medium">{faq.answer}</span>
+          {faq.image && (
+  <img
+    src={faq.image}
+    alt=""
+    className="rounded-md w-36 aspect-square group-hover:scale-105 scale-100 transition-all duration-500"
+  />
+)}
         </div>
       )}
     </div>

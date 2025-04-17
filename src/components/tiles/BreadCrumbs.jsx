@@ -4,36 +4,37 @@ import { GoChevronRight } from "react-icons/go";
 
 import { Link } from "react-router-dom";
 function BreadCrumbs({
-  type_name = null,
+category_name = null,
   name = null,
-  category_name = null,
-  category_id = null,
-  type_slug = null,
+  region_name = null,
+  region_slug = null,
+  category_slug = null,
 }) {
+  console.log(category_slug)
   return (
-    <div className="flex gap-3 items-center text-md md:text-base flex-wrap">
+    <div className="flex gap-1font-light  items-center text-sm flex-wrap">
       <Link to="/">
-        <GoHome className="size-5 md:size-8" />
+        <GoHome className="size-3 md:size-6" />
       </Link>
-      {type_name && (
+      {category_name && (
         <>
-          <GoChevronRight className="size-5 md:size-8" />
-          <Link to={`/type/${type_slug}/`} className="hover:underline">
-            {type_name}
+          <GoChevronRight className="size-3 md:size-6" />
+          <Link to={`/c/${category_slug}/`} className="hover:underline">
+            {category_name}
           </Link>
         </>
       )}
-      {category_name && (
+      {region_name && (
         <>
-          <GoChevronRight className="size-5 md:size-8" />
-          <Link to={`/category/${category_id}`} className="hover:underline">
-            {category_name}
+          <GoChevronRight className="size-3 md:size-6" />
+          <Link to={`/r/${region_slug}`} className="hover:underline">
+            {region_name}
           </Link>
         </>
       )}
       {name && (
         <>
-          <GoChevronRight className="size-5 md:size-8" />
+          <GoChevronRight className="size-3 md:size-6" />
           {name}
         </>
       )}

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import img from "@/assets/SplashScreenImg.png";
-import vid from "@/assets/SplashVid.mp4";
+// import vid from "@/assets/SplashVid.mp4";
+import SplashVidGif from "@/assets/SplashVideo.gif";
 import imgVector from "@/assets/vectorSplashImg.png";
 import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
 import { fetchSearch } from "@/apis/search.js";
-import SearchTrekCategoryTile from "@/components/tiles/SearchTrekCategoryTile.jsx";
+import SearchTrekRegionTile from "@/components/tiles/SearchTrekRegionTile.jsx";
 function SplashSection() {
   const [isSearchTile, setIsSearchTile] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -25,12 +25,10 @@ function SplashSection() {
   return (
     <div className="relative w-full h-full">
       <div className="absolute h-full inset-0  w-full">
-        <video
-          src={vid}
+        <img 
           className="w-full h-full object-cover pb-5 z-0 brightness-75"
-          autoPlay
-          loop
-          muted
+          src={SplashVidGif}
+          alt="SplashVidGif"
         />
       </div>
 
@@ -42,7 +40,7 @@ function SplashSection() {
           }   items-center justify-center`}
         >
           {!isSearchTile ? (
-            <div className="splash-heading text-white font-bold z-40 select-none">
+            <div className=" text-white font-bold z-40 select-none font-dance splash-heading">
               Creating your Tales from our Trails
             </div>
           ) : (
@@ -51,7 +49,7 @@ function SplashSection() {
           <div className="bg-white w-full rounded-md overflow-hidden flex items-center px-5  h-10  gap-1 shadow-xl  md:h-14 max-w-[95vw]  md:w-[50vw]">
             <input
               type="text"
-              className="outline-none bg-transparent h-full w-full md:text-base text-md text-N500 placeholder-N300"
+              className="outline-none bg-transparent h-full w-full md:text-base text-sm text-N500 placeholder-N300"
               placeholder="Nepal welcomes you, dive in!"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
@@ -68,15 +66,17 @@ function SplashSection() {
             )}
           </div>
           {isSearchTile ? (
-            <div className="absolute mt-80 z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-scroll">
+            <div className="absolute mt-80 z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
               {searchData?.map((item, index) => (
-                <SearchTrekCategoryTile
+                <SearchTrekRegionTile
                   key={index}
-                  name={item?.name}
-                  id={item?.id}
-                  type={item?.type_name}
-                  main_type={item?.main_type}
-                  image={item?.image}
+                name={item?.name}
+                image={item?.image}
+                slug={item?.slug}
+                category_name={item?.category_name}
+                category_slug={item?.category_slug}
+                main_category={item?.main_category}
+                main_category_slug={item?.main_category_slug}
                 />
               ))}
             </div>
@@ -97,7 +97,3 @@ function SplashSection() {
 }
 
 export default SplashSection;
-
-{
-  /* <div className="relative w-full  gap-24 sm:gap-20 md:gap-48 lg:gap-32     flex flex-col  items-center justify-end"></div>; */
-}

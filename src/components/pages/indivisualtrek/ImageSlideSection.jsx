@@ -2,21 +2,23 @@ import React, { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
-function ImageSlideSection({ gallery }) {
+function ImageSlideSection({ gallery}) {
   const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
   return (
-    <>
+   
+       <>
+
       <div className="w-full relative hidden sm:flex h-[616px] overflow-hidden rounded-md transition-all duration-300 ease-in-out">
         {gallery?.slice(0, 4).map((item, index) =>
           index == 3 ? (
             <div
               key={index}
-              className="relative object-cover hover:w-2/4 w-1/4 overflow-hidden transition-all duration-500 ease-in-out"
+              className="relative object-cover hover:w-2/4 w-1/4 px-0.5 overflow-hidden rounded-md transition-all duration-500 ease-in-out"
               onClick={() => {
                 setIsOpenGallerySection(true);
               }}
             >
-              <div className="absolute w-full h-full flex justify-center items-center p-5 bg-transparent text-transparent cursor-pointer hover:bg-white/50 hover:text-N500  font-bold">
+              <div className="absolute w-full h-full flex justify-center items-center p-5 bg-transparent text-transparent cursor-pointer hover:bg-white/50 hover:text-N900  font-bold">
                 +{gallery?.length - 3} Photos
               </div>
               <img
@@ -32,7 +34,7 @@ function ImageSlideSection({ gallery }) {
               loading="lazy"
               key={index}
               src={BASE_MEDIA_URL + item.image}
-              className={`object-cover pointer-events-auto  overflow-hidden transition-all duration-500 ease-in-out 
+              className={`object-cover pointer-events-auto px-0.5 overflow-hidden transition-all rounded-md duration-500 ease-in-out 
                   ${gallery?.length === 1 ? "w-full" : ""}
                   ${gallery?.length === 2 ? "w-1/2 hover:w-2/3" : ""}
                   ${gallery?.length === 3 ? "w-1/3 hover:w-2/3" : ""}

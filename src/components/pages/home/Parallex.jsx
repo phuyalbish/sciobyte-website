@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion, useScroll, useTransform } from "framer-motion";
-import img1 from "@/assets/image1.png";
-import img2 from "@/assets/image2.png";
-import img3 from "@/assets/image3.png";
-import img5 from "@/assets/image5.png";
-import img6 from "@/assets/image6.png";
-import img7 from "@/assets/image7.png";
-import img8 from "@/assets/image8.png";
-import img9 from "@/assets/image9.png";
+import img1 from "@/assets/image1.svg";
+import img2 from "@/assets/image2.svg";
+import img3 from "@/assets/image3.svg";
+import img5 from "@/assets/image5.svg";
+import img6 from "@/assets/image6.svg";
+import img7 from "@/assets/image7.svg";
+import img8 from "@/assets/image8.svg";
+import img9 from "@/assets/image9.svg";
 
 export default function Parallax() {
   const { scrollY } = useScroll();
 
   const maxScroll = 1000;
-  const scrollThreshold = 1000;
+  const scrollThreshold = 1100;
   const scrollYAdjusted = useTransform(
     scrollY,
     [scrollThreshold, maxScroll + scrollThreshold],
@@ -22,9 +22,9 @@ export default function Parallax() {
   );
 
   const y1 = useTransform(scrollYAdjusted, [0, maxScroll], [0, 0]);
-  const y2 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -150]);
-  const y3 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -50]);
-  const y5 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -100]);
+  const y2 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -250]);
+  const y3 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -150]);
+  const y5 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -200]);
   const y6 = useTransform(scrollYAdjusted, [0, maxScroll], [0, 20]);
   const y7 = useTransform(scrollYAdjusted, [0, maxScroll], [0, -150]);
   const y8 = useTransform(scrollYAdjusted, [0, maxScroll], [0, 50]);
@@ -38,13 +38,13 @@ export default function Parallax() {
             src={img9}
             alt=""
             className="absolute w-full"
-            style={{ y: y9, top: "200px" }}
+            style={{ y: y9, top: "170px" }}
           />
           <motion.img
             src={img7}
             alt=""
             className="absolute  w-full"
-            style={{ y: y7, top: "250px" }}
+            style={{ y: y7, top: "150px" }}
           />
           <motion.img
             src={img8}
@@ -90,44 +90,44 @@ export default function Parallax() {
             src={img9}
             alt=""
             className="absolute  w-full"
-            style={{ y: y5, top: "140px" }}
+            style={{ y: y5, top: "170px" }}
           />
           <motion.img
             src={img7}
             alt=""
             className="absolute  w-full"
-            style={{ y: y5, top: "140px" }}
+            style={{ y: y5, top: "170px" }}
           />
           <motion.img
             src={img8}
             alt=""
             className="absolute  w-full"
-            style={{ y: y3, top: "150px" }}
+            style={{ y: y3, top: "190px" }}
           />
 
           <motion.img
             src={img6}
             alt=""
             className="absolute  w-full"
-            style={{ y: y5, top: "190px" }}
+            style={{ y: y5, top: "230px" }}
           />
           <motion.img
             src={img5}
             alt=""
             className="absolute  w-full"
-            style={{ y: y5, top: "140px" }}
+            style={{ y: y5, top: "200px" }}
           />
           <motion.img
             src={img3}
             alt=""
             className="absolute  w-full"
-            style={{ y: y3, top: "140px" }}
+            style={{ y: y3, top: "210px" }}
           />
           <motion.img
             src={img2}
             alt=""
             className="absolute  w-full"
-            style={{ y: y3, top: "290px" }}
+            style={{ y: y3, top: "260px" }}
           />
           <motion.img
             src={img1}

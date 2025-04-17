@@ -4,55 +4,32 @@ import nationalStamp from "@/assets/national-stamp.png";
 import NTB from "@/assets/NTB.png";
 import Taan from "@/assets/Taan.png";
 import nationalFlag from "@/assets/national-flag.png";
-import footerLogo from "@/assets/footer-logo.svg";
+import footerLogo from "@/assets/footer-img.svg";
 import footerImg from "@/assets/footer-img.png";
-
-// const handleWord = (word) => {
-//   const numberOfWords = word.split(" ").length;
-//   const keyName = numberOfWords > 0 ? word.split(" ") : word;
-//   return (
-//     <span className="flex">
-//       {keyName.length > 0
-//         ? keyName.map((name) => (
-//             <pre style={{ fontFamily: "inherit" }}>{`${name} `}</pre>
-//           ))
-//         : keyName}
-//     </span>
-//   );
-// };
-
-const HTLogo = ({ className }) => (
-  <div className={className}>
-    <img
-      decoding="async"
-      loading="lazy"
-      src={footerLogo}
-      alt="/footer-logo"
-      className=""
-      style={{ width: "12rem" }}
-    />
-  </div>
-);
+import Location from "@/assets/icons/Location.svg"
+import Email from "@/assets/icons/Email.svg"
+import Phone from "@/assets/icons/Phone.svg"
+import Whatsapp from "@/assets/icons/Whatsapp.svg"
 
 const NavItems = ({ item }) => {
   const { title, items } = item;
   return (
-    <>
-      <div className="">
-        <h1 className="text-center md:text-left text-xl py-[0.5rem] px-[0.625rem]">
+    
+      <div className="flex  flex-col  items-center  md:items-start  gap-6 w-full  justify-center md:justify-start" >
+        <h1 className="text-md font-bold text-N100">
           {title}
         </h1>
-        <ul className="flex flex-col gap-[0.625rem] text-center md:text-left">
+        <ul className="flex flex-col  items-center md:items-start gap-4 text-N100">
           {items.map((item, index) => (
-            <li key={index} className="  py-[0.5rem] px-[0.625rem] ">
-              <Link to={item.url} className="line-clamp-2">
+            <li key={index} className=" ">
+              <Link to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
                 {item.name}
               </Link>
             </li>
           ))}
         </ul>
       </div>
-    </>
+  
   );
 };
 
@@ -129,11 +106,7 @@ function Footer() {
       items: [
         {
           name: "About Us",
-          url: "",
-        },
-        {
-          name: "Why Hello Trekkers",
-          url: "",
+          url: "/about",
         },
         {
           name: "Contact Us",
@@ -144,18 +117,21 @@ function Footer() {
           url: "",
         },
         {
-          name: "Discover",
-          url: "",
+          name: "Privacy Polocy",
+          url: "/privacy",
+        },
+        {
+          name: "Terms and Condition",
+          url: "/termsandcondition",
         },
       ],
     },
   ];
 
   return (
-    <footer className="bg-G500">
-      <div className="relative text-white text-center px-[2rem] md:px-[4.5rem]  pt-[1rem]">
-        <div className="p-10 flex  flex-col gap-[0.5rem]">
-          <h1 className="text-2xl home-heading">WE ARE ASSOCIATED WITH:</h1>
+    <footer className="bg-B400 flex flex-col justify-center">
+        <div className="p-10 flex flex-col gap-2 px-8">
+          <h1 className="text-lg font-bold text-N100">WE ARE ASSOCIATED WITH:</h1>
           <div className="flex justify-center items-center gap-5 ">
             <img
               decoding="async"
@@ -188,30 +164,41 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-10">
-          <HTLogo className="block lg:hidden mx-auto" />
-          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-[2rem] justify-center text-center place-content-center">
+        <div className="flex flex-row px-8 justify-center md:justify-evenly items-start gap-10  flex-wrap mb-16">
+            <div className="flex flex-col md:justify-start justify-center gap-6 ">
+               <img src={footerLogo} alt="" />
+              <ul className="flex flex-col  items-start gap-4 text-N100">
+                <li className="flex gap-2 items-center"> 
+                  <img src={Location} alt="" className="w-7 aspect-square" />
+                   Kirtipur, Kathmandu
+                </li>
+                <li className="flex gap-2 items-center"> 
+                  <img src={Email} alt="" className="w-7 aspect-square" />
+                   info@hellotrekkers@gmail.com
+                </li>
+                <li className="flex gap-2 items-center"> 
+                  <img src={Phone} alt="" className="w-7 aspect-square" />
+                   +977-9709707037(Office)
+                </li>
+                <li className="flex gap-2 items-center"> 
+                  <img src={Whatsapp} alt="" className="w-7 aspect-square" />
+                  +977-9709707037
+                </li>
+              </ul>
+            </div>
+            <div className="flex flex-col md:flex-row justify-center md:justify-evenly gap-10 tes w-8/12 items-justify">
             {menuItems.map((item, index) => {
-              if (index === 2) {
-                return (
-                  <React.Fragment key={index}>
-                    <HTLogo className="hidden lg:block" />
-                    <NavItems item={item} />
-                  </React.Fragment>
-                );
-              }
-              return <NavItems item={item} key={index} />;
+              return <NavItems item={item} key={index} />
             })}
-          </div>
+            </div>
         </div>
-      </div>
       <div className="relative">
         <img
           width="100%"
           src={footerImg}
           decoding="async"
           loading="lazy"
-          className="bg-G500 border border-t-G500 box-border border-l-0  border-b-0   outline-none border-r-0"
+          className="bg-B400 border border-t-B400 box-border border-l-0  border-b-0   outline-none border-r-0"
         />
         <div className="absolute w-full bottom-1 md:bottom-5 flex flex-col  box-border text-sm md:text-md text-white">
           <p>All rights reserved © Hello Trekkers Pvt. Ltd</p>
