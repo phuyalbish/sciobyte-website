@@ -9,6 +9,7 @@ function RegionTile({ img, name, slug }) {
         loading="lazy"
         src={img}
         className="w-full aspect-square rounded-md"
+        
       />
     </Link>
   );
