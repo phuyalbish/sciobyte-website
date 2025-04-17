@@ -4,8 +4,6 @@ const BlogDetailPage = () => {
     return (
         <>  
             <BlogDetail />
-
-            
         </>
     );
 }
