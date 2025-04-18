@@ -15,6 +15,7 @@ import TrekRequirementSection from "@/components/pages/indivisualtrek/TrekRequir
 import TrekReviewsSection from "@/components/pages/indivisualtrek/TrekReviewsSection";
 import TrekIncludedSection from "@/components/pages/indivisualtrek/TrekIncludedSection";
 import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSection";
+import TrekOtherInfoSection from "@/components/pages/indivisualtrek/TrekOtherInfoSection";
 import { fetchTreks } from "@/apis/treks.js";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
@@ -156,6 +157,11 @@ function IndivisualTrekPage() {
                 includes={trek?.includes}
                 excludes={trek?.excludes}
               />
+
+
+              <TrekOtherInfoSection
+                info={trek?.other_information}
+              />
               <TrekMapSection map={trek?.map} map_link={trek?.map_link} elevation_graph={trek?.elevation_graph}/>
               <TrekFAQSection faqs={trek?.faqs} />
               <TrekReviewsSection reviews={trek?.reviews} trek_name={trek?.name}/>
@@ -174,7 +180,7 @@ function IndivisualTrekPage() {
           </div>
         </div>
       </div>
-      <div className="fixed bg-B75 z-10 w-full  bottom-0 h-16 sm:hidden">
+      <div className="fixed bg-B100 z-10 w-full  bottom-0 h-16 sm:hidden">
         <div className="p-2 flex justify-end gap-16">
           <div className="flex flex-col justify-start items-start ">
             <div className="text-base font-light text-N300">Connect</div>
