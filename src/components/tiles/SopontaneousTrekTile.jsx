@@ -46,7 +46,7 @@ const TrekTile = ({ data }) => {
           alt={name}
         />
         {tag && (
-          <span className="absolute top-2 left-2 bg-G300 text-white rounded-md font-light px-2 py-1 text-xs">
+          <span className="absolute top-2 left-2 bg-G500 text-white rounded-md font-light px-2 py-1 text-xs">
             {tag}
           </span>
         )}
@@ -55,7 +55,7 @@ const TrekTile = ({ data }) => {
           <img
             decoding="async"
             loading="lazy"
-            className=" absolute top-2 right-2  h-7 w-7 bg-G300 rounded-md p-1"
+            className=" absolute top-2 right-2  h-7 w-7 bg-G500 rounded-md p-1"
             src={group}
             alt="Group Icon"
           />
