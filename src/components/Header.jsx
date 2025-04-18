@@ -101,7 +101,7 @@ function Header({ setActiveMenu }) {
           </header>
         </div>
         {isDropDown && (
-          <div className="px-10 w-full h-[100vh] fixed z-50 bg-white p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
+          <div className="px-10 w-full h-[100vh]  fixed z-50 bg-white p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
             {categories?.map((item, index) =>
                 <div
                   key={index}

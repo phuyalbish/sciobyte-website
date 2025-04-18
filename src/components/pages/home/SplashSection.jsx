@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import vid from "@/assets/SplashVid.mp4";
 import SplashVidGif from "@/assets/SplashVideo.gif";
-import imgVector from "@/assets/vectorSplashImg.png";
+import imgVector from "@/assets/vectorSplashImg.svg";
 import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
 import { fetchSearch } from "@/apis/search.js";
@@ -65,6 +65,7 @@ function SplashSection() {
               />
             )}
           </div>
+          
           {isSearchTile ? (
             <div className="absolute mt-80 z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
               {searchData?.map((item, index) => (
