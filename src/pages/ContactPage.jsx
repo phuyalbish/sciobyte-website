@@ -94,7 +94,7 @@ function ContactPage() {
     <div className="min-h-screen  ">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900">Contact Us</h1>
+          <h1 className="text-3xl font-liches font-bold text-gray-900">Contact Us</h1>
           <p className="mt-2 text-gray-600">
             Empowering individuals to create their stories.
           </p>
@@ -104,14 +104,13 @@ function ContactPage() {
           {/* Contact Information */}
           <div className=" p-8 text-left">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold border-b-2 italic border-B300 b-6">
+              <h2 className="text-xl font-bold border-b-2 w-fit italic border-B300 b-6">
                 Hello Trekkers Pvt. Ltd
               </h2>
             </div>
 
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                {/* <MapPin className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" /> */}
                 <img
                   decoding="async"
                   loading="lazy"
@@ -119,8 +118,8 @@ function ContactPage() {
                   height="24px"
                   src={location_img}
                 />
-                <div>
-                  <p className="font-medium text-N100">Address</p>
+                <div className="">
+                  <p className="font-medium text-N300">Address</p>
                   <p className="font-semibold">Kirtipur, Kathmandu</p>
                 </div>
               </div>
@@ -135,7 +134,7 @@ function ContactPage() {
                   src={phone_calling}
                 />
                 <div>
-                  <p className="font-medium text-N100">Phone Number</p>
+                  <p className="font-medium text-N300">Phone Number</p>
                   <p className="font-semibold">+977-9709707037</p>
                 </div>
               </div>
@@ -150,7 +149,7 @@ function ContactPage() {
                   src={whatsapp_img}
                 />
                 <div>
-                  <p className="font-medium text-N100">WhatsApp/Viber</p>
+                  <p className="font-medium text-N300">WhatsApp/Viber</p>
                   <p className="font-semibold">+977-9709707037</p>
                 </div>
               </div>
@@ -165,7 +164,7 @@ function ContactPage() {
                   src={email_blue}
                 />
                 <div>
-                  <p className="font-medium text-N100">Email</p>
+                  <p className="font-medium text-N300">Email</p>
                   <p className="font-semibold">
                     hellotrekkersnamaste@gmail.com
                   </p>
@@ -222,7 +221,7 @@ function ContactPage() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="e.g. John Doe"
+                  placeholder="John Doe"
                   className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
                 {errorMsg["name"] && (
@@ -245,7 +244,7 @@ function ContactPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="e.g. john@email.com"
+                  placeholder="john@email.com"
                   className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
                 {errorMsg["email"] && (

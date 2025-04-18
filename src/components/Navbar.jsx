@@ -225,7 +225,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                   <Link
                     to="/contact"
-                    className="text-N900 hover:underline"
+                    className="text-N900 text-lg hover:underline"
 
                     onClick={() => {
                       setDropdowns({});
@@ -289,9 +289,11 @@ function Navbar({ activeMenu, setActiveMenu }) {
               )}
             </div>
           </div>
+          <div className="relative">
+            
           <div
 
-            className={` bg-white rounded-md overflow-hidden  items-center px-2 py-1   gap-1 transition-all duration-300 hidden lg:flex`}
+            className={` bg-white rounded-md overflow-hidden relative  items-center px-2 py-1   gap-1 transition-all duration-300 hidden lg:flex`}
           >
             <input
               type="text"
@@ -311,10 +313,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
               />
             )}
           </div>
-        </div>
-
-        {isSearchTile ? (
-          <div className="absolute mt-96  right-5  z-40 max-w-[90vw]  p-2 bg-white/15 backdrop-blur-md  gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
+           {isSearchTile ? (
+          <div className="absolute  right-0 top-12 z-40 max-w-[90vw]  p-2 bg-white/70 backdrop-blur-md  gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
             {searchData?.map((item, index) => (
               <SearchTrekRegionTile
                 key={index}
@@ -331,6 +331,12 @@ function Navbar({ activeMenu, setActiveMenu }) {
         ) : (
           ""
         )}
+        </div>
+
+
+          </div>
+
+       
       </div>
     </>
   );
