@@ -89,7 +89,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
   return (
     <>
       <div className="relative hidden md:flex bg-B500 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
-        <div className="w-full mx-auto flex items-center justify-between px-[4rem] gap-6 py-4">
+        <div className="w-full h-16 mx-auto flex items-center justify-between px-[4rem] gap-6 py-4">
           <Link
             to="/"
             onClick={() => {
@@ -314,7 +314,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
         </div>
 
         {isSearchTile ? (
-          <div className="absolute mt-96  right-5  z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
+          <div className="absolute mt-96  right-5  z-40 max-w-[90vw]  p-2 bg-white/15 backdrop-blur-md  gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
             {searchData?.map((item, index) => (
               <SearchTrekRegionTile
                 key={index}
