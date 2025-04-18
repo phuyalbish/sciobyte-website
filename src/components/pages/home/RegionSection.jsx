@@ -27,6 +27,7 @@ function RegionSection() {
                   <RegionTile
                     key={index}
                     img={region.icon}
+                    slug={region.slug}
                     name={region.name}
                   />
                 ))
