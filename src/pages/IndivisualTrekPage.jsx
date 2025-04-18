@@ -15,6 +15,7 @@ import TrekRequirementSection from "@/components/pages/indivisualtrek/TrekRequir
 import TrekReviewsSection from "@/components/pages/indivisualtrek/TrekReviewsSection";
 import TrekIncludedSection from "@/components/pages/indivisualtrek/TrekIncludedSection";
 import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSection";
+import TrekOtherInfoSection from "@/components/pages/indivisualtrek/TrekOtherInfoSection";
 import { fetchTreks } from "@/apis/treks.js";
 
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
@@ -155,6 +156,11 @@ function IndivisualTrekPage() {
               <TrekIncludedSection
                 includes={trek?.includes}
                 excludes={trek?.excludes}
+              />
+
+
+              <TrekOtherInfoSection
+                info={trek?.other_information}
               />
               <TrekMapSection map={trek?.map} map_link={trek?.map_link} elevation_graph={trek?.elevation_graph}/>
               <TrekFAQSection faqs={trek?.faqs} />
