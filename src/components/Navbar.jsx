@@ -225,7 +225,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                   <Link
                     to="/contact"
-                    className="text-N900 text-lg hover:underline"
+                    className="text-N900  hover:underline"
 
                     onClick={() => {
                       setDropdowns({});
