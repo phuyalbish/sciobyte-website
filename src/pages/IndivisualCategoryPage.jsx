@@ -69,10 +69,10 @@ function IndivisualCategoryPage() {
       <div className="flex gap-3 flex-wrap flex-grow w-full justify-start items-start">
         {category?.regions?.map((item, index) => (
           <RegionTile
-            key={index}
-            name={item?.name}
-            id={item?.slug}
-            img ={ BASE_MEDIA_URL + item.image }
+                    key={index}
+                    img={BASE_MEDIA_URL+ item.image}
+                    slug={item.slug}
+                    name={item.name}
           />
         ))}
       </div>
