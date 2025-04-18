@@ -71,11 +71,9 @@ const TrekItenaryAccordion = ({ schedule }) => {
             {arrowSVG}
           </div>
         </div>
-
+ {isOpened && (
         <div
-          className={`md:ml-20 overflow-hidden transition-max-height flex flex-col gap-3 duration-700 ease-in-out ${
-            isOpened ? "max-h-[1000px]" : "max-h-0"
-          }`}
+          className={`md:ml-20 overflow-hidden transition-max-height flex flex-col gap-3 duration-700 ease-in-out`}
         >
           <div className="flex flex-wrap gap-2">
             {trekHeadings.map((item, index) =>
@@ -88,15 +86,6 @@ const TrekItenaryAccordion = ({ schedule }) => {
           </div>
 
           <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
-          {/* <div className="flex flex-col gap-2">
-            {schedule?.extra_headings.map((item, index) => (
-              <TrekScheduleExtraHeadingTile
-                key={index}
-                name={item?.name}
-                description={item?.description}
-              />
-            ))}
-          </div> */}
           <div className="flex gap-2  relative overflow-x-scroll  w-100 rounded-md">
             <div className="bg-white/50 text-N400 p-1 px-2 rounded-md absolute bottom-3 right-3">
               Scroll --
@@ -112,6 +101,7 @@ const TrekItenaryAccordion = ({ schedule }) => {
             ))}
           </div>
         </div>
+ )}
       </div>
     </>
   );

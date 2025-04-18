@@ -47,9 +47,9 @@ function Header({ setActiveMenu }) {
 
   return (
     <>
-      <div className="bg-white  shadow-md  sticky top-0 z-50 md:relative ">
+      <div className="bg-white  shadow-md  sticky top-0  z-50 md:relative ">
         
-        <div className="container px-3 md:px-[4rem] max-w-[100em] w-full mx-auto">
+        <div className="container px-3 md:px-[4rem] max-w-[100em]  w-full mx-auto">
           <header className=" z-30 text-white py-[1rem] w-full flex flex-row  justify-between">
             <Link
               to="/"
