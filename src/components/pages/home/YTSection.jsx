@@ -34,7 +34,7 @@ function YTSection() {
       />
       <div className="relative container h-full">
         <div className="relative  z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center gap-5 ">
-          <div className="textConten md:w-7/12  flex  flex-col gap-5 md:gap-0 md:pl-20 justify-center w-full  self-start md:mt-10  md:items-start items-center ">
+          <div className="textConten md:w-7/12  flex  flex-col gap-5 md:gap-0 md:pl-20 justify-center w-full  self-start md:my-10  md:items-start items-center ">
             <div className="text-3xl sm:text-4xl md:text-5xl text-left text-white font-bold flex flex-col">
               Let's
             </div>
