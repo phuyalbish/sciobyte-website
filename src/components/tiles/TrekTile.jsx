@@ -28,7 +28,7 @@ const TrekTile = ({ data }) => {
     categories,
     isBadged,
 
-    star,
+    stars,
     max_group_range,
   } = data;
   return (
@@ -73,7 +73,7 @@ const TrekTile = ({ data }) => {
         <h2 className="font-bold text-md text-left">{name}</h2>
         <div className="flex justify-between items-center mb-1 w-full">
           <span className="text-yellow-500 text-md  flex">
-            {[...Array(star)].map((_, index) => (
+            {[...Array(stars)].map((_, index) => (
               <FaStar key={index} className="text-yellow-500" />
             ))}
           </span>
