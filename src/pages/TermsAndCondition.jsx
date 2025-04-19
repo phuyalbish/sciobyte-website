@@ -4,7 +4,7 @@ function TermsAndCondition() {
   return (
     <div className="container px-10 md:px-[4rem] flex flex-col gap-[2rem] text-left mb-[2rem] items-center">
       <div className="flex flex-col py-[5rem]  md:w-2/3 gap-5">
-        <h3 className="font-bold text-xl">TERMS AND CONDITIONS</h3>
+        <h3 className="font-bold text-xl font-liches">TERMS AND CONDITIONS</h3>
         <p>
           Terms and conditions exist to avoid any potential misunderstanding
           between us. Please go through our terms and conditions carefully

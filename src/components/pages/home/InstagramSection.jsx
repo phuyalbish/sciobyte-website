@@ -28,7 +28,7 @@ import { FaInstagram } from "react-icons/fa";
 
 function InstagramSection() {
   return (
-    <div className="relative flex justify-center   items-center flex-col">
+    <div id="instagram" className="relative flex justify-center   items-center flex-col">
       <img
         decoding="async"
         loading="lazy"

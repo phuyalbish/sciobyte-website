@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+
+import ScrollToTop from "@/router/ScrollToTop";
 import Home from "@/pages/HomePage.jsx";
 import Company from "@/pages/CompanyPage.jsx";
 import IndivisualTrekPage from "@/pages/IndivisualTrekPage.jsx";
@@ -16,9 +18,12 @@ import NotFound from "@/pages/NotFoundPage.jsx";
 
 const AppRoutes = () => {
   return (
+    <>
+     <ScrollToTop />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<Company />} />
+      <Route path="/about/:id" element={<Company />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/termsandcondition" element={<TermsAndCondition />} />
       <Route path="/trek/:id" element={<IndivisualTrekPage />} />
@@ -30,6 +35,7 @@ const AppRoutes = () => {
       <Route path="/blog/:slug" element={<BlogDetail />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    </>
   );
 };
 
