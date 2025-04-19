@@ -73,7 +73,7 @@ function YTSection() {
                                                   decoding="async"
                                                   loading="lazy"
                                                   key={index}
-                                                  src={review?.traveller_image}
+                                                  src={review?.image}
                                                   alt={`Slide ${index}`}
                                                   className="rounded-md  pointer-events-auto w-96 h-full object-cover scale-100 transition-all group-hover:scale-105 duration-500 ease-in-out"
                                                 />
