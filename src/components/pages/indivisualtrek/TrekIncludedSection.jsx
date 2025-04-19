@@ -1,8 +1,7 @@
 import React from "react";
-import { IoCheckmark } from "react-icons/io5";
-import { MdOutlineErrorOutline } from "react-icons/md";
 import CheckMark from "@/assets/icons/CheckMark.svg";
 import Exclamation from "@/assets/icons/Exclamation.svg";
+import DOMPurify from 'dompurify';
 function TrekIncludedSection({ includes, excludes }) {
   return (
     <section id="included" >
@@ -22,7 +21,7 @@ function TrekIncludedSection({ includes, excludes }) {
                     </div>
                     <div className="font-bold">{item.title}</div>
                   </div>
-                  <div className="font-regular ml-9">{item.description}</div>
+                  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
                 </div>
               ))}
             </div>
@@ -41,9 +40,10 @@ function TrekIncludedSection({ includes, excludes }) {
                     <div className="flex min-w-6 min-h-6">
                      <img src={Exclamation} alt="" />
                     </div>
-                    <div className="font-bold">{item.title}</div>
+                    <div className="font-bold">{item?.title}</div>
                   </div>
-                  <div className="font-regular ml-8">{item.description}</div>
+                  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
+    
                 </div>
               ))}
             </div>
