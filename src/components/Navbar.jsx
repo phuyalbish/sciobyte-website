@@ -226,7 +226,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
 
                   <Link
-                    to="/about#why"
+                    to="/about/why"
                     
                     className="text-N900 hover:underline"
                     onClick={() => {
@@ -240,7 +240,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
 
                   <Link
-                    to="/about#team"
+                    to="/about/team"
                     
                     className="text-N900 hover:underline"
                     onClick={() => {
@@ -254,7 +254,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
 
                   <Link
-                    to="/about#homestay"
+                    to="/about/homestay"
                     
                     className="text-N900 hover:underline"
                     onClick={() => {
@@ -268,7 +268,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
 
                   <Link
-                    to="/about#csr"
+                    to="/about/csr"
                     
                     className="text-N900  hover:underline"
                     onClick={() => {
@@ -280,7 +280,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     Social Initiative
                   </Link>
                   <Link
-                    to="/about#booking"
+                    to="/about/booking"
                     
                     className="text-N900 hover:underline"
                     onClick={() => {
