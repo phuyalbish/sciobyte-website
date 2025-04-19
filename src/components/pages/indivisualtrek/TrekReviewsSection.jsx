@@ -43,7 +43,7 @@ function TrekReviewsSection({reviews, trek_name}) {
                 <img
                   decoding="async"
                   loading="lazy"
-                  src={BASE_MEDIA_URL + review?.traveller_image}
+                  src={BASE_MEDIA_URL + review?.image}
                   alt={`Slide ${index}`}
                   className="rounded-md pointer-events-auto w-full h-full object-cover scale-100 transition-all group-hover:scale-105 duration-500 ease-in-out"
                 />
@@ -77,7 +77,7 @@ function TrekReviewsSection({reviews, trek_name}) {
                     <img
                       decoding="async"
                       loading="lazy"
-                      src={BASE_MEDIA_URL + review?.traveller_image}
+                      src={BASE_MEDIA_URL + review?.image}
                       alt={`Slide ${index}`}
                       className="rounded-md pointer-events-auto w-full h-full object-cover scale-100 transition-all group-hover:scale-105 duration-500 ease-in-out"
                     />

@@ -9,7 +9,7 @@ import InstagramSection from "@/components/pages/home/InstagramSection";
 import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
 import ReviewSection from "@/components/pages/home/ReviewSection";
 import SpontaneousTrekSection from "@/components/pages/home/SpontaneousTrekSection";
-import RegionSection from "@/components/pages/home/RegionSection";
+import PreferenceSection from "@/components/pages/home/PreferenceSection";
 import FooterVector from "@/assets/footer/FooterHome.svg";
 import { useEffect, useState } from "react";
 import { fetchHomeTreks } from "@/apis/treks.js";
@@ -34,9 +34,9 @@ const [treks, setTreks] = useState([]);
       <SplashSection />
       <TrekSection treks={treks?.slice(0, 3)} plainText="YOUR TALE BEGINS" blueText="NOW!" />
       </div>
-      <div className="flex flex-col w-full relative">
+      <div className="flex flex-col w-full relative -mt-48">
         <Parallex />
-        <RegionSection />
+        <PreferenceSection />
       </div>
       <HomeStaySection />
       <SpontaneousTrekSection  treks={treks} />

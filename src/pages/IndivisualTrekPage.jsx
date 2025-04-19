@@ -80,8 +80,8 @@ function IndivisualTrekPage() {
                 districts = {trek?.districts}
                 best_seasons =  {trek?.best_seasons}
             />
-            <div className="flex flex-col gap-5 text-left">
-              <div className="p-3   sticky overflow-x-auto top-16 rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-N100">
+            <div className="flex flex-col gap-10 text-left">
+              <div className="p-3  sticky overflow-x-auto top-16 rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-N100">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"
@@ -111,8 +111,8 @@ function IndivisualTrekPage() {
                   onClick={() => scrollToSection("included")}
                   className="hover:underline flex gap-1"
                 >
-                  <span>What's</span>
-                  <span>Included</span>
+                  <span className="tracking-wide font-liches font-light">What's</span>
+                  <span className=" tracking-wide font-liches font-light">Included</span>
                 </button>
                 )}
 
