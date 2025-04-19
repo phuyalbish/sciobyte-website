@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-import TrekHeadingTile from "@/components/tiles/TrekHeadingTile";
 import { BsClockHistory } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { GiPathDistance } from "react-icons/gi";
@@ -122,7 +121,6 @@ function TrekBasicInformationSection({
  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full rounded-md bg-G200">
         {trekBasicHeadings.map((item, index) =>
           item?.description ? (
-            // <TrekHeadingTile key={index} {...item} />
             <div className="rounded-xl flex gap-3  items-center justify-start">
 
                   {item?.icon &&

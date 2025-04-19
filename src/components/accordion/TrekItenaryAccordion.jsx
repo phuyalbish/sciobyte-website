@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import TrekHeadingTile from "@/components/tiles/TrekHeadingTile";
 import { FaTent } from "react-icons/fa6";
 import { FaTruckPlane } from "react-icons/fa6";
 import { MdFastfood } from "react-icons/md";
@@ -8,7 +7,6 @@ import { FaChevronUp } from "react-icons/fa";
 import { FaMountainSun } from "react-icons/fa6";
 import DOMPurify from 'dompurify';
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
-import TrekScheduleExtraHeadingTile from "@/components/tiles/trek/TrekScheduleExtraHeadingTile";
 
 const TrekItenaryAccordion = ({ schedule }) => {
 
@@ -78,10 +76,18 @@ const TrekItenaryAccordion = ({ schedule }) => {
           <div className="flex flex-wrap gap-2">
             {trekHeadings.map((item, index) =>
               item?.description ? (
-                <TrekHeadingTile key={index} bg="False" {...item} />
-              ) : (
-                <span key={index}></span>
-              )
+                  <div className="rounded-xl flex gap-3  items-center justify-start">
+                
+                                  {item?.icon &&
+                                      React.createElement(item?.icon, {
+                                        className: "text-lg text-N900",
+                                      })}
+                                    <div className="flex flex-col justify-start items-start">
+                                      <div className="text-xs text-N500 font-semibold text-start">{item?.heading}</div>
+                                      <div className="text-sm text-N800 font-semibold text-start">{item?.description}</div>
+                                    </div>
+                            </div>
+              ) : ""
             )}
           </div>
 
