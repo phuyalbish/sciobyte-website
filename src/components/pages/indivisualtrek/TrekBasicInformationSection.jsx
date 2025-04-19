@@ -119,14 +119,30 @@ function TrekBasicInformationSection({
         </div>
       )}
       </div>
-      <div className="flex flex-wrap  self-start p-4 rounded-md bg-G200">
+ <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full rounded-md bg-G200">
         {trekBasicHeadings.map((item, index) =>
           item?.description ? (
-            <TrekHeadingTile key={index} {...item} />
-          ) : (
-            <span key={index}></span>
-          )
+            // <TrekHeadingTile key={index} {...item} />
+            <div className="rounded-xl flex gap-3  items-center justify-start">
+
+                  {item?.icon &&
+                      React.createElement(item?.icon, {
+                        className: "text-lg text-N900",
+                      })}
+                    <div className="flex flex-col justify-start items-start">
+                      <div className="text-xs text-N500 font-semibold text-start">{item?.heading}</div>
+                      <div className="text-sm text-N800 font-semibold text-start">{item?.description}</div>
+                    </div>
+            </div>
+          ) : ""
         )}
+
+        {/* <div className="test h-20">Here we go</div>
+        <div className="test h-20">Here we go</div>
+        <div className="test h-20">Here we go</div>
+        <div className="test h-20">Here we go</div>
+
+        <div className="test h-20">Here we go</div> */}
       </div>
     </div>
   );
