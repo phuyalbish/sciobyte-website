@@ -80,22 +80,24 @@ function ImageSlideSection({ gallery}) {
         )}
       </div>
       {isOpenGallerySection && (
-        <div className="fixed w-full h-full  py-20 md:px-20 top-0 left-0 z-50   bg-white/100 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
-          <IoCloseOutline
-            className="text-black cursor-pointer absolute right-10 top-4 self-end"
-            size={48}
+        <div className="fixed w-full  h-full p-2  top-0 left-0 z-50   bg-white/100 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
+         <div className="bg-white absolute rounded-full  cursor-pointer  right-6 hover:scale-105 scale-100  transition-all duration-500 top-4 self-end">
+           <IoCloseOutline
+            className="text-black"
+            size={32}
             onClick={() => {
               setIsOpenGallerySection(false);
             }}
           />
-          <div className="flex flex-wrap overflow-scroll rounded-md gap-4">
+         </div>
+          <div className="flex flex-wrap overflow-scroll gap-4 ">
             {gallery?.map((item, index) => (
               <img
                 decoding="async"
                 loading="lazy"
                 key={index}
                 src={BASE_MEDIA_URL + item.image}
-                className="object-cover transition-all rounded-md duration-500 ease-in-out w-full aspect-video flex-grow"
+                className="object-cover transition-all duration-500 ease-in-out w-full  aspect-video flex-grow"
               />
             ))}
           </div>
