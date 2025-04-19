@@ -81,7 +81,7 @@ function IndivisualTrekPage() {
                 best_seasons =  {trek?.best_seasons}
             />
             <div className="flex flex-col gap-5 text-left">
-              <div className="p-3   sticky overflow-x-auto top-16 rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  font-bold text-N100">
+              <div className="p-3   sticky overflow-x-auto top-16 rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-N100">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"

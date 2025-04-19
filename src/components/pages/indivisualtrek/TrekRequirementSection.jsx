@@ -9,7 +9,7 @@ function TrekRequirementSection({ requirements, gears }) {
     <section id="requirements">
     {requirements && (
     <div  className="flex flex-col gap-5">
-      <div className="text-lg font-bold">Requirements and Gears</div>
+      <div className="text-xl tracking-wide font-liches font-light">Requirements and Gears</div>
       
       <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
       <div className="flex flex-wrap gap-2">

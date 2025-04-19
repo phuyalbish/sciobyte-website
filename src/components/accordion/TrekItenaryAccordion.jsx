@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import TrekHeadingTile from "@/components/tiles/TrekHeadingTile";
 import { FaTent } from "react-icons/fa6";
 import { FaTruckPlane } from "react-icons/fa6";
 import { MdFastfood } from "react-icons/md";
@@ -8,7 +7,6 @@ import { FaChevronUp } from "react-icons/fa";
 import { FaMountainSun } from "react-icons/fa6";
 import DOMPurify from 'dompurify';
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
-import TrekScheduleExtraHeadingTile from "@/components/tiles/trek/TrekScheduleExtraHeadingTile";
 
 const TrekItenaryAccordion = ({ schedule }) => {
 
@@ -53,15 +51,18 @@ const TrekItenaryAccordion = ({ schedule }) => {
     }),
   }
   ];
+
+
+  const default_bg_color = isOpened ? "bg-B200" : "bg-white";
   return (
     <>
-      <div className="cursor-pointer w-full mx-auto select-none  flex flex-col">
+      <div className="cursor-pointer w-full mx-auto select-none  flex flex-col gap-2">
         <div
-          className={`transition duration-300 ease-in-out  flex md:flex-row flex-col gap-3  justify-start`}
+          className={`${default_bg_color} hover:bg-B200 rounded-md p-2 transition duration-300 ease-in-out  flex md:flex-row flex-col gap-3  justify-start`}
           onClick={() => setIsOpened(!isOpened)}
         >
           <div className="flex flex-col md:w-20 items-center">
-            <div className="px-5 h-8 bg-G300 rounded-tl-3xl w-full text-white items-center justify-center flex text-md">
+            <div className="px-5 h-8 bg-G300 rounded-tl-2xl w-full text-white items-center justify-center flex text-md">
               Day
             </div>
             <div className="text-md font-bold">{schedule.day}</div>
@@ -73,15 +74,24 @@ const TrekItenaryAccordion = ({ schedule }) => {
         </div>
  {isOpened && (
         <div
-          className={`md:ml-20 overflow-hidden transition-max-height flex flex-col gap-3 duration-700 ease-in-out`}
+          className={`md:pl-20 p-4 rounded-md  overflow-hidden transition-max-height flex flex-col gap-3 duration-700 ease-in-out bg-B100`}
         >
-          <div className="flex flex-wrap gap-2">
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full">
             {trekHeadings.map((item, index) =>
               item?.description ? (
-                <TrekHeadingTile key={index} bg="False" {...item} />
-              ) : (
-                <span key={index}></span>
-              )
+                  <div className="rounded-xl flex gap-3  items-center justify-start">
+                
+                                  {item?.icon &&
+                                      React.createElement(item?.icon, {
+                                        className: "text-lg text-N900",
+                                      })}
+                                    <div className="flex flex-col justify-start items-start">
+                                      <div className="text-xs text-N500 font-semibold text-start">{item?.heading}</div>
+                                      <div className="text-sm text-N800 font-semibold text-start">{item?.description}</div>
+                                    </div>
+                            </div>
+              ) : ""
             )}
           </div>
 

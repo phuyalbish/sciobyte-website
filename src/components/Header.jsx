@@ -129,7 +129,8 @@ function Header({ setActiveMenu }) {
                                       setSearchRegionID(index);
                                     }}
                                   >
-                                    {region?.name} ({region?.trek_count})
+                                    {region?.name}
+                                     {/* ({region?.trek_count}) */}
                                   </div>
                                 ))}
                               </div>
@@ -138,7 +139,7 @@ function Header({ setActiveMenu }) {
                                 {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
                                   <Link
                                     key={index}
-                                    to={`/t/${trek?.slug}`}
+                                    to={`/trek/${trek?.slug}`}
                                     className="w-full text-start justify-start items-start text-base hover:underline underline-offset-4"
                                     onClick={() => setIsDropDown(false)}
                                   >
@@ -148,7 +149,7 @@ function Header({ setActiveMenu }) {
                               </div>
                                <div className="flex w-full justify-end">
                                   <Link
-                                    to={`/c/${categoryDetails[item.slug]?.slug}`}
+                                    to={`/category/${categoryDetails[item.slug]?.slug}`}
                                     className="w-fit flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"
                                     onClick={() => setIsDropDown(false)}
                                   >

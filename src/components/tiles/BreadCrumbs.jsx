@@ -19,7 +19,7 @@ category_name = null,
       {category_name && (
         <>
           <GoChevronRight className="size-3 md:size-6" />
-          <Link to={`/c/${category_slug}/`} className="hover:underline">
+          <Link to={`/category/${category_slug}/`} className="hover:underline">
             {category_name}
           </Link>
         </>
@@ -27,7 +27,7 @@ category_name = null,
       {region_name && (
         <>
           <GoChevronRight className="size-3 md:size-6" />
-          <Link to={`/r/${region_slug}`} className="hover:underline">
+          <Link to={`/region/${region_slug}`} className="hover:underline">
             {region_name}
           </Link>
         </>

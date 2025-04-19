@@ -9,7 +9,7 @@ function TrekItenarySection({ map, map_link, elevation_graph }) {
                       <div className="flex flex-col  p-6  rounded-lg bg-G200 gap-10">
                         {map && (
                           <div  className="flex flex-col gap-2  rounded-md overflow-hidden">
-                          <div className="text-lg font-bold">Map</div>
+                          <div className="text-xl tracking-wide font-liches font-light"> Trek Map</div>
                           <a href={map_link} target="_blank">
                             <img
                               decoding="async"
@@ -26,7 +26,7 @@ function TrekItenarySection({ map, map_link, elevation_graph }) {
                           className="flex flex-col gap-2  rounded-md overflow-hidden"
                           onClick={() => scrollToSection("maps")}
                         >
-                          <div className="text-lg font-bold">Elevation Graph:</div>
+                          <div className="text-xl tracking-wide font-liches font-light">Elevation Graph:</div>
                           <img
                             decoding="async"
                             loading="lazy"
