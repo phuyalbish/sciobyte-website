@@ -4,8 +4,8 @@ import instagramLogo from "@/assets/instagram-logo.png";
 const HomeStay = () => {
   return (
     <>
-      <div className="flex flex-col px-5 md:px-[4rem] max-w-[100em] mx-auto   lg:gap-0 gap-5">
-        <div className="py-[2rem] text-center md:text-4xl  text-2xl rounded-lg font-semibold">
+      <div id="homestay" className="flex flex-col px-5 md:px-[4rem] max-w-[100em] mx-auto gap-10">
+        <div className="text-2xl font-liches text-center rounded-lg font-semibold">
           Our Home Stay
         </div>
 

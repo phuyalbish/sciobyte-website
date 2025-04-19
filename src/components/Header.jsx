@@ -173,7 +173,7 @@ function Header({ setActiveMenu }) {
               Travel Tips
             </Link>
             <Link
-              to="/about"
+              to="/company"
               className="transition hover:underline underline-offset-1 hover:text-B500 text-left"
               onClick={() => {
                 setIsDropDown(false);

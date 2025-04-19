@@ -336,21 +336,7 @@ function PrivacyPolicy() {
             </li>
           </ol>
         </div>
-        <div>
-          <h3 className="font-bold">SOCIAL INITIATIVE</h3>
-          <p>
-            I’ll admit, we hesitated to share this. But someone close to me
-            reminded, if we’re doing this with integrity, why not stand by it
-            proudly? We’re a young business, just finding our footing. We’re not
-            here to change the world overnight—but we believe even small ripples
-            can create waves. That’s why we vouch 5% of our profits to Nepal’s
-            education sector, helping underprivileged children through our
-            little capacity. We dream of a future where the gap between private
-            and government schools isn’t a chasm, but a bridge—because every
-            child irrespective of their socio-economic backgrounds should have a
-            fair shot at the stars.
-          </p>
-        </div>
+       
       </div>
     </div>
   );

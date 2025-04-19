@@ -114,7 +114,7 @@ function Footer() {
         },
         {
           name: "Blogs",
-          url: "",
+          url: "/blogs",
         },
         {
           name: "Privacy Polocy",

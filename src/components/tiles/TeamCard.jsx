@@ -17,7 +17,7 @@ const TeamCard = ({ name, title, imgUrl }) => {
         </div>
 
         <div className="text-left w-full">
-          <h2 className="text-2xl font-bold text-gray-900">{name}</h2>
+          <h2 className="text-lg  font-bold text-gray-900">{name}</h2>
           <p className="text-gray-600 font-medium">{title}</p>
         </div>
       </div>
