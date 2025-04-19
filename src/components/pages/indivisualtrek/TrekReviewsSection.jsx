@@ -13,8 +13,8 @@ function TrekReviewsSection({reviews, trek_name}) {
   return <section id="reviews">
 {Array.isArray(reviews) && reviews.length > 0 && (
   <div className="flex flex-col gap-5">
-    <div className="text-lg font-light font-liches">
-      Video Review of {trek_name} by our Trekkers
+    <div className="text-xl tracking-wide font-liches font-light">
+      Video Review by our Trekkers
     </div>
 
     {!isOpenYTSection && (

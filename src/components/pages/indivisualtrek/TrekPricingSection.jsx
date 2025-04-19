@@ -17,7 +17,7 @@ function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(
-        "https://hellotrekkers.com/t/" + id
+        "https://hellotrekkers.com/trek/" + id
       );
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);

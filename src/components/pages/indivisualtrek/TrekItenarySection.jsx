@@ -6,7 +6,7 @@ function TrekItenarySection({ data }) {
     <section id="itenary" className="flex flex-col gap-5">
       {Array.isArray(data) && data.length > 0 ? (
         <>
-          <div className="text-lg font-bold">Itinerary</div>
+          <div className="text-xl font-liches font-light">Itinerary</div>
           {data.map((item, index) => (
             <TrekItenaryAccordion schedule={item} key={index} />
           ))}

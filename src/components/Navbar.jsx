@@ -141,14 +141,16 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     searchRegionID == index ? "bg-B200" : "bg-transparent"
                   }  hover:bg-B200 p-2 rounded flex flex-col text-sm w-fit text-start cursor-pointer `} key={index} onClick={ () =>{
                       setSearchRegionID(index)
-                    }}>{region?.name} ({region?.trek_count})</div>
+                    }}>{region?.name} 
+                    {/* ({region?.trek_count}) */}
+                    </div>
                   ))}
 
                     </div>
 
                     <div className="p-2   justify-start gap-2 items-start  flex-row ">
                     {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
-                      <Link to={`/t/${trek?.slug}`} className="w-fit  items-start text-sm hover:underline  underline-offset-4" key={index} onClick={() => {
+                      <Link to={`/trek/${trek?.slug}`} className="w-fit  items-start text-sm hover:underline  underline-offset-4" key={index} onClick={() => {
                           setActiveMenu({ blogs: true });
                           setDropdowns({});
                           setCompanyDropDown(false);
@@ -157,7 +159,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     </div>
                   </div>
                   <div className="flex w-full justify-end">
-              <Link to={`/c/${categoryDetails[item.slug]?.slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
+              <Link to={`/category/${categoryDetails[item.slug]?.slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
                 setActiveMenu({ blogs: true });
                 setDropdowns({});
                 setCompanyDropDown(false);

@@ -51,15 +51,18 @@ const TrekItenaryAccordion = ({ schedule }) => {
     }),
   }
   ];
+
+
+  const default_bg_color = isOpened ? "bg-B200" : "bg-white";
   return (
     <>
-      <div className="cursor-pointer w-full mx-auto select-none  flex flex-col">
+      <div className="cursor-pointer w-full mx-auto select-none  flex flex-col gap-2">
         <div
-          className={`transition duration-300 ease-in-out  flex md:flex-row flex-col gap-3  justify-start`}
+          className={`${default_bg_color} hover:bg-B200 rounded-md p-2 transition duration-300 ease-in-out  flex md:flex-row flex-col gap-3  justify-start`}
           onClick={() => setIsOpened(!isOpened)}
         >
           <div className="flex flex-col md:w-20 items-center">
-            <div className="px-5 h-8 bg-G300 rounded-tl-3xl w-full text-white items-center justify-center flex text-md">
+            <div className="px-5 h-8 bg-G300 rounded-tl-2xl w-full text-white items-center justify-center flex text-md">
               Day
             </div>
             <div className="text-md font-bold">{schedule.day}</div>
@@ -71,7 +74,7 @@ const TrekItenaryAccordion = ({ schedule }) => {
         </div>
  {isOpened && (
         <div
-          className={`md:ml-20 overflow-hidden transition-max-height flex flex-col gap-3 duration-700 ease-in-out`}
+          className={`md:pl-20 p-4 rounded-md  overflow-hidden transition-max-height flex flex-col gap-3 duration-700 ease-in-out bg-B100`}
         >
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full">

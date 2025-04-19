@@ -12,7 +12,7 @@ function TrekIncludedSection({ includes, excludes }) {
       <div className="flex flex-col md:w-1/2  gap-5">
         {Array.isArray(includes) && includes.length > 0 ? (
           <div className="flex flex-col gap-5">
-            <div className="text-lg font-liches">INCLUDED</div>
+            <div className="text-xl tracking-wide font-liches font-light">INCLUDED</div>
             <div className="flex flex-col gap-2">
               {includes.map((item, index) => (
                 <div className="flex flex-col" key={index}>
@@ -33,7 +33,7 @@ function TrekIncludedSection({ includes, excludes }) {
       <div className="flex flex-col md:w-1/2 gap-5">
         {Array.isArray(excludes) && excludes.length > 0 ? (
           <div className="flex flex-col gap-5">
-            <div className="text-lg font-liches ">EXCLUDED</div>
+            <div className="text-xl tracking-wide font-liches font-light">EXCLUDED</div>
             <div className="flex flex-col gap-2">
               {excludes.map((item, index) => (
                 <div className="flex flex-col" key={index}>

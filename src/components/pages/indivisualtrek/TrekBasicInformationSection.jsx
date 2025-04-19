@@ -98,7 +98,7 @@ function TrekBasicInformationSection({
   return (
     <div className="flex flex-col gap-5  items-start">
       <div className="flex flex-col items-start justify-start">
-        <div className="text-xl lg:text-2xl  text-left font-bold">
+        <div className="text-xl lg:text-2xl tracking-wide font-light font-liches  text-left">
           {travel_name}
         </div>
 
@@ -108,7 +108,7 @@ function TrekBasicInformationSection({
           {districts.map((district, index) => (
             <Link
               key={district.slug}
-              to={`/d/${district.slug}`}
+              to={`/district/${district.slug}`}
               className="hover:underline underline-offset-1"
             >
               {district.name}
