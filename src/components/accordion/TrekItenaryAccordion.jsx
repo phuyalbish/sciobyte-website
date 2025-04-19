@@ -73,7 +73,8 @@ const TrekItenaryAccordion = ({ schedule }) => {
         <div
           className={`md:ml-20 overflow-hidden transition-max-height flex flex-col gap-3 duration-700 ease-in-out`}
         >
-          <div className="flex flex-wrap gap-2">
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full">
             {trekHeadings.map((item, index) =>
               item?.description ? (
                   <div className="rounded-xl flex gap-3  items-center justify-start">
