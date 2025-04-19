@@ -65,7 +65,7 @@ function PreferenceSection() {
                 >
                   <PreferenceTile
                     key={index}
-                    img={preference.image}
+                    img={preference.icon}
                     name={preference.name}
                     id={preference.id}
                   />
