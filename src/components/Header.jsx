@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logo from "@/assets/logo.png";
+import Logo from "@/assets/logo.svg";
 import { Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
@@ -173,7 +173,7 @@ function Header({ setActiveMenu }) {
               Travel Tips
             </Link>
             <Link
-              to="/about"
+              to="/company"
               className="transition hover:underline underline-offset-1 hover:text-B500 text-left"
               onClick={() => {
                 setIsDropDown(false);

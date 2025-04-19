@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import FAQ from "@/components/accordion/FAQ.jsx";
 import { fetchFAQs } from "@/apis/faqs.js";
-import spntaneousbottom from "@/assets/spontaneousBackImg.png";
-
 const FAQSection = () => {
   const [faqs, setFaqs] = useState([]);
 

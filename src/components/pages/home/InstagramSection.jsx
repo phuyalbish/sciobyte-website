@@ -23,12 +23,12 @@ const insta_post = [
   insta9,
 ];
 
-import bottom from "@/assets/bottom_chitwan.png";
+import bottom from "@/assets/bottom_chitwan.svg";
 import { FaInstagram } from "react-icons/fa";
 
 function InstagramSection() {
   return (
-    <div className="relative flex justify-center   items-center flex-col">
+    <div id="instagram" className="relative flex justify-center   items-center flex-col">
       <img
         decoding="async"
         loading="lazy"

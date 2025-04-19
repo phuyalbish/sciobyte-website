@@ -200,6 +200,18 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
               {isCompanyDropDown && (
                 <div className="absolute top-14 left-0 m-auto w-64 justify-start items-start text-N900  bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 text-sm">
+                  
+                  <Link
+                    to="/contact"
+                    className="text-N900  hover:underline"
+
+                    onClick={() => {
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    Contact Us
+                  </Link>
                   <Link
                     to="/about"
                     className="text-N900  hover:underline"
@@ -212,33 +224,9 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     About Us
                   </Link>
 
-                  <Link
-                    to="/team"
-                    
-                    className="text-N900 hover:underline"
-                    onClick={() => {
-                      setActiveMenu({ company: true });
-                      setDropdowns({});
-                      setCompanyDropDown(false);
-                    }}
-                  >
-                    Team
-                  </Link>
 
                   <Link
-                    to="/contact"
-                    className="text-N900  hover:underline"
-
-                    onClick={() => {
-                      setDropdowns({});
-                      setCompanyDropDown(false);
-                    }}
-                  >
-                    Contact Us
-                  </Link>
-
-                  <Link
-                    to="/whyhellotrekkers  hover:underline"
+                    to="/about/why"
                     
                     className="text-N900 hover:underline"
                     onClick={() => {
@@ -250,8 +238,37 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     Why Hellotrekkers?
                   </Link>
 
+
                   <Link
-                    to="/socialinitiative"
+                    to="/about/team"
+                    
+                    className="text-N900 hover:underline"
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    Team
+                  </Link>
+
+
+                  <Link
+                    to="/about/homestay"
+                    
+                    className="text-N900 hover:underline"
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    Our Homestay
+                  </Link>
+
+
+                  <Link
+                    to="/about/csr"
                     
                     className="text-N900  hover:underline"
                     onClick={() => {
@@ -263,7 +280,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     Social Initiative
                   </Link>
                   <Link
-                    to="/booking"
+                    to="/about/booking"
                     
                     className="text-N900 hover:underline"
                     onClick={() => {
@@ -275,6 +292,18 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     Booking and Payments
                   </Link>
 
+                  <Link
+                    to="/privacy"
+                    
+                    className="text-N900 hover:underline"
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+                    Privacy Policy
+                  </Link>
                   <Link
                     to="/termsandcondition"
                     

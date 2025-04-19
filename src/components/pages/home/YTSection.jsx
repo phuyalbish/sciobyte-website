@@ -24,7 +24,7 @@ function YTSection() {
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
   return (
-    <div className="relative  w-full h-full">
+    <div id="youtube" className="relative  w-full h-full">
       <img
         decoding="async"
         loading="lazy"

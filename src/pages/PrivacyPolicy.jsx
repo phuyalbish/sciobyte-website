@@ -4,7 +4,7 @@ function PrivacyPolicy() {
   return (
     <div className="container px-10 md:px-[4rem] flex flex-col gap-[2rem] text-left mb-[2rem] items-center">
       <div className="flex flex-col py-[5rem]  md:w-2/3 gap-5">
-        <h3 className="font-bold text-xl">PRIVACY POLICY</h3>
+        <h3 className="font-bold text-xl font-liches ">PRIVACY POLICY</h3>
         <div>
           <p>
             At <span className="font-bold">Hello Trekkers</span> we respect your
@@ -336,21 +336,7 @@ function PrivacyPolicy() {
             </li>
           </ol>
         </div>
-        <div>
-          <h3 className="font-bold">SOCIAL INITIATIVE</h3>
-          <p>
-            I’ll admit, we hesitated to share this. But someone close to me
-            reminded, if we’re doing this with integrity, why not stand by it
-            proudly? We’re a young business, just finding our footing. We’re not
-            here to change the world overnight—but we believe even small ripples
-            can create waves. That’s why we vouch 5% of our profits to Nepal’s
-            education sector, helping underprivileged children through our
-            little capacity. We dream of a future where the gap between private
-            and government schools isn’t a chasm, but a bridge—because every
-            child irrespective of their socio-economic backgrounds should have a
-            fair shot at the stars.
-          </p>
-        </div>
+       
       </div>
     </div>
   );

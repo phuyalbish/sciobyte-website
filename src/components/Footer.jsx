@@ -34,50 +34,28 @@ const NavItems = ({ item }) => {
 };
 
 function Footer() {
-  const menuItems = [
-    {
-      title: "Discover",
-      items: [
+  const discovery = [
+    
         {
           name: "Trekking",
-          url: "",
+          url: "/category/treks",
         },
         {
           name: "Day Tours",
-          url: "",
+          url: "/category/tours",
         },
         {
           name: "Hike",
-          url: "",
+          url: "/category/dayhikes",
         },
         {
           name: "Spiritual Journey",
-          url: "",
+          url: "/category/treks",
         },
-      ],
-    },
-
-    {
-      title: "Resources",
-      items: [
-        {
-          name: "Youtube",
-          url: "",
-        },
-        {
-          name: "Instagram",
-          url: "",
-        },
-        {
-          name: "Travel Tips",
-          url: "",
-        },
-      ],
-    },
-
-    {
-      title: "Top Treks",
-      items: [
+      ]
+  
+   
+  const topTreks = [
         {
           name: "Langtang",
           url: "",
@@ -98,12 +76,11 @@ function Footer() {
           name: "Mustang",
           url: "",
         },
-      ],
-    },
+      ]
+    
 
-    {
-      title: "Company",
-      items: [
+  
+  const company = [
         {
           name: "About Us",
           url: "/about",
@@ -114,7 +91,7 @@ function Footer() {
         },
         {
           name: "Blogs",
-          url: "",
+          url: "/blogs",
         },
         {
           name: "Privacy Polocy",
@@ -124,10 +101,7 @@ function Footer() {
           name: "Terms and Condition",
           url: "/termsandcondition",
         },
-      ],
-    },
-  ];
-
+      ]
   return (
     <footer className="bg-B400 flex flex-col justify-center">
         <div className="p-10 flex flex-col gap-2 px-8">
@@ -187,11 +161,70 @@ function Footer() {
               </ul>
             </div>
             <div className="flex flex-col md:flex-row justify-center md:justify-evenly gap-10 tes w-8/12 items-justify">
-            {menuItems.map((item, index) => {
-              return <NavItems item={item} key={index} />
-            })}
+          
+
+            <div className="flex  flex-col  items-center  md:items-start  gap-6 w-full  justify-center md:justify-start" >
+              <h1 className="text-md font-bold text-N100">
+                Discovery
+              </h1>
+              <ul className="flex flex-col  items-center md:items-start gap-4 text-N100">
+                {discovery.map((item, index) => (
+                  <li key={index} className=" ">
+                    <Link to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+
+
+              <div className="flex  flex-col  items-center  md:items-start  gap-6 w-full  justify-center md:justify-start" >
+              <h1 className="text-md font-bold text-N100">
+                Resources
+              </h1>
+              <ul className="flex flex-col  items-center md:items-start gap-4 text-N100">
+                  <li>
+                    <a href="https://www.youtube.com/@hellotrekkers" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                      Youtube
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/hellotrekkersnamaste" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                      Instagram
+                    </a>
+                  </li>
+                  <li>
+                    <Link to="/blogs" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                      Travel Tips
+                    </Link>
+                  </li>
+              </ul>
+            </div>
+
+
+              <div className="flex  flex-col  items-center  md:items-start  gap-6 w-full  justify-center md:justify-start" >
+              <h1 className="text-md font-bold text-N100">
+                Company
+              </h1>
+              <ul className="flex flex-col  items-center md:items-start gap-4 text-N100">
+                {company.map((item, index) => (
+                  <li key={index} className=" ">
+                    <Link to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
             </div>
         </div>
+
+
+
+
+
       <div className="relative">
         <img
           width="100%"
