@@ -23,7 +23,7 @@ const insta_post = [
   insta9,
 ];
 
-import bottom from "@/assets/bottom_chitwan.png";
+import bottom from "@/assets/bottom_chitwan.svg";
 import { FaInstagram } from "react-icons/fa";
 
 function InstagramSection() {

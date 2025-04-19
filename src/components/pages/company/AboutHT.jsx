@@ -1,5 +1,3 @@
-import homeStay from "@/assets/homestay.png";
-import instagramLogo from "@/assets/instagram-logo.png";
 
 const HomeStay = () => {
   return (
