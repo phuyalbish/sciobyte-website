@@ -90,6 +90,7 @@
   margin: 0px;
   box-sizing: border-box;
   font-family: "Manrope", sans-serif;
+  line-height: 2;
 }
 html {
   overflow: overlay;
