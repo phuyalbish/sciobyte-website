@@ -45,7 +45,7 @@ const EmblaReviewCarousel = ({
   }, [emblaApi]);
 
   return (
-    <div className=" relative w-full md:w-96 h-full py-10 flex flex-col gap-3 items-center">
+    <div className=" relative w-full md:w-96 h-full pb-10 flex flex-col gap-3 items-center">
       <div className="embla relative w-full ">
         <div className="overflow-hidden " ref={emblaRef}>
           <div className="flex gap-2 pb-2">{children}</div>

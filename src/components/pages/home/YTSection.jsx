@@ -24,11 +24,10 @@ function YTSection() {
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
   return (
-    <div id="youtube" className="relative  w-full h-full">
      
-      <div className="relative container h-full">
+      <div id="youtube"  className="relative container h-full">
          
-        <div className="relative  z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center md:gap-5">
+        <div className="relative  z-10 bg-cover w-full h-full pt-10 flex md:flex-row flex-col justify-start items-center md:gap-5">
           <img
             decoding="async"
             loading="lazy"
@@ -37,8 +36,8 @@ function YTSection() {
             className="w-full h-full object-cover absolute z-0 brightness-25"
           />
 
-          <div className="textConten md:w-7/12 z-10  flex  flex-col  gap-0 md:pl-20 justify-center w-full  self-start md:my-10  md:items-start items-center ">
-            <div className="text-3xl sm:text-4xl md:text-5xl text-left  font-liches text-white font-bold flex flex-col">
+          <div className="textConten md:w-7/12 z-10  flex  flex-col  gap-0 md:pl-20 justify-center w-full  self-start md:mt-10  md:items-start items-center ">
+            <div className="text-3xl sm:text-4xl md:text-5xl text-left pt-10 font-liches text-white font-bold flex flex-col">
               Let's
             </div>
             <a
@@ -57,7 +56,7 @@ function YTSection() {
                                          reviews?.map((review, index) => (
                                            <div key={index} className="embla__slide min-w-full">
                                             <div className="flex w-full p-3  md:p-0  md:w-96 h-full rounded-md" >
-                                              <div className="group flex relative border border-B500 rounded-md overflow-hidden  cursor-pointer " onClick={() => {
+                                              <div className="group flex relative rounded-md overflow-hidden  cursor-pointer " onClick={() => {
                                                     setIsOpenYTSection(true);
                                                     setytLink(review?.video_url);
                                                   }}>
@@ -112,7 +111,6 @@ function YTSection() {
           </div>
         )}
       </div>
-    </div>
   );
 }
 
