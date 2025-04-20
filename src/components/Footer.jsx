@@ -163,11 +163,11 @@ function Footer() {
             <div className="flex flex-col md:flex-row justify-center md:justify-evenly gap-10 tes w-8/12 items-justify">
           
 
-            <div className="flex  flex-col  items-center  md:items-start  gap-6 w-full  justify-center md:justify-start" >
+            <div className="flex  flex-col  items-start  gap-6 w-full  justify-center md:justify-start" >
               <h1 className="text-md font-bold text-N100">
                 Discovery
               </h1>
-              <ul className="flex flex-col  items-center md:items-start gap-4 text-N100">
+              <ul className="flex flex-col  items-start gap-4 text-N100">
                 {discovery.map((item, index) => (
                   <li key={index} className=" ">
                     <Link to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
@@ -180,11 +180,11 @@ function Footer() {
 
 
 
-              <div className="flex  flex-col  items-center  md:items-start  gap-6 w-full  justify-center md:justify-start" >
+              <div className="flex  flex-col  items-start  gap-6 w-full  justify-center md:justify-start" >
               <h1 className="text-md font-bold text-N100">
                 Resources
               </h1>
-              <ul className="flex flex-col  items-center md:items-start gap-4 text-N100">
+              <ul className="flex flex-col  items-start gap-4 text-N100">
                   <li>
                     <a href="https://www.youtube.com/@hellotrekkers" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
                       Youtube
@@ -204,11 +204,11 @@ function Footer() {
             </div>
 
 
-              <div className="flex  flex-col  items-center  md:items-start  gap-6 w-full  justify-center md:justify-start" >
+              <div className="flex  flex-col  items-start  gap-6 w-full  justify-center md:justify-start" >
               <h1 className="text-md font-bold text-N100">
                 Company
               </h1>
-              <ul className="flex flex-col  items-center md:items-start gap-4 text-N100">
+              <ul className="flex flex-col  items-start gap-4 text-N100">
                 {company.map((item, index) => (
                   <li key={index} className=" ">
                     <Link to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
