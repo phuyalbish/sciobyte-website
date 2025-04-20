@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
 
@@ -40,15 +39,3 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
 };
 
 export default FAQ;
-
-{
-  /* <style> */
-}
-{
-  /* .transition-transform { */
-}
-// transition: transform 0.3s ease;
-// }
-{
-  /* </style> */
-}

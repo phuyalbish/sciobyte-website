@@ -14,7 +14,7 @@ const HomeStay = () => {
             <h1 className="text-2xl font-semibold text-left">
               Kritipur Comfort <span className="text-B300">Homestay</span>
             </h1>
-            <p className="text-[1rem] text-left">
+            <p className="text-justify">
               All Namaste! We are a warm and loving family of four – Aama, Suju,
               Aashish, and our little one, Anahat. Since 2017, our home has been
               open to guests from around the world, and we feel truly blessed to
@@ -32,12 +32,12 @@ const HomeStay = () => {
               loading="lazy"
               src={homeStay}
               alt="homestay"
-              className="h-full w-full object-cover rounded-xl"
+              className="h-full w-full object-cover rounded-lg"
             />
             <a
               href="https://www.instagram.com/nepalwelcomesyou/"
               target="_future"
-              className="absolute bottom-1 right-1 flex gap-2  items-center "
+              className="absolute bottom-2 right-2  flex gap-2  items-center "
             >
               <img
                 decoding="async"
@@ -46,7 +46,7 @@ const HomeStay = () => {
                 alt=""
                 className="w-6"
               />
-              <p className="text-lg font-semibold  text-white underline underline-offset-1">
+              <p className="text-base font-semibold  text-white underline underline-offset-1">
                 @nepalwelcomesyou
               </p>
             </a>

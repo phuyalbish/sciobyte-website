@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaTent } from "react-icons/fa6";
 import { FaTruckPlane } from "react-icons/fa6";
 import { MdFastfood } from "react-icons/md";
@@ -8,16 +8,17 @@ import { FaMountainSun } from "react-icons/fa6";
 import DOMPurify from 'dompurify';
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
-const TrekItenaryAccordion = ({ schedule }) => {
+const TrekItenaryAccordion = ({ schedule,  isOpened, handleScheduleState }) => {
 
   const sanitizedContent = DOMPurify.sanitize(schedule?.detail);
-  // const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
-  const [isOpened, setIsOpened] = useState(false);
   const arrowSVG = !isOpened ? (
     <FaChevronDown className="h-fit min-w-7 max-w-7 self-center bg-G300 p-2 rounded-sm text-white" />
   ) : (
     <FaChevronUp className="h-fit min-w-7 max-w-7 self-center  bg-G300 p-2 rounded-sm text-white" />
   );
+
+  const default_bg_color = isOpened ? "bg-B200" : "bg-white";
+
 
   const trekHeadings = [
 
@@ -53,13 +54,12 @@ const TrekItenaryAccordion = ({ schedule }) => {
   ];
 
 
-  const default_bg_color = isOpened ? "bg-B200" : "bg-white";
   return (
     <>
       <div className="cursor-pointer w-full mx-auto select-none  flex flex-col gap-2">
         <div
           className={`${default_bg_color} hover:bg-B200 rounded-md p-2 transition duration-300 ease-in-out  flex md:flex-row flex-col gap-3  justify-start`}
-          onClick={() => setIsOpened(!isOpened)}
+          onClick={() =>  handleScheduleState(schedule.id)}
         >
           <div className="flex flex-col md:w-20 items-center">
             <div className="px-5 h-8 bg-G300 rounded-tl-2xl w-full text-white items-center justify-center flex text-md">

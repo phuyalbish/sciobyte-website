@@ -27,7 +27,6 @@ const FAQSection = () => {
           return;
         }
 
-        let maxLength = faqsData.length;
         setFaqs(
           faqsData.map((faq, index) => {
             return {

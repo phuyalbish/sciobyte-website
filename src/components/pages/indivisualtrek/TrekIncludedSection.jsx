@@ -15,13 +15,13 @@ function TrekIncludedSection({ includes, excludes }) {
             <div className="flex flex-col gap-2">
               {includes.map((item, index) => (
                 <div className="flex flex-col" key={index}>
-                  <div className="flex felx-row gap-2 items-center  ">
+                  <div className="flex felx-row gap-2 items-start  ">
                     <div className="flex min-w-7 min-h-7 ">
                      <img src={CheckMark} alt="" />
                     </div>
-                    <div className="font-bold">{item.title}</div>
+                    <div className="font-bold leading-normal">{item.title}</div>
                   </div>
-                  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
+                  <div className="pl-10 text-sm text-justify  leading-relaxed" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
                 </div>
               ))}
             </div>
@@ -36,13 +36,13 @@ function TrekIncludedSection({ includes, excludes }) {
             <div className="flex flex-col gap-2">
               {excludes.map((item, index) => (
                 <div className="flex flex-col" key={index}>
-                  <div className="flex felx-row gap-2 items-center  ">
+                  <div className="flex felx-row gap-2 items-start  ">
                     <div className="flex min-w-6 min-h-6">
                      <img src={Exclamation} alt="" />
                     </div>
-                    <div className="font-bold">{item?.title}</div>
+                    <div className="font-bold leading-normal">{item?.title}</div>
                   </div>
-                  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
+                  <div className="pl-10 text-sm text-justify leading-relaxed" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
     
                 </div>
               ))}
