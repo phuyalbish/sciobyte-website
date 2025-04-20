@@ -121,7 +121,7 @@ function TrekBasicInformationSection({
  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full rounded-md bg-G200">
         {trekBasicHeadings.map((item, index) =>
           item?.description ? (
-            <div className="rounded-xl flex gap-3  items-center justify-start">
+            <div key={index} className="rounded-xl flex gap-3  items-center justify-start">
 
                   {item?.icon &&
                       React.createElement(item?.icon, {
