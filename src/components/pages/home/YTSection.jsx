@@ -28,7 +28,7 @@ function YTSection() {
      
       <div className="relative container h-full">
          
-        <div className="relative  z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center gap-5 ">
+        <div className="relative  z-10 bg-cover w-full h-full md:py-0 py-10 flex md:flex-row flex-col items-center md:gap-5">
           <img
             decoding="async"
             loading="lazy"
