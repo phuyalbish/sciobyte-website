@@ -55,7 +55,7 @@ function ImageSlideSection({ gallery}) {
               }}
             >
               <div className="absolute z-10 rounded-md  w-full h-full bg-white/50 text-white font-bold flex items-center justify-center text-xl">
-                <div className="text-N500 rounded-md">
+                <div className="text-N900 rounded-md">
                   +{gallery?.length - 2}
                 </div>
               </div>
