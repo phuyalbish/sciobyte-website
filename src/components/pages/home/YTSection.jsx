@@ -56,7 +56,7 @@ function YTSection() {
                                           {
                                          reviews?.map((review, index) => (
                                            <div key={index} className="embla__slide min-w-full">
-                                            <div className="flex w-full p-3  md:p-0  md:w-96 h-full shadow-md rounded-md" >
+                                            <div className="flex w-full p-3  md:p-0  md:w-96 h-full rounded-md" >
                                               <div className="group flex relative border border-B500 rounded-md overflow-hidden  cursor-pointer " onClick={() => {
                                                     setIsOpenYTSection(true);
                                                     setytLink(review?.video_url);
