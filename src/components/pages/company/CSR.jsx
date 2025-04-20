@@ -8,7 +8,7 @@ const HomeStay = () => {
         <div className="text-xl font-liches  text-left rounded-lg font-semibold">
           Social Initiative
         </div >
-         <p className=" text-left">
+         <p className="text-left">
                   I’ll admit, we hesitated to share this. But someone close to me
                   reminded, if we’re doing this with integrity, why not stand by it
                   proudly? We’re a young business, just finding our footing. We’re not
@@ -53,7 +53,7 @@ const HomeStay = () => {
                 @ <span className="underline underline-offset-2">nepalwill</span> 
               </p>
             </a>
-            <p className="text-[1rem] text-left">
+            <p className="text-justify">
               NepalWill is a non-governmental organization dedicated to
               uplifting primary school children in Nepal by providing essential
               educational resources and opportunities. Believing in the

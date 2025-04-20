@@ -19,9 +19,9 @@ function TrekIncludedSection({ includes, excludes }) {
                     <div className="flex min-w-7 min-h-7 ">
                      <img src={CheckMark} alt="" />
                     </div>
-                    <div className="font-bold">{item.title}</div>
+                    <div className="font-bold ">{item.title}</div>
                   </div>
-                  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
+                  <div className="pl-10 text-sm text-justify" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
                 </div>
               ))}
             </div>
@@ -42,7 +42,7 @@ function TrekIncludedSection({ includes, excludes }) {
                     </div>
                     <div className="font-bold">{item?.title}</div>
                   </div>
-                  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
+                  <div className="pl-10 text-sm text-justify" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
     
                 </div>
               ))}
