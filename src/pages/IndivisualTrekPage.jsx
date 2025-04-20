@@ -163,8 +163,8 @@ function IndivisualTrekPage() {
                 info={trek?.other_information}
               />
               <TrekMapSection map={trek?.map} map_link={trek?.map_link} elevation_graph={trek?.elevation_graph}/>
-              <TrekFAQSection faqs={trek?.faqs} />
               <TrekReviewsSection reviews={trek?.reviews} trek_name={trek?.name}/>
+              <TrekFAQSection faqs={trek?.faqs} />
 
 
             </div>
