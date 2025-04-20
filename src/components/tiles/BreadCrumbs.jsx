@@ -12,13 +12,13 @@ category_name = null,
 }) {
   console.log(category_slug)
   return (
-    <div className="flex gap-1font-light  items-center text-sm flex-wrap">
+    <div className="flex gap-1font-light  items-center text-base flex-wrap text-left">
       <Link to="/">
-        <GoHome className="size-3 md:size-6" />
+        <GoHome className="size-6" />
       </Link>
       {category_name && (
         <>
-          <GoChevronRight className="size-3 md:size-6" />
+          <GoChevronRight className="size-6" />
           <Link to={`/category/${category_slug}/`} className="hover:underline">
             {category_name}
           </Link>
@@ -26,7 +26,7 @@ category_name = null,
       )}
       {region_name && (
         <>
-          <GoChevronRight className="size-3 md:size-6" />
+          <GoChevronRight className="size-6" />
           <Link to={`/region/${region_slug}`} className="hover:underline">
             {region_name}
           </Link>
@@ -34,7 +34,7 @@ category_name = null,
       )}
       {name && (
         <>
-          <GoChevronRight className="size-3 md:size-6" />
+          <GoChevronRight className="size-6" />
           {name}
         </>
       )}

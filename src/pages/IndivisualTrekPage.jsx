@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import BreadCrumbs from "@/components/tiles/BreadCrumbs";
 import { fetchIndivisualTrek } from "@/apis/treks.js";
 import ImageSlideSection from "@/components/pages/indivisualtrek/ImageSlideSection";
@@ -183,13 +183,13 @@ function IndivisualTrekPage() {
       <div className="fixed bg-B100 z-10 w-full  bottom-0 h-16 sm:hidden">
         <div className="p-2 flex justify-end gap-16">
           <div className="flex flex-col justify-start items-start ">
-            <div className="text-base font-light text-N300">Connect</div>
-            <div className="text-base text-N500">Send Inquiry</div>
+            <div className="text-base font-light text-N400">Connect</div>
+            <div className="text-base text-N800">Send Inquiry</div>
           </div>
 
-          <div className="text-base font-light text-N50 bg-B400 flex gap-2 justify-center items-center px-2 rounded-md">
+          <Link to="/contact" className="text-base font-light  bg-B400 flex gap-2 justify-center items-center px-2 rounded-md text-white">
             Make a booking
-          </div>
+          </Link>
         </div>
       </div>
 

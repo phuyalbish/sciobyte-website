@@ -96,17 +96,17 @@ function ContactPage() {
         <div className="text-center mb-12">
           <h1 className="text-3xl font-liches font-bold text-gray-900">Contact Us</h1>
           <p className="mt-2 text-gray-600">
-            Empowering individuals to create their stories.
+            Empowering individuals to create their Tales.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex md:flex-row flex-col-reverse  justify-evenly gap-8">
           {/* Contact Information */}
           <div className=" p-8 text-left">
             <div className="mb-8">
-              <h2 className="text-xl font-bold border-b-2 w-fit italic border-B300 b-6">
-                Hello Trekkers Pvt. Ltd
-              </h2>
+              <div className="text-xl font-liches text-left  font-semibold border-b-2 italic border-B300 b-6">
+                Hello Trekkers Pvt. Ltd.
+              </div>
             </div>
 
             <div className="space-y-6">
@@ -140,7 +140,6 @@ function ContactPage() {
               </div>
 
               <div className="flex items-center space-x-4">
-                {/* <MessageSquare className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" /> */}
                 <img
                   decoding="async"
                   loading="lazy"
@@ -173,7 +172,7 @@ function ContactPage() {
             </div>
 
             <div className="mt-8 flex gap-4">
-              <button className="group flex gap-2 items-center px-4 py-2 bg-B75  rounded-md hover:bg-B100 transition-colors">
+              <button className="group flex gap-2 items-center px-4 py-2 bg-B75   hover:bg-B100 transition-colors">
                 {/* <Phone className="w-4 h-4 mr-2" /> */}
                 <span className="text-B75 group-hover:text-B200">
                   <img
@@ -203,7 +202,7 @@ function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-G50 p-8 rounded-lg shadow-md text-left">
+          <div className="bg-G50 p-8 rounded-lg w-full md:w-1/2  text-left">
             <form onSubmit={handleSubmit} className="space-y-6">
               {successMsg && (
                 <p className="text-center text-G300">{successMsg}</p>
@@ -222,7 +221,7 @@ function ContactPage() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="p-2 mt-1 block w-full rounded-md border border-B200 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                 />
                 {errorMsg["name"] && (
                   <p className="block text-sm font-medium text-danger">
@@ -245,7 +244,7 @@ function ContactPage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@email.com"
-                  className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="p-2 mt-1 block w-full rounded-md  border border-B200 shadow-sm  focus:ring-blue-500"
                 />
                 {errorMsg["email"] && (
                   <p className="block text-sm font-medium text-danger">
@@ -261,10 +260,6 @@ function ContactPage() {
                 >
                   Phone Number*
                 </label>
-                <div className="mt-1 flex rounded-md shadow-sm">
-                  <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500">
-                    +977
-                  </span>
                   <input
                     type="tel"
                     id="phone"
@@ -272,9 +267,14 @@ function ContactPage() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="XXXXXXXXXX"
-                    className="p-2 flex-1 block w-full rounded-none rounded-r-md border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                    className="p-2 mt-1 block w-full rounded-md  border border-B200 shadow-sm  focus:ring-blue-500"
                   />
-                </div>
+
+                {errorMsg["phone"] && (
+                  <p className="block text-sm font-medium text-danger">
+                    {errorMsg["phone"]}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -291,7 +291,7 @@ function ContactPage() {
                   onChange={handleChange}
                   rows={4}
                   placeholder="Comment or Questions"
-                  className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="p-2 mt-1 block w-full rounded-md  border border-B200 shadow-sm  focus:ring-blue-500"
                 />
                 {errorMsg["message"] && (
                   <p className="block text-sm font-medium text-danger">
@@ -303,8 +303,8 @@ function ContactPage() {
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className={`py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white ${
-                    isSubmitting ? "bg-B500 cursor-not-allowed" : "bg-B300"
+                  className={`py-1 px-4 border border-transparent rounded-md shadow-sm font-medium text-white ${
+                    isSubmitting ? "bg-B900 cursor-not-allowed" : "bg-B500"
                   } hover:bg-B500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
                   disabled={isSubmitting}
                 >

@@ -233,9 +233,9 @@ function Footer() {
           loading="lazy"
           className="bg-B400 border border-t-B400 box-border border-l-0  border-b-0   outline-none border-r-0"
         />
-        <div className="absolute w-full bottom-1 md:bottom-5 flex flex-col  box-border text-sm md:text-md text-white">
-          <p>All rights reserved © Hello Trekkers Pvt. Ltd</p>
-          <p>Designed by Webodle</p>
+        <div className="absolute w-full bottom-1 md:bottom-5 flex flex-col  box-border text-sm md:text-base text-white font-extralight">
+          <p>All rights reserved @ Hello Trekkers Pvt. Ltd (2025)</p>
+          <p>Designed by <a target="_blank" href="https://www.webodle.com" className="font-bold">Webodle</a></p>
         </div>
       </div>
     </footer>
