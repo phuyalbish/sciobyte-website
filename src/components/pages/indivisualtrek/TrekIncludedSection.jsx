@@ -42,7 +42,7 @@ function TrekIncludedSection({ includes, excludes }) {
                     </div>
                     <div className="font-bold">{item?.title}</div>
                   </div>
-                  <div className="pl-10 text-sm text-justify" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
+                  <div className="pl-10 text-sm text-justify leading-relaxed" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description) }} />
     
                 </div>
               ))}
