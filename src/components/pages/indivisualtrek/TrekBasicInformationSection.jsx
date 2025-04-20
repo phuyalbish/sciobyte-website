@@ -125,7 +125,7 @@ function TrekBasicInformationSection({
 
                   {item?.icon &&
                       React.createElement(item?.icon, {
-                        className: "text-lg text-N900",
+                        className: "size-6 text-N900",
                       })}
                     <div className="flex flex-col justify-start items-start">
                       <div className="text-xs text-N500 font-semibold text-start">{item?.heading}</div>
