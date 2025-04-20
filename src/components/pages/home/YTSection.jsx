@@ -25,9 +25,9 @@ function YTSection() {
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
   return (
      
-      <div id="youtube"  className="relative container h-full">
+      <div id="youtube"  className="relative h-full">
          
-        <div className="relative  z-10 bg-cover w-full h-full pt-10 flex md:flex-row flex-col justify-start items-center md:gap-5">
+        <div className="relative  z-10 bg-cover w-full h-full  pt-10 flex md:flex-row flex-col justify-start items-center md:gap-5">
           <img
             decoding="async"
             loading="lazy"
@@ -49,6 +49,7 @@ function YTSection() {
               <div className="font-liches">Youtube</div>
             </a>
           </div>
+          <div className="test md:mt-10">
           
                  {Array.isArray(reviews) && reviews.length > 0 ? (
                               <EmblaReviewCarousel>
@@ -89,6 +90,7 @@ function YTSection() {
                                        </EmblaReviewCarousel>
                                         )
                                          : ""}
+                                         </div>
           
         </div>
         {isOpenYTSection && (
