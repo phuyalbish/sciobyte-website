@@ -28,7 +28,7 @@ import { FaInstagram } from "react-icons/fa";
 
 function InstagramSection() {
   return (
-    <div id="instagram" className="relative flex justify-center   items-center flex-col">
+    <div id="instagram" className="relative flex justify-center  w-full items-center flex-col">
       <img
         decoding="async"
         loading="lazy"
@@ -73,7 +73,7 @@ function InstagramSection() {
               </div>
             ))
           ) : (
-            <p className="text-gray-500">No regions available</p>
+            <p className="text-gray-500">No Instagram Post</p>
           )}
         </div>
       </div>
@@ -82,7 +82,7 @@ function InstagramSection() {
         loading="lazy"
         src={bottom}
         alt=""
-        className="bottom-0 object-cover mt-5  z-0"
+        className="bottom-0 object-cover mt-5 w-full  z-0"
       />
     </div>
   );
