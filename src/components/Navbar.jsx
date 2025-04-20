@@ -9,6 +9,7 @@ import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
 import { fetchSearch } from "@/apis/search.js";
 import categories from "@/data/Categories.json";
+import Pen from "@/assets/icons/Pen.svg"
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 function Navbar({ activeMenu, setActiveMenu }) {
@@ -89,7 +90,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
   return (
     <>
       <div className="relative hidden md:flex bg-B500 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
-        <div className="w-full h-16 mx-auto flex items-center justify-between px-[4rem] gap-6 py-4">
+        <div className="w-full h-16 mx-auto flex items-center justify-between px-[4rem] gap-3 py-4">
           <Link
             to="/"
             onClick={() => {
@@ -111,7 +112,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
           <div
             ref={navbarMenuRef}
-            className="flex flex-row justify-evenly md:justify-center gap-10 lg:gap-16 w-full relative"
+            className="flex flex-row justify-evenly md:justify-center gap-8 lg:gap-16 w-fit  relative"
           >
             {categories?.map((item, index) => (
               <React.Fragment key={index}>
@@ -320,11 +321,12 @@ function Navbar({ activeMenu, setActiveMenu }) {
               )}
             </div>
           </div>
-          <div className="relative">
+          <div className="relative flex gap-2 items-center ">
             
+          
           <div
 
-            className={` bg-white rounded-md overflow-hidden relative  items-center px-2 py-1   gap-1 transition-all duration-300 hidden lg:flex`}
+            className={` bg-white rounded-md overflow-hidden relative h-fit w-full  items-center px-2 py-1   gap-1 transition-all duration-300 hidden lg:flex`}
           >
             <input
               type="text"
@@ -334,16 +336,34 @@ function Navbar({ activeMenu, setActiveMenu }) {
               onChange={(e) => setSearchText(e.target.value)}
             />
             <IoSearch
-              className="size-6 text-N300 hover:text-N500 cursor-pointer select-none"
+              className="size-6 text-N300 hover:text-N800 cursor-pointer select-none"
               onClick={handleSearch}
             />
             {isSearchTile && (
               <LiaTimesSolid
-                className="size-6  text-N300 hover:text-N500 cursor-pointer select-none"
+                className="size-6  text-N300 hover:text-N800 cursor-pointer select-none"
                 onClick={() => setIsSearchTile(false)}
               />
             )}
           </div>
+
+
+            <Link
+                    to="/plan"
+                    
+                    className="text-N900 group flex gap-2 items-center justify-center w-full text-sm px-2 py-2 bg-G800 rounded-md text-white hover:bg-transparent border border-transparent hover:border-G800 hover:text-G800"
+                    onClick={() => {
+                      setActiveMenu({ company: true });
+                      setDropdowns({});
+                      setCompanyDropDown(false);
+                    }}
+                  >
+
+              <img src={Pen}
+                className="size-4   text-white hover:text-G800 cursor-pointer select-none"
+              />
+                   <p className="text-sm"> Plan your Trip</p>
+          </Link>
            {isSearchTile ? (
           <div className="absolute  right-0 top-12 z-40 max-w-[90vw]  p-2 bg-white/70 backdrop-blur-md  gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
             {searchData?.map((item, index) => (

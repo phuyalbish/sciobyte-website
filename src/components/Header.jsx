@@ -5,7 +5,7 @@ import { IoIosMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-
+import Pen from "@/assets/icons/Pen.svg"
 import categories from "@/data/Categories.json";
 import { IoIosArrowDown } from "react-icons/io";
 import { fetchIndivisualNavCategories } from "@/apis/categories.js";
@@ -102,6 +102,23 @@ function Header({ setActiveMenu }) {
         </div>
         {isDropDown && (
           <div className="px-10 w-full h-[100vh]  fixed z-50 bg-white p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
+           
+                       <Link
+                               to="/plan"
+                               
+                               className="text-N900 group flex gap-2 items-center justify-center w-full text-sm px-2 py-2 bg-G800 rounded-md text-white hover:bg-transparent border border-transparent hover:border-G800 hover:text-G800"
+                               onClick={() => {
+                                 setActiveMenu({ company: true });
+                                 setDropdowns({});
+                                 setCompanyDropDown(false);
+                               }}
+                             >
+           
+                         <img src={Pen}
+                           className="size-4   text-white hover:text-G800 cursor-pointer select-none"
+                         />
+                              <p className="text-sm"> Plan your Trip</p>
+                     </Link>
             {categories?.map((item, index) =>
                 <div
                   key={index}
