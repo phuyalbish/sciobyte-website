@@ -28,22 +28,22 @@ function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }
   return (
     <div className="flex flex-col w-full gap-7">
       <div className="flex flex-col gap-2">
-        <div className="relative flex flex-col justify-end gap-4 w-full items-start ">
-          <div className="flex flex-col justify-end items-start w-full">
-            <div className="text-base text-bold text-N700">Price Starting From</div>
-            <div className="text-xl font-bold text-B500">USD {total_price}</div>
+        <div className="relative flex justify-between w-full items-start flex-wrap">
+          <div className="flex flex-col items-start">
+            <div className="text-sm text-bold">Price Starting From</div>
+            <div className="text-lg font-bold text-B500">USD {total_price}</div>
           </div>
           <div className="flex relative  gap-2 items-center">
             <div className="flex gap-1 items-center justify-center">
               {[...Array(stars)].map((_, index) => (
-                <FaStar key={index} className="text-yellow-500" />
+                <FaStar key={index} className="text-yellow-500 text-sm" />
               ))}
             </div>
-            <CiShare2 className="size-8 cursor-pointer" onClick={handleCopy} />
+            <CiShare2 className="size-6 cursor-pointer" onClick={handleCopy} />
           </div>
 
           {copied && (
-            <div className="text-N500 absolute bottom-0 right-0 w-34 ">
+            <div className="text-N500 text-sm absolute bottom-0 right-0 w-34 ">
               Link Copied!
             </div>
           )}
@@ -84,7 +84,7 @@ function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }
           target="_blank"
           className="rounded-lg bg-G600 hover:bg-G700 text-white text-base font-bold cursor-pointer flex justify-center gap-3 items-center p-4"
         >
-          <FaWhatsapp />
+          <FaWhatsapp className="text-lg"/>
           Quick Inquiry
         </a>
       </div>
