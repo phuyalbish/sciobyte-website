@@ -67,7 +67,7 @@ function IndivisualTrekPage() {
           <ImageSlideSection gallery={trek?.gallery}/>
      
         <div className="flex sticky top-0 h-full gap-10 w-full">
-          <div className="flex md:w-7/12 w-full flex-col gap-4 ">
+          <div className="flex md:w-9/12 w-full flex-col gap-4 ">
             <TrekBasicInformationSection 
             travel_name = {trek?.name}
                 max_duration ={trek?.max_duration}
@@ -185,7 +185,7 @@ function IndivisualTrekPage() {
 
             </div>
           </div>
-          <div className="md:flex sticky top-[10vh] hidden md:w-5/12  h-[80vh]">
+          <div className="md:flex sticky top-[10vh] hidden md:w-3/12  h-[80vh]">
             <TrekPricingSection
                total_price={trek?.total_price}
                   map={trek?.map || trek?.elevation_graph}
