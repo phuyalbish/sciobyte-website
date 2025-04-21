@@ -6,6 +6,7 @@ import ImageSlideSection from "@/components/pages/indivisualtrek/ImageSlideSecti
 import TrekBasicInformationSection from "@/components/pages/indivisualtrek/TrekBasicInformationSection";
 import TrekOverviewSection from "@/components/pages/indivisualtrek/TrekOverviewSection";
 
+import FooterVector from "@/assets/footer/FooterTrek.svg";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import { scrollToSection } from "@/apis/scrollToSection.js";
 import TrekItenarySection from "@/components/pages/indivisualtrek/TrekItenarySection";
@@ -50,6 +51,7 @@ function IndivisualTrekPage() {
 
   console.log(trek)
   return (
+    <>
     <div className="mb-10">
         
       <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
@@ -210,6 +212,9 @@ function IndivisualTrekPage() {
           </div>
         )} 
     </div>
+    <img src={FooterVector} alt="" className="w-full" />
+
+    </>
   );
 }
 
