@@ -13,7 +13,7 @@ function TrekRequirementSection({gears }) {
           gears.map((item, index) => (
             <div
               key={index}
-              className={` py-2 px-4 rounded-xl flex gap-3 items-center border hover:border-B75 bg-transparent cursor-pointer`}
+              className={` py-2 px-4 rounded-xl flex gap-3 items-center  bg-G200 cursor-pointer`}
             >
               <img
                 decoding="async"
@@ -22,7 +22,7 @@ function TrekRequirementSection({gears }) {
                 className="w-8 aspect-square h-8 "
               />
               <div className="flex flex-col justify-start items-start">
-                <div className="text-base text-N500 font-semibold">
+                <div className="text-base text-N900 font-semibold">
                   {item.name}
                 </div>
               </div>

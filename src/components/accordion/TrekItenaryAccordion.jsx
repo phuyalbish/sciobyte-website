@@ -95,7 +95,7 @@ useEffect(() => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full">
             {trekHeadings.map((item, index) =>
               item?.description ? (
-                  <div key={index} className="rounded-xl flex gap-3  items-center justify-start">
+                  <div key={index} className="rounded-xl flex gap-3 bg-G200  py-2 px-4   items-center justify-start">
                 
                                   {item?.icon &&
                                       React.createElement(item?.icon, {
