@@ -28,9 +28,9 @@ function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }
   return (
     <div className="flex flex-col w-full gap-7">
       <div className="flex flex-col gap-2">
-        <div className="relative flex justify-between w-full items-start ">
-          <div className="flex flex-col items-start">
-            <div className="text-md text-bold">Price Starting From</div>
+        <div className="relative flex flex-col justify-end gap-4 w-full items-start ">
+          <div className="flex flex-col justify-end items-start w-full">
+            <div className="text-base text-bold text-N700">Price Starting From</div>
             <div className="text-xl font-bold text-B500">USD {total_price}</div>
           </div>
           <div className="flex relative  gap-2 items-center">
