@@ -112,7 +112,7 @@ useEffect(() => {
 
           <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
           <div className="flex gap-2  relative overflow-x-scroll  w-100 rounded-md">
-            <div className="bg-white/50 text-N400 p-1 px-2 rounded-md absolute bottom-3 right-3">
+            <div className="bg-white/50 text-N900 p-1 px-2 rounded-md absolute bottom-3 right-3">
               Scroll --
             </div>
             {schedule?.gallery.map((item, index) => (
