@@ -10,16 +10,14 @@ export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 const TrekItenaryAccordion = ({ schedule,  isOpened, handleScheduleState }) => {
 const scrollRef = useRef(null);
-const hasInteractedRef = useRef(false); 
+const hasInteractedRef = useRef(false);
 
 useEffect(() => {
   if (isOpened) {
     if (hasInteractedRef.current && scrollRef.current) {
-      const yOffset = window.innerHeight * 0.2; 
+      const yOffset = window.innerHeight * 0.2;
       const y = scrollRef.current.getBoundingClientRect().top + window.pageYOffset - yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
-    } else {
-      hasInteractedRef.current = true;
     }
   }
 }, [isOpened]);
@@ -73,7 +71,10 @@ useEffect(() => {
       <div ref={scrollRef} className="cursor-pointer w-full mx-auto select-none  flex flex-col gap-2">
         <div
           className={`${default_bg_color} hover:bg-B200 rounded-md p-2 transition duration-300 ease-in-out  flex md:flex-row flex-col gap-3  justify-start`}
-          onClick={() =>  handleScheduleState(schedule.id)}
+          onClick={() => {
+            hasInteractedRef.current = true;
+            handleScheduleState(schedule.id);
+          }}
         >
           <div className="flex flex-col md:w-20 items-center">
             <div className="px-5 h-8 bg-G300 rounded-tl-2xl w-full text-white items-center justify-center flex text-md">
