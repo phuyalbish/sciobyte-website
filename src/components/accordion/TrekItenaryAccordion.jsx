@@ -9,14 +9,18 @@ import DOMPurify from 'dompurify';
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 const TrekItenaryAccordion = ({ schedule,  isOpened, handleScheduleState }) => {
+const scrollRef = useRef(null);
+const hasInteractedRef = useRef(false); 
 
- const scrollRef = useRef(null);
-
-  useEffect(() => {
-  if (isOpened && scrollRef.current) {
-    const yOffset = window.innerHeight * 0.2; 
-    const y = scrollRef.current.getBoundingClientRect().top + window.pageYOffset - yOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
+useEffect(() => {
+  if (isOpened) {
+    if (hasInteractedRef.current && scrollRef.current) {
+      const yOffset = window.innerHeight * 0.2; 
+      const y = scrollRef.current.getBoundingClientRect().top + window.pageYOffset - yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    } else {
+      hasInteractedRef.current = true;
+    }
   }
 }, [isOpened]);
 
