@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { FaTent } from "react-icons/fa6";
 import { FaTruckPlane } from "react-icons/fa6";
 import { MdFastfood } from "react-icons/md";
@@ -9,6 +9,16 @@ import DOMPurify from 'dompurify';
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 const TrekItenaryAccordion = ({ schedule,  isOpened, handleScheduleState }) => {
+
+ const scrollRef = useRef(null);
+
+  useEffect(() => {
+  if (isOpened && scrollRef.current) {
+    const yOffset = window.innerHeight * 0.2; 
+    const y = scrollRef.current.getBoundingClientRect().top + window.pageYOffset - yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+}, [isOpened]);
 
   const sanitizedContent = DOMPurify.sanitize(schedule?.detail);
   const arrowSVG = !isOpened ? (
@@ -56,7 +66,7 @@ const TrekItenaryAccordion = ({ schedule,  isOpened, handleScheduleState }) => {
 
   return (
     <>
-      <div className="cursor-pointer w-full mx-auto select-none  flex flex-col gap-2">
+      <div ref={scrollRef} className="cursor-pointer w-full mx-auto select-none  flex flex-col gap-2">
         <div
           className={`${default_bg_color} hover:bg-B200 rounded-md p-2 transition duration-300 ease-in-out  flex md:flex-row flex-col gap-3  justify-start`}
           onClick={() =>  handleScheduleState(schedule.id)}
@@ -80,7 +90,7 @@ const TrekItenaryAccordion = ({ schedule,  isOpened, handleScheduleState }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full">
             {trekHeadings.map((item, index) =>
               item?.description ? (
-                  <div className="rounded-xl flex gap-3  items-center justify-start">
+                  <div key={index} className="rounded-xl flex gap-3  items-center justify-start">
                 
                                   {item?.icon &&
                                       React.createElement(item?.icon, {

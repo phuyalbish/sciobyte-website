@@ -10,7 +10,7 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
   const questionBg = isOpened ? "bg-B200" : "bg-white";
 console.log(isOpened)
   return (
-    <div className="cursor-pointer px-5 w-full mx-auto select-none">
+    <div className="cursor-pointer w-full mx-auto select-none">
       <button
         onClick={() => handleFaqState(faq.id)}
         className={`w-full text-left ${questionBg} hover:bg-B75 p-4 rounded-md shadow-xs transition duration-300 ease-in-out`}

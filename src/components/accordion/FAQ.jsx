@@ -11,7 +11,7 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
  const question_default_bg_color = isOpened ? "bg-B200" : "bg-white";
 
   return (
-    <div className="cursor-pointer px-5 w-full md:w-[60%] mx-auto select-none">
+    <div className="cursor-pointer w-full md:w-[70%] mx-auto select-none">
       <div
         className={`${question_default_bg_color}  hover:bg-B75 p-4 rounded-md shadow-xs transition duration-300 ease-in-out `}
         onClick={() => handleFaqState(faq.id)}
