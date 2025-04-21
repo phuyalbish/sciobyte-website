@@ -91,7 +91,13 @@ function Navbar({ activeMenu, setActiveMenu }) {
     <>
       <div className="relative hidden md:flex bg-B500 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
         <div className="w-full h-16 mx-auto flex items-center justify-between px-[4rem] gap-3 py-4">
-          <Link
+         
+
+
+
+          <div className="relative flex gap-2 items-center ">
+            
+           <Link
             to="/"
             onClick={() => {
               setActiveMenu({});
@@ -109,6 +115,53 @@ function Navbar({ activeMenu, setActiveMenu }) {
               alt="Logo"
             />
           </Link>
+
+          <div
+
+            className={` bg-white rounded-md overflow-hidden relative h-fit w-full  items-center px-2 py-1   gap-1 transition-all duration-300 hidden lg:flex 
+              ${
+                showLogo ? "opacity-100" : "opacity-0"
+              }`}
+          >
+            <input
+              type="text"
+              className="outline-none bg-transparent h-full w-full text-xs text-N500 placeholder-N400"
+              placeholder="Search Keywords"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+            <IoSearch
+              className="size-6 text-N300 hover:text-N800 cursor-pointer select-none"
+              onClick={handleSearch}
+            />
+            {isSearchTile && (
+              <LiaTimesSolid
+                className="size-6  text-N300 hover:text-N800 cursor-pointer select-none"
+                onClick={() => setIsSearchTile(false)}
+              />
+            )}
+          </div>
+
+
+           {isSearchTile ? (
+          <div className="absolute  right-0 top-12 z-40 max-w-[90vw]  p-2 bg-white/70 backdrop-blur-md  gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
+            {searchData?.map((item, index) => (
+              <SearchTrekRegionTile
+                key={index}
+                name={item?.name}
+                image={item?.image}
+                slug={item?.slug}
+                category_name={item?.category_name}
+                category_slug={item?.category_slug}
+                main_category={item?.main_category}
+                main_category_slug={item?.main_category_slug}
+              />
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
+        </div>
 
           <div
             ref={navbarMenuRef}
@@ -321,68 +374,26 @@ function Navbar({ activeMenu, setActiveMenu }) {
               )}
             </div>
           </div>
+
           <div className="relative flex gap-2 items-center ">
-            
-          
-          <div
 
-            className={` bg-white rounded-md overflow-hidden relative h-fit w-full  items-center px-2 py-1   gap-1 transition-all duration-300 hidden lg:flex`}
-          >
-            <input
-              type="text"
-              className="outline-none bg-transparent h-full w-full text-xs text-N500 placeholder-N400"
-              placeholder="Search Keywords"
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
-            <IoSearch
-              className="size-6 text-N300 hover:text-N800 cursor-pointer select-none"
-              onClick={handleSearch}
-            />
-            {isSearchTile && (
-              <LiaTimesSolid
-                className="size-6  text-N300 hover:text-N800 cursor-pointer select-none"
-                onClick={() => setIsSearchTile(false)}
-              />
-            )}
-          </div>
+              <Link
+                      to="/plan"
+                      
+                      className="text-N900 group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-G700 rounded-md text-white hover:bg-transparent border border-transparent hover:border-G800 hover:text-G800"
+                      onClick={() => {
+                        setActiveMenu({ company: true });
+                        setDropdowns({});
+                        setCompanyDropDown(false);
+                      }}
+                    >
 
-
-            <Link
-                    to="/plan"
-                    
-                    className="text-N900 group flex gap-2 items-center justify-center w-full text-sm px-2 py-2 bg-G800 rounded-md text-white hover:bg-transparent border border-transparent hover:border-G800 hover:text-G800"
-                    onClick={() => {
-                      setActiveMenu({ company: true });
-                      setDropdowns({});
-                      setCompanyDropDown(false);
-                    }}
-                  >
-
-              <img src={Pen}
-                className="size-4   text-white hover:text-G800 cursor-pointer select-none"
-              />
-                   <p className="text-sm"> Plan your Trip</p>
-          </Link>
-           {isSearchTile ? (
-          <div className="absolute  right-0 top-12 z-40 max-w-[90vw]  p-2 bg-white/70 backdrop-blur-md  gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
-            {searchData?.map((item, index) => (
-              <SearchTrekRegionTile
-                key={index}
-                name={item?.name}
-                image={item?.image}
-                slug={item?.slug}
-                category_name={item?.category_name}
-                category_slug={item?.category_slug}
-                main_category={item?.main_category}
-                main_category_slug={item?.main_category_slug}
-              />
-            ))}
-          </div>
-        ) : (
-          ""
-        )}
-        </div>
+                    <p className="text-sm"> Plan your Trip</p>
+                <img src={Pen}
+                  className="size-6  text-white hover:text-G800 cursor-pointer select-none"
+                />
+            </Link>
+            </div>
 
 
           </div>

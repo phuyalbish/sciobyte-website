@@ -5,7 +5,7 @@ import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 const TrekSection = ({treks, plainText, blueText }) => {
 
   return (
-    <div className="md:px-[4.5rem] bottom_popup">
+    <div className="md:px-[4.5rem] bottom_popup z-40">
       <h1 className="text-2xl font-liches md:text-5xl tracking-widest font-regular px-2 md:mb-6 ">
         {plainText} <span className="text-B400 text-2xl font-liches md:text-5xl font-regular "> {blueText}</span>
       </h1>

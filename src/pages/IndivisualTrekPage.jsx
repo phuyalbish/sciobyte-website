@@ -6,12 +6,14 @@ import ImageSlideSection from "@/components/pages/indivisualtrek/ImageSlideSecti
 import TrekBasicInformationSection from "@/components/pages/indivisualtrek/TrekBasicInformationSection";
 import TrekOverviewSection from "@/components/pages/indivisualtrek/TrekOverviewSection";
 
+import FooterVector from "@/assets/footer/FooterTrek.svg";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import { scrollToSection } from "@/apis/scrollToSection.js";
 import TrekItenarySection from "@/components/pages/indivisualtrek/TrekItenarySection";
 import TrekMapSection from "@/components/pages/indivisualtrek/TrekMapSection";
 import TrekFAQSection from "@/components/pages/indivisualtrek/TrekFAQSection";
 import TrekRequirementSection from "@/components/pages/indivisualtrek/TrekRequirementSection";
+import TrekGearsSection from "@/components/pages/indivisualtrek/TrekGearsSection";
 import TrekReviewsSection from "@/components/pages/indivisualtrek/TrekReviewsSection";
 import TrekIncludedSection from "@/components/pages/indivisualtrek/TrekIncludedSection";
 import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSection";
@@ -50,6 +52,7 @@ function IndivisualTrekPage() {
 
   console.log(trek)
   return (
+    <>
     <div className="mb-10">
         
       <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
@@ -81,7 +84,7 @@ function IndivisualTrekPage() {
                 best_seasons =  {trek?.best_seasons}
             />
             <div className="flex flex-col gap-10 text-left">
-              <div className="p-3  sticky overflow-x-auto top-16 rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-N100">
+              <div className="p-3  sticky overflow-x-auto top-16 rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-white">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"
@@ -105,6 +108,17 @@ function IndivisualTrekPage() {
                   Requirements
                 </button>
                 )}
+
+
+              {Array.isArray(trek?.gears) && trek.gears.length > 0 && (
+                  <button
+                  onClick={() => scrollToSection("gears")}
+                  className="hover:underline flex gap-1"
+                >
+                  Gears
+                </button>
+                )}
+
                
                 {(Array.isArray(trek?.includes) && trek.includes.length > 0 || Array.isArray(trek?.excludex) && trek.excludes.length > 0) && (
                    <button
@@ -151,6 +165,8 @@ function IndivisualTrekPage() {
               <TrekItenarySection data={trek?.schedules} />
               <TrekRequirementSection
                 requirements={trek?.requirements}
+              />
+               <TrekGearsSection
                 gears={trek?.gears}
               />
               <TrekIncludedSection
@@ -210,6 +226,9 @@ function IndivisualTrekPage() {
           </div>
         )} 
     </div>
+    <img src={FooterVector} alt="" className="w-full" />
+
+    </>
   );
 }
 
