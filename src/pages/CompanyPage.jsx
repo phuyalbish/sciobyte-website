@@ -6,7 +6,7 @@ import WhyHT from "@/components/pages/company/WhyHT.jsx";
 import Booking from "@/components/pages/company/Booking.jsx";
 import HomeStay from "@/components/pages/company/HomeStay.jsx";
 import CSR from "@/components/pages/company/CSR.jsx";
-import NepalWill from "@/components/pages/company/NepalWill.jsx";
+// import NepalWill from "@/components/pages/company/NepalWill.jsx";
 import FooterVector from "@/assets/footer/FooterAbout.svg";
 import { scrollToSection } from "@/apis/scrollToSection.js";
 
