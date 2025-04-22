@@ -34,6 +34,7 @@ const TrekTile = ({ data }) => {
   } = data;
   return (
     <Link
+    aria-label={`Trek - ${name}`}
       to={`/trek/${slug}`}
       className=" relative border bg-white  cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500   border-N100 5 border-0.5"
     >

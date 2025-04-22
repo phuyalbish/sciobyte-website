@@ -6,6 +6,8 @@ export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function SearchTrekRegionTile({ name, image, slug, category_name, category_slug, main_category, main_category_slug }) {
   return (
     <Link
+
+          aria-label={`Category - ${main_category_slug}`}
       to={`/${main_category_slug}/${slug}`}
       className="flex flex-col justify-left gap-1 p-2  min-w-48  max-w-48 rounded-md bg-white/50 hover:bg-white/25   hover:shadow-sm"
     >

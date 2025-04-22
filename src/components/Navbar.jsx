@@ -98,6 +98,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
           <div className="relative flex gap-2 items-center ">
             
            <Link
+
+            aria-label="Home Page"
             to="/"
             onClick={() => {
               setActiveMenu({});
@@ -204,7 +206,9 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                     <div className="p-2   justify-start gap-2 items-start  flex-row ">
                     {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
-                      <Link to={`/trek/${trek?.slug}`} className="w-fit  items-start text-sm hover:underline  underline-offset-4" key={index} onClick={() => {
+                      <Link 
+
+                        aria-label={`Trek - ${trek?.slug}`} to={`/trek/${trek?.slug}`} className="w-fit  items-start text-sm hover:underline  underline-offset-4" key={index} onClick={() => {
                           setActiveMenu({ blogs: true });
                           setDropdowns({});
                           setCompanyDropDown(false);
@@ -213,7 +217,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     </div>
                   </div>
                   <div className="flex w-full justify-end">
-              <Link to={`/category/${categoryDetails[item.slug]?.slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
+              <Link aria-label={`Category - ${categoryDetails[item.slug]?.slug}`} to={`/category/${categoryDetails[item.slug]?.slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
                 setActiveMenu({ blogs: true });
                 setDropdowns({});
                 setCompanyDropDown(false);
@@ -227,6 +231,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
             <Link
               to="/blogs"
+              aria-label="Blogs"
               className={`${
                 activeMenu["blogs"] ? "text-B900" : "text-white"
               } transition hover:underline underline-offset-4 text-sm`}
@@ -256,6 +261,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                 <div className="absolute top-14 left-0 m-auto w-64 justify-start items-start text-N900  bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 text-sm">
                   
                   <Link
+                  aria-label="Contact"
                     to="/contact"
                     className="text-N900  hover:underline"
 
@@ -267,6 +273,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     Contact Us
                   </Link>
                   <Link
+
+                  aria-label="About Us"
                     to="/about"
                     className="text-N900  hover:underline"
                     onClick={() => {
@@ -282,6 +290,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                   <Link
                     to="/about/why"
                     
+                  aria-label="About Us -Why Hellotrekkers"
                     className="text-N900 hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
@@ -296,6 +305,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                   <Link
                     to="/about/team"
                     
+                  aria-label="About Us- Team"
                     className="text-N900 hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
@@ -310,6 +320,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                   <Link
                     to="/about/homestay"
                     
+                  aria-label="About Us - Home Stay"
                     className="text-N900 hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
@@ -324,6 +335,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                   <Link
                     to="/about/csr"
                     
+                  aria-label="About Us - CSR"
                     className="text-N900  hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
@@ -336,6 +348,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                   <Link
                     to="/about/booking"
                     
+                  aria-label="About Us - Booking"
                     className="text-N900 hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
@@ -349,6 +362,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                   <Link
                     to="/privacy"
                     
+                  aria-label="Privacy Policy"
                     className="text-N900 hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
@@ -361,6 +375,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                   <Link
                     to="/termsandcondition"
                     
+                  aria-label="Terms And Conditions"
                     className="text-N900 hover:underline"
                     onClick={() => {
                       setActiveMenu({ company: true });
@@ -380,6 +395,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
               <Link
                       to="/plan"
                       
+                  aria-label="Plan Your Trip"
                       className="text-N900 group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-G700 rounded-md text-white hover:bg-transparent border border-transparent hover:border-G800 hover:text-G800"
                       onClick={() => {
                         setActiveMenu({ company: true });

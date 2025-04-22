@@ -133,7 +133,7 @@ const NeedToKnowSection = () => {
         </EmblaCarousel>
       </div>
       <div className="hidden md:block text-right text-B500 font-bold">
-        <Link to="/blogs" className="hover:underline hover:text-B300">
+        <Link aria-label="Blogs" to="/blogs" className="hover:underline hover:text-B300">
           <span>See More ...</span>
         </Link>
       </div>

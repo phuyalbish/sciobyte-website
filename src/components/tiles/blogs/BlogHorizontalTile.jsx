@@ -51,7 +51,7 @@ const BlogHorizontalTile = ({ blog }) => {
         )}
       {region ? (
         <Link
-          
+          aria-label="Blogs"
           to="/blogs"
           className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300  p-1 rounded-md text-sm"
         >
@@ -93,7 +93,8 @@ const BlogHorizontalTile = ({ blog }) => {
           )}
         </div>
         <div className="flex justify-start flex-col gap-1">
-          <Link to={blogUrl}>
+          <Link 
+            aria-label={`Blog - ${heading}`} to={blogUrl}>
             <div className="font-bold text-md line-clamp-2 text-N900 text-left">
               {heading}
             </div>

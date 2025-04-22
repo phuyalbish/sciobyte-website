@@ -74,6 +74,7 @@ function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }
         </div>
         ) : ""}
         <Link
+        aria-label="Contact Page"
           to="/contact"
           className="rounded-lg bg-B500 hover:bg-B700 text-white text-base font-bold cursor-pointer flex justify-center items-center p-4"
         >

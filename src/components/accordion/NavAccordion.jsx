@@ -27,6 +27,8 @@ const FAQ = ({ data }) => {
           <div className=" p-4 rounded-md shadow-md flex flex-col gap-2">
             {content?.map((item, index) => (
               <Link
+
+                  aria-label={item?.id + index}
                 key={index}
                 to={`/${link}/${item?.id}`}
                 className="p-2 hover:underline underline-offset-1"

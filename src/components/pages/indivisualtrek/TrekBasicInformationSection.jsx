@@ -108,11 +108,12 @@ function TrekBasicInformationSection({
           <CiLocationOn />
           {districts.map((district, index) => (
             <Link
-              key={district.slug}
-              to={`/district/${district.slug}`}
+            aria-label={`District - ${district?.slug}`}
+              key={district?.slug}
+              to={`/district/${district?.slug}`}
               className="hover:underline underline-offset-1"
             >
-              {district.name}
+              {district?.name}
               {index < districts.length - 1 && <span>,&nbsp;</span>}
             </Link>
           ))}

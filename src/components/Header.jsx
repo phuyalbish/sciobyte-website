@@ -52,6 +52,7 @@ function Header({ setActiveMenu }) {
         <div className="container px-3 md:px-[4rem] max-w-[100em]  w-full mx-auto">
           <header className=" z-30 text-white py-[1rem] w-full flex flex-row  justify-between">
             <Link
+            aria-label="Home Page"
               to="/"
               onClick={() => {
                 setActiveMenu({});
@@ -68,7 +69,7 @@ function Header({ setActiveMenu }) {
             </Link>
 
             <div className="md:flex hidden items-center gap-5">
-              <a href="mailto:hellotrekkersnamaste@gmail.com" className="flex-col justify-end items-end cursor-pointer group">
+              <a href="mailto:hellotrekkersnamaste@gmail.com" aria-label="email to the owner" className="flex-col justify-end items-end cursor-pointer group">
                 <div className="text-base text-N900 flex gap-2 items-center justify-end">
                   <HiOutlineMail />
                   Email us
@@ -105,6 +106,8 @@ function Header({ setActiveMenu }) {
           <div className="px-10 w-full h-[100vh]  fixed z-50 bg-white p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
            
                        <Link
+
+                               aria-label="Plan YOur Trip"
                                to="/plan"
                                
                                className="text-N900 group flex gap-2 items-center justify-center w-full text-sm px-2 py-2 bg-G800 rounded-md text-white hover:bg-transparent border border-transparent hover:border-G800 hover:text-G800"
@@ -157,6 +160,8 @@ function Header({ setActiveMenu }) {
                               <div className="justify-start gap-2 flex flex-col">
                                 {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
                                   <Link
+
+                                    aria-label={`Trek - ${trek?.slug}`}
                                     key={index}
                                     to={`/trek/${trek?.slug}`}
                                     className="w-full text-start justify-start items-start text-base hover:underline underline-offset-4"
@@ -168,6 +173,8 @@ function Header({ setActiveMenu }) {
                               </div>
                                <div className="flex w-full justify-end">
                                   <Link
+
+                                   aria-label={`Category - ${category?.slug}`}
                                     to={`/category/${categoryDetails[item.slug]?.slug}`}
                                     className="w-fit flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"
                                     onClick={() => setIsDropDown(false)}
@@ -182,6 +189,8 @@ function Header({ setActiveMenu }) {
             )}
 
             <Link
+
+            aria-label="Blogs"
               to="/blogs"
               className="transition hover:underline underline-offset-1 hover:text-B500 text-left"
               onClick={() => {
@@ -192,6 +201,8 @@ function Header({ setActiveMenu }) {
               Travel Tips
             </Link>
             <Link
+
+            aria-label="Company Page"
               to="/company"
               className="transition hover:underline underline-offset-1 hover:text-B500 text-left"
               onClick={() => {

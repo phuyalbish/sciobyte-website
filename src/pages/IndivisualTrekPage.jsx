@@ -203,7 +203,9 @@ function IndivisualTrekPage() {
             <div className="text-base text-N800">Send Inquiry</div>
           </div>
 
-          <Link to="/contact" className="text-base font-light  bg-B400 flex gap-2 justify-center items-center px-2 rounded-md text-white">
+          <Link 
+          aria-label="Contact Page"
+          to="/contact" className="text-base font-light  bg-B400 flex gap-2 justify-center items-center px-2 rounded-md text-white">
             Make a booking
           </Link>
         </div>

@@ -22,7 +22,7 @@ const NavItems = ({ item }) => {
         <ul className="flex flex-col  items-center md:items-start gap-4 text-N100">
           {items.map((item, index) => (
             <li key={index} className=" ">
-              <Link to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+              <Link aria-label={`To ${item?.name} ${index}`} to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
                 {item.name}
               </Link>
             </li>
@@ -170,7 +170,7 @@ function Footer() {
               <ul className="flex flex-col  items-start gap-4 text-N100">
                 {discovery.map((item, index) => (
                   <li key={index} className=" ">
-                    <Link to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                    <Link  aria-label={`To ${item?.name} ${index}`} to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
                       {item.name}
                     </Link>
                   </li>
@@ -186,17 +186,17 @@ function Footer() {
               </h1>
               <ul className="flex flex-col  items-start gap-4 text-N100">
                   <li>
-                    <a href="https://www.youtube.com/@hellotrekkers" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                    <a  aria-label="Home Page" href="https://www.youtube.com/@hellotrekkers" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
                       Youtube
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.instagram.com/hellotrekkersnamaste" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                    <a aria-label="Instagram Link" href="https://www.instagram.com/hellotrekkersnamaste" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
                       Instagram
                     </a>
                   </li>
                   <li>
-                    <Link to="/blogs" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                    <Link aria-label="Blogs" to="/blogs" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
                       Travel Tips
                     </Link>
                   </li>
@@ -211,7 +211,7 @@ function Footer() {
               <ul className="flex flex-col  items-start gap-4 text-N100">
                 {company.map((item, index) => (
                   <li key={index} className=" ">
-                    <Link to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                    <Link   aria-label={`To ${item?.name} ${index}`}  to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
                       {item.name}
                     </Link>
                   </li>
@@ -236,7 +236,7 @@ function Footer() {
         />
         <div className="absolute w-full bottom-1 md:bottom-5 flex flex-col  box-border text-sm md:text-base text-white font-extralight">
           <p>All rights reserved @ Hello Trekkers Pvt. Ltd (2025)</p>
-          <p>Designed by <a target="_blank" href="https://www.webodle.com" className="font-bold">Webodle</a></p>
+          <p>Designed by <a target="_blank" href="https://www.webodle.com" aria-label="Website Designer" className="font-bold">Webodle</a></p>
         </div>
       </div>
     </footer>

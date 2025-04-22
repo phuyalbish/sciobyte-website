@@ -58,7 +58,7 @@ const SingleBlogSection = ({ latestBlog }) => {
 
             <div className="h-full">
               <div className="flex flex-col gap-4">
-                <Link to={`/blog/${latestBlog?.slug}`}>
+                <Link aria-label={`Blog - ${latestBlog?.slug}`} to={`/blog/${latestBlog?.slug}`}>
                   <h1 className="text-md sm:text-xl font-bold text-gray-900 text-left">
                     {isLoading ? <HeadingSkeleton /> : latestBlog?.heading}
                   </h1>
@@ -133,7 +133,7 @@ const SingleBlogSection = ({ latestBlog }) => {
                     ></span>
                     <div className="flex justify-end text-B500 hover:text-B300 hover:underline font-bold cursor-pointer">
                       {sanitizedContent.length > 600 && (
-                        <Link to={`/blog/${latestBlog?.slug}`}>
+                        <Link aria-label={`Blog - ${latestBlog?.slug}`} to={`/blog/${latestBlog?.slug}`}>
                           ... Continue Reading
                         </Link>
                       )}

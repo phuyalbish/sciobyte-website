@@ -10,7 +10,7 @@ function TrekItenarySection({ map, map_link, elevation_graph }) {
                         {map && (
                           <div  className="flex flex-col gap-2  rounded-md overflow-hidden">
                           <div className="text-xl tracking-wide font-liches font-light"> Trek Map</div>
-                          <a href={map_link} target="_blank">
+                          <a href={map_link} target="_blank" aria-label="Trek Map in GoogleMaps">
                             <img
                               decoding="async"
                               loading="lazy"
