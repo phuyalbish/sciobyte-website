@@ -13,7 +13,7 @@ function ReviewTile({ star, name, reviewDetail, profile }) {
           decoding="async"
           loading="lazy"
           src={profile}
-          alt=""
+          alt={name}
           className="w-12 h-12 rounded-full  object-cover z-0 "
         />
         <div className="text-base">{name}</div>

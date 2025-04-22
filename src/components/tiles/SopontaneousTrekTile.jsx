@@ -8,7 +8,7 @@ import type_img from "@/assets/TrekType.svg";
 const JourneyDetailsPanel = ({ icon, value, type }) => {
   return (
     <div className="flex justify-between items-center gap-2  bg-gray-100 rounded-lg">
-      <img decoding="async" loading="lazy" src={icon} className="h-5 w-5" />
+      <img decoding="async" loading="lazy" src={icon} alt={value} className="h-5 w-5" />
       <span className="text-left">
         <span className="text-xs flex">{type}</span>
         <strong className="block text-xs">{value}</strong>

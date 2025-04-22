@@ -34,7 +34,7 @@ function IndivisualDistrictPage() {
         decoding="async"
         loading="lazy"
         src={BASE_MEDIA_URL + district?.image}
-        alt=""
+        alt={district?.name}
         className="w-full aspect-video max-h-[60vh] object-cover rounded-md"
       />
       <div className="flex flex-col gap-2">

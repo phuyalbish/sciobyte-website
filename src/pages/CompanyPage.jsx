@@ -32,7 +32,7 @@ function CompanyPage() {
         </div>
       </div>
 
-      <img src={FooterVector} alt="" className="w-full" />
+      <img src={FooterVector}  alt="Footer Vector Company Page" className="w-full" />
     </>
   );
 }

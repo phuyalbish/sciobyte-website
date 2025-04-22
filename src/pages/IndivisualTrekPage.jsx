@@ -226,7 +226,7 @@ function IndivisualTrekPage() {
           </div>
         )} 
     </div>
-    <img src={FooterVector} alt="" className="w-full" />
+    <img src={FooterVector}  alt="Footer Vector Indivisual Trek Page"  className="w-full" />
 
     </>
   );

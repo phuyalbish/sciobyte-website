@@ -28,7 +28,7 @@ console.log(isOpened)
           {faq.image && (
             <img
               src={faq.image}
-              alt=""
+              alt="Trek DropDown Icon"
               className="rounded-md w-32 md:w-36 aspect-square group-hover:scale-105 scale-100 transition-all duration-500"
             />
           )}

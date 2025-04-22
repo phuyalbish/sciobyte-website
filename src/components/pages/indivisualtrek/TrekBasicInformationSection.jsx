@@ -60,6 +60,7 @@ function TrekBasicInformationSection({
           loading="lazy"
           src={BASE_MEDIA_URL + difficulties?.icon}
           className="w-5"
+          alt="Difficulty Icon"
         />
       ),
       heading: "Difficulty",

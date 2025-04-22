@@ -219,6 +219,7 @@ const BlogDetail = () => {
                   <img
                     decoding="async"
                     loading="lazy"
+                    
                     src={BASE_MEDIA_URL + blog?.image}
                     alt={blog?.heading}
                     className="w-full h-full object-cover rounded-xl"

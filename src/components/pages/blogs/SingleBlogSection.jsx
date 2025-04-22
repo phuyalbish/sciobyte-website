@@ -49,6 +49,7 @@ const SingleBlogSection = ({ latestBlog }) => {
                 <img
                   decoding="async"
                   loading="lazy"
+                  alt={latestBlog?.name}
                   src={latestBlog?.image}
                   className="w-full h-[15rem] md:h-[25rem] object-cover brightness-90 rounded-xl"
                 />

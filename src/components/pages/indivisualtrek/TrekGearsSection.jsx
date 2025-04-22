@@ -20,6 +20,8 @@ function TrekRequirementSection({gears }) {
                 loading="lazy"
                 src={BASE_MEDIA_URL + item.icon}
                 className="w-8 aspect-square h-8 "
+
+                alt={`Gears ${index}`}
               />
               <div className="flex flex-col justify-start items-start">
                 <div className="text-base text-N900 font-semibold">

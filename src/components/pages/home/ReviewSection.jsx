@@ -100,7 +100,7 @@ function ReviewSection() {
               decoding="async"
               loading="lazy"
               src={img1}
-              alt=""
+              alt="Google Review"
               className="w-28 cursor-pointer  object-cover z-0  p-2"
             />
           </div>
@@ -116,7 +116,7 @@ function ReviewSection() {
               decoding="async"
               loading="lazy"
               src={img2}
-              alt=""
+              alt="Trip Advisor Review"
               className="w-28 cursor-pointer  object-cover z-0  p-2"
             />
           </div> */}

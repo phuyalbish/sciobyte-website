@@ -9,6 +9,7 @@ function TrekScheduleExtraHeadingTile({ name, description }) {
           loading="lazy"
           src={BASE_MEDIA_URL + icon}
           className="w-5 h-5"
+          alt={name}
         /> */}
         <div className="text-lg font-semibold">{name}</div>
       </div>

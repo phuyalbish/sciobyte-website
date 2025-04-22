@@ -17,7 +17,7 @@ function TrekIncludedSection({ includes, excludes }) {
                 <div className="flex flex-col" key={index}>
                   <div className="flex felx-row gap-2 items-start  ">
                     <div className="flex min-w-7 min-h-7 ">
-                     <img src={CheckMark} alt="" />
+                     <img src={CheckMark} alt="Check Mark-Include Image" />
                     </div>
                     <div className="font-bold leading-normal">{item.title}</div>
                   </div>
@@ -38,7 +38,7 @@ function TrekIncludedSection({ includes, excludes }) {
                 <div className="flex flex-col" key={index}>
                   <div className="flex felx-row gap-2 items-start  ">
                     <div className="flex min-w-6 min-h-6">
-                     <img src={Exclamation} alt="" />
+                     <img src={Exclamation} alt="Exclamation Mark-Exclude Image" />
                     </div>
                     <div className="font-bold leading-normal">{item?.title}</div>
                   </div>

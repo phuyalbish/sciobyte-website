@@ -89,7 +89,7 @@ function SplashSection() {
           decoding="async"
           loading="lazy"
           src={imgVector}
-          alt=""
+          alt="Vector Splash Image"
           className="w-full bottom-1 object-cover z-30"
         />
       </div>

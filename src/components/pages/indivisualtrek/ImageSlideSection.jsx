@@ -24,6 +24,7 @@ function ImageSlideSection({ gallery}) {
               <img
                 decoding="async"
                 loading="lazy"
+                alt={`Gallery Image ${index}`}
                 src={BASE_MEDIA_URL + item.image}
                 className="object-cover w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
               />
@@ -34,6 +35,8 @@ function ImageSlideSection({ gallery}) {
               loading="lazy"
               key={index}
               src={BASE_MEDIA_URL + item.image}
+
+                alt={`Gallery Image ${index}`}
               className={`object-cover pointer-events-auto px-0.5 overflow-hidden transition-all rounded-md duration-500 ease-in-out 
                   ${gallery?.length === 1 ? "w-full" : ""}
                   ${gallery?.length === 2 ? "w-1/2 hover:w-2/3" : ""}
@@ -63,6 +66,8 @@ function ImageSlideSection({ gallery}) {
                 decoding="async"
                 loading="lazy"
                 key={index}
+
+                alt={`Gallery Image ${index}`}
                 src={BASE_MEDIA_URL + item.image}
                 className="z-0 bg-black object-cover rounded-md w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
               />
@@ -72,6 +77,8 @@ function ImageSlideSection({ gallery}) {
               decoding="async"
               loading="lazy"
               key={index}
+
+                alt={`Gallery Image ${index}`}
               src={BASE_MEDIA_URL + item.image}
               className={`object-cover transition-all rounded-md duration-500 ease-in-out 
                   ${index == 0 ? "w-full" : "w-1/3 flex-grow"}`}
@@ -96,6 +103,8 @@ function ImageSlideSection({ gallery}) {
                 decoding="async"
                 loading="lazy"
                 key={index}
+
+                alt={`Gallery Image ${index}`}
                 src={BASE_MEDIA_URL + item.image}
                 className="object-cover transition-all duration-500 ease-in-out w-full  aspect-video flex-grow"
               />

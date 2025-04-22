@@ -79,7 +79,7 @@ const HomeStaySection = () => {
                 decoding="async"
                 loading="lazy"
                 src="/instagram-logo.png"
-                alt=""
+                alt="Instagram Logo"
                 className="w-6"
               />
               <p className="text-lg font-semibold  text-white underline underline-offset-1">

@@ -26,12 +26,12 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
         <div className="group bg-B50 p-4 rounded-md shadow-xs mt-2 bg-B100 text-left flex justify-between ">
           <span className="text-left font-medium">{faq.answer}</span>
           {faq.image && (
-  <img
-    src={faq.image}
-    alt=""
-    className="rounded-md w-36 aspect-square group-hover:scale-105 scale-100 transition-all duration-500"
-  />
-)}
+            <img
+              src={faq.image}
+              alt="FAQ DropDown Icon"
+              className="rounded-md w-36 aspect-square group-hover:scale-105 scale-100 transition-all duration-500"
+            />
+          )}
         </div>
       )}
     </div>

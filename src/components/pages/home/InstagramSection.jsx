@@ -33,14 +33,14 @@ function InstagramSection() {
         decoding="async"
         loading="lazy"
         src={right}
-        alt=""
+        alt="Instagram Mandala Right"
         className="hidden md:block right-0 top-48 w-[9rem] object-cover absolute z-0"
       />
       <img
         decoding="async"
         loading="lazy"
         src={left}
-        alt=""
+        alt="Instagram Mandala Left"
         className="hidden md:block left-0  top-48 w-[9rem] object-cover absolute z-0"
       />
       <div className="flex  w-full md:w-[50vw]  gap-2 flex-col">
@@ -67,7 +67,7 @@ function InstagramSection() {
                   decoding="async"
                   loading="lazy"
                   src={post}
-                  alt=""
+                  alt={`Instagram Post ${index}`}
                   className="w-full cursor-pointer"
                 />
               </div>
@@ -81,7 +81,7 @@ function InstagramSection() {
         decoding="async"
         loading="lazy"
         src={bottom}
-        alt=""
+        alt="Instagram Bottom Vector of chitwan national park"
         className="bottom-0 object-cover mt-5 w-full  z-0"
       />
     </div>

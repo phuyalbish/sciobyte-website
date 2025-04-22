@@ -17,6 +17,7 @@ function HeaderTrekRegionTile({ image, type, name, id, onclick }) {
         decoding="async"
         loading="lazy"
         src={BASE_MEDIA_URL + image}
+        alt="header Trek Region Image"
         className="w-12 h-12 aspect-square rounded-md"
       />
       <div className="flex flex-col justify-start items-start">

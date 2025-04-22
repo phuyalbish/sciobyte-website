@@ -32,7 +32,7 @@ function YTSection() {
             decoding="async"
             loading="lazy"
             src={ytbg}
-            alt=""
+            alt="Youtube Back Image"
             className="w-full h-full object-cover absolute z-0 brightness-25"
           />
 

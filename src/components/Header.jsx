@@ -62,6 +62,7 @@ function Header({ setActiveMenu }) {
                 decoding="async"
                 loading="lazy"
                 src={Logo}
+                alt="Logo"
                 className="lg:w-48 md:w-32 sm:w-28 w-24 h-auto"
               />
             </Link>
@@ -115,6 +116,7 @@ function Header({ setActiveMenu }) {
                              >
            
                          <img src={Pen}
+                         alt="Plan Your Trip"
                            className="size-4   text-white hover:text-G800 cursor-pointer select-none"
                          />
                               <p className="text-sm"> Plan your Trip</p>

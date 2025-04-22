@@ -7,7 +7,6 @@ const TeamCard = ({ name, title, imgUrl }) => {
             <img
               decoding="async"
               loading="lazy"
-              // src="https://imgs.search.brave.com/CWuaDKK7uaoe5a8vK9CBQEmxtsmI-Fw3xiRbUHjT1uE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMtY2RuLjEyM3Jm/LmNvbS9pbmRleC9z/dGF0aWMvYXNzZXRz/L2FsbC1pbi1vbmUt/cGxhbi9waG90b3Nf/djIuanBn"
               src={imgUrl}
               alt="Profile"
               className="w-full h-full object-cover"

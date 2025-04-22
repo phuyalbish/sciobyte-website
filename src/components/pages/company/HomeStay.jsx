@@ -43,7 +43,7 @@ const HomeStay = () => {
                 decoding="async"
                 loading="lazy"
                 src={instagramLogo}
-                alt=""
+                alt="instagram Logo"
                 className="w-6"
               />
               <p className="text-base font-semibold  text-white underline underline-offset-1">

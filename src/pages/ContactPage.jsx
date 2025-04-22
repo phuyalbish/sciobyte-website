@@ -116,6 +116,7 @@ function ContactPage() {
                   loading="lazy"
                   width="24px"
                   height="24px"
+                  alt="Location Image"
                   src={location_img}
                 />
                 <div className="">
@@ -131,6 +132,7 @@ function ContactPage() {
                   loading="lazy"
                   width="24px"
                   height="24px"
+                  alt="Phone Calling"
                   src={phone_calling}
                 />
                 <div>
@@ -145,6 +147,7 @@ function ContactPage() {
                   loading="lazy"
                   width="24px"
                   height="24px"
+                  alt="Whatsapp Image"
                   src={whatsapp_img}
                 />
                 <div>
@@ -160,6 +163,7 @@ function ContactPage() {
                   loading="lazy"
                   width="24px"
                   height="24px"
+                  alt="Email Blue"
                   src={email_blue}
                 />
                 <div>
@@ -180,6 +184,7 @@ function ContactPage() {
                     loading="lazy"
                     width="24px"
                     height="24px"
+                    alt="Phone Calling"
                     src={phone_calling}
                   />
                 </span>
@@ -193,6 +198,7 @@ function ContactPage() {
                     loading="lazy"
                     width="24px"
                     height="24px"
+                    alt="Email Green"
                     src={email_green}
                   />
                 </span>
@@ -315,7 +321,7 @@ function ContactPage() {
           </div>
         </div>
       </div>
-      <img src={FooterVector} alt="" className="w-full" />
+      <img src={FooterVector}  alt="Footer Vector Contact Page"  className="w-full" />
          
     </div>
   );

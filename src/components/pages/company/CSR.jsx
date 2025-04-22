@@ -28,7 +28,7 @@ const HomeStay = () => {
               decoding="async"
               loading="lazy"
               src={nepalWill}
-              alt="nepalwill"
+              alt="nepal will"
               className="h-full w-full object-cover rounded-xl"
             />
             
@@ -46,7 +46,7 @@ const HomeStay = () => {
                 decoding="async"
                 loading="lazy"
                 src={NW}
-                alt=""
+                alt="Nepal Will"
                 className="w-6 rounded-full"
               />
               <p className="text-sm font-light  text-black">

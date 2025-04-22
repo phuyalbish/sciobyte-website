@@ -13,6 +13,7 @@ function SearchTrekRegionTile({ name, image, slug, category_name, category_slug,
         decoding="async"
         loading="lazy"
         src={BASE_MEDIA_URL + image}
+        alt={name}
         className="w-full aspect-square object-cover rounded-md "
       />
       <div className="text-xs text-left text-N900">{truncate(name, 50)}</div>

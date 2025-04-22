@@ -26,7 +26,7 @@ export default function PageLayout({ children }) {
             decoding="async"
             loading="lazy"
             src={whatsapp}
-            alt=""
+            alt="WhatsApp Icon"
             className="w-14 h-14  object-cover z-50 "
           />
         </a>

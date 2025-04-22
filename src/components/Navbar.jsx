@@ -112,7 +112,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
               className={`w-8 ml-5 md:ml-0 aspect-square transition-all duration-300 ${
                 showLogo ? "scale-100" : "scale-0"
               }`}
-              alt="Logo"
+              alt="Logo Image"
             />
           </Link>
 
@@ -390,6 +390,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                     <p className="text-sm"> Plan your Trip</p>
                 <img src={Pen}
+                alt="Plan Your Trip"
                   className="size-6  text-white hover:text-G800 cursor-pointer select-none"
                 />
             </Link>

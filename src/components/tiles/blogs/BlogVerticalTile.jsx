@@ -41,6 +41,7 @@ const BlogVerticalTile = ({ blog }) => {
           <>
             <img
               src={imageUrl}
+              alt={heading}
               decoding="async"
               loading="lazy"
               className="w-full md:h-96 h-48  object-cover rounded-lg"

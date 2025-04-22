@@ -8,6 +8,7 @@ function RegionTile({ img, name, slug }) {
         decoding="async"
         loading="lazy"
         src={img}
+        alt={name}
         className="w-full aspect-square rounded-md"
         
       />

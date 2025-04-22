@@ -57,7 +57,7 @@ const [treks, setTreks] = useState([]);
       <NeedToKnowSection />
       <FAQSection />
 
-      <img src={FooterVector} alt="" className="w-full" />
+      <img src={FooterVector}  alt="Footer Vector Home Page"  className="w-full" />
     </div>
   );
 }

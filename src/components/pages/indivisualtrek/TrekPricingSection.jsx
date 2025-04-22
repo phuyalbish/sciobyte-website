@@ -102,6 +102,7 @@ function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }
             decoding="async"
             loading="lazy"
             src={BASE_MEDIA_URL + map}
+            alt="Trek Map"
             className="w-full h-36 object-cover  rounded-md"
           />
         </div>

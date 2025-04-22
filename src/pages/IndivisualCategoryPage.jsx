@@ -35,7 +35,7 @@ function IndivisualCategoryPage() {
         decoding="async"
         loading="lazy"
         src={BASE_MEDIA_URL + category?.image}
-        alt=""
+        alt={category?.name}
         className="w-full aspect-video max-h-[60vh] object-cover rounded-md"
       />
       <div className="flex flex-col gap-2">

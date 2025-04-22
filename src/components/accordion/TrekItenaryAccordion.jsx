@@ -118,6 +118,7 @@ useEffect(() => {
             {schedule?.gallery.map((item, index) => (
               <img
                 decoding="async"
+                alt={`Trek Itinerary Gallery ${index + 1}`}
                 loading="lazy"
                 key={index}
                 src={BASE_MEDIA_URL + item.image}

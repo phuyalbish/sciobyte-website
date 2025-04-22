@@ -140,22 +140,22 @@ function Footer() {
 
         <div className="flex flex-row px-8 justify-center md:justify-evenly items-start gap-10  flex-wrap mb-16">
             <div className="flex flex-col md:justify-start justify-center gap-6 ">
-               <img src={footerLogo} alt="" />
+               <img src={footerLogo} alt="Logo" />
               <ul className="flex flex-col  items-start gap-4 text-N100">
                 <li className="flex gap-2 items-center"> 
-                  <img src={Location} alt="" className="w-7 aspect-square" />
+                  <img src={Location} alt="Location Image" className="w-7 aspect-square" />
                    Kirtipur, Kathmandu
                 </li>
                 <li className="flex gap-2 items-center"> 
-                  <img src={Email} alt="" className="w-7 aspect-square" />
+                  <img src={Email} alt="Email Icon" className="w-7 aspect-square" />
                    info@hellotrekkers@gmail.com
                 </li>
                 <li className="flex gap-2 items-center"> 
-                  <img src={Phone} alt="" className="w-7 aspect-square" />
+                  <img src={Phone} alt="Phone (Office) Icon " className="w-7 aspect-square" />
                    +977-9709707037(Office)
                 </li>
                 <li className="flex gap-2 items-center"> 
-                  <img src={Whatsapp} alt="" className="w-7 aspect-square" />
+                  <img src={Whatsapp} alt="Phone Icon" className="w-7 aspect-square" />
                   +977-9709707037
                 </li>
               </ul>
@@ -227,6 +227,7 @@ function Footer() {
 
       <div className="relative">
         <img
+        alt="Footer Back with Pagoda style temples and mountains"
           width="100%"
           src={footerImg}
           decoding="async"

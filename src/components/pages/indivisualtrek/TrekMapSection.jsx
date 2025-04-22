@@ -15,6 +15,7 @@ function TrekItenarySection({ map, map_link, elevation_graph }) {
                               decoding="async"
                               loading="lazy"
                               src={BASE_MEDIA_URL + map}
+                              alt="Trek Map"
                               className="w-full h-auto object-cover rounded-md"
                             />
                           </a>
@@ -31,6 +32,7 @@ function TrekItenarySection({ map, map_link, elevation_graph }) {
                             decoding="async"
                             loading="lazy"
                             src={BASE_MEDIA_URL + elevation_graph}
+                            alt="Trek Elevation Graph"
                             className="w-full h-auto object-cover rounded-md"
                           />
                         </div>

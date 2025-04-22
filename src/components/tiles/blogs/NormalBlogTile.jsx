@@ -41,6 +41,7 @@ const NormalBlogTile = ({ blog }) => {
           <>
             <img
               src={imageUrl}
+              alt={heading}
               decoding="async"
               loading="lazy"
               className="w-full h-48  object-cover rounded-lg"
