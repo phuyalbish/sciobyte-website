@@ -81,6 +81,8 @@ function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }
           Make a Booking
         </Link>
         <a
+
+          aria-label="Whatsapp"
           href={`https://web.whatsapp.com/send?phone=+9779849828857&text=Hello Aashish, I want to know more about: ${trek_name}`}
           target="_blank"
           className="rounded-lg bg-G600 hover:bg-G700 text-white text-base font-bold cursor-pointer flex justify-center gap-3 items-center p-4"

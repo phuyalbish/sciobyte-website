@@ -27,7 +27,9 @@ const GoogleReview = () => {
           </div>
         </div>
       </div>
-      <a href="#" aria-label="To Reviews" className=" hover:underline text-[#418BE0]">
+      <a  
+      
+      href="#" aria-label="To Reviews" className=" hover:underline text-[#418BE0]">
         See our Reviews
       </a>
     </div>
@@ -71,6 +73,8 @@ const HomeStaySection = () => {
               className="h-full w-full object-cover rounded-xl"
             />
             <a
+
+              aria-label="Instagram"
               href="https://www.instagram.com/nepalwelcomesyou/"
               target="_future"
               className="absolute bottom-1 right-1 flex gap-2  items-center "

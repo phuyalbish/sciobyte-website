@@ -18,6 +18,8 @@ export default function PageLayout({ children }) {
         {children}
 
         <a
+
+          aria-label="Whatsapp"
           href={`https://web.whatsapp.com/send?phone=+9779849828857&text=Hello Aashish, I want to know more about the packages you provide`}
           target="_blank"
           className="rounded-lg md:block fixed z-50  bottom-5 left-5 w-16 h-16  text-white text-lg font-bold cursor-pointer flex justify-center gap-3 items-center"

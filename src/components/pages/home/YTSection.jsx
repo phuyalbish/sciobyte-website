@@ -41,6 +41,8 @@ function YTSection() {
               Let's
             </div>
             <a
+
+              aria-label="Youtube"
               href="https://www.youtube.com/@hellotrekkers"
               target="_blank"
               className="text-red-500 font-base text-4xl md:text-7xl   flex  gap-5 items-center justify-center"

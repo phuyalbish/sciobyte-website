@@ -35,6 +35,8 @@ const HomeStay = () => {
               className="h-full w-full object-cover rounded-lg"
             />
             <a
+
+              aria-label="nepal welcoms you"
               href="https://www.instagram.com/nepalwelcomesyou/"
               target="_future"
               className="absolute bottom-2 right-2  flex gap-2  items-center "
