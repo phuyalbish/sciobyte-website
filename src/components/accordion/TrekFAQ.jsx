@@ -1,5 +1,7 @@
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
+import DOMPurify from 'dompurify';
+
 const FAQ = ({ faq, isOpened, handleFaqState }) => {
   const arrowSVG = isOpened ? (
     <FaChevronUp className="h-fit w-5 self-center" />
@@ -7,6 +9,7 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
     <FaChevronDown className="h-fit w-5 self-center" />
   );
 
+  const sanitizedContent = DOMPurify.sanitize(faq?.answer);
   const questionBg = isOpened ? "bg-B200" : "bg-white";
 console.log(isOpened)
   return (
@@ -24,7 +27,7 @@ console.log(isOpened)
 
       {isOpened && (
         <div className="group bg-B50 p-4 rounded-md shadow-xs mt-2 bg-B100 text-left flex justify-between gap-4">
-          <p className="text-left font-medium">{faq.answer}</p>
+          <div className="text-left font-medium" dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
           {faq.image && (
             <img
               src={faq.image}
