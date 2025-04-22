@@ -45,13 +45,16 @@ function InstagramSection() {
       />
       <div className="flex  w-full md:w-[50vw]  gap-2 flex-col">
         <div className="flex flex-wrap justify-between items-center md:p-0 px-2">
-          <div className="flex gap-2 items-center">
+          <a  target="_future" 
+          aria-label="Instagram"
+            href="https://www.instagram.com/hellotrekkersnamaste/" className="flex gap-2 items-center">
             <FaInstagram size="24" />
             <p className="text-md">@hellotrekkersnamaste</p>
-          </div>
+          </a>
           <a
             href="https://www.instagram.com/hellotrekkersnamaste/"
             target="_future"
+            aria-label="Instagram"
             className="flex text-base h-fit cursor-pointer rounded-md bg-B400 hover:bg-B500 text-white p-1 px-2"
           >
             Follow us
