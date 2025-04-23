@@ -5,8 +5,9 @@ import { MdFastfood } from "react-icons/md";
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
 import { FaMountainSun } from "react-icons/fa6";
+import { GiDuration } from "react-icons/gi";
+import { GiPathDistance } from "react-icons/gi";
 import DOMPurify from 'dompurify';
-import { GiWalkingBoot } from "react-icons/gi";
 import { FaArrowTrendDown } from "react-icons/fa6";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
@@ -42,30 +43,38 @@ useEffect(() => {
           heading: "Max Altitude",
           description: schedule?.max_altitude+"m",
         },
-         ...(schedule?.average_hike_hour > 0
+         ...(schedule?.duration > 0
           ? [{
               
-              icon: GiWalkingBoot,
-              heading: "Average Hike",
-              description:  schedule?.average_hike_hour + "Kms",
+              icon: GiDuration,
+              heading: "Duration",
+              description:  schedule?.duration + "Hrs",
             }]
           : []),
 
-
-
-         ...(schedule?.elevation_loss > 0
+        ...(schedule?.max_distance > 0
           ? [{
-              icon: FaArrowTrendUp,
-              heading: "Elevation Gain",
-              description: schedule?.elevation_loss + "m",
+              
+              icon: GiPathDistance,
+              heading: "Distance",
+              description:  schedule?.min_distance + " - "+ schedule?.max_distance  + "Kms",
             }]
           : []),
+
 
          ...(schedule?.elevation_gain > 0
           ? [{
+              icon: FaArrowTrendUp,
+              heading: "Elevation Gain",
+              description: schedule?.elevation_gain + "m",
+            }]
+          : []),
+
+         ...(schedule?.elevation_loss > 0
+          ? [{
               icon: FaArrowTrendDown,
               heading: "Elevation Loss",
-              description:  schedule?.elevation_gain + "m",
+              description:  schedule?.elevation_loss + "m",
             }]
           : []),
        

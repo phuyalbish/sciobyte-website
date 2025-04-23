@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { BsClockHistory } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { GiPathDistance } from "react-icons/gi";
+import { GiWalkingBoot } from "react-icons/gi";
 import { RiPinDistanceFill } from "react-icons/ri";
 import { MdFastfood } from "react-icons/md";
 import { FaPeopleGroup } from "react-icons/fa6";
@@ -38,6 +39,11 @@ function TrekBasicInformationSection({
       icon: RiPinDistanceFill,
       heading: "Max Distance",
       description: max_distance + " Kms",
+    },
+        {
+      icon: GiWalkingBoot,
+      heading: "Average Hiking Hours",
+      description: max_distance + " Hrs",
     },
     {
       icon: FaPeopleGroup,
