@@ -5,7 +5,11 @@ import { MdFastfood } from "react-icons/md";
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
 import { FaMountainSun } from "react-icons/fa6";
+import { RiPinDistanceFill } from "react-icons/ri";
 import DOMPurify from 'dompurify';
+import { GiWalkingBoot } from "react-icons/gi";
+import { FaArrowTrendDown } from "react-icons/fa6";
+import { FaArrowTrendUp } from "react-icons/fa6";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 const TrekItenaryAccordion = ({ schedule,  isOpened, handleScheduleState }) => {
@@ -37,32 +41,59 @@ useEffect(() => {
         {
           icon: FaMountainSun,
           heading: "Max Altitude",
-          description: schedule?.accomodations?.name,
+          description: schedule?.max_altitude+"m",
         },
-    {
-      icon: FaTent,
-      heading: "Accomodation",
-        description: schedule?.accomodations?.map((accomodation, index, arr) => {
-          if (arr.length === 1) return accomodation.name;
-          if (index === arr.length - 1) return ` & ${accomodation.name}`;
-          return `${accomodation.name}, `;
+         ...(schedule?.average_hike_hour > 0
+          ? [{
+              
+              icon: GiWalkingBoot,
+              heading: "Average Hike",
+              description:  schedule?.average_hike_hour + "Kms",
+            }]
+          : []),
+
+
+
+         ...(schedule?.elevation_loss > 0
+          ? [{
+              icon: FaArrowTrendUp,
+              heading: "Elevation Gain",
+              description: schedule?.elevation_loss + "m",
+            }]
+          : []),
+
+         ...(schedule?.elevation_gain > 0
+          ? [{
+              icon: FaArrowTrendDown,
+              heading: "Elevation Loss",
+              description:  schedule?.elevation_gain + "m",
+            }]
+          : []),
+       
+        {
+          icon: FaTent,
+          heading: "Accomodation",
+            description: schedule?.accomodations?.map((accomodation, index, arr) => {
+              if (arr.length === 1) return accomodation.name;
+              if (index === arr.length - 1) return ` & ${accomodation.name}`;
+              return `${accomodation.name}, `;
+            }),
+        },
+        {
+          icon: FaTruckPlane,
+          heading: "Transportaion",
+          description: schedule?.transportations?.name,
+        },
+      {
+        icon: MdFastfood,
+        heading: "Meal",
+        description: schedule?.meals?.map((meal, index, arr) => {
+          if (arr.length === 1) return meal.name;
+          if (index === arr.length - 1) return ` & ${meal.name}`;
+          if (index === arr.length - 2) return `${meal.name}`;
+          return `${meal.name}, `;
         }),
-    },
-    {
-      icon: FaTruckPlane,
-      heading: "Transportaion",
-      description: schedule?.transportations?.name,
-    },
-   {
-    icon: MdFastfood,
-    heading: "Meal",
-    description: schedule?.meals?.map((meal, index, arr) => {
-      if (arr.length === 1) return meal.name;
-      if (index === arr.length - 1) return ` & ${meal.name}`;
-      if (index === arr.length - 2) return `${meal.name}`;
-      return `${meal.name}, `;
-    }),
-  }
+      }
   ];
 
 
