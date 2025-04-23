@@ -174,7 +174,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                 <button
                   className={`${
                     activeMenu[item.name] ? "text-B900" : "text-white"
-                  } flex items-center gap-1 transition hover:underline underline-offset-4 text-sm`}
+                  } flex items-center gap-1 transition text-sm`}
                   onClick={() => {
                     setActiveMenu(() => ({ [item.name]: true }));
                     setCompanyDropDown(false);
@@ -204,7 +204,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                     </div>
 
-                    <div className="p-2   justify-start gap-2 items-start  flex-row ">
+                    <div className="px-2   justify-start gap-2 items-start  flex-row">
                     {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
                       <Link 
 
