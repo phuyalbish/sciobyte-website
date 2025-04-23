@@ -18,7 +18,7 @@ function SpontaneousTrekSection({treks}) {
             </span>
             <span className="font-liches text-N900 p-2 rounded-2xl   text-2xl sm:text-2xl md:text-3xl">TRAILS.</span>
           </div>
-          <div className=" text-G300  text-lg md:text-3xl">Last Moment Deals</div>
+          <div className=" text-G500  text-lg md:text-2xl">Last Moment Deals</div>
         </div>
         <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative gap-10 justify-items-center bottom_popup">
           {treks?.map((trek, index) => (

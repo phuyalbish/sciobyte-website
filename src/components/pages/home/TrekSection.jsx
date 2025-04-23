@@ -6,7 +6,7 @@ const TrekSection = ({treks, plainText, blueText }) => {
   return (
     <div className="md:px-[4.5rem] bottom_popup z-40">
       <h1 className="text-2xl font-liches md:text-5xl tracking-widest font-regular px-2 md:mb-6 ">
-        {plainText} <span className="text-B400 text-2xl font-liches md:text-5xl font-regular "> {blueText}</span>
+        {plainText} <span className="text-B600 text-2xl font-liches md:text-5xl font-regular "> {blueText}</span>
       </h1>
       <div className=" hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem]">
         {
