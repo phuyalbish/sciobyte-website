@@ -1,12 +1,11 @@
-import React from "react";
 import { useState } from "react";
 import { ImCross } from "react-icons/im";
 import { FaPlay } from "react-icons/fa";
 import EmblaReviewCarousel from "@/components/carousel/EmblaReviewCarousel";
 
 
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
-function TrekReviewsSection({reviews, trek_name}) {
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+function TrekReviewsSection({reviews}) {
   
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");

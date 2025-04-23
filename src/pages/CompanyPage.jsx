@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import Hero from "@/components/pages/company/Hero.jsx";
 import Team from "@/components/pages/company/Team.jsx";
 import AboutHT from "@/components/pages/company/AboutHT.jsx";

@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { motion, useScroll, useTransform } from "framer-motion";
 import img1 from "@/assets/image1.svg";
 import img2 from "@/assets/image2.svg";

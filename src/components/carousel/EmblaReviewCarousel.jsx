@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import  { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -10,8 +10,6 @@ const EmblaReviewCarousel = ({
   options = { loop: false, autoplay: false },
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [totalSlides, setTotalSlides] = useState(0);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
 
@@ -23,21 +21,16 @@ const EmblaReviewCarousel = ({
     () => emblaApi && emblaApi.scrollPrev(),
     [emblaApi]
   );
-  const scrollTo = useCallback(
-    (index) => emblaApi && emblaApi.scrollTo(index),
-    [emblaApi]
-  );
-
   useEffect(() => {
     if (!emblaApi) return;
 
     const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
+      // setSelectedIndex(emblaApi.selectedScrollSnap());
       setCanScrollPrev(emblaApi.canScrollPrev());
       setCanScrollNext(emblaApi.canScrollNext());
     };
 
-    setTotalSlides(emblaApi.scrollSnapList().length);
+    // setTotalSlides(emblaApi.scrollSnapList().length);
     emblaApi.on("select", onSelect);
     onSelect();
 

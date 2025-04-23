@@ -1,17 +1,15 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import { BsClockHistory } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { GiPathDistance } from "react-icons/gi";
 import { RiPinDistanceFill } from "react-icons/ri";
-
 import { MdFastfood } from "react-icons/md";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaTent } from "react-icons/fa6";
 import { FaMountainSun } from "react-icons/fa6";
 import { FaCloudSun } from "react-icons/fa";
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 function TrekBasicInformationSection({ 
   travel_name = null,

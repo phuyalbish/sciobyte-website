@@ -1,4 +1,3 @@
-import React from "react";
 import SplashSection from "@/components/pages/home/SplashSection";
 import TrekSection from "@/components/pages/home/TrekSection.jsx";
 import FAQSection from "@/components/pages/home/FAQSection.jsx";

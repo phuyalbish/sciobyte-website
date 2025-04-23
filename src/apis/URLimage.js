@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 export const URLImage = async (img) => {

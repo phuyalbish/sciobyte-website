@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import nationalStamp from "@/assets/national-stamp.png";
 import NTB from "@/assets/NTB.png";
@@ -10,28 +9,6 @@ import Location from "@/assets/icons/Location.svg"
 import Email from "@/assets/icons/Email.svg"
 import Phone from "@/assets/icons/Phone.svg"
 import Whatsapp from "@/assets/icons/Whatsapp.svg"
-
-const NavItems = ({ item }) => {
-  const { title, items } = item;
-  return (
-    
-      <div className="flex  flex-col  items-center  md:items-start  gap-6 w-full  justify-center md:justify-start" >
-        <h1 className="text-md font-bold text-white">
-          {title}
-        </h1>
-        <ul className="flex flex-col  items-center md:items-start gap-4 text-white">
-          {items.map((item, index) => (
-            <li key={index} className=" ">
-              <Link aria-label={`To ${item?.name} ${index}`} to={item.url} className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-  
-  );
-};
 
 function Footer() {
   const discovery = [
@@ -55,31 +32,6 @@ function Footer() {
       ]
   
    
-  const topTreks = [
-        {
-          name: "Langtang",
-          url: "",
-        },
-        {
-          name: "Manaslu",
-          url: "",
-        },
-        {
-          name: "ABC",
-          url: "",
-        },
-        {
-          name: "Pach Pokhari",
-          url: "",
-        },
-        {
-          name: "Mustang",
-          url: "",
-        },
-      ]
-    
-
-  
   const company = [
         {
           name: "About Us",

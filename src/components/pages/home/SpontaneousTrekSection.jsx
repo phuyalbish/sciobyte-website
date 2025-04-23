@@ -1,9 +1,5 @@
-import React from "react";
-
-import { useEffect, useState } from "react";
 import SopontaneousTrekTile from "@/components/tiles/SopontaneousTrekTile.jsx";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
-import { fetchTreks } from "@/apis/treks.js";
 
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 function SpontaneousTrekSection({treks}) {

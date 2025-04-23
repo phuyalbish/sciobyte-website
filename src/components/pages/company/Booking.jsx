@@ -18,7 +18,7 @@ const HomeStay = () => {
             
            <div className="flex flex-col gap-2">
             <p className="font-semibold text-md">Payment by Credit Card (Visa or MasterCard)</p>
-            <p>For online payments, simply select your preferred trip package, click on "Book This Trip," and proceed with the advance payment as specified for your chosen trek.
+            <p>For online payments, simply select your preferred trip package, click on &quot;Book This Trip,&quot; and proceed with the advance payment as specified for your chosen trek.
             </p>
 
            <p> <span className="font-semibold"> 💳 Please note: A 4% transaction fee</span>applies to all credit card payments, including deposits and trip extensions. To avoid additional charges, we recommend making payments in cash where possible.
@@ -45,9 +45,9 @@ const HomeStay = () => {
             </p>
             <p> We also accept payments via Western Union Money Transfer for added convenience. If you prefer this method, please contact us, and we will provide the necessary details via email.
            </p>
-            <p>Note: Bank service charges related to submitting a deposit are the responsibility of the client.
+            <p>Note:Bank service charges related to submitting a deposit are the responsibility of the client.
             </p>
-           <p> For any payment-related queries or assistance, feel free to reach out—we’re here to make your booking process seamless and hassle-free!
+           <p> For any payment-related queries or assistance, feel free to reach out—we&apos;re here to make your booking process seamless and hassle-free!
             </p>  
             </div>          
       </div>

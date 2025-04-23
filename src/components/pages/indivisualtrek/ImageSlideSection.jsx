@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
-
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 function ImageSlideSection({ gallery}) {
   const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
   return (

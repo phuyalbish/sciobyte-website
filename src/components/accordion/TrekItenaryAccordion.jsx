@@ -5,12 +5,11 @@ import { MdFastfood } from "react-icons/md";
 import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
 import { FaMountainSun } from "react-icons/fa6";
-import { RiPinDistanceFill } from "react-icons/ri";
 import DOMPurify from 'dompurify';
 import { GiWalkingBoot } from "react-icons/gi";
 import { FaArrowTrendDown } from "react-icons/fa6";
 import { FaArrowTrendUp } from "react-icons/fa6";
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 const TrekItenaryAccordion = ({ schedule,  isOpened, handleScheduleState }) => {
 const scrollRef = useRef(null);

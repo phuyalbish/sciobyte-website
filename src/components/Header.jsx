@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import Logo from "@/assets/logo.svg";
 import { Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
@@ -9,8 +9,6 @@ import Pen from "@/assets/icons/Pen.svg"
 import categories from "@/data/Categories.json";
 import { IoIosArrowDown } from "react-icons/io";
 import { fetchIndivisualNavCategories } from "@/apis/categories.js";
-
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 function Header({ setActiveMenu }) {
   const [isDropDown, setIsDropDown] = useState(false);
@@ -114,7 +112,7 @@ function Header({ setActiveMenu }) {
                                onClick={() => {
                                  setActiveMenu({ company: true });
                                  setDropdowns({});
-                                 setCompanyDropDown(false);
+                                //  setCompanyDropDown(false);
                                }}
                              >
            
@@ -174,7 +172,7 @@ function Header({ setActiveMenu }) {
                                <div className="flex w-full justify-end">
                                   <Link
 
-                                   aria-label={`Category - ${category?.slug}`}
+                                   aria-label={`Category - ${item?.slug}`}
                                     to={`/category/${categoryDetails[item.slug]?.slug}`}
                                     className="w-fit flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"
                                     onClick={() => setIsDropDown(false)}

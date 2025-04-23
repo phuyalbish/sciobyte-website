@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import TrekItenaryAccordion from "@/components/accordion/TrekItenaryAccordion";
 
 function TrekItenarySection({ data }) {

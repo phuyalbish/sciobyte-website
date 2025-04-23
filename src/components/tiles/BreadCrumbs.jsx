@@ -1,4 +1,3 @@
-import React from "react";
 import { GoHome } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaStar} from "react-icons/fa";
 import badge from "@/assets/badge.svg";
 import difficulty_img from "@/assets/difficult.svg";
 import group from "@/assets/group.svg";

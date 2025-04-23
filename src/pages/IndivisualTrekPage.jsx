@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import BreadCrumbs from "@/components/tiles/BreadCrumbs";
 import { fetchIndivisualTrek } from "@/apis/treks.js";
@@ -20,19 +20,18 @@ import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSec
 import TrekOtherInfoSection from "@/components/pages/indivisualtrek/TrekOtherInfoSection";
 import { fetchTreks } from "@/apis/treks.js";
 
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 function IndivisualTrekPage() {
   const [trek, setTrek] = useState(null);
   const { id } = useParams();
 
-   const [treks, setTreks] = useState([]);
   
     useEffect(() => {
       (async () => {
         const response = await fetchTreks();
         const treksData = response?.data?.results;
-        setTreks(treksData);
+        setTrek(treksData);
       })();
     }, []);
 
@@ -125,7 +124,7 @@ function IndivisualTrekPage() {
                   onClick={() => scrollToSection("included")}
                   className="hover:underline flex gap-1"
                 >
-                  <span className="tracking-wide font-liches font-light">What's</span>
+                  <span className="tracking-wide font-liches font-light">What&apos;s</span>
                   <span className=" tracking-wide font-liches font-light">Included</span>
                 </button>
                 )}

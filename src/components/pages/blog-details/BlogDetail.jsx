@@ -1,4 +1,3 @@
-// import { Share2, FileText, Link2, MessageSquare, Copy, Code } from 'lucide-react';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchBlogBySlug } from "@/apis/blogs.js";
@@ -128,7 +127,7 @@ const BlogDetail = () => {
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, [slug]);
 
   const [copied, setCopied] = useState(false);
 

@@ -1,6 +1,3 @@
-import nepalWill from "@/assets/nepalwill.png"
-import NW from "@/assets/NW.png"
-
 const HomeStay = () => {
   return (
     <>

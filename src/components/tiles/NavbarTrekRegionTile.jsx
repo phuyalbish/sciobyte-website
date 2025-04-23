@@ -1,7 +1,6 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 function NavbarTrekRegionTile({ image, type, name, id, setDropdowns }) {
   const navigate = useNavigate();

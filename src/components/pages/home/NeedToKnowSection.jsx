@@ -38,17 +38,7 @@ const NeedToKnowSection = () => {
   }, []);
 
   const carouselRef = useRef(null);
-  const nextSlide = () => {
-    if (carouselRef.current) {
-      carouselRef.current.increment();
-    }
-  };
 
-  const prevSlide = () => {
-    if (carouselRef.current) {
-      carouselRef.current.decrement();
-    }
-  };
 
   return (
     <section className="container flex flex-col gap-4 relative w-full md:px-[4.5rem]">

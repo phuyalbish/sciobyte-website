@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import BreadCrumbs from "@/components/tiles/BreadCrumbs";
 import RegionTile from "@/components/tiles/RegionTile.jsx";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import DOMPurify from 'dompurify';
 import { fetchIndivisualCategories } from "@/apis/categories.js";
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 function IndivisualCategoryPage() {
   const [category, setCategory] = useState(null);
   const [content, setContent] = useState(null);

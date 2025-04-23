@@ -1,4 +1,3 @@
-import React from  "react";
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 import PreferenceTile from "@/components/tiles/PreferenceTile";
 import CityTour from "@/assets/PreferenceCityTour.svg"

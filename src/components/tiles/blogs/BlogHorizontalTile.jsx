@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
 import { truncate } from "@/utils/truncate.js";
-
 const BlogHorizontalTile = ({ blog }) => {
   const {
     heading,

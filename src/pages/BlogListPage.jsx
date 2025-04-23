@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import SingleBlogSection from "@/components/pages/blogs/SingleBlogSection.jsx";
 import LatestTravelBlog from "@/components/pages/blogs/LatestTravelBlog.jsx";
 
@@ -34,7 +34,6 @@ function BlogListPage() {
         );
       } catch (error) {
         console.error("Error fetching blogs:", error);
-        setBlogs([]);
       }
     })();
   }, []);

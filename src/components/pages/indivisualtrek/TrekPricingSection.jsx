@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { CiShare2 } from "react-icons/ci";
 import { useParams } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
@@ -8,7 +8,7 @@ import { FaStar } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
 
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }) {
   const { id } = useParams();
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import axios from "axios";
 
 const TripAdvisorReviews = () => {
@@ -21,7 +21,7 @@ const TripAdvisorReviews = () => {
         setReviews(reviewsData);
         setLoading(false);
       } catch (err) {
-        setError("Error fetching reviews");
+        setError("Error fetching reviews",err);
         setLoading(false);
       }
     };
@@ -29,7 +29,7 @@ const TripAdvisorReviews = () => {
     fetchTripAdvisorReviews();
   }, []);
 
-  const parseReviewsFromHTML = (html) => {
+  const parseReviewsFromHTML = () => {
     // You'll need to parse the HTML to extract reviews (using libraries like Cheerio or regex)
     // Here's a dummy example of how you might process the scraped HTML
     return [

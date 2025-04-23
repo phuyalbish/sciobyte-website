@@ -1,5 +1,3 @@
-import React from "react";
-
 function TermsAndCondition() {
   return (
     <div className="container px-10 md:px-[4rem] flex flex-col gap-[2rem] text-left mb-[2rem] items-center">
@@ -55,7 +53,7 @@ function TermsAndCondition() {
             <span className="font-bold"> reschedule your trip </span> for a
             later date. When rescheduling:
           </p>
-          <ul class="list-disc list-inside">
+          <ul className="list-disc list-inside">
             <li>
               If your new trip costs{" "}
               <span className="font-bold">

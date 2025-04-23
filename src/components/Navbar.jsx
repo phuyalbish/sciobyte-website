@@ -10,7 +10,7 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { fetchSearch } from "@/apis/search.js";
 import categories from "@/data/Categories.json";
 import Pen from "@/assets/icons/Pen.svg"
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+
 
 function Navbar({ activeMenu, setActiveMenu }) {
   const [isCompanyDropDown, setCompanyDropDown] = useState(false);

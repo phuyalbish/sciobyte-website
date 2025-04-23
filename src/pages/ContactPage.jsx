@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import email_blue from "@/assets/email-blue.svg";
 import email_green from "@/assets/email-green.svg";
 import location_img from "@/assets/location.svg";
@@ -11,7 +11,6 @@ import {
   textareaSchema,
 } from "@/validations/validationSchema.js";
 import { sendMail } from "@/apis/sendmail.js";
-import { FaWhatsapp } from "react-icons/fa";
 
 function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);

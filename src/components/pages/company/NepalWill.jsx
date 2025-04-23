@@ -1,5 +1,5 @@
-import React from 'react'
-
+import NW from "@/assets/NW.png"
+import nepalWill from "@/assets/nepalwill.png"
 function NepalWill() {
   return (
     
@@ -40,7 +40,7 @@ function NepalWill() {
               </p>
             </a>
             <p className="text-justify">
-              NepalWill is a non-governmental organization dedicated to
+              NepalWill is a non-governmental organization dedicated to
               uplifting primary school children in Nepal by providing essential
               educational resources and opportunities. Believing in the
               transformative power of education, NepalWill works to bridge the

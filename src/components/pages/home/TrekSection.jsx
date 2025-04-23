@@ -1,4 +1,3 @@
-import React from "react";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 

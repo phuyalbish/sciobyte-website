@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import img1 from "@/assets/googleReviews.png";
-import img2 from "@/assets/TripAdvisor.png";
+// import img2 from "@/assets/TripAdvisor.png";
 import review from "@/assets/reviews.jpeg";
 import ReviewTile from "@/components/tiles/ReviewTile";
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
@@ -42,43 +42,43 @@ const google_reviews = [
   },
 ];
 
-const trip_reviews = [
-  {
-    stars: 4,
-    profile: review,
-    reviewDetail:
-      "Loved the adventure! The scenery was breathtaking, and the guides were very helpful.",
-    name: "Daniel",
-  },
-  {
-    stars: 3,
-    profile: review,
-    reviewDetail:
-      "A fantastic journey through the Himalayas. The team was professional and friendly. Highly recommend!",
-    name: "Sophie",
-  },
-  {
-    stars: 5,
-    profile: review,
-    reviewDetail:
-      "A must-try experience for any adventure lover. Everything was well-organized, and I felt safe throughout the trek.",
-    name: "Emma",
-  },
-  {
-    stars: 5,
-    profile: review,
-    reviewDetail:
-      "HelloTrekkers is the best trekking and travel agency in Nepal! The guides were amazing, and the experience was unforgettable.",
-    name: "Julia",
-  },
-  {
-    stars: 4,
-    profile: review,
-    reviewDetail:
-      "Great experience with HelloTrekkers! The trekking routes were well-planned, and the hospitality was top-notch.",
-    name: "Michael",
-  },
-];
+// const trip_reviews = [
+//   {
+//     stars: 4,
+//     profile: review,
+//     reviewDetail:
+//       "Loved the adventure! The scenery was breathtaking, and the guides were very helpful.",
+//     name: "Daniel",
+//   },
+//   {
+//     stars: 3,
+//     profile: review,
+//     reviewDetail:
+//       "A fantastic journey through the Himalayas. The team was professional and friendly. Highly recommend!",
+//     name: "Sophie",
+//   },
+//   {
+//     stars: 5,
+//     profile: review,
+//     reviewDetail:
+//       "A must-try experience for any adventure lover. Everything was well-organized, and I felt safe throughout the trek.",
+//     name: "Emma",
+//   },
+//   {
+//     stars: 5,
+//     profile: review,
+//     reviewDetail:
+//       "HelloTrekkers is the best trekking and travel agency in Nepal! The guides were amazing, and the experience was unforgettable.",
+//     name: "Julia",
+//   },
+//   {
+//     stars: 4,
+//     profile: review,
+//     reviewDetail:
+//       "Great experience with HelloTrekkers! The trekking routes were well-planned, and the hospitality was top-notch.",
+//     name: "Michael",
+//   },
+// ];
 function ReviewSection() {
   const [isGoogleReview, setGoogleReview] = useState(true);
   return (

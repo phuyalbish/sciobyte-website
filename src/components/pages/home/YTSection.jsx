@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import ytbg from "@/assets/YTBG.jpg";
 import { FaYoutube } from "react-icons/fa";
@@ -38,7 +37,7 @@ function YTSection() {
 
           <div className="textConten md:w-7/12 z-10  flex  flex-col  gap-0 md:pl-20 justify-center w-full  self-start md:mt-10  md:items-start items-center ">
             <div className="text-3xl sm:text-4xl md:text-5xl text-left pt-10 font-liches text-white font-bold flex flex-col">
-              Let's
+              Let&apos;s
             </div>
             <a
 

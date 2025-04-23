@@ -1,5 +1,3 @@
-import React from "react";
-
 function PrivacyPolicy() {
   return (
     <div className="container px-10 md:px-[4rem] flex flex-col gap-[2rem] text-left mb-[2rem] items-center">
@@ -313,7 +311,7 @@ function PrivacyPolicy() {
                 </li>
                 <li>
                   <h3 className="font-bold">
-                    10. Contact Us (We're Here to Help!)
+                    10. Contact Us (We&apos;re Here to Help!)
                   </h3>
                   <p>
                     If you have any questions, concerns, or requests about your

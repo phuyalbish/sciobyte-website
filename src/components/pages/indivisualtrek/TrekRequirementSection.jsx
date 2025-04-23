@@ -1,7 +1,4 @@
-import React from "react";
-
 import DOMPurify from 'dompurify';
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 function TrekRequirementSection({ requirements }) {
 
   const sanitizedContent = DOMPurify.sanitize(requirements);

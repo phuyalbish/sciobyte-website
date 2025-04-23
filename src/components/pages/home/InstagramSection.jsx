@@ -1,4 +1,3 @@
-import React from "react";
 import right from "@/assets/mandala_right.png";
 import left from "@/assets/mandala_left.png";
 import insta1 from "@/assets/insta1.png";

@@ -1,6 +1,7 @@
-import React from "react";
-import TrekItenaryAccordion from "@/components/accordion/TrekItenaryAccordion";
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+
+import { scrollToSection } from "@/apis/scrollToSection.js";
 function TrekItenarySection({ map, map_link, elevation_graph }) {
   return (
     <section id="maps">

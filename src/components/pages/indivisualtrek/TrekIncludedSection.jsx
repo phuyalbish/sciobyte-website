@@ -1,4 +1,3 @@
-import React from "react";
 import CheckMark from "@/assets/icons/CheckMark.svg";
 import Exclamation from "@/assets/icons/Exclamation.svg";
 import DOMPurify from 'dompurify';

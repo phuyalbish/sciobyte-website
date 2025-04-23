@@ -1,9 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { truncate } from "@/utils/truncate.js";
-export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 
-function SearchTrekRegionTile({ name, image, slug, category_name, category_slug, main_category, main_category_slug }) {
+function SearchTrekRegionTile({ name, image, slug, category_name, main_category, main_category_slug }) {
   return (
     <Link
 
