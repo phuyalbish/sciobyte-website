@@ -9,9 +9,8 @@ import { RiPinDistanceFill } from "react-icons/ri";
 import { MdFastfood } from "react-icons/md";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaTent } from "react-icons/fa6";
-import { GiWalkingBoot } from "react-icons/gi";
 import { FaMountainSun } from "react-icons/fa6";
-
+import { FaCloudSun } from "react-icons/fa";
 export const BASE_MEDIA_URL = import.meta.env.VITE_BASE_MEDIA_URL;
 
 function TrekBasicInformationSection({ 
@@ -74,7 +73,7 @@ function TrekBasicInformationSection({
     },
 
     {
-      icon: GiWalkingBoot,
+      icon: FaCloudSun,
       heading: "Best Seasons",
       description: best_seasons,
     },
