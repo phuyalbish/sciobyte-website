@@ -18,6 +18,8 @@ function TrekBasicInformationSection({
   max_distance = null, 
   min_group_range=null,
   max_group_range = null,
+  max_hike_hour = null,
+  min_hike_hour = null,
   start_point = null,
   end_point = null,
   difficulties = null,
@@ -43,7 +45,7 @@ function TrekBasicInformationSection({
         {
       icon: GiWalkingBoot,
       heading: "Average Hiking Hours",
-      description: max_distance + " Hrs",
+      description: min_hike_hour + "-" + max_hike_hour + " Hrs",
     },
     {
       icon: FaPeopleGroup,

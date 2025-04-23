@@ -43,21 +43,21 @@ useEffect(() => {
           heading: "Max Altitude",
           description: schedule?.max_altitude+"m",
         },
-         ...(schedule?.duration > 0
+         ...(schedule?.max_duration > 1
           ? [{
               
               icon: GiDuration,
               heading: "Duration",
-              description:  schedule?.duration + "Hrs",
+              description:  schedule?.min_duration + " - "+ schedule?.max_duration + "Hrs",
             }]
           : []),
 
-        ...(schedule?.max_distance > 0
+        ...(schedule?.distance > 0
           ? [{
               
               icon: GiPathDistance,
               heading: "Distance",
-              description:  schedule?.min_distance + " - "+ schedule?.max_distance  + "Kms",
+              description:  schedule?.distance  + "Kms",
             }]
           : []),
 

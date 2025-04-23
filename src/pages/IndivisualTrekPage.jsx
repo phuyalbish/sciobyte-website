@@ -73,6 +73,8 @@ function IndivisualTrekPage() {
                 max_distance = {trek?.max_distance}
                 min_group_range={trek?.min_group_range}
                 max_group_range = {trek?.max_group_range}
+                min_hike_hour={trek?.min_hike_hour}
+                max_hike_hour = {trek?.max_hike_hour}
                 start_point = {trek?.start_point}
                 end_point = {trek?.end_point}
                 difficulties = {trek?.difficulties}
