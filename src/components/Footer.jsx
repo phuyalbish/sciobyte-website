@@ -16,13 +16,13 @@ const NavItems = ({ item }) => {
   return (
     
       <div className="flex  flex-col  items-center  md:items-start  gap-6 w-full  justify-center md:justify-start" >
-        <h1 className="text-md font-bold text-N100">
+        <h1 className="text-md font-bold text-white">
           {title}
         </h1>
-        <ul className="flex flex-col  items-center md:items-start gap-4 text-N100">
+        <ul className="flex flex-col  items-center md:items-start gap-4 text-white">
           {items.map((item, index) => (
             <li key={index} className=" ">
-              <Link aria-label={`To ${item?.name} ${index}`} to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+              <Link aria-label={`To ${item?.name} ${index}`} to={item.url} className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
                 {item.name}
               </Link>
             </li>
@@ -105,7 +105,7 @@ function Footer() {
   return (
     <footer className="bg-B400 flex flex-col justify-center">
         <div className="p-10 flex flex-col gap-2 px-8">
-          <h1 className="text-lg font-bold text-N100">WE ARE ASSOCIATED WITH:</h1>
+          <h1 className="text-lg font-bold text-WHITE">WE ARE ASSOCIATED WITH:</h1>
           <div className="flex justify-center items-center gap-5 ">
             <img
               decoding="async"
@@ -141,7 +141,7 @@ function Footer() {
         <div className="flex flex-row px-8 justify-center md:justify-evenly items-start gap-10  flex-wrap mb-16">
             <div className="flex flex-col md:justify-start justify-center gap-6 ">
                <img src={footerLogo} alt="Logo" />
-              <ul className="flex flex-col  items-start gap-4 text-N100">
+              <ul className="flex flex-col  items-start gap-4 text-WHITE">
                 <li className="flex gap-2 items-center"> 
                   <img src={Location} alt="Location Image" className="w-7 aspect-square" />
                    Kirtipur, Kathmandu
@@ -164,13 +164,13 @@ function Footer() {
           
 
             <div className="flex  flex-col  items-start  gap-6 w-full  justify-center md:justify-start" >
-              <h1 className="text-md font-bold text-N100">
+              <h1 className="text-md font-bold text-white">
                 Discovery
               </h1>
-              <ul className="flex flex-col  items-start gap-4 text-N100">
+              <ul className="flex flex-col  items-start gap-4 text-white">
                 {discovery.map((item, index) => (
                   <li key={index} className=" ">
-                    <Link  aria-label={`To ${item?.name} ${index}`} to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                    <Link  aria-label={`To ${item?.name} ${index}`} to={item.url} className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
                       {item.name}
                     </Link>
                   </li>
@@ -181,22 +181,22 @@ function Footer() {
 
 
               <div className="flex  flex-col  items-start  gap-6 w-full  justify-center md:justify-start" >
-              <h1 className="text-md font-bold text-N100">
+              <h1 className="text-md font-bold text-white">
                 Resources
               </h1>
-              <ul className="flex flex-col  items-start gap-4 text-N100">
+              <ul className="flex flex-col  items-start gap-4 text-white">
                   <li>
-                    <a  aria-label="Home Page" href="https://www.youtube.com/@hellotrekkers" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                    <a  aria-label="Home Page" href="https://www.youtube.com/@hellotrekkers" className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
                       Youtube
                     </a>
                   </li>
                   <li>
-                    <a aria-label="Instagram Link" href="https://www.instagram.com/hellotrekkersnamaste" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                    <a aria-label="Instagram Link" href="https://www.instagram.com/hellotrekkersnamaste" className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
                       Instagram
                     </a>
                   </li>
                   <li>
-                    <Link aria-label="Blogs" to="/blogs" className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                    <Link aria-label="Blogs" to="/blogs" className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
                       Travel Tips
                     </Link>
                   </li>
@@ -205,13 +205,13 @@ function Footer() {
 
 
               <div className="flex  flex-col  items-start  gap-6 w-full  justify-center md:justify-start" >
-              <h1 className="text-md font-bold text-N100">
+              <h1 className="text-md font-bold text-white">
                 Company
               </h1>
-              <ul className="flex flex-col  items-start gap-4 text-N100">
+              <ul className="flex flex-col  items-start gap-4 text-white">
                 {company.map((item, index) => (
                   <li key={index} className=" ">
-                    <Link   aria-label={`To ${item?.name} ${index}`}  to={item.url} className="line-clamp-2 items-center hover:text-G300 transition-all duration-500">
+                    <Link   aria-label={`To ${item?.name} ${index}`}  to={item.url} className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
                       {item.name}
                     </Link>
                   </li>
