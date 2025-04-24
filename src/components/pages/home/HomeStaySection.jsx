@@ -1,7 +1,7 @@
 import homestay from "@/assets/homestay.png";
 import homestay_vector from "@/assets/homestay-vector.svg";
 import mobile_homestay_vector from "@/assets/homestay-mobile-vector.svg";
-
+import instagramLogo from "@/assets/instagram-logo.png";
 import google_logo from "@/assets/google-logo.svg";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 const GoogleReview = () => {
@@ -82,11 +82,11 @@ const HomeStaySection = () => {
               <img
                 decoding="async"
                 loading="lazy"
-                src="/instagram-logo.png"
+                src={instagramLogo}
                 alt="Instagram Logo"
                 className="w-6"
               />
-              <p className="text-lg font-semibold  text-white underline underline-offset-1">
+              <p className="text-md font-base  text-white underline underline-offset-1">
                 @nepalwelcomesyou
               </p>
             </a>
