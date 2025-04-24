@@ -27,7 +27,7 @@ function IndivisualDistrictPage() {
   }, [id]);
 
   return (
-    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
+    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] px-5 mb-20">
       {/* <BreadCrumbs travel_type={district?.caetgory_name} name={district?.name} /> */}
       <img
         decoding="async"

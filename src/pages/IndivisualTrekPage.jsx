@@ -54,19 +54,23 @@ function IndivisualTrekPage() {
     <>
     <div className="mb-10">
         
-      <div className="flex flex-col gap-5 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
-        <BreadCrumbs
+      <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] mb-20">
+        <div className="px-2 md:px-0">
+          <BreadCrumbs
           category_name={trek?.categories?.name}
           category_slug={trek?.categories?.slug}
           region_name={trek?.regions?.name}
           region_slug={trek?.regions?.slug}
           name={trek?.name}
         />
-        
+        </div>
+        <div className="px-2 md:px-0">
           <ImageSlideSection gallery={trek?.gallery}/>
+          </div>
      
         <div className="flex sticky top-0 h-full gap-10 w-full">
-          <div className="flex md:w-9/12 w-full flex-col gap-4 ">
+          <div className="flex md:w-9/12 w-full flex-col gap-4  ">
+          <div className="px-2 md:px-0 ">
             <TrekBasicInformationSection 
             travel_name = {trek?.name}
                 max_duration ={trek?.max_duration}
@@ -84,8 +88,9 @@ function IndivisualTrekPage() {
                 districts = {trek?.districts}
                 best_seasons =  {trek?.best_seasons}
             />
+            </div>
             <div className="flex flex-col gap-10 text-left">
-              <div className="p-3  sticky overflow-x-auto top-16 rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-white">
+              <div className="p-2 sticky overflow-x-auto top-16 rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-white">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"
@@ -151,6 +156,8 @@ function IndivisualTrekPage() {
                 </button>
                 )}
               </div>
+              <div className="flex flex-col gap-10 text-left md:px-0 px-2 ">
+
               <TrekOverviewSection
                 description={trek?.description}
               />
@@ -186,6 +193,8 @@ function IndivisualTrekPage() {
 
             </div>
           </div>
+
+              </div>
           <div className="md:flex sticky top-[10vh] hidden md:w-3/12  h-[80vh]">
             <TrekPricingSection
                total_price={trek?.total_price}
@@ -206,7 +215,7 @@ function IndivisualTrekPage() {
 
           <Link 
           aria-label="Contact Page"
-          to="/contact" className="text-base font-light  bg-B400 flex gap-2 justify-center items-center px-2 rounded-md text-white">
+          to="/contact" className="text-base font-light  bg-B400 flex gap-2 justify-center items-center px-2 md:px-0 rounded-md text-white">
             Make a booking
           </Link>
         </div>
@@ -214,7 +223,7 @@ function IndivisualTrekPage() {
 
 
        {Array.isArray(trek?.reference) && trek.reference.length > 0 && (
-          <div className="flex w-full flex-col gap-4 md:px-[4.5rem] px-5">
+          <div className="flex w-full flex-col gap-4 md:px-[4rem] px-5">
             <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
               YOU MIGHT ALSO LIKE
             </h1>

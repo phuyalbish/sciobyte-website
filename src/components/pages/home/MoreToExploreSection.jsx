@@ -16,7 +16,7 @@ const MoreToExploreSection = () => {
   return (
     <>
       <section className="bg-[#B0E4DD]">
-        <div className="px-[2rem] md:px-[4.5rem] py-5">
+        <div className="px-[2rem] md:px-[4rem] py-5">
           <div className="text-3xl sm:text-4xl md:text-5xl  mb-[3rem] font-semibold">
             Discover more to Explore
           </div>

@@ -28,7 +28,7 @@ function IndivisualCategoryPage() {
   }, [id]);
 
   return (
-    <div className="flex flex-col gap-10 mt-5 w-full md:px-[4.5rem] px-5 mb-20">
+    <div className="flex flex-col gap-10 mt-5 w-full md:px-[4rem] px-5 mb-20">
       
       <img
         decoding="async"

@@ -14,7 +14,7 @@ const TrekListPage = () => {
 
   return (
     <section className="container">
-      <div className="px-[2rem] md:px-[4.5rem]">
+      <div className="px-[2rem] md:px-[4rem]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem]">
           {treks?.map((trek, index) => (
             <TrekTile key={index} data={trek} />

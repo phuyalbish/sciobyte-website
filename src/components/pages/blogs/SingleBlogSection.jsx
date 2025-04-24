@@ -40,7 +40,7 @@ const SingleBlogSection = ({ latestBlog }) => {
   return (
     <>
       <div className="container">
-        <div className="mx-auto px-3 md:px-[4.5rem] py-10">
+        <div className="mx-auto px-3 md:px-[4rem] py-10">
           <article className=" rounded-xl grid grid-cols-1 md:grid-cols-2 gap-[2.5rem] items-center p-[1.25rem] bg-white  shadow-lg overflow-hidden">
             <div className="relative h-full">
               {isLoading ? (
