@@ -17,7 +17,6 @@ const HomeStay = () => {
                   child irrespective of their socio-economic backgrounds should have a
                   fair shot at the stars.
                 </p>
-        
       </div>
     </>
   );

@@ -7,6 +7,8 @@ function NepalWill() {
         <div className="text-xl font-liches  text-left rounded-lg font-semibold">
           Social Initiative
         </div >
+        <div className="flex gap-10">
+          
           <div className="relative md:w-[32rem] w-full">
             <img
               decoding="async"
@@ -52,6 +54,8 @@ function NepalWill() {
               difference in the lives of the children we aim to serve.
             </p>
           </div>
+        </div>
+
         </div>
   )
 }
