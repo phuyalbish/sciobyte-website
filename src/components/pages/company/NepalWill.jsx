@@ -3,12 +3,8 @@ import nepalWill from "@/assets/nepalwill.png"
 function NepalWill() {
   return (
     
-      <div id="csr" className="flex flex-col px-5 md:px-[4rem] max-w-[100em] mx-auto gap-5">
-        <div className="text-xl font-liches  text-left rounded-lg font-semibold">
-          Social Initiative
-        </div >
-        <div className="flex gap-10">
-          
+      <div id="csr" className="flex flex-col md:flex-row px-5 md:px-[4rem] max-w-[100em] mx-auto gap-10">
+        
           <div className="relative md:w-[32rem] w-full">
             <img
               decoding="async"
@@ -56,7 +52,6 @@ function NepalWill() {
           </div>
         </div>
 
-        </div>
   )
 }
 
