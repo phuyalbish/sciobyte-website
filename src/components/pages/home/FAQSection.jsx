@@ -4,18 +4,12 @@ import { fetchFAQs } from "@/apis/faqs.js";
 const FAQSection = () => {
   const [faqs, setFaqs] = useState([]);
 
-  const handleFaqState = (id) => {
-    setFaqs(
-      faqs.map((faq) => {
-        if (id === faq.id) {
-          faq.isOpened = true;
-        } else {
-          faq.isOpened = false;
-        }
-        return faq;
-      })
-    );
-  };
+const handleFaqState = (id) => {
+  setFaqs(faqs.map(faq => ({
+    ...faq,
+    isOpened: faq.id === id ? !faq.isOpened : false
+  })));
+};
 
   useEffect(() => {
     (async () => {

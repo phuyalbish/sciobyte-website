@@ -15,7 +15,6 @@ function IndivisualDistrictPage() {
         const response = await fetchIndivisualDistricts(id);
 
         const sanitizedContent = DOMPurify.sanitize(response?.description);
-        console.log(sanitizedContent)
         setDistrict(response);
         setContent(sanitizedContent);
       } catch (error) {

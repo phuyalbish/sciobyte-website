@@ -11,7 +11,6 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
 
   const sanitizedContent = DOMPurify.sanitize(faq?.answer);
   const questionBg = isOpened ? "bg-B200" : "bg-white";
-console.log(isOpened)
   return (
     <div className="cursor-pointer w-full mx-auto select-none">
       <button

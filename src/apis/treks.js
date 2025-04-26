@@ -45,12 +45,10 @@ export const fetchIndivisualTrek = async (id) => {
 export const fetchFavouriteTreks = async () => {
 
       const slugs = JSON.parse(localStorage.getItem('favorites') || '[]');
-      console.log(slugs)
       if (slugs.length === 0) return;
 
       try {
         const query = slugs.map(slug => `slugs=${slug}`).join("&");
-        console.log(query)
         const response = await axios({
             url: `${BASE_API_URL}/treks/slugs/?${query}`,
             method: "GET",

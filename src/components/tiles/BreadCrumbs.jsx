@@ -9,7 +9,6 @@ category_name = null,
   region_slug = null,
   category_slug = null,
 }) {
-  console.log(category_slug)
   return (
     <div className="flex gap-1font-light  items-center text-base flex-wrap text-left">
       <Link 

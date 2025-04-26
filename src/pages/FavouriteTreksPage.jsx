@@ -12,13 +12,8 @@ const [treks, setTreks] = useState([]);
   useEffect(() => {
     (async () => {
       const response = await fetchFavouriteTreks();
-      console.log("Really")
       const treksData = response?.results;
-
-      console.log(treksData)
-      console.log("Here")
       setTreks(treksData);
-      console.log(treksData)
     })();
   }, []);
 

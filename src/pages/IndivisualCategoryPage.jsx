@@ -16,7 +16,6 @@ function IndivisualCategoryPage() {
         const response = await fetchIndivisualCategories(id);
 
         const sanitizedContent = DOMPurify.sanitize(response?.description);
-        console.log(sanitizedContent)
         setCategory(response);
         setContent(sanitizedContent);
       } catch (error) {

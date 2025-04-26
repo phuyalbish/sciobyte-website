@@ -16,7 +16,6 @@ function IndivisualRegionPage() {
         const response = await fetchIndivisualRegions(id);
 
         const sanitizedContent = DOMPurify.sanitize(response?.description);
-        console.log(sanitizedContent)
         setRegion(response);
         setContent(sanitizedContent);
       } catch (error) {

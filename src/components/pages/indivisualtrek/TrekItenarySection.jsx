@@ -7,19 +7,18 @@ function TrekItenarySection({ data }) {
 
     const [scheduleData, setSchedule] = useState([]);
   
-    const handleScheduleState = (id) => {
-     
-      setSchedule(
-        scheduleData.map((schedule) => {
-          if (id === schedule.id) {
-            schedule.isOpened = true;
-          } else {
-            schedule.isOpened = false;
-          }
-          return schedule;
-        })
-      );
-    };
+
+const handleScheduleState = (id) => {
+  setSchedule(
+    scheduleData.map((schedule) => {
+      if (id === schedule.id) {
+        return { ...schedule, isOpened: !schedule.isOpened }; 
+      } else {
+        return { ...schedule, isOpened: false };
+      }
+    })
+  );
+};
   
     useEffect(() => {
       if (Array.isArray(data) && data.length > 0) {

@@ -39,7 +39,6 @@ function IndivisualTrekPage() {
     const getTrek = async () => {
       try {
         const response = await fetchIndivisualTrek(id);
-        console.log();
         setTrek(response);
       } catch (error) {
         console.error("Error fetching trek:", error);
@@ -49,7 +48,6 @@ function IndivisualTrekPage() {
     getTrek();
   }, [id]);
 
-  console.log(trek)
   return (
     <>
     <div className="mb-10">

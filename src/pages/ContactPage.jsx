@@ -30,10 +30,6 @@ function ContactPage() {
   };
   const [formData, setFormData] = useState(initialFormState);
 
-  useEffect(() => {
-    console.log(errorMsg);
-  }, [errorMsg]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);

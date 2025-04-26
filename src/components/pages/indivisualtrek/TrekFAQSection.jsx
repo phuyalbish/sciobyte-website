@@ -4,20 +4,19 @@ import TrekFAQ from "@/components/accordion/TrekFAQ.jsx";
 function TrekFAQSection({ faqs }) {
   const [trekFAQ, setFaqs] = useState([]);
 
-  const handleFaqState = (id) => {
-    console.log(id)
-    setFaqs(
-      trekFAQ.map((faq) => {
-        if (id === faq.id) {
-          faq.isOpened = true;
-        } else {
-          faq.isOpened = false;
-        }
-        return faq;
-      })
-    );
-  };
+  
+ const handleFaqState = (id) => {
 
+  setFaqs(
+    trekFAQ.map((faq) => {
+      if (faq.id === id) {
+        return { ...faq, isOpened: !faq.isOpened }; 
+      } else {
+        return { ...faq, isOpened: false };
+      }
+    })
+  );
+};
   useEffect(() => {
     if (Array.isArray(faqs) && faqs.length > 0) {
       const updatedFaqs = faqs.map((faq, index) => ({

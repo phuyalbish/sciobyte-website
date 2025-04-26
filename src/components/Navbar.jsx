@@ -49,8 +49,6 @@ function Navbar({ activeMenu, setActiveMenu }) {
       const response = await fetchSearch(searchText);
       setSearchData(response.data);
       setIsSearchTile(true);
-    } else {
-      console.log("No search text entered");
     }
   };
 
@@ -399,7 +397,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
           </div>
 
           <div className="relative flex gap-4  items-center">
-                 <Link t to="/liked" aria-label="Liked Page">
+                 <Link  to="/liked" aria-label="Liked Page">
                 <FaHeart   className="size-6  text-red-500 hover:text-white cursor-pointer select-none"/>
                 </Link>
               <Link to="/plan" aria-label="Create Your Trip"
