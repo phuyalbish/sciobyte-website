@@ -105,7 +105,7 @@ function ImageSlideSection({ gallery}) {
 
                 alt={`Gallery Image ${index}`}
                 src={BASE_MEDIA_URL + item.image}
-                className="object-cover transition-all duration-500 ease-in-out w-full  aspect-video flex-grow"
+                className="object-cover transition-all duration-500 ease-in-out w-full  h-full flex-grow"
               />
             ))}
           </div>
