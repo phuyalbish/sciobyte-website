@@ -88,7 +88,7 @@ function ImageSlideSection({ gallery}) {
         )}
       </div>
       {isOpenGallerySection && (
-        <div className="fixed w-full  h-screen test p-2  top-0 left-0 z-50   bg-white/100 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
+        <div className="fixed  h-screen  p-2  top-0 left-0 z-50   bg-white/100 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
          <div className="bg-white absolute rounded-full  z-20 cursor-pointer  right-6 hover:scale-105 scale-100  transition-all duration-500 top-4 self-end">
            <IoCloseOutline
             className="text-black"
@@ -104,18 +104,16 @@ function ImageSlideSection({ gallery}) {
          <EmblaGalleryCarousel>
             {
               gallery?.map((item, index) => (
-                <div key={index} className="embla__slide min-w-full rounded-md">
-                  <div className="w-full h-[90vh] overflow-y-auto relative   object-cover flex items-center rounded-md">
-                  
-             <img
+                <div key={index} className="embla__slide min-w-full rounded-md flex justify-center">
+                  <div className=" overflow-y-auto relative  object-cover   rounded-md">
+                  <img
                     decoding="async"
                     loading="lazy"
                     alt={`Gallery Image ${index}`}
                     src={BASE_MEDIA_URL + item.image}
-                    className="transition-all duration-500 ease-in-out w-full flex-grow rounded-md"
+                    className="transition-all duration-500 ease-in-out  h-full  flex-grow rounded-md"
                   />
                   </div>
-                  
                 </div>
               ))
             }

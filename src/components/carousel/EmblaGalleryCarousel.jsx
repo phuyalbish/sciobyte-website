@@ -38,13 +38,13 @@ const EmblaGalleryCarousel = ({
   }, [emblaApi]);
 
   return (
-    <div className=" relative h-full flex flex-col items-center gap-2">
+    <div className=" relative  h-full flex flex-col items-center gap-2">
       <div className="embla relative w-full h-full">
         <div className="overflow-hidden " ref={emblaRef}>
           <div className="flex gap-2">{children}</div>
         </div>
       </div>
-      <div className="w-full relative  flex justify-center gap-4 items-center">
+      <div className="w-full absolute  h-full  flex justify-between gap-4 items-center">
         <button
           onClick={scrollPrev}
           disabled={!canScrollPrev}

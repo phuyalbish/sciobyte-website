@@ -46,23 +46,30 @@ function SplashSection() {
           ) : (
             ""
           )}
-          <div className="bg-white w-full rounded-md overflow-hidden flex items-center px-5  h-10  gap-1 shadow-xl  md:h-14 max-w-[95vw]  md:w-[50vw]">
+          <div className="bg-white w-full rounded-full overflow-hidden flex items-center pl-5 p-0.5  h-10  gap-1 shadow-xl  md:h-14 max-w-[95vw]  md:w-[50vw]">
             <input
               type="text"
-              className="outline-none bg-transparent h-full w-full md:text-base text-sm text-N500 placeholder-N500"
+              className="outline-none bg-transparent h-full w-full md:text-base text-xs text-N500 placeholder-N500"
               placeholder="Nepal welcomes you, dive in!"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
-            <IoSearch
-              className=" md:size-8 size-6 text-N300 hover:text-N500 cursor-pointer select-none"
-              onClick={handleSearch}
-            />
+            {!isSearchTile && (
+              <div className="bg-B500 hover:bg-transparent border border-transparent hover:border-B500 group hover h-full aspect-square p-1 rounded-full flex justify-center items-center">
+                <IoSearch
+                  className="size-5 text-white group-hover:text-B500 cursor-pointer select-none"
+                  onClick={handleSearch}
+                />
+              </div>
+            )}
+
             {isSearchTile && (
-              <LiaTimesSolid
-                className="md:size-8 size-6  text-N300 hover:text-N500 cursor-pointer select-none"
-                onClick={() => setIsSearchTile(false)}
-              />
+              <div className="bg-B500 hover:bg-transparent border border-transparent hover:border-B500 group hover h-full aspect-square p-1 rounded-full flex justify-center items-center">
+                <LiaTimesSolid
+                  className="size-5 text-white group-hover:text-B500 cursor-pointer select-none"
+                  onClick={() => setIsSearchTile(false)}
+                />
+              </div>
             )}
           </div>
           

@@ -33,7 +33,7 @@ useEffect(() => {
     <FaChevronUp className="h-fit min-w-7 max-w-7 self-center  bg-G300 p-2 rounded-sm text-white" />
   );
 
-  const default_bg_color = isOpened ? "bg-B200" : "bg-white";
+  const default_bg_color = isOpened ? "bg-G200" : "bg-white";
 
 
   const trekHeadings = [
@@ -109,7 +109,7 @@ useEffect(() => {
     <>
       <div ref={scrollRef} className="cursor-pointer w-full mx-auto select-none  flex flex-col gap-2">
         <div
-          className={`${default_bg_color} hover:bg-B200 rounded-md p-2 transition duration-300 ease-in-out  flex md:flex-row flex-col gap-3  justify-start`}
+          className={`${default_bg_color} hover:bg-G100 rounded-md p-2 transition duration-300 ease-in-out  flex md:flex-row flex-col gap-3  justify-start`}
           onClick={() => {
             hasInteractedRef.current = true;
             handleScheduleState(schedule.id);
@@ -128,7 +128,7 @@ useEffect(() => {
         </div>
  {isOpened && (
         <div
-          className={`md:pl-20 p-4 rounded-md  overflow-hidden transition-max-height flex flex-col gap-3 duration-700 ease-in-out bg-B100`}
+          className={`md:pl-20 p-4 rounded-md  overflow-hidden transition-max-height flex flex-col gap-3 duration-700 ease-in-out bg-G100`}
         >
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full">
