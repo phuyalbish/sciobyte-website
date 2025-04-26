@@ -129,7 +129,7 @@ const SingleBlogSection = ({ latestBlog }) => {
                   <>
                     <span
                       className="leading-relaxed text-left"
-                      dangerouslySetInnerHTML={{ __html: content }}
+                      dangerouslySetInnerHTML={{ __html: content }}  className='text-justify'
                     ></span>
                     <div className="flex justify-end text-B500 hover:text-B300 hover:underline font-bold cursor-pointer">
                       {sanitizedContent.length > 600 && (

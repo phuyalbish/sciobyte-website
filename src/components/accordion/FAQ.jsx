@@ -14,7 +14,7 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
 
   const sanitizedContent = DOMPurify.sanitize(faq?.answer);
   return (
-    <div className="cursor-pointer w-full md:w-[70%] mx-auto select-none">
+    <div className="cursor-pointer p-10 md:px-0 w-full  md:w-[70%] mx-auto select-none">
       <div
         className={`${question_default_bg_color}  hover:bg-B75 p-4 rounded-md shadow-xs transition duration-300 ease-in-out `}
         onClick={() => handleFaqState(faq.id)}
@@ -27,7 +27,7 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
 
       {isOpened && (
         <div className="group bg-B50 p-4 rounded-md shadow-xs mt-2 bg-B100 text-left flex justify-between ">
-          <div className="text-left font-medium" dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+          <div className="text-justify" dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
           {faq.image && (
             <img
               src={faq.image}

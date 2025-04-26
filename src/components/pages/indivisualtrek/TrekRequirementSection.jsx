@@ -8,7 +8,7 @@ function TrekRequirementSection({ requirements }) {
     <div  className="flex flex-col gap-5">
       <div className="text-xl tracking-wide font-liches font-light">Requirements</div>
     
-      <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+      <div dangerouslySetInnerHTML={{ __html: sanitizedContent }}  className='text-justify' />
       </div>)}
     </section>
   );

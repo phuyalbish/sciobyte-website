@@ -40,8 +40,7 @@ function IndivisualDistrictPage() {
           {district?.name}
         </div>
 
-      <div className="text-md text-left" dangerouslySetInnerHTML={{ __html: content }} />
-        {/* <div {district?.description}</div> */}
+      <div className="text-md text-justify" dangerouslySetInnerHTML={{ __html: content }} />
       </div>
        <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
         {district?.trek_count} Travel{district?.trek_count >= 2 ? "s" : ""}

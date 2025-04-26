@@ -19,14 +19,14 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
         aria-expanded={isOpened}
       >
         <div className="flex justify-between items-center">
-          <span className="font-semibold">{faq.question}</span>
+          <span>{faq.question}</span>
           {arrowSVG}
         </div>
       </button>
 
       {isOpened && (
         <div className="group bg-B50 p-4 rounded-md shadow-xs mt-2 bg-B100 text-left flex justify-between gap-4">
-          <div className="text-left font-medium" dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+          <div  dangerouslySetInnerHTML={{ __html: sanitizedContent }}   className='text-justify'/>
           {faq.image && (
             <img
               src={faq.image}

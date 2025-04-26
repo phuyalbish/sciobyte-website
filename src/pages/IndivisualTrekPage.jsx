@@ -88,7 +88,7 @@ function IndivisualTrekPage() {
             />
             </div>
             <div className="flex flex-col gap-10 text-left">
-              <div className="p-2 sticky overflow-x-auto top-16 rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-white">
+              <div className="p-2 px-4 sticky overflow-x-auto top-16 rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-white">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"
@@ -117,7 +117,7 @@ function IndivisualTrekPage() {
               {Array.isArray(trek?.gears) && trek.gears.length > 0 && (
                   <button
                   onClick={() => scrollToSection("gears")}
-                  className="hover:underline flex gap-1"
+                  className="hover:underline "
                 >
                   Gears
                 </button>
@@ -138,7 +138,7 @@ function IndivisualTrekPage() {
               {Array.isArray(trek?.reviews) && trek.reviews.length > 0 && (
                   <button
                   onClick={() => scrollToSection("reviews")}
-                  className="hover:underline flex gap-1"
+                  className="hover:underline flex"
                 >
                   Reviews
                 </button>

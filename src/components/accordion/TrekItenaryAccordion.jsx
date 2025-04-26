@@ -34,6 +34,7 @@ useEffect(() => {
   );
 
   const default_bg_color = isOpened ? "bg-G200" : "bg-white";
+  const default_hover_bg_color = isOpened ? "hover:bg-G200" : "hover:bg-G100";
 
 
   const trekHeadings = [
@@ -107,31 +108,31 @@ useEffect(() => {
 
   return (
     <>
-      <div ref={scrollRef} className="cursor-pointer w-full mx-auto select-none  flex flex-col gap-2">
+      <div ref={scrollRef} className="cursor-pointer w-full mx-auto select-none  flex flex-col gap-2 ">
         <div
-          className={`${default_bg_color} hover:bg-G100 rounded-md p-2 transition duration-300 ease-in-out  flex md:flex-row flex-col gap-3  justify-start`}
+          className={`${default_bg_color} ${default_hover_bg_color} sticky top-28  z-10 pt-2 rounded-md p-2 transition duration-300 ease-in-out  flex flex-row  gap-3  justify-start`}
           onClick={() => {
             hasInteractedRef.current = true;
             handleScheduleState(schedule.id);
           }}
         >
-          <div className="flex flex-col md:w-20 items-center">
-            <div className="px-5 h-8 bg-G300 rounded-tl-2xl w-full text-white items-center justify-center flex text-md">
+          <div className="flex flex-col w-10 md:w-20 items-center bg-white rounded-tl-lg">
+            <div className="px-5 h-8 bg-G300 rounded-tl-lg w-full text-white items-center justify-center flex  text-base md:text-md">
               Day
             </div>
-            <div className="text-md font-bold">{schedule.day}</div>
+            <div className="  text-base md:text-md font-bold">{schedule.day}</div>
           </div>
           <div className="flex justify-between   w-full h-fit gap-2 ">
-            <div className="font-bold text-md">{schedule?.heading}</div>
+            <div className="font-bold text-base md:text-md">{schedule?.heading}</div>
             {arrowSVG}
           </div>
         </div>
- {isOpened && (
+        {isOpened && (
         <div
           className={`md:pl-20 p-4 rounded-md  overflow-hidden transition-max-height flex flex-col gap-3 duration-700 ease-in-out bg-G100`}
         >
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2  w-full">
             {trekHeadings.map((item, index) =>
               item?.description ? (
                   <div key={index} className="rounded-xl flex gap-3 bg-G200  py-2 px-4   items-center justify-start">
@@ -149,22 +150,24 @@ useEffect(() => {
             )}
           </div>  
 
-          <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
-         <div className="flex gap-2 relative overflow-x-scroll rounded-md h-[400px]">
-          {schedule?.gallery.map((item, index) => (
-            <div key={index} className="h-full flex items-center">
-              <img
-                decoding="async"
-                alt={`Trek Itinerary Gallery ${index + 1}`}
-                loading="lazy"
-                src={BASE_MEDIA_URL + item.image}
-                className="object-cover h-full w-auto max-w-full transition-all duration-500 ease-in-out rounded-md"
-              />
+          <div dangerouslySetInnerHTML={{ __html: sanitizedContent }}   className='text-justify'/>
+         {schedule?.gallery?.length > 0 && (
+            <div className="flex gap-2 relative overflow-x-auto scroll-smooth snap-x snap-mandatory rounded-md h-[400px] z-0">
+              {schedule.gallery.map((item, index) => (
+                <div key={index} className="h-full flex items-center snap-start">
+                  <img
+                    decoding="async"
+                    alt={`Trek Itinerary Gallery ${index + 1}`}
+                    loading="lazy"
+                    src={BASE_MEDIA_URL + item.image}
+                    className="object-cover h-full w-auto max-w-full transition-all duration-500 ease-in-out rounded-md"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
-        </div>
- )}
+        )}
       </div>
 
       

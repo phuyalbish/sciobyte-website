@@ -17,11 +17,11 @@ function SpontaneousTrekSection({treks}) {
       <div className="md:px-[4rem] flex flex-col gap-10 relative w-full ">
          <div className="flex flex-col gap-5 ">
           <div className=" text-2xl  md:text-3xl flex flex-col md:flex-row flex-wrap items-center justify-center gap-2 ">
-            <span className=" font-liches text-white bg-B500 p-2 rounded-2xl  text-xl sm:text-3xl md:text-4xl">
+            <span className=" font-liches text-white bg-B500 p-2 rounded-2xl  text-xl sm:text-3xl md:text-3xl">
               SPONTANEOUS
             </span>
             <span className="font-liches text-N900  p-2   text-2xl sm:text-2xl md:text-3xl">DECISIONS,</span>
-            <span className="font-liches text-white bg-G500 p-2 rounded-2xl   text-2xl sm:text-2xl md:text-3xl">
+            <span className="font-liches text-white bg-G500 p-2 rounded-2xl  text-xl sm:text-3xl md:text-3xl">
               ADVENTEROUS
             </span>
             <span className="font-liches text-N900 p-2 rounded-2xl   text-2xl sm:text-2xl md:text-3xl">TRAILS.</span>
