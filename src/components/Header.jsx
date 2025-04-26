@@ -9,6 +9,7 @@ import Pen from "@/assets/icons/Pen.svg"
 import categories from "@/data/Categories.json";
 import { IoIosArrowDown } from "react-icons/io";
 import { fetchIndivisualNavCategories } from "@/apis/categories.js";
+import { FaHeart } from "react-icons/fa";
 
 function Header({ setActiveMenu }) {
   const [isDropDown, setIsDropDown] = useState(false);
@@ -85,40 +86,31 @@ function Header({ setActiveMenu }) {
                 <div className="md:text-base text-N900 font-bold">+977-9709707037</div>
               </div>
             </div>
-            <div className="md:hidden">
+            <div className="flex gap-4 justify-center items-center md:hidden ">
+              <Link  to="/liked" aria-label="Liked Page">
+                <FaHeart   className="size-6  text-red-500 hover:text-B500  cursor-pointer select-none"/>
+              </Link>
+           <div className="md:hidden">
               {isDropDown ? (
                 <IoClose
                   className="text-N500 size-8 cursor-pointer"
-                  onClick={() => setIsDropDown(false)} // Hide dropdown
+                  onClick={() => setIsDropDown(false)}
                 />
               ) : (
                 <IoIosMenu
                   className="text-N500 size-8 cursor-pointer"
-                  onClick={() => setIsDropDown(true)} // Show dropdown
+                  onClick={() => setIsDropDown(true)}
                 />
               )}
             </div>
+            </div>
+            
           </header>
         </div>
         {isDropDown && (
           <div className="px-10 w-full h-[100vh]  fixed z-50 bg-white p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
            
                       
-                                    <Link to="/plan" aria-label="Create Your Trip"
-                                            className=" group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-B500 shadow-lg rounded-md hover:text-B500 hover:bg-transparent border border-transparent hover:border-B500 text-white hover:shadow-none transition-colors duration-500"
-                                            onClick={() => {
-                                              setActiveMenu({ company: true });
-                                              setDropdowns({});
-                                              setCompanyDropDown(false);
-                                            }}
-                                          >
-                      
-                                          <p className="text-sm"> Create Your Trip</p>
-                                      <img src={Pen}
-                                      alt="Create Your Trip"
-                                        className="size-6  text-white hover:text-G800 cursor-pointer select-none"
-                                      />
-                                  </Link>
             {categories?.map((item, index) =>
                 <div
                   key={index}
@@ -197,7 +189,7 @@ function Header({ setActiveMenu }) {
             <Link
 
             aria-label="Company Page"
-              to="/company"
+              to="/about"
               className="transition hover:underline underline-offset-1 hover:text-B500 text-left"
               onClick={() => {
                 setIsDropDown(false);
@@ -206,7 +198,28 @@ function Header({ setActiveMenu }) {
             >
               About
             </Link>
+
+
+
+                                    <Link to="/plan" aria-label="Create Your Trip"
+                                            className=" group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-B500 shadow-lg rounded-md hover:text-B500 hover:bg-transparent border border-transparent hover:border-B500 text-white hover:shadow-none transition-colors duration-500"
+                                            onClick={() => {
+                                              setActiveMenu({ company: true });
+                                              setDropdowns({});
+                                              setCompanyDropDown(false);
+                                            }}
+                                          >
+                      
+                                          <p className="text-sm"> Create Your Trip</p>
+                                      <img src={Pen}
+                                      alt="Create Your Trip"
+                                        className="size-6  text-white hover:text-G800 cursor-pointer select-none"
+                                      />
+                                  </Link>
           </div>
+
+
+
         )}
       </div>
     </>
