@@ -1,8 +1,16 @@
+
+import { useEffect } from 'react';
+import { observeOnScroll } from '@/utils/observeOnScroll';
 import SopontaneousTrekTile from "@/components/tiles/SopontaneousTrekTile.jsx";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
-
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 function SpontaneousTrekSection({treks}) {
+
+
+    useEffect(() => {
+    observeOnScroll('.bottom_popup');
+  }, []);
+
 
   return (
     <div className="relative flex justify-center  items-center flex-col w-full">

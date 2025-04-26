@@ -6,6 +6,7 @@ import { parseISO, format } from "date-fns";
 import { Carousel } from "react-responsive-carousel";
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 import { Link } from "react-router-dom";
+import { observeOnScroll } from '@/utils/observeOnScroll';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "@/assets/styles/carousel.min.css";
@@ -15,6 +16,10 @@ import _ from "lodash";
 const NeedToKnowSection = () => {
   const [blogs, setBlogs] = useState([]);
   const [rawBlogs, setRawBlogs] = useState([]);
+    useEffect(() => {
+    observeOnScroll('.bottom_popup');
+  }, []);
+
   useEffect(() => {
     (async () => {
       try {

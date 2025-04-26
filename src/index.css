@@ -91,6 +91,7 @@
   box-sizing: border-box;
   font-family: "Manrope", sans-serif;
   line-height: 2;
+  scroll-behavior: smooth;
 }
 html {
   overflow: overlay;

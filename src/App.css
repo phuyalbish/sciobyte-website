@@ -50,12 +50,18 @@ img {
 }
 
 .bottom_popup {
-  animation: bottom_popup_animation linear;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
+  opacity: 0.5;
+  transform: scale(0.5);
+  transition: all 0.6s ease;
 }
 
-@keyframes bottom_popup_animation {
+.bottom_popup.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 
+@keyframes  {
   from {
     opacity: 0.5;
     scale: 0.5;
@@ -64,7 +70,7 @@ img {
     opacity: 1;
     scale: 1;
   }
-}
+} */
 
 .left_popup {
   animation: left_popup_animation linear;

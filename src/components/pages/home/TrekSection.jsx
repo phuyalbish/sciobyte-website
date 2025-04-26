@@ -1,7 +1,14 @@
+
+import { useEffect } from 'react';
+import { observeOnScroll } from '@/utils/observeOnScroll';
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 
 const TrekSection = ({treks, plainText, blueText }) => {
+
+    useEffect(() => {
+    observeOnScroll('.bottom_popup');
+  }, []);
 
   return (
     <div className="md:px-[4rem] bottom_popup z-40">

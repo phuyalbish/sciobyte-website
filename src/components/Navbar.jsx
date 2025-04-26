@@ -209,7 +209,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                       <Link 
 
                         aria-label={`Trek - ${trek?.slug}`} to={`/trek/${trek?.slug}`} className="w-fit  items-start text-sm hover:underline  underline-offset-4" key={index} onClick={() => {
-                          setActiveMenu({ blogs: true });
+                          setActiveMenu({ });
                           setDropdowns({});
                           setCompanyDropDown(false);
                         }}>{trek?.name}</Link>

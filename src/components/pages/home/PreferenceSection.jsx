@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { observeOnScroll } from '@/utils/observeOnScroll';
+
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 import PreferenceTile from "@/components/tiles/PreferenceTile";
 import CityTour from "@/assets/PreferenceCityTour.svg"
@@ -6,6 +9,13 @@ import JungleSafari from "@/assets/PreferenceJungleSafari.svg"
 import Tours from "@/assets/PreferenceTours.svg"
 import Trekking from "@/assets/PreferenceTrekking.svg"
 function PreferenceSection() {
+
+
+
+    useEffect(() => {
+    observeOnScroll('.bottom_popup');
+  }, []);
+
   const preferences = [
 
      {
