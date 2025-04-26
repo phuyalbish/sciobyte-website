@@ -103,25 +103,22 @@ function Header({ setActiveMenu }) {
         {isDropDown && (
           <div className="px-10 w-full h-[100vh]  fixed z-50 bg-white p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
            
-                       <Link
-
-                               aria-label="Plan YOur Trip"
-                               to="/plan"
-                               
-                               className="text-N900 group flex gap-2 items-center justify-center w-full text-sm px-2 py-2 bg-G800 rounded-md text-white hover:bg-transparent border border-transparent hover:border-G800 hover:text-G800"
-                               onClick={() => {
-                                 setActiveMenu({ company: true });
-                                 setDropdowns({});
-                                //  setCompanyDropDown(false);
-                               }}
-                             >
-           
-                         <img src={Pen}
-                         alt="Plan Your Trip"
-                           className="size-4   text-white hover:text-G800 cursor-pointer select-none"
-                         />
-                              <p className="text-sm"> Plan your Trip</p>
-                     </Link>
+                      
+                                    <Link to="/plan" aria-label="Create Your Trip"
+                                            className=" group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-B500 shadow-lg rounded-md hover:text-B500 hover:bg-transparent border border-transparent hover:border-B500 text-white hover:shadow-none transition-colors duration-500"
+                                            onClick={() => {
+                                              setActiveMenu({ company: true });
+                                              setDropdowns({});
+                                              setCompanyDropDown(false);
+                                            }}
+                                          >
+                      
+                                          <p className="text-sm"> Create Your Trip</p>
+                                      <img src={Pen}
+                                      alt="Create Your Trip"
+                                        className="size-6  text-white hover:text-G800 cursor-pointer select-none"
+                                      />
+                                  </Link>
             {categories?.map((item, index) =>
                 <div
                   key={index}

@@ -120,25 +120,28 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
           <div
 
-            className={` bg-white rounded-md overflow-hidden relative h-fit w-full  items-center px-2 py-1   gap-1 transition-all duration-300 hidden lg:flex 
+            className={` border border-white rounded-full bg-white/10  overflow-hidden relative h-fit w-full  items-center    gap-1 transition-all duration-300 hidden lg:flex 
               ${
                 showLogo ? "opacity-100" : "opacity-0"
               }`}
           >
             <input
               type="text"
-              className="outline-none bg-transparent h-full w-full text-xs text-N500 placeholder-N500"
+              className="outline-none bg-transparent h-full w-full text-sm text-white placeholder-white pl-3 py-2 "
               placeholder="Search Keywords"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
+            <div className="bg-white h-full aspect-square p-2  rounded-full">
+
             <IoSearch
-              className="size-6 text-N300 hover:text-N800 cursor-pointer select-none"
+              className="size-5 text-B500 bg-white hover:text-N800 cursor-pointer select-none"
               onClick={handleSearch}
             />
+            </div>
             {isSearchTile && (
               <LiaTimesSolid
-                className="size-6  text-N300 hover:text-N800 cursor-pointer select-none"
+                className="min-size-8  text-N300 hover:text-N800 cursor-pointer select-none"
                 onClick={() => setIsSearchTile(false)}
               />
             )}
@@ -146,7 +149,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
 
            {isSearchTile ? (
-          <div className="absolute  right-0 top-12 z-40 max-w-[90vw]  p-2 bg-white/70 backdrop-blur-md  gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
+          <div className="absolute  left-0 top-12 z-40 max-w-[90vw]  p-2 bg-white/70 backdrop-blur-md  gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
             {searchData?.map((item, index) => (
               <SearchTrekRegionTile
                 key={index}
@@ -392,11 +395,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
           <div className="relative flex gap-2 items-center ">
 
-              <Link
-                      to="/plan"
-                      
-                  aria-label="Plan Your Trip"
-                      className="text-N900 group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-G700 rounded-md text-white hover:bg-transparent border border-transparent hover:border-G800 hover:text-G800"
+              <Link to="/plan" aria-label="Create Your Trip"
+                      className=" group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-white shadow-lg rounded-md text-B500 hover:bg-transparent border border-transparent hover:border-white hover:text-white hover:shadow-none transition-colors duration-500"
                       onClick={() => {
                         setActiveMenu({ company: true });
                         setDropdowns({});
@@ -404,9 +404,9 @@ function Navbar({ activeMenu, setActiveMenu }) {
                       }}
                     >
 
-                    <p className="text-sm"> Plan your Trip</p>
+                    <p className="text-sm"> Create Your Trip</p>
                 <img src={Pen}
-                alt="Plan Your Trip"
+                alt="Create Your Trip"
                   className="size-6  text-white hover:text-G800 cursor-pointer select-none"
                 />
             </Link>
