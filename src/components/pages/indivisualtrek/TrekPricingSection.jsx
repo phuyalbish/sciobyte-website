@@ -57,19 +57,19 @@ function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars
             <div className="text-lg font-bold text-B500">USD {total_price}</div>
           </div>
           <div className="flex relative  gap-2 items-center">
-            <div className="flex gap-1 items-center justify-center">
+            {/* <div className="flex gap-1 items-center justify-center">
               {[...Array(stars)].map((_, index) => (
                 <FaStar key={index} className="text-yellow-500 text-sm" />
               ))}
-            </div>
+            </div> */}
              <div onClick={toggleFavorite} className="cursor-pointer">
               {isFavorite ? (
-                <FaHeart className="text-red-500" />
+                <FaHeart className="text-red-500 size-6" />
               ) : (
-                <FaRegHeart className="text-red-500" />
+                <FaRegHeart className="text-red-500 size-6" />
               )}
             </div>
-            <CiShare2 className="size-6 cursor-pointer" onClick={handleCopy} />
+            <CiShare2 className="size-7 cursor-pointer" onClick={handleCopy} />
           </div>
 
           {liked && (

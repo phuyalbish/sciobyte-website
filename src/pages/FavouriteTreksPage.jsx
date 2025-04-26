@@ -19,7 +19,7 @@ const [treks, setTreks] = useState([]);
 
 
   return (
-    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] mb-20">
+    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] mb-20 px-4 md:p-0">
       <div className="text-xl font-liches text-left rounded-lg font-semibold">
          {treks?.length ? (treks?.length): ""} Liked Treks
         </div>

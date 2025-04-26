@@ -53,7 +53,7 @@ function IndivisualTrekPage() {
     <div className="mb-10">
         
       <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] mb-20">
-        <div className="px-2 md:px-0">
+        <div className="px-4 md:px-0">
           <BreadCrumbs
           category_name={trek?.categories?.name}
           category_slug={trek?.categories?.slug}
@@ -62,13 +62,13 @@ function IndivisualTrekPage() {
           name={trek?.name}
         />
         </div>
-        <div className="px-2 md:px-0">
+        <div className="px-4 md:px-0">
           <ImageSlideSection gallery={trek?.gallery}/>
           </div>
      
         <div className="flex sticky top-0 h-full gap-10 w-full">
           <div className="flex md:w-9/12 w-full flex-col gap-4  ">
-          <div className="px-2 md:px-0 ">
+          <div className="px-4 md:px-0 ">
             <TrekBasicInformationSection 
             travel_name = {trek?.name}
                 max_duration ={trek?.max_duration}
@@ -154,7 +154,7 @@ function IndivisualTrekPage() {
                 </button>
                 )}
               </div>
-              <div className="flex flex-col gap-10 text-left md:px-0 px-2 ">
+              <div className="flex flex-col gap-10 text-left md:px-0 px-4 ">
 
               <TrekOverviewSection
                 description={trek?.description}
@@ -216,7 +216,7 @@ function IndivisualTrekPage() {
 
           <Link 
           aria-label="Contact Page"
-          to="/contact" className="text-base font-light  bg-B400 flex gap-2 justify-center items-center px-2 md:px-0 rounded-md text-white">
+          to="/contact" className="text-base font-light  bg-B400 flex gap-2 justify-center items-center px-4 md:px-0 rounded-md text-white">
             Make a booking
           </Link>
         </div>
