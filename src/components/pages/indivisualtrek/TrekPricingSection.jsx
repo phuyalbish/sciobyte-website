@@ -1,16 +1,34 @@
-import  { useState } from "react";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { CiShare2 } from "react-icons/ci";
 import { useParams } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { scrollToSection } from "@/apis/scrollToSection.js";
 import { FaStar } from "react-icons/fa";
-
-import { Link } from "react-router-dom";
+import { FaRegHeart, FaHeart } from "react-icons/fa6";
 
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
-function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }) {
+function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars = 0 }) {
   const { id } = useParams();
+
+   const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    setIsFavorite(favorites.includes(slug));
+  }, [slug]);
+  const toggleFavorite = () => {
+    let favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+    if (favorites.includes(slug)) {
+      favorites = favorites.filter(name => name !== slug);
+    } else {
+      favorites.push(slug);
+    }
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    setIsFavorite(!isFavorite);
+  };
 
   const [copied, setCopied] = useState(false);
 
@@ -38,6 +56,13 @@ function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }
               {[...Array(stars)].map((_, index) => (
                 <FaStar key={index} className="text-yellow-500 text-sm" />
               ))}
+            </div>
+             <div onClick={toggleFavorite} className="cursor-pointer">
+              {isFavorite ? (
+                <FaHeart className="text-red-500" />
+              ) : (
+                <FaRegHeart className="text-red-500" />
+              )}
             </div>
             <CiShare2 className="size-6 cursor-pointer" onClick={handleCopy} />
           </div>
@@ -90,6 +115,17 @@ function TrekPricingSection({ total_price, map, pricings, trek_name, stars = 0 }
           <FaWhatsapp className="text-lg"/>
           Quick Inquiry
         </a>
+        <div className="flex gap-2 justify-center">
+          <div className="font-semibold">Not Happy?
+          </div>
+          <Link
+            aria-label="Plan Page"
+          to="/plan"
+          className="text-B500 hover:underline underline-offset-2"
+        >
+          Customize a trip
+        </Link>
+        </div>
       </div>
       {map && (
         <div className="flex flex-col gap-3 ">

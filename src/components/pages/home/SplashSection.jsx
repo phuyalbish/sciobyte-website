@@ -7,21 +7,33 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { fetchSearch } from "@/apis/search.js";
 import SearchTrekRegionTile from "@/components/tiles/SearchTrekRegionTile.jsx";
 function SplashSection() {
-  const [isSearchTile, setIsSearchTile] = useState(false);
-  const [searchText, setSearchText] = useState("");
-  const [searchData, setSearchData] = useState(null);
-  const handleSearch = async () => {
-    if (searchText.trim() !== "") {
-      const response = await fetchSearch(searchText);
-      console.log(response.data);
-      setSearchData(response.data);
-      setIsSearchTile(true);
-      console.log("Searching for:", searchText);
-    } else {
-      console.log("No search text entered");
-    }
-  };
+const [isSearchTile, setIsSearchTile] = useState(false);
+const [searchText, setSearchText] = useState("");
+const [searchData, setSearchData] = useState([]);
+const [errMsg, setErrMsg] = useState("");
 
+const handleSearch = async () => {
+  if (searchText.trim() !== "") {
+    const response = await fetchSearch(searchText);
+
+    if (response.data.length > 0) {
+      setSearchData(response.data); 
+      setIsSearchTile(true);
+      setErrMsg("");                 
+    } else {
+      setErrMsg("Treks not found");   
+       setTimeout(() => {
+        setErrMsg("");
+      }, 5000);
+
+      setTimeout(() => {
+       
+      setSearchText("");
+      }, 5000);
+      
+    }
+  }
+};
   return (
     <div className="relative w-full h-full">
       <div className="absolute h-full inset-0  w-full">
@@ -46,51 +58,55 @@ function SplashSection() {
           ) : (
             ""
           )}
-          <div className="bg-white w-full rounded-full overflow-hidden flex items-center pl-5 p-0.5  h-10  gap-1 shadow-xl  md:h-14 max-w-[95vw]  md:w-[50vw]">
+          <div className="bg-white w-full rounded-full overflow-hidden flex items-center pl-5 p-0.5  h-10  gap-1 shadow-xl  md:h-14 max-w-[95vw]  md:w-[50vw] transition-colors duration-500">
             <input
               type="text"
-              className="outline-none bg-transparent h-full w-full md:text-base text-xs text-N500 placeholder-N500"
+              className="outline-none bg-transparent h-full w-full md:text-base text-xs text-N500 placeholder-N500 "
               placeholder="Nepal welcomes you, dive in!"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
             {!isSearchTile && (
-              <div className="bg-B500 hover:bg-transparent border border-transparent hover:border-B500 group hover h-full aspect-square p-1 rounded-full flex justify-center items-center">
+              <div className="bg-B500 hover:bg-transparent cursor-pointer border border-transparent hover:border-B500 group hover h-full aspect-square p-1 rounded-full flex justify-center items-center transition-colors duration-500" onClick={handleSearch}>
                 <IoSearch
-                  className="size-5 text-white group-hover:text-B500 cursor-pointer select-none"
-                  onClick={handleSearch}
+                  className="size-5 text-white group-hover:text-B500  select-none transition-colors duration-500"
+                  
                 />
               </div>
             )}
 
             {isSearchTile && (
-              <div className="bg-B500 hover:bg-transparent border border-transparent hover:border-B500 group hover h-full aspect-square p-1 rounded-full flex justify-center items-center">
+              <div className="bg-B500 hover:bg-transparent cursor-pointer border border-transparent hover:border-B500 group hover h-full aspect-square p-1 rounded-full flex justify-center items-center transition-colors duration-500"  onClick={() => setIsSearchTile(false)}>
                 <LiaTimesSolid
-                  className="size-5 text-white group-hover:text-B500 cursor-pointer select-none"
-                  onClick={() => setIsSearchTile(false)}
+                  className="size-5 text-white group-hover:text-B500 select-none transition-colors duration-500"
+                 
                 />
               </div>
             )}
           </div>
-          
-          {isSearchTile ? (
-            <div className="absolute mt-80 z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
-              {searchData?.map((item, index) => (
-                <SearchTrekRegionTile
-                  key={index}
-                name={item?.name}
-                image={item?.image}
-                slug={item?.slug}
-                category_name={item?.category_name}
-                category_slug={item?.category_slug}
-                main_category={item?.main_category}
-                main_category_slug={item?.main_category_slug}
-                />
-              ))}
-            </div>
-          ) : (
-            ""
+          {isSearchTile && (
+            searchData.length ? (
+              <div className="z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex flex-row overflow-x-auto">
+                {searchData.map((item, index) => (
+                  <SearchTrekRegionTile
+                    key={index}
+                    name={item?.name}
+                    image={item?.image}
+                    slug={item?.slug}
+                    category_name={item?.category_name}
+                    category_slug={item?.category_slug}
+                    main_category={item?.main_category}
+                    main_category_slug={item?.main_category_slug}
+                  />
+                ))}
+              </div>
+            ) :""
           )}
+          {errMsg && (
+              <div className="absolute mt-80 z-40 max-w-[90vw] p-2 border-black bg-white/15 backdrop-blur-md border gap-2 border-white/20 rounded-lg flex flex-row overflow-x-auto">
+                Treks not found
+              </div>
+            )}
         </div>
         <img
           decoding="async"

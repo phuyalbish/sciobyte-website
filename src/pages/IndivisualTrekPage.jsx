@@ -1,5 +1,5 @@
 import  { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import BreadCrumbs from "@/components/tiles/BreadCrumbs";
 import { fetchIndivisualTrek } from "@/apis/treks.js";
 import ImageSlideSection from "@/components/pages/indivisualtrek/ImageSlideSection";
@@ -164,6 +164,7 @@ function IndivisualTrekPage() {
               <div className="block md:hidden">
                 <TrekPricingSection
                   total_price={trek?.total_price}
+                  slug={trek?.slug}
                   map={trek?.map || trek?.elevation_graph}
                   pricings={trek?.pricing}
                   trek_name={trek?.name}
@@ -198,6 +199,8 @@ function IndivisualTrekPage() {
           <div className="md:flex sticky top-[10vh] hidden md:w-3/12  h-[80vh]">
             <TrekPricingSection
                total_price={trek?.total_price}
+
+                  slug={trek?.slug}
                   map={trek?.map || trek?.elevation_graph}
                   pricings={trek?.pricing}
                   trek_name={trek?.name}
@@ -206,7 +209,7 @@ function IndivisualTrekPage() {
           </div>
         </div>
       </div>
-      <div className="fixed bg-B100 z-10 w-full  bottom-0 h-16 sm:hidden">
+      {/* <div className="fixed bg-B100 z-10 w-full  bottom-0 h-16 sm:hidden">
         <div className="p-2 flex justify-end gap-16">
           <div className="flex flex-col justify-start items-start ">
             <div className="text-base font-light text-N400">Connect</div>
@@ -219,7 +222,7 @@ function IndivisualTrekPage() {
             Make a booking
           </Link>
         </div>
-      </div>
+      </div> */}
 
 
        {Array.isArray(trek?.reference) && trek.reference.length > 0 && (

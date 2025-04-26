@@ -4,6 +4,7 @@ import ScrollToTop from "@/router/ScrollToTop";
 import Home from "@/pages/HomePage.jsx";
 import Company from "@/pages/CompanyPage.jsx";
 import PlanPage from "@/pages/PlanPage.jsx";
+import FavouriteTreks from "@/pages/FavouriteTreksPage.jsx";
 import IndivisualTrekPage from "@/pages/IndivisualTrekPage.jsx";
 import IndivisualCategoryPage from "@/pages/IndivisualCategoryPage.jsx";
 import IndivisualRegionPage from "@/pages/IndivisualRegionPage.jsx";
@@ -25,6 +26,7 @@ const AppRoutes = () => {
       <Route path="/about" element={<Company />} />
       <Route path="/about/:id" element={<Company />} />
       <Route path="/plan" element={<PlanPage />} />
+      <Route path="/liked" element={<FavouriteTreks />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/termsandcondition" element={<TermsAndCondition />} />
       <Route path="/trek/:id" element={<IndivisualTrekPage />} />

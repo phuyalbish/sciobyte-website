@@ -22,7 +22,7 @@ function TrekFAQSection({ faqs }) {
     if (Array.isArray(faqs) && faqs.length > 0) {
       const updatedFaqs = faqs.map((faq, index) => ({
         ...faq,
-        isOpened: index === 0, 
+        isOpened: index === 0,
       }));
       setFaqs(updatedFaqs);
 
@@ -41,7 +41,7 @@ function TrekFAQSection({ faqs }) {
               <TrekFAQ
                 faq={faq}
                 key={index}
-              isOpened={faq.isOpened}
+                isOpened={faq.isOpened}
                 handleFaqState={handleFaqState}
               />
             ))}

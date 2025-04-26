@@ -4,7 +4,7 @@ import NTB from "@/assets/NTB.png";
 import Taan from "@/assets/Taan.png";
 import nationalFlag from "@/assets/national-flag.png";
 import footerLogo from "@/assets/footer-img.svg";
-import footerImg from "@/assets/footer-img.png";
+import footerImg from "@/assets/footer-bg.svg";
 import Location from "@/assets/icons/Location.svg"
 import Email from "@/assets/icons/Email.svg"
 import Phone from "@/assets/icons/Phone.svg"
@@ -184,9 +184,9 @@ function Footer() {
           src={footerImg}
           decoding="async"
           loading="lazy"
-          className="bg-B400 border border-t-B400 box-border border-l-0  border-b-0   outline-none border-r-0"
+          className="bg-B400  box-border border-l-0  border-b-0   outline-none border-r-0"
         />
-        <div className="absolute w-full bottom-1 md:bottom-5 flex flex-col  box-border text-sm md:text-base text-white font-extralight">
+        <div className="md:absolute md:bg-transparent bg-black w-full bottom-1 md:bottom-5 flex flex-col  box-border text-sm md:text-base text-white font-extralight">
           <p>All rights reserved @ Hello Trekkers Pvt. Ltd (2025)</p>
           <p>Designed by <a target="_blank" href="https://www.webodle.com" aria-label="Website Designer" className="font-bold">Webodle</a></p>
         </div>

@@ -147,7 +147,6 @@ function Header({ setActiveMenu }) {
                                     }}
                                   >
                                     {region?.name}
-                                     {/* ({region?.trek_count}) */}
                                   </div>
                                 ))}
                               </div>

@@ -22,7 +22,6 @@ function CompanyPage() {
 
   return (
     <>
-      <div className="container">
         <div className="flex flex-col gap-16 mb-20">
           <Hero />
           <AboutHT/>
@@ -35,8 +34,6 @@ function CompanyPage() {
           </FeatureEnable >
           <Booking />
         </div>
-      </div>
-
       <img src={FooterVector}  alt="Footer Vector Company Page" className="w-full" />
     </>
   );
