@@ -13,3 +13,19 @@ export const fetchReviews = async () => {
     console.log("Error while fetching regions data: ", error);
   }
 };
+
+
+
+
+
+export const fetchGoogleReviews = async () => {
+  try {
+    const response = await axios({
+      url: `${BASE_API_URL}/reviews/google`,
+      method: "GET",
+    });
+    return response;
+  } catch (error) {
+    console.log("Error while fetching regions data: ", error);
+  }
+};

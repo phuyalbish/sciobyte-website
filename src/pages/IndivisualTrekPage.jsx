@@ -135,14 +135,12 @@ function IndivisualTrekPage() {
                 )}
 
                 
-              {Array.isArray(trek?.reviews) && trek.reviews.length > 0 && (
                   <button
                   onClick={() => scrollToSection("reviews")}
                   className="hover:underline flex"
                 >
                   Reviews
                 </button>
-                )}
 
                 
               {Array.isArray(trek?.faqs) && trek.faqs.length > 0 && (

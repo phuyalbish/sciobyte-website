@@ -47,7 +47,6 @@ function ImageSlideSection({ gallery}) {
           )
         )}
       </div>
-
       <div className="relative flex  md:hidden w-full flex-wrap gap-2">
         {gallery?.slice(0, 3).map((item, index) =>
           index == 2 ? (

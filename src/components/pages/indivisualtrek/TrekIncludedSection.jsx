@@ -3,14 +3,20 @@ import Exclamation from "@/assets/icons/Exclamation.svg";
 import DOMPurify from 'dompurify';
 function TrekIncludedSection({ includes, excludes }) {
   return (
-    <section id="included" >
+    <section id="included" className="flex flex-col gap-5">
+
        {( (Array.isArray(excludes) && excludes.length > 0) ||  (Array.isArray(includes) && includes.length > 0)) && (
+
+    <>
+    <div className="text-xl tracking-wide font-liches font-light">
+      What's included
+    </div>
       <div className="flex md:flex-row flex-col  p-6  rounded-lg bg-B200 gap-5">
 
       <div className="flex flex-col md:w-1/2  gap-5">
         {Array.isArray(includes) && includes.length > 0 ? (
           <div className="flex flex-col gap-5">
-            <div className="text-xl tracking-wide font-liches font-light">INCLUDED</div>
+            <div className="text-lg tracking-wide font-liches font-light">INCLUDED</div>
             <div className="flex flex-col gap-2">
               {includes.map((item, index) => (
                 <div className="flex flex-col" key={index}>
@@ -31,7 +37,7 @@ function TrekIncludedSection({ includes, excludes }) {
       <div className="flex flex-col md:w-1/2 gap-5">
         {Array.isArray(excludes) && excludes.length > 0 ? (
           <div className="flex flex-col gap-5">
-            <div className="text-xl tracking-wide font-liches font-light">EXCLUDED</div>
+            <div className="text-lg tracking-wide font-liches font-light">EXCLUDED</div>
             <div className="flex flex-col gap-2">
               {excludes.map((item, index) => (
                 <div className="flex flex-col" key={index}>
@@ -52,6 +58,8 @@ function TrekIncludedSection({ includes, excludes }) {
 
 
        </div>
+       </>
+
        )}
     </section>
   );

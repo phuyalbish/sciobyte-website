@@ -1,18 +1,67 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { ImCross } from "react-icons/im";
 import { FaPlay } from "react-icons/fa";
+
+import ReviewTile from "@/components/tiles/ReviewTile";
 import EmblaReviewCarousel from "@/components/carousel/EmblaReviewCarousel";
 
 
+import { fetchGoogleReviews} from "@/apis/review.js";
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 function TrekReviewsSection({reviews}) {
+
+
+    const [google_reviews, setGoogleReviews] = useState([]);
+     useEffect(() => {
+      (async () => {
+        const response = await fetchGoogleReviews();
+        const data = response.data.reviews;
+        setGoogleReviews(data);
+      })();
+    }, []);
+  
   
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
-  return <section id="reviews">
+  return <section id="reviews" className="flex flex-col gap-5">
+
+    <div className="text-xl tracking-wide font-liches font-light">
+      Reviews
+    </div>
+
+          {Array.isArray(google_reviews) && google_reviews.length > 0 ? (
+
+            <div className="flex flex-col gap-5">
+              <div className="text-lg tracking-wide font-liches font-light">
+                Google Review by our Trekkers
+              </div>
+                    <div className="flex flex-wrap ">
+
+                        {google_reviews?.slice(0, 3)?.map((review, index) => (
+                          <ReviewTile
+                            key={index}
+                            star={review.rating}
+                            profile={review?.profile_photo_url}
+                            reviewDetail={review.text}
+                            name={review.author_name}
+                            date={review.relative_time_description}
+                          />
+                        ))}
+                    </div>
+                        </div>
+                      ) : (
+                        <p className="text-gray-500">No Reviews available</p>
+                      )
+          }
+
+
+
+
+
 {Array.isArray(reviews) && reviews.length > 0 && (
   <div className="flex flex-col gap-5">
-    <div className="text-xl tracking-wide font-liches font-light">
+    <div className="text-lg tracking-wide font-liches font-light">
       Video Review by our Trekkers
     </div>
 
@@ -111,7 +160,7 @@ function TrekReviewsSection({reviews}) {
             ></iframe>
           </div>
         )}
-  </section>;
+  </section>
 }
 
 export default TrekReviewsSection;

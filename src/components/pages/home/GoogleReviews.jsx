@@ -1,25 +1,8 @@
 import  { useEffect, useState } from "react";
-import axios from "axios";
+import { fetchGoogleReviews} from "@/apis/review.js";
 
 const GoogleReviews = () => {
-  const [reviews, setReviews] = useState([]);
-  const placeID = "YOUR_PLACE_ID"; // Replace with your Google Place ID
-  const apiKey = "YOUR_API_KEY"; // Replace with your Google API Key
 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await axios.get(
-          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeID}&fields=name,rating,reviews&key=${apiKey}`
-        );
-        setReviews(response.data.result.reviews || []);
-      } catch (error) {
-        console.error("Error fetching Google Reviews:", error);
-      }
-    };
-
-    fetchReviews();
-  }, []);
 
   return (
     <div className="p-4 ">
