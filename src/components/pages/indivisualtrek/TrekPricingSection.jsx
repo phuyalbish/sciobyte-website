@@ -23,22 +23,27 @@ function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars
 
     if (favorites.includes(slug)) {
       favorites = favorites.filter(name => name !== slug);
+
+      setLiked("Trek Removed!");
+      setTimeout(() => setLiked(null), 3000);
     } else {
       favorites.push(slug);
+      setLiked("Trek Liked!");
+      setTimeout(() => setLiked(null), 3000);
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
     setIsFavorite(!isFavorite);
   };
 
-  const [copied, setCopied] = useState(false);
+  const [liked, setLiked] = useState(null);
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(
         "https://hellotrekkers.com/trek/" + id
       );
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
+      setLiked("Link Copied!");
+      setTimeout(() => setLiked(null), 3000);
     } catch (err) {
       console.error("Failed to copy: ", err);
     }
@@ -67,9 +72,9 @@ function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars
             <CiShare2 className="size-6 cursor-pointer" onClick={handleCopy} />
           </div>
 
-          {copied && (
+          {liked && (
             <div className="text-N500 text-sm absolute bottom-0 right-0 w-34 ">
-              Link Copied!
+              {liked}
             </div>
           )}
         </div>

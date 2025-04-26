@@ -21,7 +21,7 @@ const [treks, setTreks] = useState([]);
   return (
     <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] mb-20">
       <div className="text-xl font-liches text-left rounded-lg font-semibold">
-          Liked Treks
+         {treks?.length ? (treks?.length): ""} Liked Treks
         </div>
     <div className="flex gap-3 flex-wrap flex-grow w-full justify-start items-start container">
              {treks?.length ? (
@@ -29,7 +29,7 @@ const [treks, setTreks] = useState([]);
               <TrekTile key={index} data={item} />
             ))
           ) : (
-            <p className="text-center">No  Favourite treks found</p>
+            <p className="text-center">No  Liked treks found</p>
           )}
     </div>  
     </div>
