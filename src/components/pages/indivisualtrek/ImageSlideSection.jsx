@@ -9,7 +9,7 @@ function ImageSlideSection({ gallery}) {
    
        <>
 
-      <div className="w-full relative hidden sm:flex h-[616px] overflow-hidden rounded-md transition-all duration-300 ease-in-out">
+      <div className="w-full relative hidden md:flex h-[616px] overflow-hidden rounded-md transition-all duration-300 ease-in-out">
         {gallery?.slice(0, 4).map((item, index) =>
           index == 3 ? (
             <div
@@ -48,7 +48,7 @@ function ImageSlideSection({ gallery}) {
         )}
       </div>
 
-      <div className="relative flex  sm:hidden w-full flex-wrap gap-2">
+      <div className="relative flex  md:hidden w-full flex-wrap gap-2">
         {gallery?.slice(0, 3).map((item, index) =>
           index == 2 ? (
             <div
@@ -70,7 +70,7 @@ function ImageSlideSection({ gallery}) {
 
                 alt={`Gallery Image ${index}`}
                 src={BASE_MEDIA_URL + item.image}
-                className="z-0 bg-black object-cover rounded-md w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
+                className="z-0 bg-black object-cover rounded-md w-full aspect-square overflow-hidden transition-all duration-500 ease-in-out"
               />
             </div>
           ) : (
@@ -81,14 +81,14 @@ function ImageSlideSection({ gallery}) {
 
                 alt={`Gallery Image ${index}`}
               src={BASE_MEDIA_URL + item.image}
-              className={`object-cover transition-all rounded-md duration-500 ease-in-out 
+              className={`object-cover transition-all aspect-video rounded-md duration-500 ease-in-out 
                   ${index == 0 ? "w-full" : "w-1/3 flex-grow"}`}
             />
           )
         )}
       </div>
       {isOpenGallerySection && (
-        <div className="fixed  h-screen  p-2  top-0 left-0 z-50   bg-white/100 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
+        <div className="fixed  h-screen  p-2  top-0 left-0 z-50  bg-white/60 backdrop-blur-md  shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
          <div className="bg-white absolute rounded-full  z-20 cursor-pointer  right-6 hover:scale-105 scale-100  transition-all duration-500 top-4 self-end">
            <IoCloseOutline
             className="text-black"
@@ -105,7 +105,7 @@ function ImageSlideSection({ gallery}) {
             {
               gallery?.map((item, index) => (
                <div key={index} className="embla__slide rounded-md flex justify-center">
-                <div className="relative h-[100vh] overflow-hidden rounded-md flex justify-center items-center">
+                <div className="relative h-[60vh] md:h-[80vh] lg:h-[100vh] overflow-hidden rounded-md flex justify-center items-center">
                   <img
                     decoding="async"
                     loading="lazy"

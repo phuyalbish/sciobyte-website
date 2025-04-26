@@ -117,7 +117,7 @@ function Header({ setActiveMenu }) {
                   className="relative flex gap-2 items-left w-full flex-col"
                 >
                   <button
-                    className="flex items-center gap-1 transition font-bold hover:underline underline-offset-1 hover:text-B500"
+                    className="flex items-center gap-1 transition font-bold  hover:text-B500"
                     onClick={() => toggleDropdown(item.slug)}
                   >
                     {item.name}<IoIosArrowDown />
@@ -150,7 +150,7 @@ function Header({ setActiveMenu }) {
                                     aria-label={`Trek - ${trek?.slug}`}
                                     key={index}
                                     to={`/trek/${trek?.slug}`}
-                                    className="w-full text-start justify-start items-start text-base hover:underline underline-offset-4"
+                                    className="w-full text-start justify-start items-start text-base "
                                     onClick={() => setIsDropDown(false)}
                                   >
                                     {trek?.name}
@@ -178,7 +178,7 @@ function Header({ setActiveMenu }) {
 
             aria-label="Blogs"
               to="/blogs"
-              className="transition hover:underline underline-offset-1 hover:text-B500 text-left"
+              className="transition  hover:text-B500 text-left font-bold"
               onClick={() => {
                 setIsDropDown(false);
                 setDropdowns({});
@@ -190,7 +190,7 @@ function Header({ setActiveMenu }) {
 
             aria-label="Company Page"
               to="/about"
-              className="transition hover:underline underline-offset-1 hover:text-B500 text-left"
+              className="transition  hover:text-B500 text-left  font-bold"
               onClick={() => {
                 setIsDropDown(false);
                 setDropdowns({});

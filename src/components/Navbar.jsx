@@ -89,9 +89,6 @@ function Navbar({ activeMenu, setActiveMenu }) {
     <>
       <div className="relative hidden md:flex bg-B500 text-white shadow-md items-center w-full justify-between text-sm md:text-base">
         <div className="w-full h-16 mx-auto flex items-center justify-between px-[4rem] gap-3 py-4">
-         
-
-
 
           <div className="relative flex gap-2 items-center ">
             

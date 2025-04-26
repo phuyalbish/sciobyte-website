@@ -48,7 +48,7 @@ const EmblaGalleryCarousel = ({
         <button
           onClick={scrollPrev}
           disabled={!canScrollPrev}
-          className="disabled:bg-N50  bg-G500 p-1 hover:bg-G700 rounded-md"
+          className="disabled:bg-N50  bg-G300 p-1 hover:bg-G400 rounded-md"
           aria-label="Previous slide"
         >
           <FiChevronLeft className="size-6 text-white" />
@@ -56,7 +56,7 @@ const EmblaGalleryCarousel = ({
         <button
           onClick={scrollNext}
           disabled={!canScrollNext}
-          className="disabled:bg-N50  bg-G500 p-1 hover:bg-G700 rounded-md"
+          className="disabled:bg-N50  bg-G300 p-1 hover:bg-G400 rounded-md"
           aria-label="Previous slide"
         >
           <FiChevronRight className="size-6 text-white" />
