@@ -147,24 +147,22 @@ useEffect(() => {
                             </div>
               ) : ""
             )}
-          </div>
+          </div>  
 
           <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
-          <div className="flex gap-2  relative overflow-x-scroll  w-100 rounded-md">
-            <div className="bg-white/50 text-N900 p-1 px-2 rounded-md absolute bottom-3 right-3">
-              Scroll --
-            </div>
-            {schedule?.gallery.map((item, index) => (
+         <div className="flex gap-2 relative overflow-x-scroll rounded-md h-[400px]">
+          {schedule?.gallery.map((item, index) => (
+            <div key={index} className="h-full flex items-center">
               <img
                 decoding="async"
                 alt={`Trek Itinerary Gallery ${index + 1}`}
                 loading="lazy"
-                key={index}
                 src={BASE_MEDIA_URL + item.image}
-                className="object-cover min-w-[400px] aspect-square overflow-hidden transition-all duration-500 ease-in-out rounded-md"
+                className="object-cover h-full w-auto transition-all duration-500 ease-in-out rounded-md"
               />
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
         </div>
  )}
       </div>
