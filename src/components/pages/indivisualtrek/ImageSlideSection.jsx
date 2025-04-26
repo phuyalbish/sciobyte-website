@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+
+import EmblaGalleryCarousel from "@/components/carousel/EmblaGalleryCarousel.jsx";
 function ImageSlideSection({ gallery}) {
   const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
   return (
@@ -86,8 +88,8 @@ function ImageSlideSection({ gallery}) {
         )}
       </div>
       {isOpenGallerySection && (
-        <div className="fixed w-full  h-full p-2  top-0 left-0 z-50   bg-white/100 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
-         <div className="bg-white absolute rounded-full  cursor-pointer  right-6 hover:scale-105 scale-100  transition-all duration-500 top-4 self-end">
+        <div className="fixed w-full  h-screen test p-2  top-0 left-0 z-50   bg-white/100 shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 items-center">
+         <div className="bg-white absolute rounded-full  z-20 cursor-pointer  right-6 hover:scale-105 scale-100  transition-all duration-500 top-4 self-end">
            <IoCloseOutline
             className="text-black"
             size={32}
@@ -96,19 +98,29 @@ function ImageSlideSection({ gallery}) {
             }}
           />
          </div>
-          <div className="flex flex-wrap overflow-scroll gap-4 ">
-            {gallery?.map((item, index) => (
-              <img
-                decoding="async"
-                loading="lazy"
-                key={index}
 
-                alt={`Gallery Image ${index}`}
-                src={BASE_MEDIA_URL + item.image}
-                className="object-cover transition-all duration-500 ease-in-out w-full  h-full flex-grow"
-              />
-            ))}
-          </div>
+
+
+         <EmblaGalleryCarousel>
+            {
+              gallery?.map((item, index) => (
+                <div key={index} className="embla__slide min-w-full rounded-md">
+                  <div className="w-full h-[90vh] overflow-y-auto relative   object-cover flex items-center rounded-md">
+                  
+             <img
+                    decoding="async"
+                    loading="lazy"
+                    alt={`Gallery Image ${index}`}
+                    src={BASE_MEDIA_URL + item.image}
+                    className="transition-all duration-500 ease-in-out w-full flex-grow rounded-md"
+                  />
+                  </div>
+                  
+                </div>
+              ))
+            }
+          </EmblaGalleryCarousel>
+
         </div>
       )}
     </>
