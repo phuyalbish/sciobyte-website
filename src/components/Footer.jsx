@@ -57,7 +57,7 @@ function Footer() {
   return (
     <footer className="bg-B400 flex flex-col justify-center">
         <div className="p-10 flex flex-col gap-2 px-8">
-          <h1 className="text-lg font-bold text-WHITE">WE ARE ASSOCIATED WITH:</h1>
+          <h1 className="text-lg font-bold text-white">WE ARE ASSOCIATED WITH:</h1>
           <div className="flex justify-center items-center gap-5 ">
             <img
               decoding="async"
@@ -93,7 +93,7 @@ function Footer() {
         <div className="flex flex-row px-8 justify-center md:justify-evenly items-start gap-10  flex-wrap mb-16">
             <div className="flex flex-col md:justify-start justify-center gap-6 ">
                <img src={footerLogo} alt="Logo" />
-              <ul className="flex flex-col  items-start gap-4 text-WHITE">
+              <ul className="flex flex-col  items-start gap-4 text-white">
                 <li className="flex gap-2 items-center"> 
                   <img src={Location} alt="Location Image" className="w-7 aspect-square" />
                    Kirtipur, Kathmandu
