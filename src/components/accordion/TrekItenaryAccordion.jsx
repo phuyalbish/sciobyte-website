@@ -158,7 +158,7 @@ useEffect(() => {
                 alt={`Trek Itinerary Gallery ${index + 1}`}
                 loading="lazy"
                 src={BASE_MEDIA_URL + item.image}
-                className="object-cover h-full w-auto transition-all duration-500 ease-in-out rounded-md"
+                className="object-cover h-full w-auto max-w-full transition-all duration-500 ease-in-out rounded-md"
               />
             </div>
           ))}
@@ -166,6 +166,8 @@ useEffect(() => {
         </div>
  )}
       </div>
+
+      
     </>
   );
 };
