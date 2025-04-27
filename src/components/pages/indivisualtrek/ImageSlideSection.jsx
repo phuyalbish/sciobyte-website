@@ -103,14 +103,14 @@ function ImageSlideSection({ gallery}) {
          <EmblaGalleryCarousel>
             {
               gallery?.map((item, index) => (
-               <div key={index} className="embla__slide rounded-md flex justify-center items-center">
-                <div className="relative h-[60vh] md:h-[80vh] lg:h-[100vh] overflow-hidden rounded-md flex justify-center items-center">
+               <div key={index} className="embla__slide rounded-md flex justify-center items-center h-[100vh]">
+                <div className="relative h-[100vh]  max-w-[100vw] lg:h-[100vh]  rounded-md flex justify-center items-center">
                   <img
                     decoding="async"
                     loading="lazy"
                     alt={`Gallery Image ${index}`}
                     src={BASE_MEDIA_URL + item.image}
-                    className="h-full w-auto  max-w-1/2 object-cover transition-all duration-500 ease-in-out rounded-md"
+                    className="max-h-full w-auto transition-all duration-500 ease-in-out rounded-md"
                   />
                 </div>
               </div>
