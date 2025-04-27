@@ -38,7 +38,7 @@ const handleFaqState = (id) => {
   return (
     <div className="flex flex-col gap-2 w-full   max-w-[100em] mx-auto ">
       <h1 className="text-2xl md:text-3xl  font-liches  font-semibold ">Frequently asked questions</h1>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col">
         {Array.isArray(faqs) && faqs.length > 0 ? (
           faqs.map((faq, index) => (
             <FAQ

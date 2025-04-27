@@ -10,29 +10,32 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
     <FaChevronUp className="h-fit w-5 self-center" />
   );
 
- const question_default_bg_color = isOpened ? "bg-B200" : "bg-white";
+ const questionBg = isOpened ? "bg-B200" : "bg-white";
 
   const sanitizedContent = DOMPurify.sanitize(faq?.answer);
   return (
-    <div className="cursor-pointer p-10 md:px-0 w-full  md:w-[70%] mx-auto select-none">
-      <div
-        className={`${question_default_bg_color}  hover:bg-B75 p-4 rounded-md shadow-xs transition duration-300 ease-in-out `}
+
+
+    <div className="px-10 md:px-0 w-full  md:w-[70%] mx-auto select-none">
+      <button
         onClick={() => handleFaqState(faq.id)}
+        className={`w-full text-left ${questionBg} hover:bg-B75 p-4 rounded-md shadow-xs transition duration-300 ease-in-out`}
+        aria-expanded={isOpened}
       >
         <div className="flex justify-between items-center">
-          <span className="font-semibold">{faq.question}</span>
+          <span>{faq.question}</span>
           {arrowSVG}
         </div>
-      </div>
+      </button>
 
       {isOpened && (
-        <div className="group bg-B50 p-4 rounded-md shadow-xs mt-2 bg-B100 text-left flex justify-between ">
-          <div className="text-justify" dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+        <div className="group bg-B50 p-4 rounded-md shadow-xs mt-2 bg-B100 text-left flex justify-between gap-4">
+          <div  dangerouslySetInnerHTML={{ __html: sanitizedContent }}   className='text-justify'/>
           {faq.image && (
             <img
               src={faq.image}
-              alt="FAQ DropDown Icon"
-              className="rounded-md w-36 aspect-square group-hover:scale-105 scale-100 transition-all duration-500"
+              alt="Trek DropDown Icon"
+              className="rounded-md w-32 md:w-36 aspect-square group-hover:scale-105 scale-100 transition-all duration-500"
             />
           )}
         </div>
