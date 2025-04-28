@@ -316,7 +316,7 @@ function CreatePage() {
                                         onChange={handleChange}
                                         min="1"
                                         max="20"
-                                        placeholder="10 days"
+                                        placeholder="1 - 20 People"
                                         className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                       />
                                   </div>
