@@ -51,7 +51,6 @@ function CreatePage() {
     travellocation: "",
     duration: "",
     totalpeople: "",
-    totalchild: "",
     accomodation: "",
     budget: "",
     message: "",
@@ -303,7 +302,7 @@ function CreatePage() {
                                       htmlFor="totalpeople"
                                       className="block text-sm font-medium text-N700"
                                     >
-                                      No. of People*
+                                      No. of Guest*
                                     </label>
                                     <input
                                           type="number"
@@ -314,11 +313,11 @@ function CreatePage() {
                                           onChange={handleChange}
                                           min="1"
                                           max="20"
-                                          placeholder="1 - 20 People"
+                                          placeholder="1 - 20 Guest"
                                           className="p-2 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                         />
                                   </div>
-                                  <div className="w-full  flex flex-col gap-1">
+                                  {/* <div className="w-full  flex flex-col gap-1">
                                     <label
                                       htmlFor="totalchild"
                                       className="block text-sm font-medium text-N700"
@@ -338,7 +337,7 @@ function CreatePage() {
                                       className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                     />
                                    
-                                  </div>
+                                  </div> */}
 
                               </div>
 
