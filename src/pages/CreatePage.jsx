@@ -16,29 +16,29 @@ function CreatePage() {
     })();
   }, []);
 
+  console.log(exchangeRate)
+
   const today = new Date().toISOString().split("T")[0];
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
   const [amount, setAmount] = useState("");
   const [fromCurrency, setFromCurrency] = useState(1);
 
-  
   useEffect(() => {
-
-    if (amount && fromCurrency) {
-      const rate = exchangeRate[fromCurrency]?.rate;
-      console.log(rate)
-      setFormData((prev) => ({
-        ...prev,
-        budget: (amount * rate).toFixed(2),
-      }));
-    } else {
-      setFormData((prev) => ({
-        ...prev,
-        budget: 0,
-      }));
-    }
-  }, [amount, fromCurrency]);
+  if (amount && fromCurrency) {
+    const selectedCurrency = exchangeRate.find(item => item.id === fromCurrency);
+    const rate = selectedCurrency?.rate || 0;
+    setFormData((prev) => ({
+      ...prev,
+      budget: amount * rate,
+    }));
+  } else {
+    setFormData((prev) => ({
+      ...prev,
+      budget: 0,
+    }));
+  }
+}, [amount, fromCurrency]);
   
   const initialFormState = {
     name: "",
@@ -376,11 +376,11 @@ function CreatePage() {
                                         id="selectcurrency"
                                         name="selectcurrency"
                                         value={fromCurrency}
-                                        onChange={(e) => setFromCurrency(e.target.value)}
+                                        onChange={(e) => setFromCurrency(Number(e.target.value))} 
                                         className="py-3  pr-2 outline-none text-sm"
                                       >
-                                       {exchangeRate.map((item, index) => (
-                                        <option key={index} value={item.id}>
+                                       {exchangeRate.map((item) => (
+                                        <option key={item?.id} value={item?.id}>
                                           {item.currency}
                                         </option>
                                       ))}
