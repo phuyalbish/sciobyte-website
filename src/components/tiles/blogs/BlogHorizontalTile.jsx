@@ -12,7 +12,7 @@ const BlogHorizontalTile = ({ blog }) => {
     author,
     date,
     imageUrl,
-    region,
+    category,
     slug,
     location,
   } = blog;
@@ -48,13 +48,13 @@ const BlogHorizontalTile = ({ blog }) => {
             />
           </>
         )}
-      {region ? (
+      {category ? (
         <Link
           aria-label="Blogs"
           to="/blogs"
           className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300  p-1 rounded-md text-sm"
         >
-          {region}
+          {category}
         </Link>
       ) : "" }
 

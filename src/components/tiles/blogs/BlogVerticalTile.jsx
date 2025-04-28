@@ -13,7 +13,7 @@ const BlogVerticalTile = ({ blog }) => {
     author,
     date,
     imageUrl,
-    region,
+    category,
     slug,
     location,
   } = blog;
@@ -49,14 +49,14 @@ const BlogVerticalTile = ({ blog }) => {
             />
           </>
         )}
-    {region ? (
+    {category ? (
         <Link
           
-    aria-label="Blogs"
+          aria-label="Blogs"
           to="/blogs"
           className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300  p-1 rounded-md text-sm"
         >
-          {region}
+          {category}
         </Link>
       ) : "" }
 
@@ -73,13 +73,11 @@ const BlogVerticalTile = ({ blog }) => {
                   <IoMdShare className="size-3.5" />
                   Share
                 </div>
-      </div>
-      
+              </div>
               <div className="flex justify-start flex-col gap-1">
                 <Link 
-                
-    aria-label={`Blog - ${heading}`}
-                to={blogUrl}>
+                  aria-label={`Blog - ${heading}`}
+                  to={blogUrl}>
                   <div className="font-bold text-md text-N900 text-left">
                     {heading}
                   </div>

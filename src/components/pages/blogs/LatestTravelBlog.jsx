@@ -19,7 +19,7 @@ const LatestTravelBlog = ({ latestBlogs }) => {
                     "MMMM d, yyyy"
                   ),
                   location: blog?.location,
-                  region: blog?.region_name || "region",
+                  category: blog?.category_name || "Trek",
                   imageUrl: blog?.image,
                   slug: blog?.slug,
                 }}

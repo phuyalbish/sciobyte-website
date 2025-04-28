@@ -12,16 +12,13 @@ import {
   DescriptionSkeleton,
   LongBlogContentSkeleton,
 } from "@/components/skeleton/Skeleton.jsx";
-
 import {truncate} from "@/utils/truncate.js";
-
 const SingleBlogSection = ({ latestBlog }) => {
   const sanitizedContent = DOMPurify.sanitize(latestBlog?.content);
   const content =
     sanitizedContent.length > 600
       ? sanitizedContent.slice(0, 600)
       : sanitizedContent;
-
   const isLoading = Object.keys(latestBlog).length === 0;
 
   const [copied, setCopied] = useState(false);
@@ -114,7 +111,7 @@ const SingleBlogSection = ({ latestBlog }) => {
                 <div className="flex gap-2">
                   {!isLoading && (
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-B75 text-B500">
-                      {latestBlog?.region_name || "Region"}
+                      {latestBlog?.category_name || "Trek"}
                     </span>
                   )}
                 </div>
@@ -128,8 +125,8 @@ const SingleBlogSection = ({ latestBlog }) => {
                 ) : (
                   <>
                     <span
-                      className="leading-relaxed text-left"
-                      dangerouslySetInnerHTML={{ __html: content }}  className='text-justify'
+                      className="leading-relaxed text-justify"
+                      dangerouslySetInnerHTML={{ __html: content }} 
                     ></span>
                     <div className="flex justify-end text-B500 hover:text-B300 hover:underline font-bold cursor-pointer">
                       {sanitizedContent.length > 600 && (
