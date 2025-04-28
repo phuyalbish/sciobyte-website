@@ -20,16 +20,14 @@ function CreatePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
   const [amount, setAmount] = useState("");
-  const [fromCurrency, setFromCurrency] = useState(0);
+  const [fromCurrency, setFromCurrency] = useState(1);
 
   
   useEffect(() => {
 
-    console.log("amount:",amount)
-    console.log("currency:",fromCurrency)
-
     if (amount && fromCurrency) {
-      const rate = fromCurrency;
+      const rate = exchangeRate[fromCurrency]?.rate;
+      console.log(rate)
       setFormData((prev) => ({
         ...prev,
         budget: (amount * rate).toFixed(2),
@@ -156,7 +154,7 @@ function CreatePage() {
                                 id="phone"
                                 name="phone"
                                 required
-                                value={formData.phone}
+                                value={formData?.phone}
                                 onChange={handleChange}
                                 placeholder="+XXX XXXXXXXXXX"
                                 className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
@@ -175,7 +173,7 @@ function CreatePage() {
                               id="country"
                               name="country"
                               required
-                              value={formData.country}
+                              value={formData?.country}
                               onChange={handleChange}
                               placeholder="Country"
                               className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
@@ -199,7 +197,7 @@ function CreatePage() {
                                 <select
                                   id="traveltype"
                                   name="traveltype"
-                                  value={formData.traveltype}
+                                  value={formData?.traveltype}
                                   onChange={handleChange}
                                   className="w-full py-3 outline-none"
                                 >
@@ -223,7 +221,7 @@ function CreatePage() {
                                     name="date"
                                     required
                                      min={today}
-                                    value={formData.date}
+                                    value={formData?.date}
                                     onChange={handleChange}
                                     className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                   />
@@ -239,7 +237,7 @@ function CreatePage() {
                                 <select
                                   id="travellocation"
                                   name="travellocation"
-                                  value={formData.travellocation}
+                                  value={formData?.travellocation}
                                   onChange={handleChange}
                                   className="w-full py-3 outline-none"
                                 >
@@ -264,7 +262,7 @@ function CreatePage() {
                                   id="duration"
                                   name="duration"
                                   required
-                                  value={formData.duration}
+                                  value={formData?.duration}
                                   onChange={handleChange}
                                   min="1"
                                   max="20"
@@ -285,7 +283,7 @@ function CreatePage() {
                                   id="travellocation"
                                   name="travellocation"
                                   required
-                                  value={formData.travellocation}
+                                  value={formData?.travellocation}
                                   onChange={handleChange}
                                   className="w-full py-3 outline-none"
                                 >
@@ -302,39 +300,39 @@ function CreatePage() {
 
                                   <div className="w-full  flex flex-col gap-1">
                                     <label
-                                      htmlFor="people"
+                                      htmlFor="totalpeople"
                                       className="block text-sm font-medium text-N700"
                                     >
                                       No. of People*
                                     </label>
                                     <input
-                                        type="number"
-                                        id="people"
-                                        name="people"
-                                        required
-                                        value={formData.totalpeople}
-                                        onChange={handleChange}
-                                        min="1"
-                                        max="20"
-                                        placeholder="1 - 20 People"
-                                        className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
-                                      />
+                                          type="number"
+                                          id="totalpeople"
+                                          name="totalpeople"
+                                          required
+                                          value={formData?.totalpeople}
+                                          onChange={handleChange}
+                                          min="1"
+                                          max="20"
+                                          placeholder="1 - 20 People"
+                                          className="p-2 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                        />
                                   </div>
                                   <div className="w-full  flex flex-col gap-1">
                                     <label
-                                      htmlFor="child"
+                                      htmlFor="totalchild"
                                       className="block text-sm font-medium text-N700"
                                     >
                                       No. of Child
                                     </label>
                                     <input
                                       type="number"
-                                      id="child"
-                                      name="child"
+                                      id="totalchild"
+                                      name="totalchild"
                                       min="0"
                                       max="20"
                                       required
-                                      value={formData.totalchild}
+                                      value={formData?.totalchild}
                                       onChange={handleChange}
                                       placeholder="0 - 20 Child"
                                       className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
@@ -357,7 +355,7 @@ function CreatePage() {
                                   min="500"
                                   max="5000"
                                   required
-                                  value={formData.budget}
+                                  value={formData?.budget}
                                   onChange={handleChange}
                                   placeholder="500 USD - 5000 USD"
                                   className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
@@ -379,10 +377,10 @@ function CreatePage() {
                                         name="selectcurrency"
                                         value={fromCurrency}
                                         onChange={(e) => setFromCurrency(e.target.value)}
-                                        className="py-3 pr-2 outline-none text-sm"
+                                        className="py-3  test pr-2 outline-none text-sm"
                                       >
                                        {exchangeRate.map((item, index) => (
-                                        <option key={index} value={item.rate}>
+                                        <option key={index} value={item.id}>
                                           {item.currency}
                                         </option>
                                       ))}
