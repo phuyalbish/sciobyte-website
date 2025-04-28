@@ -235,13 +235,13 @@ function CreatePage() {
                                 >
                                   Your Prefered Travel Location*
                                 </label>
-                                <div className="p-2 mt-1  w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
+                                <div className="px-2 mt-1  w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="travellocation"
                                   name="travellocation"
                                   value={formData.travellocation}
                                   onChange={handleChange}
-                                  className="w-full outline-none"
+                                  className="w-full py-2 outline-none"
                                 >
                                   <option value="adventure">Don't know yet!</option>
 
@@ -280,14 +280,14 @@ function CreatePage() {
                                 >
                                   Your Prefered Accomodation Type*
                                 </label>
-                                <div className="p-2 mt-1  w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
+                                <div className="px-2 mt-1  w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="travellocation"
                                   name="travellocation"
                                   required
                                   value={formData.travellocation}
                                   onChange={handleChange}
-                                  className="w-full outline-none"
+                                  className="w-full py-2 outline-none"
                                 >
                                   <option value="adventure">Don't know yet!</option>
 
@@ -373,13 +373,13 @@ function CreatePage() {
                                  Convert from your currency to USD
                                 </label>
                                 <div className="flex gap-4 items-center">
-                                  <div className="p-2 mt-1  w-1/4 rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
+                                  <div className="px-2  w-1/4 rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                       <select
                                         id="selectcurrency"
                                         name="selectcurrency"
                                         value={fromCurrency}
                                         onChange={(e) => setFromCurrency(e.target.value)}
-                                        className="px-3 outline-none"
+                                        className="py-3 pr-2 outline-none text-sm"
                                       >
                                        {exchangeRate.map((item, index) => (
                                         <option key={index} value={item.rate}>
@@ -396,7 +396,7 @@ function CreatePage() {
                                     value={amount}
                                     onChange={(e) => setAmount(e.target.value)}
                                     placeholder="Budget in your Currency"
-                                    className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                    className="p-2 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                   />
                                 </div>
                                 </div>
