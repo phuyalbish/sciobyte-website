@@ -42,46 +42,46 @@ const NormalBlogTile = ({ blog }) => {
         {isLoading ? (
           <ImageSkeleton />
         ) : (
-          <>
-            <img
-              src={imageUrl}
-              alt={heading}
-              decoding="async"
-              loading="lazy"
-              className="w-full h-48  object-cover rounded-lg"
-            />
-          </>
-        )}
 
-        {category ? (
-                <Link
-                  aria-label="Blogs"
-                  to="/blogs"
-                  className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300  p-1 rounded-md text-sm"
-                >
-                  {category}
-                </Link>
-              ) : "" }
+                <div className="relative w-full h-48 group overflow-hidden ">
+                    <div
+                      className="absolute bg-G400 hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2 rounded-md"
+                      onClick={handleCopy}
+                    >
+                      <IoMdShare className="size-3.5" />
+                      Share
+                    </div>
+                      <img
+                        src={imageUrl}
+                        alt={heading}
+                        decoding="async"
+                        loading="lazy"
+                        className=" object-cover w-full h-full group-hover:scale-105 scale-100 rounded-lg transition-all duration-500 ease-in-out"
+                      />
 
-        {copied && (
-          <div className="text-N500 absolute bottom-0 right-0 w-34 bg-white/50 text-sm p-1 m-1 rounded-md">
-            Link Copied!
-          </div>
-        )}
 
-        <div
-                  className="absolute bg-G400 hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2 rounded-md"
-                  onClick={handleCopy}
-                >
-                  <IoMdShare className="size-3.5" />
-                  Share
+
+                  {category ? (
+                    <Link
+                      aria-label="Blogs"
+                      to="/blogs"
+                      className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300  p-1 rounded-md text-sm"
+                    >
+                      {category}
+                    </Link>
+                  ) : "" }
+
+                    {copied && (
+                      <div className="text-N500 absolute bottom-0 right-0 w-34 bg-white/50 text-sm p-1 m-1 rounded-md">
+                        Link Copied!
+                      </div>
+                    )} 
+                </div> 
+                  )}
                 </div>
-      </div>
-       <div className="flex justify-start flex-col gap-1">
-                <Link
-                
-    aria-label={`Blog - ${heading}`}
-                to={blogUrl}>
+                <div className="flex justify-start flex-col gap-1">
+                <Link aria-label={`Blog - ${heading}`}
+                  to={blogUrl}>
                   <div className="font-bold text-md text-N900 text-left">
                     {heading}
                   </div>
