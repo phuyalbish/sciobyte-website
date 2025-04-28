@@ -1,32 +1,51 @@
-import  { useState } from "react";
+import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import DOMPurify from "dompurify";
 import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
-import { MdDateRange } from "react-icons/md";
+import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
-import { MdLocationOn } from "react-icons/md";
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 import {
   ImageSkeleton,
   HeadingSkeleton,
   DescriptionSkeleton,
   LongBlogContentSkeleton,
 } from "@/components/skeleton/Skeleton.jsx";
-import {truncate} from "@/utils/truncate.js";
-const SingleBlogSection = ({ latestBlog }) => {
-  const sanitizedContent = DOMPurify.sanitize(latestBlog?.content);
-  const content =
-    sanitizedContent.length > 600
-      ? sanitizedContent.slice(0, 600)
-      : sanitizedContent;
-  const isLoading = Object.keys(latestBlog).length === 0;
+import { truncate } from "@/utils/truncate.js";
+import { fetchData } from "@/apis/https";
 
+const SingleBlogSection = () => {
+  const [currentBlog, setCurrentBlog] = useState(null);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const fetchCurrentBlog = async () => {
+      try {
+        const data = await fetchData(`/blogs/current/`);
+        console.log(data)
+        setCurrentBlog(data);
+      } catch (error) {
+        console.error("Error fetching current blog:", error);
+      }
+    };
+    fetchCurrentBlog();
+  }, []);
+
+  if (!currentBlog) {
+    return <div className="flex items-center justify-center">No Blogs Found</div>;
+  }
+
+  const sanitizedContent = DOMPurify.sanitize(currentBlog?.content);
+  const content = sanitizedContent.length > 600
+    ? sanitizedContent.slice(0, 600)
+    : sanitizedContent;
+  const isLoading = Object.keys(currentBlog).length === 0;
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(
-        "https://hellotrekkers.com/blog/" + latestBlog?.slug
+        "https://hellotrekkers.com/blog/" + currentBlog?.slug
       );
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
@@ -34,115 +53,106 @@ const SingleBlogSection = ({ latestBlog }) => {
       console.error("Failed to copy: ", err);
     }
   };
+
   return (
-    <>
-      <div className="container">
-        <div className="mx-auto px-3 md:px-[4rem] py-10">
-          <article className=" rounded-xl grid grid-cols-1 md:grid-cols-2 gap-[2.5rem] items-center p-[1.25rem] bg-white  shadow-lg overflow-hidden">
-            <div className="relative h-full">
-              {isLoading ? (
-                <ImageSkeleton />
-              ) : (
-                <img
-                  decoding="async"
-                  loading="lazy"
-                  alt={latestBlog?.name}
-                  src={latestBlog?.image}
-                  className="w-full h-[15rem] md:h-[25rem] object-cover brightness-90 rounded-xl"
-                />
-              )}
-            </div>
+    <article className="rounded-xl grid grid-cols-1 md:grid-cols-2 gap-[2.5rem] items-center p-[1.25rem] bg-white shadow-lg overflow-hidden">
+      <div className="relative h-full">
+        {isLoading ? (
+          <ImageSkeleton />
+        ) : (
+          <img
+            decoding="async"
+            loading="lazy"
+            alt={currentBlog?.name}
+            src={BASE_MEDIA_URL + currentBlog?.image}
+            className="w-full h-[15rem] md:h-[25rem] object-cover brightness-90 rounded-xl"
+          />
+        )}
+      </div>
 
-            <div className="h-full">
-              <div className="flex flex-col gap-4">
-                <Link aria-label={`Blog - ${latestBlog?.slug}`} to={`/blog/${latestBlog?.slug}`}>
-                  <h1 className="text-md sm:text-xl font-bold text-gray-900 text-left">
-                    {isLoading ? <HeadingSkeleton /> : latestBlog?.heading}
-                  </h1>
-                </Link>
+      <div className="h-full">
+        <div className="flex flex-col gap-4">
+          <Link aria-label={`Blog - ${currentBlog?.slug}`} to={`/blog/${currentBlog?.slug}`}>
+            <h1 className="text-md sm:text-xl font-bold text-gray-900 text-left">
+              {isLoading ? <HeadingSkeleton /> : currentBlog?.heading}
+            </h1>
+          </Link>
 
-                <div className="flex  relative items-center gap-4 text-sm text-gray-600">
-                  {isLoading ? (
-                    <DescriptionSkeleton />
-                  ) : (
-                    <>
-                      {latestBlog?.author_name && (
-                        <div className="flex items-center gap-2">
-                          <AiFillEdit />
-                          <span className="font-medium">
-                            by {latestBlog?.author_name}
-                          </span>
-                        </div>
-                      )}
+          <div className="flex relative items-center gap-4 text-sm text-gray-600">
+            {isLoading ? (
+              <DescriptionSkeleton />
+            ) : (
+              <>
+                {currentBlog?.author_name && (
+                  <div className="flex items-center gap-2">
+                    <AiFillEdit />
+                    <span className="font-medium">by {currentBlog?.author_name}</span>
+                  </div>
+                )}
 
-                      {latestBlog?.location && (
-                        <div className="flex items-center gap-2">
-                          <MdLocationOn />
-                          <span className="font-medium">
-                            {latestBlog?.location}
-                          </span>
-                        </div>
-                      )}
-                      <div className="flex items-center gap-2">
-                        <MdDateRange />
-                        <time>
-                          {format(
-                            new Date(latestBlog?.created_at || Date.now()),
-                            "MMMM d, yyyy"
-                          )}
-                        </time>
-                      </div>
-                      <div
-                        className="bg-white hover:bg-white text-N300 text-sm flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 rounded-md"
-                        onClick={handleCopy}
-                      >
-                        <IoMdShare className="size-3.5" />
-                        Share
-                      </div>
-                      {copied && (
-                        <div className="text-N500  w-34  text-sm  rounded-md">
-                          Link Copied!
-                        </div>
-                      )}
-                    </>
-                  )}
+                {currentBlog?.location && (
+                  <div className="flex items-center gap-2">
+                    <MdLocationOn />
+                    <span className="font-medium">{currentBlog?.location}</span>
+                  </div>
+                )}
+
+                <div className="flex items-center gap-2">
+                  <MdDateRange />
+                  <time>
+                    {format(new Date(currentBlog?.created_at || Date.now()), "MMMM d, yyyy")}
+                  </time>
                 </div>
 
-                <div className="flex gap-2">
-                  {!isLoading && (
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-B75 text-B500">
-                      {latestBlog?.category_name || "Trek"}
-                    </span>
-                  )}
+                <div
+                  className="bg-white hover:bg-white text-N300 text-sm flex items-center gap-2 cursor-pointer p-1 rounded-md"
+                  onClick={handleCopy}
+                >
+                  <IoMdShare className="size-3.5" />
+                  Share
                 </div>
 
-                <div className="text-md text-N300 text-start">
-                  {latestBlog?.subheading && truncate(latestBlog?.subheading, 150)}
-                </div>
+                {copied && (
+                  <div className="text-N500 w-34 text-sm rounded-md">
+                    Link Copied!
+                  </div>
+                )}
+              </>
+            )}
+          </div>
 
-                {isLoading ? (
-                  <LongBlogContentSkeleton />
-                ) : (
-                  <>
-                    <span
-                      className="leading-relaxed text-justify"
-                      dangerouslySetInnerHTML={{ __html: content }} 
-                    ></span>
-                    <div className="flex justify-end text-B500 hover:text-B300 hover:underline font-bold cursor-pointer">
-                      {sanitizedContent.length > 600 && (
-                        <Link aria-label={`Blog - ${latestBlog?.slug}`} to={`/blog/${latestBlog?.slug}`}>
-                          ... Continue Reading
-                        </Link>
-                      )}
-                    </div>
-                  </>
+          <div className="flex gap-2">
+            {!isLoading && (
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-B75 text-B500">
+                {currentBlog?.category_name || "Trek"}
+              </span>
+            )}
+          </div>
+
+          <div className="text-md text-N300 text-start">
+            {currentBlog?.subheading && truncate(currentBlog?.subheading, 150)}
+          </div>
+
+          {isLoading ? (
+            <LongBlogContentSkeleton />
+          ) : (
+            <>
+              <span
+                className="leading-relaxed text-justify"
+                dangerouslySetInnerHTML={{ __html: content }}
+              ></span>
+              <div className="flex justify-end text-B500 hover:text-B300 hover:underline font-bold cursor-pointer">
+                {sanitizedContent.length > 600 && (
+                  <Link aria-label={`Blog - ${currentBlog?.slug}`} to={`/blog/${currentBlog?.slug}`}>
+                    ... Continue Reading
+                  </Link>
                 )}
               </div>
-            </div>
-          </article>
+            </>
+          )}
         </div>
       </div>
-    </>
+    </article>
   );
 };
 

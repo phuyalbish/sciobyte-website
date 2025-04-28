@@ -15,7 +15,7 @@ const NormalBlogTile = ({ blog }) => {
     subheading,
     author,
     date,
-    imageUrl,
+    image,
     category,
     slug,
     location,
@@ -24,7 +24,6 @@ const NormalBlogTile = ({ blog }) => {
   const blogUrl = slug ? `/blog/${slug}` : "/";
 
   const [copied, setCopied] = useState(false);
-
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(
@@ -53,7 +52,7 @@ const NormalBlogTile = ({ blog }) => {
                   Share
                 </div>
                 <img
-                  src={imageUrl}
+                  src={image}
                   alt={heading}
                   decoding="async"
                   loading="lazy"
