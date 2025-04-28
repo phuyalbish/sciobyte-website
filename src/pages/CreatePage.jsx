@@ -379,7 +379,7 @@ function CreatePage() {
                                         name="selectcurrency"
                                         value={fromCurrency}
                                         onChange={(e) => setFromCurrency(Number(e.target.value))} 
-                                        className="py-3  pr-2 outline-none text-sm"
+                                        className="py-3  pr-2 outline-none text-sm w-full"
                                       >
                                        {exchangeRate.map((item) => (
                                         <option key={item?.id} value={item?.id}>
