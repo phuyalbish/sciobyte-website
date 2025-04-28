@@ -37,13 +37,13 @@ const NormalBlogTile = ({ blog }) => {
     }
   };
   return (
-    <div className="relative flex flex-col gap-3  p-2 md:p-5 max-w-full rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg">
-      <div className="relative h-full">
-        {isLoading ? (
-          <ImageSkeleton />
-        ) : (
+    <div className="relative flex flex-col justify-start  gap-3  p-2 md:p-5 max-w-full rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg">
+                <div className="relative h-48 rounded-lg overflow-hidden  ">
+                  {isLoading ? (
+                    <ImageSkeleton />
+                  ) : (
 
-                <div className="relative w-full h-48 group overflow-hidden ">
+                <div className="relative w-full h-fill group overflow-hidden ">
                     
                 <div
                   className="absolute bg-G400 z-10  rounded-lg hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2"
@@ -77,18 +77,19 @@ const NormalBlogTile = ({ blog }) => {
                 </div> 
                   )}
                 </div>
-                <div className="flex justify-start flex-col gap-1">
-                <Link aria-label={`Blog - ${heading}`}
-                  to={blogUrl}>
-                  <div className="font-bold text-md text-N900 text-left">
-                    {heading}
-                  </div>
-                </Link>
-                <div className="text-base text-N500 text-start">
-                  {truncate(subheading, 150)}
+
+                <div className="flex justify-start  flex-col gap-1">
+                      <Link aria-label={`Blog - ${heading}`}
+                        to={blogUrl}>
+                        <div className="font-bold text-md text-N900 text-left">
+                          {heading}
+                        </div>
+                      </Link>
+                      <div className="text-base text-N500 text-start">
+                        {truncate(subheading, 150)}
+                      </div>
                 </div>
-              </div>
-      <div className="flex items-center gap-2 text-gray-600">
+          <div className="flex items-center gap-2 text-gray-600">
         {author && (
           <div className="flex items-center gap-1">
             <AiFillEdit />
