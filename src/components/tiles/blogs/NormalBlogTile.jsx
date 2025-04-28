@@ -44,23 +44,21 @@ const NormalBlogTile = ({ blog }) => {
         ) : (
 
                 <div className="relative w-full h-48 group overflow-hidden ">
-                    <div
-                      className="absolute bg-G400 hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2 rounded-md"
-                      onClick={handleCopy}
-                    >
-                      <IoMdShare className="size-3.5" />
-                      Share
-                    </div>
-                      <img
-                        src={imageUrl}
-                        alt={heading}
-                        decoding="async"
-                        loading="lazy"
-                        className=" object-cover w-full h-full group-hover:scale-105 scale-100 rounded-lg transition-all duration-500 ease-in-out"
-                      />
-
-
-
+                    
+                <div
+                  className="absolute bg-G400 z-10 hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2 rounded-md"
+                  onClick={handleCopy}
+                >
+                  <IoMdShare className="size-3.5" />
+                  Share
+                </div>
+                <img
+                  src={imageUrl}
+                  alt={heading}
+                  decoding="async"
+                  loading="lazy"
+                  className=" object-cover w-full h-full group-hover:scale-105 scale-100 rounded-lg transition-all duration-500 ease-in-out"
+                />
                   {category ? (
                     <Link
                       aria-label="Blogs"
