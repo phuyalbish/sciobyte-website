@@ -46,7 +46,7 @@ const NormalBlogTile = ({ blog }) => {
                 <div className="relative w-full h-48 group overflow-hidden ">
                     
                 <div
-                  className="absolute bg-G400 z-10 hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2 rounded-md"
+                  className="absolute bg-G400 z-10  rounded-lg hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2"
                   onClick={handleCopy}
                 >
                   <IoMdShare className="size-3.5" />

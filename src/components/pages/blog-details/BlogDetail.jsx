@@ -42,7 +42,6 @@ const extractHeadings = (htmlContent) => {
 
 const Sidebar = ({ headings }) => {
   const navigateSidebar = (e, id) => {
-    // console.dir([...e.target.parentNode.children]);
     const sidebarHeadings = [...e.target.parentNode.children].filter(
       (child) => child !== e.target
     );
@@ -60,6 +59,8 @@ const Sidebar = ({ headings }) => {
 
   return (
     <>
+
+            {headings.length > 0 && (
       <div className="hidden lg:block w-64 shrink-0">
         <div className="sticky top-14">
           <div className="bg-white rounded-lg shadow-sm py-5 text-left">
@@ -67,32 +68,23 @@ const Sidebar = ({ headings }) => {
               Content
             </h2>
             <nav className="p-5 w-full space-y-3 h-[50vh] overflow-x-hidden overflow-y-auto">
-              {headings.length === 0 ? (
-                <>
-                  <DescriptionSkeleton />
-                  <DescriptionSkeleton />
-                  <DescriptionSkeleton />
-                  <DescriptionSkeleton />
-                </>
-              ) : (
-                <>
-                  {headings.map((heading, index) => (
-                    <p
-                      onClick={(e) => navigateSidebar(e, heading.id)}
-                      key={index}
-                      className={`block cursor-pointer ${
-                        index === 0 ? "text-B400" : ""
-                      } hover:text-B400`}
-                    >
-                      {heading.content}
-                    </p>
-                  ))}
-                </>
-              )}
+              {headings.map((heading, index) => (
+                <p
+                  onClick={(e) => navigateSidebar(e, heading.id)}
+                  key={index}
+                  className={`block cursor-pointer ${
+                    index === 0 ? "text-B400" : ""
+                  } hover:text-B400`}
+                >
+                  {heading.content}
+                </p>
+              ))}
             </nav>
           </div>
         </div>
       </div>
+
+          )}
     </>
   );
 };
