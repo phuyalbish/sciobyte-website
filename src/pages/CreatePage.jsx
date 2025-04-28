@@ -109,7 +109,7 @@ function CreatePage() {
                           <div className="w-full">
                             <label
                               htmlFor="name"
-                              className="block text-sm font-medium text-gray-700"
+                              className="block text-sm font-medium text-N700"
                             >
                               Full Name*
                             </label>
@@ -121,14 +121,14 @@ function CreatePage() {
                               value={formData.name}
                               onChange={handleChange}
                               placeholder="John Doe"
-                              className="p-2 mt-1 block w-full rounded-md border border-N200 shadow-sm focus:border-blue-500 focus:ring-B200"
+                              className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                             />
                           </div>
                           
                           <div className="w-full">
                             <label
                               htmlFor="email"
-                              className="block text-sm font-medium text-gray-700"
+                              className="block text-sm font-medium text-N700"
                             >
                               Email*
                             </label>
@@ -140,14 +140,14 @@ function CreatePage() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder="john@gmail.com"
-                                className="p-2 mt-1 block w-full rounded-md  border border-N200 shadow-sm  focus:ring-B200"
+                                className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                               />
 
                           </div>
                           <div className="w-full">
                             <label
                               htmlFor="phone"
-                              className="block text-sm font-medium text-gray-700"
+                              className="block text-sm font-medium text-N700"
                             >
                               Phone Number*
                             </label>
@@ -159,14 +159,14 @@ function CreatePage() {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 placeholder="+XXX XXXXXXXXXX"
-                                className="p-2 mt-1 block w-full rounded-md  border border-N200 shadow-sm  focus:ring-B200"
+                                className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                               />
 
                           </div>
                           <div className="w-full">
                             <label
                               htmlFor="country"
-                              className="block text-sm font-medium text-gray-700"
+                              className="block text-sm font-medium text-N700"
                             >
                              Your Country*
                             </label>
@@ -178,7 +178,7 @@ function CreatePage() {
                               value={formData.country}
                               onChange={handleChange}
                               placeholder="Country"
-                              className="p-2 mt-1 block w-full rounded-md border border-N200 shadow-sm focus:border-blue-500 focus:ring-B200"
+                              className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                             />
                             
                           </div>
@@ -191,27 +191,29 @@ function CreatePage() {
                               <div className="w-full">
                                 <label
                                   htmlFor="traveltype"
-                                  className="block text-sm font-medium text-gray-700"
+                                  className="block text-sm font-medium text-N700"
                                 >
                                   Your Travel Type*
                                 </label>
+                                <div className="p-2 mt-1  w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="traveltype"
                                   name="traveltype"
                                   value={formData.traveltype}
                                   onChange={handleChange}
-                                  className="p-3 mt-1 block w-full rounded-md  border border-N200 shadow-sm  focus:ring-B100"
+                                  className="w-full outline-none"
                                 >
                                   <option value="adventure">Trek</option>
                                   <option value="leisure">Day Hike</option>
                                   <option value="business">Tour</option>
                                 </select>
+                                </div>
                                 
                               </div>
                               <div className="w-full">
                                 <label
                                   htmlFor="date"
-                                  className="block text-sm font-medium text-gray-700"
+                                  className="block text-sm font-medium text-N700"
                                 >
                                   Approx. Date of Travel*
                                 </label>
@@ -223,22 +225,23 @@ function CreatePage() {
                                      min={today}
                                     value={formData.date}
                                     onChange={handleChange}
-                                    className="p-2 mt-1 block w-full rounded-md  border border-N200 shadow-sm  focus:ring-B200"
+                                    className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                   />
                               </div>
                               <div className="w-full">
                                 <label
                                   htmlFor="travellocation"
-                                  className="block text-sm font-medium text-gray-700"
+                                  className="block text-sm font-medium text-N700"
                                 >
                                   Your Prefered Travel Location*
                                 </label>
+                                <div className="p-2 mt-1  w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="travellocation"
                                   name="travellocation"
                                   value={formData.travellocation}
                                   onChange={handleChange}
-                                  className="p-3 mt-1 block w-full rounded-md  border border-N200 shadow-sm  focus:ring-B100"
+                                  className="w-full outline-none"
                                 >
                                   <option value="adventure">Don't know yet!</option>
 
@@ -246,12 +249,13 @@ function CreatePage() {
                                   <option value="leisure">Annapurna</option>
                                   <option value="business">Everest</option>
                                 </select>
+                                </div>
                                
                               </div>
                               <div className="w-full">
                                 <label
                                   htmlFor="duration"
-                                  className="block text-sm font-medium text-gray-700"
+                                  className="block text-sm font-medium text-N700"
                                 >
                                   Approximate Duration*
                                 </label>
@@ -265,24 +269,25 @@ function CreatePage() {
                                   min="1"
                                   max="20"
                                   placeholder="10 days"
-                                  className="p-2 mt-1 block w-full rounded-md border border-N200 shadow-sm focus:border-blue-500 focus:ring-B200"
+                                  className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                 />
                                 
                               </div>
                               <div className="w-full">
                                 <label
                                   htmlFor="travellocation"
-                                  className="block text-sm font-medium text-gray-700"
+                                  className="block text-sm font-medium text-N700"
                                 >
                                   Your Prefered Accomodation Type*
                                 </label>
+                                <div className="p-2 mt-1  w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="travellocation"
                                   name="travellocation"
                                   required
                                   value={formData.travellocation}
                                   onChange={handleChange}
-                                  className="p-3 mt-1 block w-full rounded-md  border border-N200 shadow-sm  focus:ring-B100"
+                                  className="w-full outline-none"
                                 >
                                   <option value="adventure">Don't know yet!</option>
 
@@ -290,6 +295,7 @@ function CreatePage() {
                                   <option value="leisure">HomeStay</option>
                                   <option value="business">Camping</option>
                                 </select>
+                                </div>
                                 
                               </div>
                               <div className="flex gap-4 w-full flex-grow">
@@ -297,7 +303,7 @@ function CreatePage() {
                                   <div className="w-full ">
                                     <label
                                       htmlFor="people"
-                                      className="block text-sm font-medium text-gray-700"
+                                      className="block text-sm font-medium text-N700"
                                     >
                                       No. of People*
                                     </label>
@@ -311,13 +317,13 @@ function CreatePage() {
                                         min="1"
                                         max="20"
                                         placeholder="10 days"
-                                        className="p-2 mt-1 block w-full rounded-md border border-N200 shadow-sm focus:border-blue-500 focus:ring-B200"
+                                        className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                       />
                                   </div>
                                   <div className="w-full">
                                     <label
                                       htmlFor="child"
-                                      className="block text-sm font-medium text-gray-700"
+                                      className="block text-sm font-medium text-N700"
                                     >
                                       No. of Child
                                     </label>
@@ -331,7 +337,7 @@ function CreatePage() {
                                       value={formData.totalchild}
                                       onChange={handleChange}
                                       placeholder="0 - 20 Child"
-                                      className="p-2 mt-1 block w-full rounded-md border border-N200 shadow-sm focus:border-blue-500 focus:ring-B200"
+                                      className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                     />
                                    
                                   </div>
@@ -340,7 +346,7 @@ function CreatePage() {
                               <div className="w-full">
                                 <label
                                   htmlFor="budget"
-                                  className="block text-sm font-medium text-gray-700"
+                                  className="block text-sm font-medium text-N700"
                                 >
                                   Approximate Budget Per Person*
                                 </label>
@@ -354,7 +360,7 @@ function CreatePage() {
                                   value={formData.budget}
                                   onChange={handleChange}
                                   placeholder="500 USD - 5000 USD"
-                                  className="p-2 mt-1 block w-full rounded-md border border-N200 shadow-sm focus:border-blue-500 focus:ring-B200"
+                                  className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                 />
                                
                               </div>
@@ -362,18 +368,18 @@ function CreatePage() {
                             <div className="flex flex-col  w-full  gap-1">
                                <label
                                   htmlFor="selectcurrency"
-                                  className="block text-sm font-medium text-gray-700"
+                                  className="block text-sm font-medium text-N700"
                                 >
                                  Convert from your currency to USD
                                 </label>
-                                <div className="flex gap-1 items-center">
-                                  <div className="w-1/4 ">
+                                <div className="flex gap-4 items-center">
+                                  <div className="p-2 mt-1  w-1/4 rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                       <select
                                         id="selectcurrency"
                                         name="selectcurrency"
                                         value={fromCurrency}
                                         onChange={(e) => setFromCurrency(e.target.value)}
-                                        className="py-3 block w-full rounded-md  border border-N200 shadow-sm text-sm  focus:ring-B100"
+                                        className="px-3 outline-none"
                                       >
                                        {exchangeRate.map((item, index) => (
                                         <option key={index} value={item.rate}>
@@ -390,21 +396,16 @@ function CreatePage() {
                                     value={amount}
                                     onChange={(e) => setAmount(e.target.value)}
                                     placeholder="Budget in your Currency"
-                                    className="p-2 required:block w-full rounded-md border border-N200 shadow-sm focus:border-blue-500 focus:ring-B200"
+                                    className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                   />
                                 </div>
                                 </div>
-
-
                               </div>
-
-
-                        </div>
-
+                              </div>
                                 <div className="w-full">
                                   <label
                                     htmlFor="message"
-                                    className="block text-sm font-medium text-gray-700"
+                                    className="block text-sm font-medium text-N700"
                                   >
                                     Feel free to share more
                                   </label>
@@ -415,18 +416,16 @@ function CreatePage() {
                                     onChange={handleChange}
                                     rows={4}
                                     placeholder="Write your message or queries.."
-                                    className="p-2 mt-1 block w-full rounded-md  border border-N200 shadow-sm  focus:ring-B200"
+                                    className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                   />
                                 </div>
-                </div> 
-                
-
+                            </div> 
                 <div className="flex justify-end">
                   <button
                     type="submit"
                     className={`py-1 px-4 border border-transparent rounded-md shadow-sm font-medium text-white ${
                       isSubmitting ? "bg-B900 cursor-not-allowed" : "bg-B500"
-                    } hover:bg-B500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-B200`}
+                    } hover:bg-B500 focus:outline-none focus:ring-2 focus:ring-offset-2 `}
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Submitting ..." : "Submit"}
