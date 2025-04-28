@@ -29,7 +29,7 @@ function CreatePage() {
     const selectedCurrency = exchangeRate.find(item => item.id === fromCurrency);
     const rate = selectedCurrency?.rate || 0;
 
-    const budget = parseFloat((amount * rate).toFixed(2));
+    const budget = parseFloat((amount / rate).toFixed(2));
     setFormData((prev) => ({
       ...prev,
       budget: budget,
