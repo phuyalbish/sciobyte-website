@@ -198,7 +198,7 @@ const BlogDetail = () => {
                     onClick={handleCopy}>
 
                   <IoMdShare
-                    className="flex items-center gap-1 cursor-pointer bg-white/50 hover:bg-white text-N300  p-1 rounded-md size-6"
+                    className="flex items-center gap-1 cursor-pointer bg-white hover:bg-white text-N300  p-1 rounded-md size-6"
                   />
                   Share
                   </div>

@@ -54,14 +54,14 @@ const BlogVerticalTile = ({ blog }) => {
           
           aria-label="Blogs"
           to="/blogs"
-          className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300  p-1 rounded-md text-sm"
+          className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300    px-2 p-1 rounded-md text-sm"
         >
           {category}
         </Link>
       ) : "" }
 
         {copied && (
-          <div className="text-N500 absolute bottom-0 right-0 w-34 bg-white/50 text-sm p-1 m-1 rounded-md">
+          <div className="text-N500 absolute bottom-0 right-0 w-34 bg-white text-sm p-1 px-2 m-1 rounded-md">
             Link Copied!
           </div>
         )}

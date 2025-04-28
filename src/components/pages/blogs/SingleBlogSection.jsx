@@ -93,7 +93,7 @@ const SingleBlogSection = ({ latestBlog }) => {
                         </time>
                       </div>
                       <div
-                        className="bg-white/50 hover:bg-white text-N300 text-sm flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 rounded-md"
+                        className="bg-white hover:bg-white text-N300 text-sm flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 rounded-md"
                         onClick={handleCopy}
                       >
                         <IoMdShare className="size-3.5" />
