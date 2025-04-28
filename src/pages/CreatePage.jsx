@@ -16,7 +16,6 @@ function CreatePage() {
     })();
   }, []);
 
-  console.log(exchangeRate)
 
   const today = new Date().toISOString().split("T")[0];
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -188,25 +187,25 @@ function CreatePage() {
                 <div className="flex flex-col gap-6 w-full">
                     <div className="text-base font-semibold">Trip Details</div>
                           <div className="grid  w-full grid-cols-1 md:grid-cols-2  gap-6">
-                              <div className="w-full  flex flex-col gap-1">
+                              <div className="w-full  flex flex-col gap-1 bg-transparent">
                                 <label
                                   htmlFor="traveltype"
                                   className="block text-sm font-medium text-N700"
                                 >
                                   Your Travel Type*
                                 </label>
-                                <div className="px-2   w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
-                                <select
-                                  id="traveltype"
-                                  name="traveltype"
-                                  value={formData?.traveltype}
-                                  onChange={handleChange}
-                                  className="w-full py-3 outline-none"
-                                >
-                                  <option value="adventure">Trek</option>
-                                  <option value="leisure">Day Hike</option>
-                                  <option value="business">Tour</option>
-                                </select>
+                                <div className="  w-full px-2   bg-white rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400 bg-transparent">
+                                    <select
+                                      id="traveltype"
+                                      name="traveltype"
+                                      value={formData?.traveltype}
+                                      onChange={handleChange}
+                                      className="w-full py-3  outline-none bg-transparent"
+                                    >
+                                      <option value="adventure">Trek</option>
+                                      <option value="leisure">Day Hike</option>
+                                      <option value="business">Tour</option>
+                                    </select>
                                 </div>
                                 
                               </div>
@@ -235,7 +234,7 @@ function CreatePage() {
                                 >
                                   Your Prefered Travel Location*
                                 </label>
-                                <div className="px-2   w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
+                                <div className="px-2  bg-white w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="travellocation"
                                   name="travellocation"
@@ -244,7 +243,6 @@ function CreatePage() {
                                   className="w-full py-3 outline-none"
                                 >
                                   <option value="adventure">Don't know yet!</option>
-
                                   <option value="adventure">Manaslu</option>
                                   <option value="leisure">Annapurna</option>
                                   <option value="business">Everest</option>
@@ -280,7 +278,7 @@ function CreatePage() {
                                 >
                                   Your Prefered Accomodation Type*
                                 </label>
-                                <div className="px-2   w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
+                                <div className="px-2  bg-white w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="travellocation"
                                   name="travellocation"
@@ -343,27 +341,6 @@ function CreatePage() {
                                   </div>
 
                               </div>
-                              <div className="w-full  flex flex-col gap-1">
-                                <label
-                                  htmlFor="budget"
-                                  className="block text-sm font-medium text-N700"
-                                >
-                                  Approximate Budget Per Person*
-                                </label>
-                                <input
-                                  type="number"
-                                  id="budget"
-                                  name="budget"
-                                  min="500"
-                                  max="5000"
-                                  required
-                                  value={formData?.budget}
-                                  onChange={handleChange}
-                                  placeholder="500 USD - 5000 USD"
-                                  className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
-                                />
-                               
-                              </div>
 
                             <div className="flex flex-col  w-full  gap-1">
                                <label
@@ -373,7 +350,7 @@ function CreatePage() {
                                  Convert from your currency to USD
                                 </label>
                                 <div className="flex gap-4 items-center">
-                                  <div className="px-2  w-1/4 rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
+                                  <div className="px-2  w-1/4 bg-white rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                       <select
                                         id="selectcurrency"
                                         name="selectcurrency"
@@ -400,6 +377,30 @@ function CreatePage() {
                                   />
                                 </div>
                                 </div>
+                              </div>
+
+
+
+                              <div className="w-full  flex flex-col gap-1">
+                                <label
+                                  htmlFor="budget"
+                                  className="block text-sm font-medium text-N700"
+                                >
+                                  Approximate Budget Per Person*
+                                </label>
+                                <input
+                                  type="number"
+                                  id="budget"
+                                  name="budget"
+                                  min="500"
+                                  max="5000"
+                                  required
+                                  value={formData?.budget}
+                                  onChange={handleChange}
+                                  placeholder="500 USD - 5000 USD"
+                                  className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                />
+                               
                               </div>
                               </div>
                                 <div className="w-full  flex flex-col gap-1">
@@ -440,7 +441,6 @@ function CreatePage() {
                   <img src={aashish} alt="" className="w-48 rounded-lg aspect-square object-cover" />
                   <div className="text-md font-semibold">Aashish Regmi</div>
                   <a
-
                   aria-label="Whatsapp"
                   href={`https://web.whatsapp.com/send?phone=+9779849828857&text=Hello Aashish, Let's Plan a Trip.`}
                   target="_blank"
@@ -449,10 +449,7 @@ function CreatePage() {
                   <FaWhatsapp className="text-lg"/>
                   +977-9709707037
                 </a>
-
-                  <div className="text-base font-medium">or  <a className="hover:underline underline-offset-2 cursor-pointer">Schedule a call</a></div>
-                
-
+                  <div className="text-base font-medium">or  <a className="hover:text-G700 text-black underline underline-offset-2 cursor-pointer">Schedule a call</a></div>
           </div>
         </div>
       </div>
