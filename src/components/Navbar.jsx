@@ -397,7 +397,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                  <Link  to="/liked" aria-label="Liked Page">
                 <FaHeart   className="size-6  text-red-500 hover:text-white cursor-pointer select-none"/>
                 </Link>
-              <Link to="/plan" aria-label="Create Your Trip"
+              <Link to="/create" aria-label="Create Your Trip"
                       className=" group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-white shadow-lg rounded-md text-B500 hover:bg-transparent border border-transparent hover:border-white hover:text-white hover:shadow-none transition-colors duration-500"
                       onClick={() => {
                         setActiveMenu({ company: true });

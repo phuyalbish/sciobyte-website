@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 
 import { scrollToSection } from "@/apis/scrollToSection.js";
-import { FaStar } from "react-icons/fa";
+// import { FaStar } from "react-icons/fa";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
@@ -120,12 +120,12 @@ function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars
           <FaWhatsapp className="text-lg"/>
           Quick Inquiry
         </a>
-        <div className="flex gap-2 justify-center items-center">
+        <div className="flex gap-2 justify-center items-center flex-wrap">
           <div className="font-semibold">Not Happy?
           </div>
           <Link
-            aria-label="Plan Page"
-          to="/plan"
+            aria-label="Create Page"
+          to="/create"
           className="text-B500 hover:underline underline-offset-2 font-semibold"
         >
           Customize a trip

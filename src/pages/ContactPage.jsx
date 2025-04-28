@@ -222,7 +222,7 @@ function ContactPage() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className="p-2 mt-1 block w-full rounded-md border border-B200 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="p-2 mt-1 block w-full rounded-md border border-N200 shadow-sm focus:border-blue-500 focus:ring-B200"
                 />
                 {errorMsg["name"] && (
                   <p className="block text-sm font-medium text-danger">
@@ -245,7 +245,7 @@ function ContactPage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@email.com"
-                  className="p-2 mt-1 block w-full rounded-md  border border-B200 shadow-sm  focus:ring-blue-500"
+                  className="p-2 mt-1 block w-full rounded-md  border border-N200 shadow-sm  focus:ring-B200"
                 />
                 {errorMsg["email"] && (
                   <p className="block text-sm font-medium text-danger">
@@ -268,7 +268,7 @@ function ContactPage() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="XXXXXXXXXX"
-                    className="p-2 mt-1 block w-full rounded-md  border border-B200 shadow-sm  focus:ring-blue-500"
+                    className="p-2 mt-1 block w-full rounded-md  border border-N200 shadow-sm  focus:ring-B200"
                   />
 
                 {errorMsg["phone"] && (
@@ -292,7 +292,7 @@ function ContactPage() {
                   onChange={handleChange}
                   rows={4}
                   placeholder="Comment or Questions"
-                  className="p-2 mt-1 block w-full rounded-md  border border-B200 shadow-sm  focus:ring-blue-500"
+                  className="p-2 mt-1 block w-full rounded-md  border border-N200 shadow-sm  focus:ring-B200"
                 />
                 {errorMsg["message"] && (
                   <p className="block text-sm font-medium text-danger">
@@ -306,7 +306,7 @@ function ContactPage() {
                   type="submit"
                   className={`py-1 px-4 border border-transparent rounded-md shadow-sm font-medium text-white ${
                     isSubmitting ? "bg-B900 cursor-not-allowed" : "bg-B500"
-                  } hover:bg-B500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
+                  } hover:bg-B500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-B200`}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Submitting ..." : "Submit"}
