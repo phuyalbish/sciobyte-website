@@ -106,7 +106,7 @@ function CreatePage() {
                 <div className="flex flex-col gap-6 w-full">
                     <div className="text-base font-semibold">Personal Details</div>
                         <div className="grid  w-full grid-cols-2  gap-6">
-                          <div className="w-full">
+                          <div className="w-full flex flex-col gap-1">
                             <label
                               htmlFor="name"
                               className="block text-sm font-medium text-N700"
@@ -121,11 +121,11 @@ function CreatePage() {
                               value={formData.name}
                               onChange={handleChange}
                               placeholder="John Doe"
-                              className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                              className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                             />
                           </div>
                           
-                          <div className="w-full">
+                          <div className="w-full  flex flex-col gap-1">
                             <label
                               htmlFor="email"
                               className="block text-sm font-medium text-N700"
@@ -140,11 +140,11 @@ function CreatePage() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder="john@gmail.com"
-                                className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                               />
 
                           </div>
-                          <div className="w-full">
+                          <div className="w-full  flex flex-col gap-1">
                             <label
                               htmlFor="phone"
                               className="block text-sm font-medium text-N700"
@@ -159,11 +159,11 @@ function CreatePage() {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 placeholder="+XXX XXXXXXXXXX"
-                                className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                               />
 
                           </div>
-                          <div className="w-full">
+                          <div className="w-full  flex flex-col gap-1">
                             <label
                               htmlFor="country"
                               className="block text-sm font-medium text-N700"
@@ -178,7 +178,7 @@ function CreatePage() {
                               value={formData.country}
                               onChange={handleChange}
                               placeholder="Country"
-                              className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                              className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                             />
                             
                           </div>
@@ -188,20 +188,20 @@ function CreatePage() {
                 <div className="flex flex-col gap-6 w-full">
                     <div className="text-base font-semibold">Trip Details</div>
                           <div className="grid  w-full grid-cols-1 md:grid-cols-2  gap-6">
-                              <div className="w-full">
+                              <div className="w-full  flex flex-col gap-1">
                                 <label
                                   htmlFor="traveltype"
                                   className="block text-sm font-medium text-N700"
                                 >
                                   Your Travel Type*
                                 </label>
-                                <div className="p-2 mt-1  w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
+                                <div className="px-2   w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="traveltype"
                                   name="traveltype"
                                   value={formData.traveltype}
                                   onChange={handleChange}
-                                  className="w-full outline-none"
+                                  className="w-full py-3 outline-none"
                                 >
                                   <option value="adventure">Trek</option>
                                   <option value="leisure">Day Hike</option>
@@ -210,7 +210,7 @@ function CreatePage() {
                                 </div>
                                 
                               </div>
-                              <div className="w-full">
+                              <div className="w-full  flex flex-col gap-1">
                                 <label
                                   htmlFor="date"
                                   className="block text-sm font-medium text-N700"
@@ -225,23 +225,23 @@ function CreatePage() {
                                      min={today}
                                     value={formData.date}
                                     onChange={handleChange}
-                                    className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                    className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                   />
                               </div>
-                              <div className="w-full">
+                              <div className="w-full  flex flex-col gap-1">
                                 <label
                                   htmlFor="travellocation"
                                   className="block text-sm font-medium text-N700"
                                 >
                                   Your Prefered Travel Location*
                                 </label>
-                                <div className="px-2 mt-1  w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
+                                <div className="px-2   w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="travellocation"
                                   name="travellocation"
                                   value={formData.travellocation}
                                   onChange={handleChange}
-                                  className="w-full py-2 outline-none"
+                                  className="w-full py-3 outline-none"
                                 >
                                   <option value="adventure">Don't know yet!</option>
 
@@ -252,7 +252,7 @@ function CreatePage() {
                                 </div>
                                
                               </div>
-                              <div className="w-full">
+                              <div className="w-full  flex flex-col gap-1">
                                 <label
                                   htmlFor="duration"
                                   className="block text-sm font-medium text-N700"
@@ -269,25 +269,25 @@ function CreatePage() {
                                   min="1"
                                   max="20"
                                   placeholder="10 days"
-                                  className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                  className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                 />
                                 
                               </div>
-                              <div className="w-full">
+                              <div className="w-full  flex flex-col gap-1">
                                 <label
                                   htmlFor="travellocation"
                                   className="block text-sm font-medium text-N700"
                                 >
                                   Your Prefered Accomodation Type*
                                 </label>
-                                <div className="px-2 mt-1  w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
+                                <div className="px-2   w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="travellocation"
                                   name="travellocation"
                                   required
                                   value={formData.travellocation}
                                   onChange={handleChange}
-                                  className="w-full py-2 outline-none"
+                                  className="w-full py-3 outline-none"
                                 >
                                   <option value="adventure">Don't know yet!</option>
 
@@ -300,7 +300,7 @@ function CreatePage() {
                               </div>
                               <div className="flex gap-4 w-full flex-grow">
 
-                                  <div className="w-full ">
+                                  <div className="w-full  flex flex-col gap-1">
                                     <label
                                       htmlFor="people"
                                       className="block text-sm font-medium text-N700"
@@ -317,10 +317,10 @@ function CreatePage() {
                                         min="1"
                                         max="20"
                                         placeholder="1 - 20 People"
-                                        className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                        className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                       />
                                   </div>
-                                  <div className="w-full">
+                                  <div className="w-full  flex flex-col gap-1">
                                     <label
                                       htmlFor="child"
                                       className="block text-sm font-medium text-N700"
@@ -337,13 +337,13 @@ function CreatePage() {
                                       value={formData.totalchild}
                                       onChange={handleChange}
                                       placeholder="0 - 20 Child"
-                                      className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                      className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                     />
                                    
                                   </div>
 
                               </div>
-                              <div className="w-full">
+                              <div className="w-full  flex flex-col gap-1">
                                 <label
                                   htmlFor="budget"
                                   className="block text-sm font-medium text-N700"
@@ -360,7 +360,7 @@ function CreatePage() {
                                   value={formData.budget}
                                   onChange={handleChange}
                                   placeholder="500 USD - 5000 USD"
-                                  className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                  className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                 />
                                
                               </div>
@@ -402,7 +402,7 @@ function CreatePage() {
                                 </div>
                               </div>
                               </div>
-                                <div className="w-full">
+                                <div className="w-full  flex flex-col gap-1">
                                   <label
                                     htmlFor="message"
                                     className="block text-sm font-medium text-N700"
@@ -416,7 +416,7 @@ function CreatePage() {
                                     onChange={handleChange}
                                     rows={4}
                                     placeholder="Write your message or queries.."
-                                    className="p-2 mt-1 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
+                                    className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                   />
                                 </div>
                             </div> 
