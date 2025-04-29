@@ -49,6 +49,7 @@ function CreatePage() {
     date: "",
     traveltype: "",
     travellocation: "",
+    travelaccomodation: "",
     duration: "",
     totalpeople: "",
     accomodation: "",
@@ -241,7 +242,7 @@ function CreatePage() {
                                   onChange={handleChange}
                                   className="w-full py-3 outline-none"
                                 >
-                                  <option value="adventure" disabled>Select Trip Type</option>
+                                  <option value="" disabled>Select Travel Location</option>
                                   <option value="adventure">Manaslu</option>
                                   <option value="leisure">Annapurna</option>
                                   <option value="business">Everest</option>
@@ -272,22 +273,21 @@ function CreatePage() {
                               </div>
                               <div className="w-full  flex flex-col gap-1">
                                 <label
-                                  htmlFor="travellocation"
+                                  htmlFor="travelaccomodation"
                                   className="block text-sm font-medium text-N700"
                                 >
-                                  Your Prefered Accomodation Type*
+                                  Your Prefered Travel Accomodation*
                                 </label>
                                 <div className="px-2  bg-white w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
-                                  id="travellocation"
-                                  name="travellocation"
+                                  id="travelaccomodation"
+                                  name="travelaccomodation"
                                   required
-                                  value={formData?.travellocation}
+                                  value={formData?.travelaccomodation}
                                   onChange={handleChange}
                                   className="w-full py-3 outline-none"
                                 >
-                                  <option value="adventure" disabled>Select Accomodation Type</option>
-
+                                  <option value="" disabled>Select Preffered Travel Accomodation</option>
                                   <option value="adventure">Tea House/ Lodge</option>
                                   <option value="leisure">HomeStay</option>
                                   <option value="business">Camping</option>
