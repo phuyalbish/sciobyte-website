@@ -11,6 +11,13 @@ const handleFaqState = (id) => {
   })));
 };
 
+
+
+const [showAll, setShowAll] = useState(false);
+
+const toggleShowAll = () => setShowAll((prev) => !prev);
+
+
   useEffect(() => {
     (async () => {
       try {
@@ -38,20 +45,32 @@ const handleFaqState = (id) => {
   return (
     <div className="flex flex-col gap-2 w-full   max-w-[100em] mx-auto ">
       <h1 className="text-2xl md:text-3xl  font-liches  font-semibold ">Frequently asked questions</h1>
-      <div className="flex flex-col">
-        {Array.isArray(faqs) && faqs.length > 0 ? (
-          faqs.map((faq, index) => (
-            <FAQ
-              faq={faq}
-              key={index}
-              isOpened={faq.isOpened}
-              handleFaqState={handleFaqState}
-            />
-          ))
-        ) : (
-          <p>Loading FAQs...</p>
-        )}
-      </div>
+        <div className="flex flex-col gap-4">
+          {Array.isArray(faqs) && faqs.length > 0 ? (
+            <>
+              <div className="flex flex-col gap-2">
+                {(showAll ? faqs : faqs.slice(0, 5)).map((faq, index) => (
+                  <FAQ
+                    faq={faq}
+                    key={index}
+                    isOpened={faq.isOpened}
+                    handleFaqState={handleFaqState}
+                  />
+                ))}
+              </div>
+              {faqs.length > 5 && (
+                <button
+                  onClick={toggleShowAll}
+                  className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 self-start"
+                >
+                  {showAll ? "Show Less" : "Show All"} 
+                </button>
+              )}
+            </>
+          ) : (
+            <p>Loading FAQs...</p>
+          )}
+        </div>
     </div>
   );
 };
