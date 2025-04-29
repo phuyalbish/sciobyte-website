@@ -259,7 +259,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
               </button>
 
               {isCompanyDropDown && (
-                <div className="absolute top-11 left-0 m-auto w-64 justify-start items-start text-N900  bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 text-sm">
+                <div className="absolute top-11 left-0 m-auto w-64 justify-start items-start text-N900  bg-white/80 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 text-sm">
                   
                   <Link
                   aria-label="Contact"
