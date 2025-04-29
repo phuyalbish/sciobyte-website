@@ -48,7 +48,7 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
         <div className="flex flex-col gap-4 items-center justify-center">
           {Array.isArray(faqs) && faqs.length > 0 ? (
             <>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 w-full">
                 {(showAll ? faqs : faqs.slice(0, 5)).map((faq, index) => (
                   <FAQ
                     faq={faq}
