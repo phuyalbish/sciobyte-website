@@ -36,8 +36,10 @@ const TrekTile = ({ data }) => {
     <Link
     aria-label={`Trek - ${name}`}
       to={`/trek/${slug}`}
-      className=" relative border bg-white  cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500   border-N100 5 border-0.5"
+      className="max-w-96  relative border bg-white  cursor-pointer group flex flex-col justify-between gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500   border-N100 5 border-0.5"
     >
+
+      <div className="flex flex-col gap-2 justify-start">
       <div className="relative overflow-hidden rounded-xl">
         <img
           decoding="async"
@@ -71,8 +73,9 @@ const TrekTile = ({ data }) => {
           alt="Badge Icon"
         />
       )}
-      <div className="flex flex-col justify-between  gap-2">
         <h2 className="font-bold text-base text-left">{name}</h2>
+        </div>
+        <div className="flex flex-col">
         <div className="flex justify-between items-center mb-1 w-full">
           <span className="text-yellow-500 text-md flex">
             {[...Array(stars)].map((_, index) => (
@@ -101,7 +104,7 @@ const TrekTile = ({ data }) => {
             icon={difficulty_img}
           />
         </div>
-      </div>
+        </div>
     </Link>
   );
 };

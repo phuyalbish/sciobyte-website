@@ -10,7 +10,7 @@ function TrekRequirementSection({gears }) {
           gears.map((item, index) => (
             <div
               key={index}
-              className={` py-2 px-4 rounded-xl flex gap-3 items-center  bg-G200 cursor-pointer`}
+              className={` py-2 px-4 rounded-xl flex gap-3 items-center  bg-G100 cursor-pointer`}
             >
               <img
                 decoding="async"

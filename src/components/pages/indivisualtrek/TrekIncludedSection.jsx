@@ -11,7 +11,7 @@ function TrekIncludedSection({ includes, excludes }) {
     <div className="text-xl tracking-wide font-liches font-light">
       What's included
     </div>
-      <div className="flex md:flex-row flex-col  p-6  rounded-lg bg-B200 gap-5">
+      <div className="flex md:flex-row flex-col  p-6  rounded-lg bg-B100 gap-5">
 
       <div className="flex flex-col md:w-1/2  gap-5">
         {Array.isArray(includes) && includes.length > 0 ? (

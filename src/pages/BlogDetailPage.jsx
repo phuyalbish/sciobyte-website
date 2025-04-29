@@ -62,11 +62,9 @@ const Sidebar = ({ headings }) => {
   return (
     <>
 
-      <div className="hidden lg:block w-full h-full shrink-0 sticky top-20">
-          <div className="bg-white rounded-lg shadow-sm p-4 text-left flex flex-col gap-3">
-            <h2 className="text-lg font-semibold font-liches text-gray-900">
-              Table of Content
-            </h2>
+      <div className="hidden lg:block w-full h-full shrink-0 sticky">
+          <div className="bg-white w-full p-4 text-left flex flex-col gap-3 ">
+          
 
             {headings.length > 0 && (
             <nav className="w-full flex flex-col gap-3 h-fit">
@@ -76,7 +74,6 @@ const Sidebar = ({ headings }) => {
                 </p>
               ))}
             </nav>
-
           )}
           </div>
         </div>
@@ -221,10 +218,14 @@ const BlogDetail = () => {
 
             </article>
           </div>
+          <div className="flex flex-col md:w-3/12  rounded-lg shadow-sm ">
 
-          <div className="md:flex sticky top-[10vh] hidden md:w-3/12 h-[80vh]">
-          <Sidebar headings={headings} />
-
+            <h2 className="text-lg font-semibold font-liches bg-white z-10  sticky top-[10vh] text-N900">
+              Table of Content
+              </h2>
+              <div className="md:flex sticky top-[15vh] hidden w-full  rounded-b-lg   overflow-y-auto h-[80vh] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-900  ">
+                <Sidebar headings={headings} />
+              </div>
           </div>
           <GotoTop />
       </div>

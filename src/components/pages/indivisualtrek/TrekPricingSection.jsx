@@ -79,7 +79,7 @@ function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars
           )}
         </div>
          {Array.isArray(pricings) && pricings?.length > 0 ? (
-        <div className="flex flex-col border gap-2 border-N300 rounded-xl px-4 py-4">
+        <div className="flex flex-col border gap-2  bg-B100 rounded-xl px-4 py-4">
          
             <>
               <div className="flex justify-between">

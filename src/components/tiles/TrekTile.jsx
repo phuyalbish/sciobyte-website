@@ -36,13 +36,14 @@ const TrekTile = ({ data }) => {
 
     aria-label={`Trek - ${name}`}
       to={`/trek/${slug}`}
-      className="relative  bg-white  cursor-pointer group flex flex-col gap-5 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500 border  border-N100 5 border-0.5"
+      className="relative max-w-96  bg-white  cursor-pointer group flex justify-between flex-col gap-2 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500 border  border-N100  border-0.5"
     >
-      <div className="relative overflow-hidden rounded-xl">
+      <div className="flex flex-col gap-2 justify-start">
+      <div className="relative overflow-hidden rounded-xl w-full h-64 ">
         <img
           decoding="async"
           loading="lazy"
-          className=" w-full h-52 object-cover object-center group-hover:scale-110 transition-all duration-300"
+          className=" w-full h-64 object-cover object-center group-hover:scale-110 transition-all duration-300"
           src={image}
           alt={name}
         />
@@ -51,7 +52,6 @@ const TrekTile = ({ data }) => {
             {tag}
           </span>
         )}
-
         {max_group_range > 1 && (
           <img
             decoding="async"
@@ -71,35 +71,37 @@ const TrekTile = ({ data }) => {
           alt="Badge Icon"
         />
       )}
-      <div className="flex flex-col justify-between">
-        <h2 className="font-bold text-md text-left">{name}</h2>
-        <div className="flex justify-between items-center mb-1 w-full">
-          <span className="text-yellow-500 text-md  flex">
-            {[...Array(stars)].map((_, index) => (
-              <FaStar key={index} className="text-yellow-500" />
-            ))}
-          </span>
-          <div className="flex flex-col items-end">
-            <p className="text-N300 text-sm  text-right">
-              Price Starting From
-            </p>
-            <span className="text-primary font-bold text-xl">
-              USD {Math.floor(total_price)}
-            </span>
-          </div>
+        <h2 className="font-bold text-md text-left ">{name}</h2>
         </div>
-        <div className="flex justify-between text-gray-600 mt-2 gap-2">
-          <JourneyDetailsPanel type="Type" value={categories?.name} icon={type_img} />
-          <JourneyDetailsPanel
-            type="Duration"
-            value={`${max_duration} Days`}
-            icon={duration_img}
-          />
-          <JourneyDetailsPanel
-            type="Difficulty"
-            value={difficulties?.name}
-            icon={difficulty_img}
-          />
+        <div className="flex flex-col ">
+          <div className="flex justify-between items-center mb-1 w-full">
+            <span className="text-yellow-500 text-md  flex">
+              {[...Array(stars)].map((_, index) => (
+                <FaStar key={index} className="text-yellow-500" />
+              ))}
+            </span>
+            <div className="flex flex-col items-end">
+              <p className="text-N300 text-sm  text-right">
+                Price Starting From
+              </p>
+              <span className="text-primary font-bold text-xl">
+                USD {Math.floor(total_price)}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex justify-between text-gray-600  gap-2">
+            <JourneyDetailsPanel type="Type" value={categories?.name} icon={type_img} />
+            <JourneyDetailsPanel
+              type="Duration"
+              value={`${max_duration} Days`}
+              icon={duration_img}
+            />
+            <JourneyDetailsPanel
+              type="Difficulty"
+              value={difficulties?.name}
+              icon={difficulty_img}
+            />
         </div>
       </div>
     </Link>
