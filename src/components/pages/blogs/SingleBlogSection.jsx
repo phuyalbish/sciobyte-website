@@ -35,8 +35,9 @@ const SingleBlogSection = () => {
   if (!currentBlog) {
     return <div className="flex items-center justify-center">No Blogs Found</div>;
   }
+  
+  const sanitizedContent = DOMPurify.sanitize(currentBlog?.excerpt);
 
-  const sanitizedContent = DOMPurify.sanitize(currentBlog?.content);
   const content = sanitizedContent.length > 600
     ? sanitizedContent.slice(0, 600)
     : sanitizedContent;
@@ -55,7 +56,7 @@ const SingleBlogSection = () => {
   };
 
   return (
-    <article className="rounded-xl grid grid-cols-1 md:grid-cols-2 gap-[2.5rem] items-center p-[1.25rem] bg-white shadow-lg overflow-hidden">
+    <article className="rounded-xl grid grid-cols-1 md:grid-cols-2 gap-[2.5rem] items-center p-[1.25rem] bg-white shadow-md overflow-hidden">
       <div className="relative h-full">
         {isLoading ? (
           <ImageSkeleton />
@@ -65,7 +66,7 @@ const SingleBlogSection = () => {
             loading="lazy"
             alt={currentBlog?.name}
             src={BASE_MEDIA_URL + currentBlog?.image}
-            className="w-full h-[15rem] md:h-[25rem] object-cover brightness-90 rounded-xl"
+            className="w-full h-[15rem] md:h-[23rem] object-cover brightness-90 rounded-xl"
           />
         )}
       </div>
@@ -85,30 +86,32 @@ const SingleBlogSection = () => {
               <>
                 {currentBlog?.author_name && (
                   <div className="flex items-center gap-2">
-                    <AiFillEdit />
+                    <AiFillEdit   className="text-md" />
                     <span className="font-medium">by {currentBlog?.author_name}</span>
                   </div>
                 )}
 
-                {currentBlog?.location && (
-                  <div className="flex items-center gap-2">
-                    <MdLocationOn />
-                    <span className="font-medium">{currentBlog?.location}</span>
-                  </div>
-                )}
 
                 <div className="flex items-center gap-2">
-                  <MdDateRange />
+                  <MdDateRange  className="text-md"/>
                   <time>
                     {format(new Date(currentBlog?.created_at || Date.now()), "MMMM d, yyyy")}
                   </time>
                 </div>
 
+
+                {currentBlog?.location && (
+                  <div className="flex items-center gap-2">
+                    <MdLocationOn   className="text-md"/>
+                    <span className="font-medium">{currentBlog?.location}</span>
+                  </div>
+                )}
+
                 <div
-                  className="bg-white hover:bg-white text-N300 text-sm flex items-center gap-2 cursor-pointer p-1 rounded-md"
+                  className="bg-white hover:bg-white text-N700 text-sm flex items-center gap-2 cursor-pointer p-1 rounded-md"
                   onClick={handleCopy}
                 >
-                  <IoMdShare className="size-3.5" />
+                  <IoMdShare className="size-4" />
                   Share
                 </div>
 
@@ -123,14 +126,14 @@ const SingleBlogSection = () => {
 
           <div className="flex gap-2">
             {!isLoading && (
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-B75 text-B500">
+              <span className="inline-flex items-center py-1 px-2 rounded-md bg-G100 text-sm font-medium text-N800">
                 {currentBlog?.category_name || "Trek"}
               </span>
             )}
           </div>
 
-          <div className="text-md text-N300 text-start">
-            {currentBlog?.subheading && truncate(currentBlog?.subheading, 150)}
+          <div className="text-base text-N600 text-start">
+            {currentBlog?.subheading}
           </div>
 
           {isLoading ? (
@@ -141,10 +144,10 @@ const SingleBlogSection = () => {
                 className="leading-relaxed line-clamp-5 text-justify"
                 dangerouslySetInnerHTML={{ __html: content }}
               ></div>
-              <div className="flex justify-end text-B500 hover:text-B300 hover:underline font-bold cursor-pointer">
+              <div className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2 text-right">
                 {sanitizedContent.length > 600 && (
                   <Link aria-label={`Blog - ${currentBlog?.slug}`} to={`/blog/${currentBlog?.slug}`}>
-                    ... Continue Reading
+                    Continue Reading
                   </Link>
                 )}
               </div>

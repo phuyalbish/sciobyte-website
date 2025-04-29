@@ -48,7 +48,7 @@ function CreatePage() {
     country: "",
     date: "",
     traveltype: "",
-    travellocation: "",
+    language: "",
     travelaccomodation: "",
     duration: "",
     totalpeople: "",
@@ -230,23 +230,28 @@ function CreatePage() {
                               </div>
                               <div className="w-full  flex flex-col gap-1">
                                 <label
-                                  htmlFor="travellocation"
+                                  htmlFor="language"
                                   className="block text-sm font-medium text-N700"
                                 >
-                                  Your Prefered Travel Location*
+                                   Your Prefered Guide Language*
                                 </label>
                                 <div className="px-2  bg-white w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
-                                  id="travellocation"
-                                  name="travellocation"
-                                  value={formData?.travellocation}
+                                  id="language"
+                                  name="language"
+                                  value={formData?.language}
                                   onChange={handleChange}
                                   className="w-full py-3 outline-none"
                                 >
-                                  <option value="" disabled>Select Travel Location</option>
-                                  <option value="adventure">Manaslu</option>
-                                  <option value="leisure">Annapurna</option>
-                                  <option value="business">Everest</option>
+                                  <option value="english">English</option>
+                                  <option value="spanish">Spanish</option>
+                                  <option value="deutsch">Deutsch</option>
+                                  <option value="chinese">Chinese</option>
+                                  <option value="arabic">Arabic</option>
+                                  <option value="korean">Korean</option>
+                                  <option value="french">French</option>
+                                  <option value="italian">Italian</option>
+                                  <option value="hindi">Hindi</option>
                                 </select>
                                 </div>
                                
@@ -289,7 +294,9 @@ function CreatePage() {
                                   className="w-full py-3 outline-none"
                                 >
                                   <option value="" disabled>Select Preffered Travel Accomodation</option>
-                                  <option value="adventure">Tea House/ Lodge</option>
+                                  <option value="adventure">Budget Hotel</option>
+                                  <option value="adventure">Standard Hotel</option>
+                                  <option value="adventure">Star Hotel</option>
                                   <option value="leisure">HomeStay</option>
                                   <option value="business">Camping</option>
                                 </select>
@@ -365,7 +372,7 @@ function CreatePage() {
                                   htmlFor="budget"
                                   className="block text-sm font-medium text-N700"
                                 >
-                                  Approximate Budget Per Person*
+                                  Approximate Budget Per Person (USD)*
                                 </label>
                                 <input
                                   type="number"
