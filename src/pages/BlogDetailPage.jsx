@@ -63,7 +63,7 @@ const Sidebar = ({ headings }) => {
       <div className="hidden lg:block w-full h-full shrink-0">
         <div className="sticky top-20">
           <div className="bg-white rounded-lg shadow-sm py-5 text-left">
-            <h2 className="px-5 text-md font-semibold text-gray-900 mb-4">
+            <h2 className="px-5 text-md font-semibold text-gray-900 mb-2 test">
               Content
             </h2>
 
@@ -73,7 +73,7 @@ const Sidebar = ({ headings }) => {
                 <p
                   onClick={(e) => navigateSidebar(e, heading.id)}
                   key={index}
-                  className={`block text-sm cursor-pointer ${
+                  className={`block text-sm cursor-pointer mb-2 ${
                     index === 0 ? "text-B400" : ""
                   } hover:text-B400`}
                 >
