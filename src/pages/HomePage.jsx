@@ -27,6 +27,9 @@ const [treks, setTreks] = useState([]);
 
   return (
     <div className="flex flex-col gap-10 md:gap-16 relative w-full scrollbar-gutter-stable ">
+
+
+      <div className="absolute top-3 -translate-x-1/2 left-1/2 p-5 bg-white/30 rounded-md z-10 backdrop-blur-md">Under Construction!</div>
       <div className="flex flex-col">
 
       <SplashSection />

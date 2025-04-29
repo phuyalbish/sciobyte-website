@@ -190,28 +190,26 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                {dropdowns[item.slug] && categoryDetails[item.slug] && (
             
-                <div className="absolute top-14 left-0 w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
+                <div className="absolute top-12 left-0 w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
                
-                  <div className="flex gap-2  text-sm w-full">
-                    <div className=" w-fit   flex-col  ">
+                  <div className="flex gap-2  text-sm w-full ">
+                    <div className=" flex-col gap-2 w-1/4 border-0 border-r-2">
 
                     {categoryDetails[item?.slug]?.regions?.map((region, index) => (
                     <div className= {`${
-                    searchRegionID == index ? "bg-B200" : "bg-transparent"
-                  }  hover:bg-B200 p-2 rounded flex flex-col text-sm w-fit text-start cursor-pointer `} key={index} onClick={ () =>{
-                      setSearchRegionID(index)
-                    }}>{region?.name} 
-                    {/* ({region?.trek_count}) */}
-                    </div>
-                  ))}
+                          searchRegionID == index ? "bg-B200" : "bg-transparent"
+                        }  hover:bg-B200 p-2 rounded flex flex-col  text-sm w-fit text-start cursor-pointer `} key={index} onClick={ () =>{
+                            setSearchRegionID(index)
+                          }}>{region?.name} 
+                          </div>
+                        ))}
 
                     </div>
 
-                    <div className="px-2   justify-start gap-2 items-start  flex-row">
+                    <div className="px-2   justify-start gap-3  flex flex-col items-start">
                     {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
-                      <Link 
-
-                        aria-label={`Trek - ${trek?.slug}`} to={`/trek/${trek?.slug}`} className="w-fit  items-start text-sm hover:underline  underline-offset-4" key={index} onClick={() => {
+                      <Link
+                        aria-label={`Trek - ${trek?.slug}`} to={`/trek/${trek?.slug}`} className="w-fit text-base items-start  hover:text-G800" key={index} onClick={() => {
                           setActiveMenu({ });
                           setDropdowns({});
                           setCompanyDropDown(false);
@@ -220,11 +218,11 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     </div>
                   </div>
                   <div className="flex w-full justify-end">
-              <Link aria-label={`Category - ${categoryDetails[item.slug]?.slug}`} to={`/category/${categoryDetails[item.slug]?.slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
-                setActiveMenu({ blogs: true });
-                setDropdowns({});
-                setCompanyDropDown(false);
-              }}
+                  <Link aria-label={`Category - ${categoryDetails[item.slug]?.slug}`} to={`/category/${categoryDetails[item.slug]?.slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
+                    setActiveMenu({ blogs: true });
+                    setDropdowns({});
+                    setCompanyDropDown(false);
+                  }}
               >View all {categoryDetails[item?.slug]?.name}</Link>
               </div>
                 </div>
