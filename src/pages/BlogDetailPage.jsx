@@ -63,7 +63,7 @@ const Sidebar = ({ headings }) => {
       <div className="hidden lg:block w-full h-full shrink-0">
         <div className="sticky top-20">
           <div className="bg-white rounded-lg shadow-sm py-5 text-left">
-            <h2 className="px-5 text-md font-semibold text-gray-900 mb-2 test">
+            <h2 className="px-5 text-md font-semibold text-gray-900 mb-2">
               Content
             </h2>
 
