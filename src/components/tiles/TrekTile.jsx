@@ -36,7 +36,7 @@ const TrekTile = ({ data }) => {
 
     aria-label={`Trek - ${name}`}
       to={`/trek/${slug}`}
-      className="relative max-w-96  bg-white  cursor-pointer group flex justify-between flex-col gap-2 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500 border  border-N100  border-0.5"
+      className="relative  bg-white  cursor-pointer group flex justify-between flex-col gap-2 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500 border  border-N100  border-0.5"
     >
       <div className="flex flex-col gap-2 justify-start">
       <div className="relative overflow-hidden rounded-xl w-full h-64 ">
