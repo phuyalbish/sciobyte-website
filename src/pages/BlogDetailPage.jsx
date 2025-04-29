@@ -60,13 +60,14 @@ const Sidebar = ({ headings }) => {
   return (
     <>
 
-            {headings.length > 0 && (
-      <div className="hidden lg:block w-64 shrink-0">
-        <div className="sticky top-14">
+      <div className="hidden lg:block w-64  shrink-0">
+        <div className="sticky top-20">
           <div className="bg-white rounded-lg shadow-sm py-5 text-left">
             <h2 className="px-5 text-lg font-semibold text-gray-900 mb-4">
               Content
             </h2>
+
+            {headings.length > 0 && (
             <nav className="p-5 w-full space-y-3 h-[50vh] overflow-x-hidden overflow-y-auto">
               {headings.map((heading, index) => (
                 <p
@@ -80,11 +81,11 @@ const Sidebar = ({ headings }) => {
                 </p>
               ))}
             </nav>
+
+          )}
           </div>
         </div>
       </div>
-
-          )}
     </>
   );
 };
