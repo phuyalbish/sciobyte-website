@@ -60,10 +60,10 @@ const Sidebar = ({ headings }) => {
   return (
     <>
 
-      <div className="hidden lg:block w-64  shrink-0">
+      <div className="hidden lg:block w-full h-full shrink-0">
         <div className="sticky top-20">
           <div className="bg-white rounded-lg shadow-sm py-5 text-left">
-            <h2 className="px-5 text-lg font-semibold text-gray-900 mb-4">
+            <h2 className="px-5 text-md font-semibold text-gray-900 mb-4">
               Content
             </h2>
 
@@ -73,7 +73,7 @@ const Sidebar = ({ headings }) => {
                 <p
                   onClick={(e) => navigateSidebar(e, heading.id)}
                   key={index}
-                  className={`block cursor-pointer ${
+                  className={`block text-sm cursor-pointer ${
                     index === 0 ? "text-B400" : ""
                   } hover:text-B400`}
                 >
@@ -105,7 +105,7 @@ const BlogDetail = () => {
 
         
 
-        const blogData = response?.data || {}; // Ensure it's an array
+        const blogData = response?.data || {};
         const sanitizedContent = DOMPurify.sanitize(blogData?.content);
 
         const { h1Elements, updatedContent } =
@@ -137,11 +137,8 @@ const BlogDetail = () => {
   };
 
   return (
-    <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Main Content */}
-          <div className="lg:flex-1">
+      <div className="flex flex-col lg:flex-row gap-5 mt-5 w-full md:px-[4rem] mb-20 px-4 md:p-0">
+          <div className="flex md:w-9/12 w-full flex-col gap-4">
             <article className="prose prose-lg max-w-none text-left">
               {isLoading ? (
                 <HeadingSkeleton />
@@ -230,11 +227,13 @@ const BlogDetail = () => {
 
             </article>
           </div>
+
+          <div className="md:flex sticky top-[10vh] hidden md:w-3/12 h-[80vh]">
           <Sidebar headings={headings} />
+
+          </div>
           <GotoTop />
-        </div>
       </div>
-    </>
   );
 };
 

@@ -67,7 +67,7 @@ function IndivisualTrekPage() {
           </div>
      
         <div className="flex sticky top-0 h-full gap-10 w-full">
-          <div className="flex md:w-9/12 w-full flex-col gap-4  ">
+          <div className="flex md:w-9/12 w-full flex-col gap-4">
           <div className="px-4 md:px-0 ">
             <TrekBasicInformationSection 
             travel_name = {trek?.name}
