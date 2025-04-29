@@ -115,7 +115,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
           <div
 
-            className={` border border-white rounded-full bg-white/10  overflow-hidden relative h-fit w-full  items-center p-0.5   gap-1 transition-all duration-300 hidden lg:flex 
+            className={` border border-white rounded-full bg-white/10  overflow-hidden relative h-fit w-48  items-center p-0.5   gap-1 transition-all duration-300 hidden lg:flex 
               ${
                 showLogo ? "opacity-100" : "opacity-0"
               }`}
@@ -170,7 +170,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
           <div
             ref={navbarMenuRef}
-            className="flex flex-row justify-evenly md:justify-center gap-6  lg:gap-10 w-fit  relative"
+            className="flex flex-row justify-evenly md:justify-center gap-6  lg:gap-10 w-full  relative"
           >
             {categories?.map((item, index) => (
               <React.Fragment key={index}>
@@ -190,10 +190,10 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                {dropdowns[item.slug] && categoryDetails[item.slug] && (
             
-                <div className="absolute top-12 left-0 w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
+                <div className="absolute top-11 left-0 w-full bg-white/80 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
                
                   <div className="flex gap-2  text-sm w-full ">
-                    <div className="flex flex-col gap-2 w-4/12 border-0 border-r-2">
+                    <div className="flex flex-col gap-2 w-1/4 border-0 border-r-2">
 
                     {categoryDetails[item?.slug]?.regions?.map((region, index) => (
                     <div className= {`${
@@ -396,7 +396,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                 <FaHeart   className="size-6  text-red-500 hover:text-white cursor-pointer select-none"/>
                 </Link>
               <Link to="/create" aria-label="Create Your Trip"
-                      className=" group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-white shadow-lg rounded-md text-B500 hover:bg-transparent border border-transparent hover:border-white hover:text-white hover:shadow-none transition-colors duration-500"
+                      className=" group flex gap-2 items-center justify-center w-40 text-sm  py-2 bg-white shadow-lg rounded-md text-B500 hover:bg-transparent border border-transparent hover:border-white hover:text-white hover:shadow-none transition-colors duration-500"
                       onClick={() => {
                         setActiveMenu({ company: true });
                         setDropdowns({});
