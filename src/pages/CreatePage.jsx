@@ -241,7 +241,7 @@ function CreatePage() {
                                   onChange={handleChange}
                                   className="w-full py-3 outline-none"
                                 >
-                                  <option value="adventure">Don't know yet!</option>
+                                  <option value="adventure" disabled>Select Trip Type</option>
                                   <option value="adventure">Manaslu</option>
                                   <option value="leisure">Annapurna</option>
                                   <option value="business">Everest</option>
@@ -286,7 +286,7 @@ function CreatePage() {
                                   onChange={handleChange}
                                   className="w-full py-3 outline-none"
                                 >
-                                  <option value="adventure">Don't know yet!</option>
+                                  <option value="adventure" disabled>Select Accomodation Type</option>
 
                                   <option value="adventure">Tea House/ Lodge</option>
                                   <option value="leisure">HomeStay</option>
