@@ -1,4 +1,5 @@
 import  { useState } from "react";
+import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
@@ -14,7 +15,7 @@ const NormalBlogTile = ({ blog }) => {
     heading,
     subheading,
     author,
-    date,
+    created_at,
     image,
     category_name="Woow",
     slug,
@@ -100,7 +101,9 @@ const NormalBlogTile = ({ blog }) => {
         )}
         <div className="flex items-center gap-1">
           <MdDateRange />
-          <span className="text-sm">{date}</span>
+          <span className="text-sm">
+            {format(new Date(created_at || Date.now()), "MMMM d, yyyy")}
+          </span>
         </div>
 
         {location && (

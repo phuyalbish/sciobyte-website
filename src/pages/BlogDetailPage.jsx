@@ -45,8 +45,10 @@ const Sidebar = ({ headings }) => {
     const sidebarHeadings = [...e.target.parentNode.children].filter(
       (child) => child !== e.target
     );
-    sidebarHeadings.forEach((heading) => heading.classList.remove("text-B400"));
-    e.target.classList.add("text-B400");
+    sidebarHeadings.forEach((heading) => {
+      heading.classList.remove("text-B600")
+    });
+    e.target.classList.add("text-B600");
 
     const targetElement = document.getElementById(id);
     if (targetElement) {
@@ -60,23 +62,16 @@ const Sidebar = ({ headings }) => {
   return (
     <>
 
-      <div className="hidden lg:block w-full h-full shrink-0">
-        <div className="sticky top-20">
-          <div className="bg-white rounded-lg shadow-sm py-5 text-left">
-            <h2 className="px-5 text-md font-semibold text-gray-900 mb-2">
-              Content
+      <div className="hidden lg:block w-full h-full shrink-0 sticky top-20">
+          <div className="bg-white rounded-lg shadow-sm p-4 text-left flex flex-col gap-3">
+            <h2 className="text-lg font-semibold font-liches text-gray-900">
+              Table of Content
             </h2>
 
             {headings.length > 0 && (
-            <nav className="p-5 w-full space-y-3 h-[50vh] overflow-x-hidden overflow-y-auto">
+            <nav className="w-full flex flex-col gap-3 h-fit">
               {headings.map((heading, index) => (
-                <p
-                  onClick={(e) => navigateSidebar(e, heading.id)}
-                  key={index}
-                  className={`block text-sm cursor-pointer mb-2 ${
-                    index === 0 ? "text-B400" : ""
-                  } hover:text-B400`}
-                >
+                <p onClick={(e) => navigateSidebar(e, heading.id)}  key={index}  className={`block text-base cursor-pointer hover:text-B400`} >
                   {heading.content}
                 </p>
               ))}
@@ -85,7 +80,6 @@ const Sidebar = ({ headings }) => {
           )}
           </div>
         </div>
-      </div>
     </>
   );
 };
@@ -158,7 +152,7 @@ const BlogDetail = () => {
               {isLoading ? (
                 <DescriptionSkeleton />
               ) : (
-                <div className="flex items-center gap-6 text-sm text-gray-600 mb-6">
+                <div className="flex items-center gap-6 text-sm text-N700 mb-6">
                   {blog?.author_name && (
                     <div className="flex items-center gap-2">
                       <AiFillEdit />
@@ -184,13 +178,13 @@ const BlogDetail = () => {
                     </time>
                   </div>
 
-                  <div className="flex gap-2 items-center cursor-pointer"
+                  <div className="flex gap-2 items-center text-black cursor-pointer"
                     onClick={handleCopy}>
 
-                  <IoMdShare
-                    className="flex items-center gap-1 cursor-pointer bg-white hover:bg-white text-N300  p-1 rounded-md size-6"
-                  />
-                  Share
+                      <IoMdShare
+                        className="flex items-center gap-1 cursor-pointer  p-1 rounded-md size-6"
+                      />
+                      Share
                   </div>
 
                   {copied && (
@@ -220,7 +214,7 @@ const BlogDetail = () => {
                 <LongBlogContentSkeleton />
               ) : (
                 <div
-                  className="space-y-6 text-gray-600 text-justify"
+                  className="space-y-6 text-N700 text-justify"
                   dangerouslySetInnerHTML={{ __html: content }}
                 ></div>
               )}

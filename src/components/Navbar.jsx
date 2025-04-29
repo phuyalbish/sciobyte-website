@@ -237,7 +237,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
               aria-label="Blogs"
               className={`${
                 activeMenu["blogs"] ? "text-B900" : "text-white"
-              } transition hover:underline underline-offset-4 text-sm`}
+              } transition text-sm`}
               onClick={() => {
                 setActiveMenu({ blogs: true });
                 setDropdowns({});
@@ -250,7 +250,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
               <button
                 className={`${
                   activeMenu["company"] ? "text-B900" : "text-white"
-                } flex items-center gap-1 transition hover:underline underline-offset-4 text-sm`}
+                } flex items-center gap-1 transition text-sm`}
                 onClick={() => {
                   setActiveMenu({ company: true });
                   setDropdowns({});
