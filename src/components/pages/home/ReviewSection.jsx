@@ -94,8 +94,11 @@ function ReviewSection() {
               }
               </div>
               <div className="flex justify-end">
-                <Link to="/reviews" className="underline underline-offset-2 text-sm">View all reviews</Link>
-              </div>
+                
+                 <Link aria-label="Reviews" to="/reviews" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+          See All
+        </Link>
+                </div>
         </div>
         <div className="md:hidden relative  w-full  max-w-[100em] mx-auto bg-gray-100 py-5  shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">
           {isGoogleReview ? (

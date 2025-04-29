@@ -47,7 +47,9 @@ const EmblaCarousel = ({
         </div>
       </div>
       <div className="w-full relative px-3 flex justify-between gap-4 items-center">
-        <Link to="/reviews" className="underline underline-offset-2 text-sm">View all reviews</Link>
+        <Link aria-label="Reviews" to="/reviews" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+          See All
+        </Link>
         <div className="flex gap-2">
           <button
           onClick={scrollPrev}

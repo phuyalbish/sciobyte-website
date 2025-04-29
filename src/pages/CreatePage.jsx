@@ -5,7 +5,7 @@ import { getExchangeRates } from "@/apis/exchangeRate.js";
 import FooterVector from "@/assets/footer/FooterContact.svg"
 
 
-import { sendCreateMail } from "@/apis/sendmail.js";
+import { sendMail } from "@/apis/sendmail.js";
 function CreatePage() {
 
   const [exchangeRate, setExchangeRate] = useState([]);
@@ -52,7 +52,6 @@ function CreatePage() {
     travelaccomodation: "",
     duration: "",
     totalpeople: "",
-    accomodation: "",
     budget: "",
     message: "",
   };
@@ -61,8 +60,8 @@ function CreatePage() {
 
   const handleSubmit = async () => {
     try {
-      const response = await sendCreateMail({ ...formData });
-
+       const response = await sendMail({ ...formData }, "/customtrip/create/");
+      console.log("This is good")
       if (response.status === 201) {
         setSuccessMsg("Mail sent successfully");
         setFormData(initialFormState);
@@ -74,6 +73,8 @@ function CreatePage() {
     }
   };
 
+
+  
 
   const handleChange = (e) => {
     setFormData({
@@ -317,27 +318,6 @@ function CreatePage() {
                                           className="p-2 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                         />
                                   </div>
-                                  {/* <div className="w-full  flex flex-col gap-1">
-                                    <label
-                                      htmlFor="totalchild"
-                                      className="block text-sm font-medium text-N700"
-                                    >
-                                      No. of Child
-                                    </label>
-                                    <input
-                                      type="number"
-                                      id="totalchild"
-                                      name="totalchild"
-                                      min="0"
-                                      max="20"
-                                      required
-                                      value={formData?.totalchild}
-                                      onChange={handleChange}
-                                      placeholder="0 - 20 Child"
-                                      className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
-                                    />
-                                   
-                                  </div> */}
 
                               </div>
 

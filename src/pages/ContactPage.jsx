@@ -43,7 +43,7 @@ function ContactPage() {
 
       if (errors.some((err) => err === false)) return;
 
-      const response = await sendMail({ ...formData });
+      const response = await sendMail({ ...formData }, "/contact/create/");
 
       if (response.status === 201) {
         setSuccessMsg("Mail sent successfully");

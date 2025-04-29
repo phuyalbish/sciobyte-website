@@ -137,10 +137,10 @@ const SingleBlogSection = () => {
             <LongBlogContentSkeleton />
           ) : (
             <>
-              <span
-                className="leading-relaxed text-justify"
+              <div
+                className="leading-relaxed line-clamp-5 text-justify"
                 dangerouslySetInnerHTML={{ __html: content }}
-              ></span>
+              ></div>
               <div className="flex justify-end text-B500 hover:text-B300 hover:underline font-bold cursor-pointer">
                 {sanitizedContent.length > 600 && (
                   <Link aria-label={`Blog - ${currentBlog?.slug}`} to={`/blog/${currentBlog?.slug}`}>

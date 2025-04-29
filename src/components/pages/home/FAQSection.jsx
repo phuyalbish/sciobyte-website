@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import FAQ from "@/components/accordion/FAQ.jsx";
+
+import { Link } from "react-router-dom";
 import { fetchFAQs } from "@/apis/faqs.js";
 const FAQSection = () => {
   const [faqs, setFaqs] = useState([]);
@@ -43,13 +45,13 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
     })();
   }, []);
   return (
-    <div className="flex flex-col gap-2 w-full   max-w-[100em] mx-auto ">
+    <div className="flex flex-col gap-2 w-full justify-center items-center   max-w-[100em] mx-auto ">
       <h1 className="text-2xl md:text-3xl  font-liches  font-semibold ">Frequently asked questions</h1>
-        <div className="flex flex-col gap-4 items-center justify-center">
+        <div className="px-2 md:p-0 flex flex-col gap-4 items-center justify-center w-full md:w-[70%]">
           {Array.isArray(faqs) && faqs.length > 0 ? (
             <>
               <div className="flex flex-col gap-2 w-full">
-                {(showAll ? faqs : faqs.slice(0, 5)).map((faq, index) => (
+                {faqs.slice(0, 5).map((faq, index) => (
                   <FAQ
                     faq={faq}
                     key={index}
@@ -58,14 +60,11 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
                   />
                 ))}
               </div>
-              {faqs.length > 5 && (
-                <button
-                  onClick={toggleShowAll}
-                  className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 "
-                >
-                  {showAll ? "Show Less" : "Show All"} 
-                </button>
-              )}
+              <div className="flex justify-end w-full">
+             <Link aria-label="Blogs" to="/blogs" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+                See All
+            </Link>
+            </div>
             </>
           ) : (
             <p>Loading FAQs...</p>

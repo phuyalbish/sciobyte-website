@@ -16,7 +16,7 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
   return (
 
 
-    <div className="px-10 md:px-0 w-full  md:w-[70%] mx-auto select-none">
+    <div className="w-full mx-auto select-none">
       <button
         onClick={() => handleFaqState(faq.id)}
         className={`w-full text-left ${questionBg} hover:bg-B75 p-4 rounded-md shadow-xs transition duration-300 ease-in-out`}

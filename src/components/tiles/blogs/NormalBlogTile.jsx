@@ -37,12 +37,12 @@ const NormalBlogTile = ({ blog }) => {
   };
   return (
     <div className="relative flex flex-col justify-start  gap-3  p-2 md:p-5 max-w-full rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg">
-                <div className="relative h-48 rounded-lg overflow-hidden  ">
+                <div className="relative h-64 rounded-lg overflow-hidden  ">
                   {isLoading ? (
                     <ImageSkeleton />
                   ) : (
 
-                <div className="relative w-full h-fill group overflow-hidden ">
+                <div className="relative w-full h-full group overflow-hidden ">
                     
                 <div
                   className="absolute bg-G400 rounded-lg z-10 hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2"
@@ -59,7 +59,7 @@ const NormalBlogTile = ({ blog }) => {
                   className=" object-cover w-full h-full group-hover:scale-105 scale-100 rounded-lg transition-all duration-500 ease-in-out"
                 />
                     {copied && (
-                      <div className="text-N500 absolute z-20 top-40 right-0 w-34 bg-white text-sm p-1 px-2 m-1 rounded-md">
+                      <div className="text-N500 absolute z-20 bottom-1 right-1 w-34 bg-white text-sm p-1 px-2  rounded-md">
                         Link Copied!
                       </div>
                     )} 
@@ -71,7 +71,7 @@ const NormalBlogTile = ({ blog }) => {
                     <Link
                       aria-label="Blogs"
                       to="/blogs"
-                      className="flex z-10 items-center cursor-pointer absolute  left-1 top-40 bg-white/90 hover:bg-white text-N300   px-2  p-1 rounded-md text-sm"
+                      className="flex z-10 items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300   px-2  p-1 rounded-md text-sm"
                     >
                       {category_name}
                     </Link>
