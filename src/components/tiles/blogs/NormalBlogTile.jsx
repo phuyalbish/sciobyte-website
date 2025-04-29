@@ -16,7 +16,7 @@ const NormalBlogTile = ({ blog }) => {
     author,
     date,
     image,
-    category,
+    category_name="Woow",
     slug,
     location,
   } = blog;
@@ -45,7 +45,7 @@ const NormalBlogTile = ({ blog }) => {
                 <div className="relative w-full h-fill group overflow-hidden ">
                     
                 <div
-                  className="absolute bg-G400 z-10  rounded-lg hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2"
+                  className="absolute bg-G400 rounded-lg z-10 hover:bg-white hover:text-G400  text-white text-xs flex items-center gap-2 cursor-pointer  top-1 right-1 p-1 px-2"
                   onClick={handleCopy}
                 >
                   <IoMdShare className="size-3.5" />
@@ -58,21 +58,24 @@ const NormalBlogTile = ({ blog }) => {
                   loading="lazy"
                   className=" object-cover w-full h-full group-hover:scale-105 scale-100 rounded-lg transition-all duration-500 ease-in-out"
                 />
-                  {category ? (
-                    <Link
-                      aria-label="Blogs"
-                      to="/blogs"
-                      className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300   px-2  p-1 rounded-md text-sm"
-                    >
-                      {category}
-                    </Link>
-                  ) : "" }
-
                     {copied && (
-                      <div className="text-N500 absolute bottom-0 right-0 w-34 bg-white text-sm p-1 px-2 m-1 rounded-md">
+                      <div className="text-N500 absolute z-20 top-40 right-0 w-34 bg-white text-sm p-1 px-2 m-1 rounded-md">
                         Link Copied!
                       </div>
                     )} 
+
+
+
+
+                  {category_name ? (
+                    <Link
+                      aria-label="Blogs"
+                      to="/blogs"
+                      className="flex z-10 items-center cursor-pointer absolute  left-1 top-40 bg-white/90 hover:bg-white text-N300   px-2  p-1 rounded-md text-sm"
+                    >
+                      {category_name}
+                    </Link>
+                  ) : "" }
                 </div> 
                   )}
                 </div>
