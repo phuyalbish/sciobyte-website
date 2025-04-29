@@ -149,7 +149,7 @@ function Footer() {
                   </li>
                   <li>
                     <Link aria-label="Blogs" to="/blogs" className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
-                      Travel Tips
+                      Blogs and Tips
                     </Link>
                   </li>
               </ul>

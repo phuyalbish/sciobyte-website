@@ -193,7 +193,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                 <div className="absolute top-12 left-0 w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
                
                   <div className="flex gap-2  text-sm w-full ">
-                    <div className=" flex-col gap-2 w-1/4 border-0 border-r-2">
+                    <div className=" flex-col gap-2 w-4/12 border-0 border-r-2">
 
                     {categoryDetails[item?.slug]?.regions?.map((region, index) => (
                     <div className= {`${
@@ -209,7 +209,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     <div className="px-2   justify-start gap-3  flex flex-col items-start">
                     {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
                       <Link
-                        aria-label={`Trek - ${trek?.slug}`} to={`/trek/${trek?.slug}`} className="w-fit text-base items-start  hover:text-G800" key={index} onClick={() => {
+                        aria-label={`Trek - ${trek?.slug}`} to={`/trek/${trek?.slug}`} className="w-fit text-sm text-start items-start  hover:text-G500" key={index} onClick={() => {
                           setActiveMenu({ });
                           setDropdowns({});
                           setCompanyDropDown(false);
@@ -225,7 +225,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                   }}
               >View all {categoryDetails[item?.slug]?.name}</Link>
               </div>
-                </div>
+            </div>
               )}
               </React.Fragment>
             ))}

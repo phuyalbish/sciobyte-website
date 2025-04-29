@@ -184,7 +184,7 @@ function Header({ setActiveMenu }) {
                 setDropdowns({});
               }}
             >
-              Travel Tips
+              Blogs and Tips
             </Link>
             <Link
 
