@@ -45,7 +45,7 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
   return (
     <div className="flex flex-col gap-2 w-full   max-w-[100em] mx-auto ">
       <h1 className="text-2xl md:text-3xl  font-liches  font-semibold ">Frequently asked questions</h1>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-center justify-center">
           {Array.isArray(faqs) && faqs.length > 0 ? (
             <>
               <div className="flex flex-col gap-2">
@@ -61,7 +61,7 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
               {faqs.length > 5 && (
                 <button
                   onClick={toggleShowAll}
-                  className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 self-start"
+                  className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 "
                 >
                   {showAll ? "Show Less" : "Show All"} 
                 </button>
