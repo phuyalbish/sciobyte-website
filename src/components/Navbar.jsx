@@ -149,7 +149,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
 
            {showLogo && isSearchTile && searchData?.length ? (
-          <div className="absolute  left-0 top-12 z-40 max-w-[90vw]  p-2 bg-white/70 backdrop-blur-md  gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
+          <div className="absolute  left-0 top-11 z-40 max-w-[90vw]  p-2 bg-white/70 backdrop-blur-md  gap-2 border-white/20 rounded-lg flex felx-row overflow-x-auto">
             {searchData?.map((item, index) => (
               <SearchTrekRegionTile
                 key={index}
@@ -259,7 +259,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
               </button>
 
               {isCompanyDropDown && (
-                <div className="absolute top-14 left-0 m-auto w-64 justify-start items-start text-N900  bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 text-sm">
+                <div className="absolute top-11 left-0 m-auto w-64 justify-start items-start text-N900  bg-white/65 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 text-sm">
                   
                   <Link
                   aria-label="Contact"
