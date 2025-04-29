@@ -10,7 +10,7 @@ function ReviewTile({ star, name, reviewDetail, profile, date }) {
       <div className="md:w-1/3 p-2">
         <div
           onClick={() => setIsModalOpen(true)}
-          className="transition-all duration-300 cursor-pointer relative flex flex-col shadow rounded-3xl hover:bg-B50 gap-5 box-border p-5 justify-start items-start"
+          className="transition-all duration-300 cursor-pointer h-full relative flex flex-col shadow rounded-3xl hover:bg-B50 gap-5 box-border p-5 justify-start items-start"
         >
           <div className="flex gap-3 justify-center items-center">
             <img
@@ -31,7 +31,7 @@ function ReviewTile({ star, name, reviewDetail, profile, date }) {
             ))}
           </div>
           <hr className="border border-B200 w-full" />
-          <div className="text-sm leading-relaxed line-clamp-5 text-left">{reviewDetail}</div>
+          <div className="text-sm leading-relaxed line-clamp-4 text-left">{reviewDetail}</div>
         </div>
       </div>
 
