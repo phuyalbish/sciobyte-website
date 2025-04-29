@@ -58,7 +58,7 @@ function ReviewSection() {
             />
           </div> */}
         </div>
-        <div className="md:flex hidden  w-full relative p-6  max-w-[100em]  bg-gray-100 shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out  flex-col">
+        <div className="md:flex hidden  w-full relative p-6  max-w-[100em]  bg-gray-100 shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out  flex-col gap-3">
             <div className="flex flex-row flex-wrap">
             
             
