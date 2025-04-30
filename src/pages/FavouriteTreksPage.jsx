@@ -23,7 +23,7 @@ const [treks, setTreks] = useState([]);
       <div className="text-xl font-liches text-left rounded-lg font-semibold">
          {treks?.length ? (treks?.length): ""} Liked Treks
         </div>
-    <div className="flex gap-3 flex-wrap flex-grow w-full justify-start items-start container">
+      <div className="grid  w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
              {treks?.length ? (
             treks.map((item, index) => (
               <TrekTile key={index} data={item} />

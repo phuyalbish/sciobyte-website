@@ -24,11 +24,12 @@ function TrekReviewsSection({reviews}) {
   
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
-  return <section id="reviews" className="flex flex-col gap-5">
+  return <section id="reviews" className="flex flex-col gap-5 relative">
 
     <div className="text-xl tracking-wide font-liches font-light">
       Reviews
     </div>
+
 
           {Array.isArray(google_reviews) && google_reviews.length > 0 ? (
 
@@ -49,6 +50,14 @@ function TrekReviewsSection({reviews}) {
                           />
                         ))}
                     </div>
+
+
+              <div className="flex justify-end">
+
+                 <a href="https://maps.app.goo.gl/Bck3AAUZQMq5qBZq7" target="_blank"  aria-label="Reviews" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+                  See All
+                </a>
+                </div>
                         </div>
                       ) : (
                         <p className="text-gray-500">No Reviews available</p>

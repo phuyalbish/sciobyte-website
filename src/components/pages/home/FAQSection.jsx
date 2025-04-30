@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import FAQ from "@/components/accordion/FAQ.jsx";
 
 import { Link } from "react-router-dom";
-import { fetchFAQs } from "@/apis/faqs.js";
+import { fetchHomeFAQs } from "@/apis/faqs.js";
 const FAQSection = () => {
   const [faqs, setFaqs] = useState([]);
 
@@ -23,7 +23,7 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetchFAQs();
+        const response = await fetchHomeFAQs();
         const faqsData = response?.data?.results || []; 
         if (!Array.isArray(faqsData)) {
           setFaqs([]);
@@ -61,7 +61,7 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
                 ))}
               </div>
               <div className="flex justify-end w-full">
-             <Link aria-label="Blogs" to="/blogs" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+             <Link aria-label="Blogs" to="/faqs" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
                 See All
             </Link>
             </div>

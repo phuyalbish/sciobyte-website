@@ -95,9 +95,9 @@ function ReviewSection() {
               </div>
               <div className="flex justify-end">
                 
-                 <Link aria-label="Reviews" to="/reviews" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+                 <a href="https://maps.app.goo.gl/Bck3AAUZQMq5qBZq7" target="_blank"  aria-label="Reviews" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
           See All
-        </Link>
+        </a>
                 </div>
         </div>
         <div className="md:hidden relative  w-full  max-w-[100em] mx-auto bg-gray-100 py-5  shadow-md rounded-2xl rounded-bl-none transition-all duration-300 ease-in-out flex flex-row flex-wrap">

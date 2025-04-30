@@ -193,12 +193,12 @@ function Navbar({ activeMenu, setActiveMenu }) {
                 <div className="absolute top-11 left-0 w-full bg-white/80 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
                
                   <div className="flex gap-2  text-sm w-full ">
-                    <div className="flex flex-col gap-2 w-1/4 border-0 border-r-2">
+                    <div className="flex flex-col flex-shrink-0 gap-2 border-black w-100 pr-2 border-0 border-r-2 ">
 
                     {categoryDetails[item?.slug]?.regions?.map((region, index) => (
                     <div className= {`${
                           searchRegionID == index ? "bg-B100" : "bg-transparent"
-                        }  hover:bg-B200 p-2 rounded flex flex-col  text-sm w-fit text-start cursor-pointer `} key={index} onClick={ () =>{
+                        }  hover:bg-B200 p-2 rounded  text-sm text-start cursor-pointer `} key={index} onClick={ () =>{
                             setSearchRegionID(index)
                           }}>{region?.name} 
                           </div>

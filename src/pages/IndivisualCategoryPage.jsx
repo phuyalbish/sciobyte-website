@@ -50,7 +50,7 @@ function IndivisualCategoryPage() {
        <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
         {category?.trek_count} Travel{category?.trek_count >= 2 ? "s" : ""}
       </h1>
-      <div className="flex gap-3 flex-wrap flex-grow w-full justify-start items-start">
+      <div className="grid  w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
         {category?.treks?.map((item, index) => (
           <TrekTile
             key={index}
@@ -64,7 +64,8 @@ function IndivisualCategoryPage() {
        <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
         {category?.region_count} Region{category?.region_count >= 2 ? "s" : ""}
       </h1>
-      <div className="flex gap-3 flex-wrap flex-grow w-full justify-start items-start">
+
+      <div className="grid  w-full grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-2">
         {category?.regions?.map((item, index) => (
           <RegionTile
                     key={index}

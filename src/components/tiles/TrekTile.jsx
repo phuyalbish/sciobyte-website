@@ -71,7 +71,7 @@ const TrekTile = ({ data }) => {
           alt="Badge Icon"
         />
       )}
-        <h2 className="font-bold text-md text-left ">{name}</h2>
+        <h2 className="font-bold text-md text-left line-clamp-2">{name}</h2>
         </div>
         <div className="flex flex-col ">
           <div className="flex justify-between items-center mb-1 w-full">

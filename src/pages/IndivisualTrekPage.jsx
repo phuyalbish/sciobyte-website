@@ -226,7 +226,7 @@ function IndivisualTrekPage() {
             <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
               YOU MIGHT ALSO LIKE
             </h1>
-            <div className="flex gap-3 flex-wrap flex-grow w-full justify-start items-start">
+            <div className="grid  w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
               {trek.reference.map((item, index) => (
                 <TrekTile
                   key={index}
