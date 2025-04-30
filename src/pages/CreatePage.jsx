@@ -217,7 +217,7 @@ function CreatePage() {
                                   htmlFor="date"
                                   className="block text-sm font-medium text-N700"
                                 >
-                                  Approx. Date of Travel*
+                                  Approximate Date of Travel*
                                 </label>
                                   <input
                                     type="date"
@@ -275,7 +275,6 @@ function CreatePage() {
                                   value={formData?.duration}
                                   onChange={handleChange}
                                   min="1"
-                                  max="20"
                                   placeholder="10 days"
                                   className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                 />
@@ -324,7 +323,6 @@ function CreatePage() {
                                           value={formData?.totalpeople}
                                           onChange={handleChange}
                                           min="1"
-                                          max="20"
                                           placeholder="1 - 20 Guest"
                                           className="p-2 block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                         />
