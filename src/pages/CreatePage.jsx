@@ -27,8 +27,7 @@ function CreatePage() {
   if (amount && fromCurrency) {
     const selectedCurrency = exchangeRate.find(item => item.id === fromCurrency);
     const rate = selectedCurrency?.rate || 0;
-
-    const budget = parseFloat((amount / rate).toFixed(2));
+    const budget = Math.floor(amount / rate);
     setFormData((prev) => ({
       ...prev,
       budget: budget,
@@ -58,10 +57,11 @@ function CreatePage() {
   const [formData, setFormData] = useState(initialFormState);
 
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
     try {
        const response = await sendMail({ ...formData }, "/customtrip/create/");
-      console.log("This is good")
       if (response.status === 201) {
         setSuccessMsg("Mail sent successfully");
         setFormData(initialFormState);
@@ -201,11 +201,13 @@ function CreatePage() {
                                       name="traveltype"
                                       value={formData?.traveltype}
                                       onChange={handleChange}
+                                      required
                                       className="w-full py-3  outline-none bg-transparent"
                                     >
-                                      <option value="adventure">Trek</option>
-                                      <option value="leisure">Day Hike</option>
-                                      <option value="business">Tour</option>
+                                      <option value="" disabled>Select Preferred Travel Type</option>
+                                      <option value="Trek">Trek</option>
+                                      <option value="Day Hike">Day Hike</option>
+                                      <option value="tour">Tour</option>
                                     </select>
                                 </div>
                                 
@@ -233,25 +235,27 @@ function CreatePage() {
                                   htmlFor="language"
                                   className="block text-sm font-medium text-N700"
                                 >
-                                   Your Prefered Guide Language*
+                                   Your Preferred Guide Language*
                                 </label>
                                 <div className="px-2  bg-white w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
                                   id="language"
                                   name="language"
                                   value={formData?.language}
+                                  required
                                   onChange={handleChange}
                                   className="w-full py-3 outline-none"
                                 >
-                                  <option value="english">English</option>
-                                  <option value="spanish">Spanish</option>
-                                  <option value="deutsch">Deutsch</option>
-                                  <option value="chinese">Chinese</option>
-                                  <option value="arabic">Arabic</option>
-                                  <option value="korean">Korean</option>
-                                  <option value="french">French</option>
-                                  <option value="italian">Italian</option>
-                                  <option value="hindi">Hindi</option>
+                                  <option value="" disabled>Select Preferred Guide Language</option>
+                                  <option value="English">English</option>
+                                  <option value="Spanish">Spanish</option>
+                                  <option value="Deutsch">Deutsch</option>
+                                  <option value="Chinese">Chinese</option>
+                                  <option value="Arabic">Arabic</option>
+                                  <option value="Korean">Korean</option>
+                                  <option value="French">French</option>
+                                  <option value="Italian">Italian</option>
+                                  <option value="Hindi">Hindi</option>
                                 </select>
                                 </div>
                                
@@ -282,7 +286,7 @@ function CreatePage() {
                                   htmlFor="travelaccomodation"
                                   className="block text-sm font-medium text-N700"
                                 >
-                                  Your Prefered Travel Accomodation*
+                                  Your Preferred Travel Accomodation*
                                 </label>
                                 <div className="px-2  bg-white w-full rounded-md outline outline-2 outline-N200 shadow-sm focus:outline-B400">
                                 <select
@@ -293,12 +297,12 @@ function CreatePage() {
                                   onChange={handleChange}
                                   className="w-full py-3 outline-none"
                                 >
-                                  <option value="" disabled>Select Preffered Travel Accomodation</option>
-                                  <option value="adventure">Budget Hotel</option>
-                                  <option value="adventure">Standard Hotel</option>
-                                  <option value="adventure">Star Hotel</option>
-                                  <option value="leisure">HomeStay</option>
-                                  <option value="business">Camping</option>
+                                  <option value="" disabled>Select Preferred Travel Accomodation</option>
+                                  <option value="Budget Hotel">Budget Hotel</option>
+                                  <option value="Standard Hotel">Standard Hotel</option>
+                                  <option value="Star Hotel">Star Hotel</option>
+                                  <option value="HomeStay">HomeStay</option>
+                                  <option value="Camping">Camping</option>
                                 </select>
                                 </div>
                                 
