@@ -55,7 +55,7 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
               {Array.isArray(faqs) && faqs.length > 0 ? (
                 <>
                   <div className="flex flex-col gap-2 w-full">
-                    {faqs.slice(0, 5).map((faq, index) => (
+                    {faqs.map((faq, index) => (
                       <FAQ
                         faq={faq}
                         key={index}
