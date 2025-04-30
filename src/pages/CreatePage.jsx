@@ -381,11 +381,11 @@ function CreatePage() {
                                   id="budget"
                                   name="budget"
                                   min="500"
-                                  max="5000"
+                                  max="10000"
                                   required
                                   value={formData?.budget}
                                   onChange={handleChange}
-                                  placeholder="500 USD - 5000 USD"
+                                  placeholder="500 USD - 10000 USD"
                                   className="p-2  block w-full rounded-md outline outline-N200 shadow-sm focus:outline-B400 outline-2"
                                 />
                                
