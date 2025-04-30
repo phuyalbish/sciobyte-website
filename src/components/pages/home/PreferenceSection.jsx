@@ -75,6 +75,7 @@ function PreferenceSection() {
                   <PreferenceTile
                     key={index}
                     img={preference.icon}
+                    slug={preference.slug}
                     name={preference.name}
                     id={preference.id}
                   />
