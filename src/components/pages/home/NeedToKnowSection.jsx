@@ -52,7 +52,7 @@ const chunkArray = (array, size) => {
           className="flex flex-col md:w-1/2 bottom_popup"
         >
           {blogs && blogs?.length  ? (
-             <EmblaCarousel ref={carouselRef} showStatus={false} showThumbs={false} axis="vertical">
+             <EmblaCarousel ref={carouselRef} showStatus={false} showThumbs={false} link="/blogs">
               {chunkArray(blogs, 2).map((group, index) => (
                     <div key={index} className="embla__slide min-w-full">
                       <div className="flex flex-col ">
@@ -80,11 +80,6 @@ const chunkArray = (array, size) => {
             </div>
           ))}
         </EmblaCarousel>
-      </div>
-      <div className="md:block hidden text-right">
-        <Link aria-label="Blogs" to="/blogs" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
-          See All
-        </Link>
       </div>
     </section>
   );
