@@ -205,9 +205,16 @@ function CreatePage() {
                                       className="w-full py-3  outline-none bg-transparent"
                                     >
                                       <option value="" disabled>Select Preferred Travel Type</option>
-                                      <option value="Trek">Trek</option>
-                                      <option value="Day Hike">Day Hike</option>
-                                      <option value="tour">Tour</option>
+                                      <option value="Tours and Sightseeing">Tours and Sightseeing</option>
+                                      <option value="Climbing and Expedition">Climbing and Expedition</option>
+                                      <option value="Climbing and Expidition">Voluntourism</option>
+                                      <option value="Voluntourism">Mountain Biking and Cycling</option>
+                                      <option value="Jungle Safari and Wildlife ">Jungle Safari and Wildlife </option>
+                                      <option value="Pilgrimage and Day Tour">Pilgrimage and Day Tour</option>
+                                      <option value="Spiritual and Yoga Tour">Spiritual and Yoga Tour</option>
+                                      <option value="Research and Documentary">Research and Documentary</option>
+                                      <option value="Cooking">Cooking</option>
+                                      <option value="Internship">Internship</option>
                                     </select>
                                 </div>
                                 
