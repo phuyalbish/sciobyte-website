@@ -8,8 +8,6 @@ import { IoMdShare } from "react-icons/io";
 
 
 import { ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
-
-import { truncate } from "@/utils/truncate.js";
 const NormalBlogTile = ({ blog }) => {
   const {
     heading,
@@ -17,7 +15,7 @@ const NormalBlogTile = ({ blog }) => {
     author,
     created_at,
     image,
-    category_name="Woow",
+    category_name,
     slug,
     location,
   } = blog;
@@ -37,7 +35,7 @@ const NormalBlogTile = ({ blog }) => {
     }
   };
   return (
-    <div className="relative flex flex-col justify-start  gap-3  p-2 md:p-5 max-w-full rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg">
+    <div className="relative flex flex-col justify-start  gap-3  p-2 md:p-5 rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg">
                 <div className="relative h-64 rounded-lg overflow-hidden  ">
                   {isLoading ? (
                     <ImageSkeleton />
@@ -81,37 +79,37 @@ const NormalBlogTile = ({ blog }) => {
                   )}
                 </div>
 
-                <div className="flex justify-start  flex-col gap-1">
+              <div className="flex justify-start  flex-col gap-1">
                       <Link aria-label={`Blog - ${heading}`}
                         to={blogUrl}>
-                        <div className="font-bold text-md text-N900 text-left">
-                          {heading}
+                        <div className="font-bold text-md text-N900 text-left line-clamp-1">
+                         {heading}
                         </div>
                       </Link>
-                      <div className="text-base text-N500 text-start">
-                        {truncate(subheading, 150)}
+                      <div className="text-base text-N500 text-start line-clamp-1">
+                       {subheading}
                       </div>
-                </div>
+                </div> 
           <div className="flex items-center gap-2 text-gray-600">
-        {author && (
-          <div className="flex items-center gap-1">
-            <AiFillEdit />
-            <span className="text-sm">{author}</span>
-          </div>
-        )}
-        <div className="flex items-center gap-1">
-          <MdDateRange />
-          <span className="text-sm">
-            {format(new Date(created_at || Date.now()), "MMMM d, yyyy")}
-          </span>
-        </div>
+            {author && (
+              <div className="flex items-center gap-1">
+                <AiFillEdit />
+                <span className="text-sm">{author}</span>
+              </div>
+            )}
+            <div className="flex items-center gap-1">
+              <MdDateRange />
+              <span className="text-sm">
+                {format(new Date(created_at || Date.now()), "MMMM d, yyyy")}
+              </span>
+            </div>
 
-        {location && (
-          <div className="flex items-center gap-1">
-            <MdLocationOn />
-            <span className="text-sm">{location}</span>
-          </div>
-        )}
+            {location && (
+              <div className="flex items-center gap-1">
+                <MdLocationOn />
+                <span className="text-sm">{location}</span>
+              </div>
+            )}
       </div>
     </div>
   );

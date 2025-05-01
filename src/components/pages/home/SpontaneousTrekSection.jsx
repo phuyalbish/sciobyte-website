@@ -9,8 +9,7 @@ function SpontaneousTrekSection({treks}) {
 
 
   return (
-    <div className="relative flex justify-center  items-center flex-col w-full">
-      <div className="md:px-[4rem] flex flex-col gap-10 relative w-full ">
+      <div className="md:px-[4rem]  p-4 flex flex-col gap-10 relative w-full">
          <div className="flex flex-col gap-5 ">
           <div className=" text-2xl  md:text-3xl flex flex-col md:flex-row flex-wrap items-center justify-center gap-2 ">
             <span className=" font-liches text-white bg-B500 p-2 rounded-2xl  text-xl sm:text-3xl md:text-3xl">
@@ -45,7 +44,6 @@ function SpontaneousTrekSection({treks}) {
           </EmblaCarousel>
         </div>
       </div>
-    </div>
   );
 }
 

@@ -3,6 +3,7 @@ import SmSearchbar from "@/components/tiles/SmSearchbar";
 import PaginationTile from "@/components/tiles/PaginationTile";
 import NormalBlogTile from "@/components/tiles/blogs/NormalBlogTile.jsx";
 import SingleBlogSection from "@/components/pages/blogs/SingleBlogSection.jsx";
+import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAnimation';
 import {fetchData} from "@/apis/https";
 import debounce from "lodash.debounce";
 import { useCallback } from "react";
@@ -105,11 +106,11 @@ const searchBlog = useCallback(
             </select>
           <SmSearchbar text="Search Blogs" onAction={searchBlog} />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+       <SectionGappingWithoutAnimation>
           {blogs.map((blog, index) => (
             <NormalBlogTile key={index} blog={blog} />
           ))}
-        </div>
+          </SectionGappingWithoutAnimation>
         {totalItems > 0 && (
           <PaginationTile
             totalItems={totalItems}

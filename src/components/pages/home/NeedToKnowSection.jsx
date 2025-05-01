@@ -1,4 +1,5 @@
 import BlogVerticalTile from "@/components/tiles/blogs/BlogVerticalTile.jsx";
+import BlogNormalTile from "@/components/tiles/blogs/NormalBlogTile.jsx";
 import BlogHorizontalTile from "@/components/tiles/blogs/BlogHorizontalTile.jsx";
 import { fetchBlogs } from "@/apis/blogs.js";
 import { useState, useEffect, useRef } from "react";
@@ -7,9 +8,6 @@ import { Carousel } from "react-responsive-carousel";
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 import { Link } from "react-router-dom";
 import { observeOnScroll } from '@/utils/observeOnScroll';
-
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "@/assets/styles/carousel.min.css";
 
 import _ from "lodash";
 
@@ -46,8 +44,8 @@ const NeedToKnowSection = () => {
 
 
   return (
-    <section className="container flex flex-col gap-4 relative w-full md:px-[4rem]">
-      <h1 className="font-reenie text-B500 text-3xl md:text-5xl  font-light p-2">
+    <section className="flex flex-col p-4 gap-4 relative w-full md:px-[4rem]">
+      <h1 className="font-reenie text-B500 text-2xl md:text-5xl  font-light" >
         You need to know these
       </h1>
       <div className="relative h-full hidden md:flex justify-between gap-5   items-center">
@@ -106,27 +104,18 @@ const NeedToKnowSection = () => {
         </div>
       </div>
       <div className="md:hidden relative w-full">
-        <EmblaCarousel>
+        <EmblaCarousel link="/blogs">
           {rawBlogs?.map((item, index) => (
             <div key={index} className="embla__slide min-w-full">
-              <BlogVerticalTile
+              <BlogNormalTile
                 key={index}
-                blog={{
-                  heading: item?.heading,
-                  author: item?.author_name,
-                  subheading: item?.heading,
-                  date: "Mar 25, 2025",
-                  region: item?.category,
-                  location: blogs[0].location,
-                  imageUrl: item?.image,
-                  slug: item.slug,
-                }}
+                blog={item}
               />
             </div>
           ))}
         </EmblaCarousel>
       </div>
-      <div className="hidden md:block text-right">
+      <div className="md:block hidden text-right">
         <Link aria-label="Blogs" to="/blogs" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
           See All
         </Link>
@@ -136,20 +125,3 @@ const NeedToKnowSection = () => {
 };
 
 export default NeedToKnowSection;
-
-// Submission to the will of god, mothotheism. that is muslim.
-// Prophet muhammad is a fimal messenger
-// five pillars.
-// asahad
-// sullah
-// haza
-//
-
-// six rules
-// 1. believe in allah - his angels, books, messengers.
-// 2. smthng bad or good happen to you, you have to believe that its from god. (The divine decree). dont loose faith.
-// 3.
-
-// zakat -  amount of assets for the charity.  2.5%
-
-// Why Lust is the Greatest Test for Allah’s Chosen

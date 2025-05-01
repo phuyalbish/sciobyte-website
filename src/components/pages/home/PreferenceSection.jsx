@@ -46,7 +46,7 @@ function PreferenceSection() {
     
   ]
   return (
-    <div className="relative md:px-[4rem] bg-black pb-10  w-full flex flex-col gap-3 md:gap-7 flex-grow-0 justify-center items-center ">
+    <div className="relative md:px-[4rem] p-4 bg-black pb-10  w-full flex flex-col gap-3 md:gap-7 flex-grow-0 justify-center items-center ">
       <div className="flex items-center justify-center text-B500 m-3 p-3 rounded-md bg-white font-liches font-regular gap-2 flex-wrap text-3xl md:text-4xl ">
         YOUR PREFERENCE IS OUR PRIORITY
       </div>
