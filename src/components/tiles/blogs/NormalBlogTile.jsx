@@ -6,9 +6,10 @@ import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 
 
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 import { ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
-const NormalBlogTile = ({ blog }) => {
+const NormalBlogTile = ({ blog, baseUrl=false }) => {
   const {
     heading,
     subheading,
@@ -20,7 +21,6 @@ const NormalBlogTile = ({ blog }) => {
     location,
   } = blog;
   const isLoading = Object.keys(blog).length === 0;
-  const blogUrl = slug ? `/blog/${slug}` : "/";
 
   const [copied, setCopied] = useState(false);
   const handleCopy = async () => {
@@ -35,7 +35,7 @@ const NormalBlogTile = ({ blog }) => {
     }
   };
   return (
-    <div className="relative flex flex-col justify-start  gap-3  p-2 md:p-5 rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg">
+    <div className="relative flex flex-col justify-start  gap-3  p-2 md:p-5 rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg select-none">
                 <div className="relative h-64 rounded-lg overflow-hidden  ">
                   {isLoading ? (
                     <ImageSkeleton />
@@ -51,7 +51,7 @@ const NormalBlogTile = ({ blog }) => {
                   Share
                 </div>
                 <img
-                  src={image}
+                src={ baseUrl ? BASE_MEDIA_URL+image:image} 
                   alt={heading}
                   decoding="async"
                   loading="lazy"
@@ -81,7 +81,7 @@ const NormalBlogTile = ({ blog }) => {
 
               <div className="flex justify-start  flex-col gap-1">
                       <Link aria-label={`Blog - ${heading}`}
-                        to={blogUrl}>
+                        to={`/blog/${slug}`}>
                         <div className="font-bold text-md text-N900 text-left line-clamp-1">
                          {heading}
                         </div>

@@ -1,26 +1,27 @@
-import  { useState } from "react";
+import  { useState, useEffect } from "react";
+import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
-import { ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import {fetchData} from "@/apis/https";
+const BlogVerticalTile = () => {
 
-import { truncate } from "@/utils/truncate.js";
-const BlogVerticalTile = ({ blog }) => {
-  const {
-    heading,
-    subheading,
-    author,
-    date,
-    imageUrl,
-    category,
-    slug,
-    location,
-  } = blog;
-  const isLoading = Object.keys(blog).length === 0;
-  const blogUrl = slug ? `/blog/${slug}` : "/";
-
+  const [blog, setCurrentBlog] = useState(null);
   const [copied, setCopied] = useState(false);
+
+    useEffect(() => {
+      (async () => {
+        try {
+          const data = await fetchData(`/blogs/current/`);
+          setCurrentBlog(data);
+        }
+        catch (error) {
+          console.error("Error fetching Current blogs:", error);
+        } 
+      })();
+    }, []);
 
   const handleCopy = async () => {
     try {
@@ -34,29 +35,24 @@ const BlogVerticalTile = ({ blog }) => {
     }
   };
   return (
-    <div className="relative flex flex-col gap-3  p-2 md:p-5 max-w-full m-3 rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg">
+    <div className="relative flex flex-col gap-3  p-2 md:p-5 max-w-full m-3 rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg select-none">
       <div className="relative h-full">
-        {isLoading ? (
-          <ImageSkeleton />
-        ) : (
-          <>
+        
             <img
-              src={imageUrl}
-              alt={heading}
+              src={BASE_MEDIA_URL+blog?.image}
+              alt={blog?.heading}
               decoding="async"
               loading="lazy"
               className="w-full md:h-96 h-48  object-cover rounded-lg"
             />
-          </>
-        )}
-    {category ? (
+    {blog?.category_name ? (
         <Link
           
           aria-label="Blogs"
           to="/blogs"
           className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300    px-2 p-1 rounded-md text-sm"
         >
-          {category}
+          {blog?.category_name}
         </Link>
       ) : "" }
 
@@ -76,32 +72,32 @@ const BlogVerticalTile = ({ blog }) => {
               </div>
               <div className="flex justify-start flex-col gap-1">
                 <Link 
-                  aria-label={`Blog - ${heading}`}
-                  to={blogUrl}>
+                  aria-label={`Blog - ${blog?.heading}`}
+                  to={`/blog/${blog?.slug}`}>
                   <div className="font-bold text-md text-N900 text-left">
-                    {heading}
+                    {blog?.heading}
                   </div>
                 </Link>
-                <div className="text-base text-N500 text-start">
-                  {truncate(subheading, 150)}
+                <div className="text-base text-N500 text-start line-clamp-2">
+                  {blog?.subheading}
                 </div>
               </div>
       <div className="flex items-center gap-2 text-gray-600">
-        {author && (
+        {blog?.author_name && (
           <div className="flex items-center gap-1">
             <AiFillEdit />
-            <span className="text-sm">{author}</span>
+            <span className="text-sm">{blog?.author_name}</span>
           </div>
         )}
         <div className="flex items-center gap-1">
           <MdDateRange />
-          <span className="text-sm">{date}</span>
+          <span className="text-sm">  {format(new Date(blog?.created_at || Date.now()), "MMMM d, yyyy")}</span>
         </div>
 
-        {location && (
+        {blog?.location && (
           <div className="flex items-center gap-1">
             <MdLocationOn />
-            <span className="text-sm">{location}</span>
+            <span className="text-sm">{blog?.location}</span>
           </div>
         )}
       </div>

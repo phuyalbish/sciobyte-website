@@ -1,42 +1,36 @@
 import BlogVerticalTile from "@/components/tiles/blogs/BlogVerticalTile.jsx";
 import BlogNormalTile from "@/components/tiles/blogs/NormalBlogTile.jsx";
 import BlogHorizontalTile from "@/components/tiles/blogs/BlogHorizontalTile.jsx";
-import { fetchBlogs } from "@/apis/blogs.js";
+import {fetchData} from "@/apis/https";
 import { useState, useEffect, useRef } from "react";
-import { parseISO, format } from "date-fns";
-import { Carousel } from "react-responsive-carousel";
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 import { Link } from "react-router-dom";
 import { observeOnScroll } from '@/utils/observeOnScroll';
 
-import _ from "lodash";
 
 const NeedToKnowSection = () => {
   const [blogs, setBlogs] = useState([]);
-  const [rawBlogs, setRawBlogs] = useState([]);
     useEffect(() => {
     observeOnScroll('.bottom_popup');
   }, []);
 
+const chunkArray = (array, size) => {
+  const chunked = [];
+  for (let i = 0; i < array.length; i += size) {
+    chunked.push(array.slice(i, i + size));
+  }
+  return chunked;
+};
+
   useEffect(() => {
     (async () => {
-      try {
-        const response = await fetchBlogs();
-        const blogsData = response?.data?.results || [];
-
-        setRawBlogs(blogsData);
-
-        if (!Array.isArray(blogsData) || blogsData.length === 0) {
-          setBlogs([]);
-          return;
-        }
-
-        const chunkedBlogsData = _.chunk(blogsData.slice(1), 2);
-        setBlogs([blogsData[0], chunkedBlogsData]);
+      try {  
+        const response = await fetchData(`/blogs/home/`);
+        console.log(response)
+        setBlogs(response);
       } catch (error) {
         console.error("Error fetching blogs:", error);
-        setBlogs([]);
-      }
+      } 
     })();
   }, []);
 
@@ -48,56 +42,27 @@ const NeedToKnowSection = () => {
       <h1 className="font-reenie text-B500 text-2xl md:text-5xl  font-light" >
         You need to know these
       </h1>
-      <div className="relative h-full hidden md:flex justify-between gap-5   items-center">
-        {blogs.length > 0 && blogs[0] ? (
-          <div className="relative  h-full  md:w-[50%] left_popup ">
+      <div className="relative h-full hidden md:flex justify-between    items-center">
+          <div className="relative  h-full  md:w-1/2 left_popup  ">
             <BlogVerticalTile
-              blog={{
-                heading: blogs[0]?.heading,
-                subheading: blogs[0]?.subheading,
-                author: blogs[0]?.author_name,
-                date: format(parseISO(blogs[0]?.created_at), "MMMM d, yyyy"),
-                category: blogs[0].category_name,
-                location: blogs[0].location,
-                imageUrl: blogs[0]?.image,
-                slug: blogs[0].slug,
-                description: blogs[0].description,
-              }}
             />
           </div>
-        ) : (
-          <p>Loading blogs...</p>
-        )}
-
         <div
           id="blog-carousel"
-          className="flex flex-col md:w-[45%] bottom_popup"
+          className="flex flex-col md:w-1/2 bottom_popup"
         >
-          {blogs[1] && blogs[1]?.length >= 1 ? (
-            <Carousel ref={carouselRef} showStatus={false} showThumbs={false} axis="vertical">
-              {blogs[1]?.map((chunkedBlog, index) => (
-                <div key={index} className="flex flex-col gap-[2.5rem]">
-                  {chunkedBlog.map((blog, index) => (
-                    <BlogHorizontalTile
-                      key={blog.id || index}
-                      blog={{
-                        heading: blog.heading,
-                        author: blog?.author_name,
-                        subheading: blog.subheading,
-                        date: format(
-                          parseISO(blog?.created_at),
-                          "MMMM d, yyyy"
-                        ),
-                        category: blog?.category_name,
-                        location: blog?.location,
-                        imageUrl: blog?.image,
-                        slug: blog?.slug,
-                      }}
-                    />
+          {blogs && blogs?.length  ? (
+             <EmblaCarousel ref={carouselRef} showStatus={false} showThumbs={false} axis="vertical">
+              {chunkArray(blogs, 2).map((group, index) => (
+                    <div key={index} className="embla__slide min-w-full">
+                      <div className="flex flex-col ">
+                        {group.map((item, subIndex) => (
+                          <BlogHorizontalTile key={subIndex} blog={item} />
+                        ))}
+                      </div>
+                    </div>
                   ))}
-                </div>
-              ))}
-            </Carousel>
+              </EmblaCarousel>
           ) : (
             <p>Loading blogs...</p>
           )}
@@ -105,11 +70,12 @@ const NeedToKnowSection = () => {
       </div>
       <div className="md:hidden relative w-full">
         <EmblaCarousel link="/blogs">
-          {rawBlogs?.map((item, index) => (
+          {blogs?.map((item, index) => (
             <div key={index} className="embla__slide min-w-full">
               <BlogNormalTile
                 key={index}
                 blog={item}
+                baseUrl={true}
               />
             </div>
           ))}

@@ -3,21 +3,19 @@ import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
-import { ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
-import { truncate } from "@/utils/truncate.js";
+import { format } from "date-fns";
+import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 const BlogHorizontalTile = ({ blog }) => {
   const {
     heading,
     subheading,
-    author,
-    date,
-    imageUrl,
-    category,
+    author_name,
+    created_at,
+    image,
+    category_name,
     slug,
     location,
   } = blog;
-  const isLoading = Object.keys(blog).length === 0;
-  const blogUrl = slug ? `/blog/${slug}` : "/";
 
   const [copied, setCopied] = useState(false);
 
@@ -33,28 +31,25 @@ const BlogHorizontalTile = ({ blog }) => {
     }
   };
   return (
-    <div className="sm:h-[15.35rem] p-5 gap-2 flex-col sm:flex-row max-w-full flex rounded-xl overflow-hidden mb-4 shadow-md bg-white transition-all duration-300 hover:shadow-lg">
+    <div className="sm:h-48 p-2 gap-2 flex-col sm:flex-row max-w-full flex rounded-xl overflow-hidden mb-4 shadow-md bg-white transition-all duration-300 hover:shadow-lg select-none">
       <div className="relative sm:w-1/2 ">
-        {isLoading ? (
-          <ImageSkeleton />
-        ) : (
+        
           <>
             <img
               decoding="async"
               loading="lazy!"
-              src={imageUrl}
+              src={BASE_MEDIA_URL+image}
               className="w-full h-48 sm:h-full object-cover rounded-lg"
               alt={heading}
             />
           </>
-        )}
-      {category ? (
+      {category_name ? (
         <Link
           aria-label="Blogs"
           to="/blogs"
           className="flex items-center cursor-pointer absolute  left-1 bottom-1 bg-white/90 hover:bg-white text-N300  px-2 p-1 rounded-md text-sm"
         >
-          {category}
+          {category_name}
         </Link>
       ) : "" }
 
@@ -73,15 +68,15 @@ const BlogHorizontalTile = ({ blog }) => {
       </div>
       <div className="flex flex-col gap-4 py-2 sm:w-1/2">
         <div className="flex flex-wrap justify-start gap-2 text-gray-600">
-          {author && (
+          {author_name && (
             <div className="flex items-center gap-1">
               <AiFillEdit />
-              <span className="text-sm">{author}</span>
+              <span className="text-sm">{author_name}</span>
             </div>
           )}
           <div className="flex items-center gap-1">
             <MdDateRange />
-            <span className="text-sm">{date}</span>
+            <span className="text-sm">  {format(new Date(created_at || Date.now()), "MMMM d, yyyy")}</span>
           </div>
 
           {location && (
@@ -93,13 +88,13 @@ const BlogHorizontalTile = ({ blog }) => {
         </div>
         <div className="flex justify-start flex-col gap-1">
           <Link 
-            aria-label={`Blog - ${heading}`} to={blogUrl}>
+            aria-label={`Blog - ${heading}`} to={`/blog/${slug}`}>
             <div className="font-bold text-md line-clamp-2 text-N900 text-left">
               {heading}
             </div>
           </Link>
-          <div className="text-base text-N500 text-start">
-            {truncate(subheading, 150)}
+          <div className="text-base text-N500 text-start line-clamp-1">
+            {subheading}
           </div>
         </div>
       </div>
