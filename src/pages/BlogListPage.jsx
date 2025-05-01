@@ -12,9 +12,9 @@ import { useCallback } from "react";
 
 function BlogListPage(){
   const [filterOptions, setFilterOptions] = useState([]);
-  const [totalItems, setTotalItems] = useState(0);
+  // const [totalItems, setTotalItems] = useState(0);
   const [blogs, setBlogs] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -28,17 +28,17 @@ const searchBlog = useCallback(
   []
 );
 
-  const handlePageChange = (page, func) => {
-    setCurrentPage(page);
-    func(page);
-  };
+  // const handlePageChange = (page, func) => {
+  //   setCurrentPage(page);
+  //   func(page);
+  // };
 
-  const fetchBlog = async (page = 1, text = "") => {
+  const fetchBlog = async (text = "") => {
     setIsLoading(true);
     try {
-      const response = await fetchData(`/blogs/?search=${text}`, page);
-      setBlogs(response?.results);
-      setTotalItems(response?.count);
+      const response = await fetchData(`/blogs/?search=${text}`);
+      setBlogs(response);
+      // setTotalItems(response?.count);
     } catch (error) {
       console.error("Error fetching blogs:", error);
     } finally {
@@ -111,13 +111,13 @@ const searchBlog = useCallback(
             <NormalBlogTile key={index} blog={blog} />
           ))}
           </SectionGappingWithoutAnimation>
-        {totalItems > 0 && (
+        {/* {totalItems > 0 && (
           <PaginationTile
             totalItems={totalItems}
             currentPage={currentPage}
             onAction={(page) => handlePageChange(page, fetchBlog)}
           />
-        )}
+        )} */}
       </div>
   );
 };
