@@ -24,7 +24,7 @@ function TrekReviewsSection({reviews}) {
   
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
-  return <section id="reviews" className="flex flex-col gap-5 relative">
+  return <section id="reviews" className="flex flex-col gap-5 ">
 
     <div className="text-xl tracking-wide font-liches font-light">
       Reviews
@@ -33,11 +33,11 @@ function TrekReviewsSection({reviews}) {
 
           {Array.isArray(google_reviews) && google_reviews.length > 0 ? (
 
-            <div className="flex flex-col gap-5">
-              <div className="text-lg tracking-wide font-liches font-light">
+            <div className="flex flex-col gap-5 relative">
+              <div className="text-lg tracking-wide font-liches  font-light">
                 Google Review by our Trekkers
               </div>
-                    <div className="flex flex-wrap ">
+                    <div className="flex flex-wrap z-10">
 
                         {google_reviews?.slice(0, 3)?.map((review, index) => (
                           <ReviewTile
