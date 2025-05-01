@@ -30,7 +30,7 @@ const FAQ = ({ faq, isOpened, handleFaqState }) => {
 
       {isOpened && (
         <div className="group bg-B50 p-4 rounded-md shadow-xs mt-2 bg-B100 text-left flex justify-between gap-4">
-          <div  dangerouslySetInnerHTML={{ __html: sanitizedContent }}   className='text-justify'/>
+          <div  dangerouslySetInnerHTML={{ __html: sanitizedContent }}   className='text-justify font-manrope'/>
           {faq.image && (
             <img
               src={faq.image}

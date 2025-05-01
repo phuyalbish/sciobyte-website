@@ -2,6 +2,7 @@ import  { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RegionTile from "@/components/tiles/RegionTile.jsx";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
+import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAnimation';
 import DOMPurify from 'dompurify';
 import { fetchIndivisualCategories } from "@/apis/categories.js";
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
@@ -41,7 +42,7 @@ function IndivisualCategoryPage() {
           {category?.name}
         </div>
 
-      <div className="text-md text-justify" dangerouslySetInnerHTML={{ __html: content }} />
+      <div className="text-md text-justify font-manrope" dangerouslySetInnerHTML={{ __html: content }} />
       
       </div>
 
@@ -50,14 +51,15 @@ function IndivisualCategoryPage() {
        <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
         {category?.trek_count} Travel{category?.trek_count >= 2 ? "s" : ""}
       </h1>
-      <div className="grid  w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-        {category?.treks?.map((item, index) => (
+      
+        <SectionGappingWithoutAnimation>
+      {category?.treks?.map((item, index) => (
           <TrekTile
             key={index}
             data={{ ...item, image: BASE_MEDIA_URL + item.image }}
           />
         ))}
-      </div>
+        </SectionGappingWithoutAnimation>
       </div>
 
 <div className="flex flex-col gap-4">
@@ -65,7 +67,7 @@ function IndivisualCategoryPage() {
         {category?.region_count} Region{category?.region_count >= 2 ? "s" : ""}
       </h1>
 
-      <div className="grid  w-full grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-2">
+      <div className="grid  w-full grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4">
         {category?.regions?.map((item, index) => (
           <RegionTile
                     key={index}

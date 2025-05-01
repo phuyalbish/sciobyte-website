@@ -108,7 +108,7 @@ function Header({ setActiveMenu }) {
           </header>
         </div>
         {isDropDown && (
-          <div className="px-10 w-full h-fit top-16 fixed z-50 bg-white/90 backdrop-blur-sm p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
+          <div className="px-4 w-full h-fit top-16 fixed z-50 bg-white/90 backdrop-blur-sm p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
            
                       
             {categories?.map((item, index) =>
@@ -124,10 +124,10 @@ function Header({ setActiveMenu }) {
                   </button>
 
                 {Array.isArray(categoryDetails[item?.slug]?.regions) && categoryDetails[item?.slug]?.regions.length > 0 && dropdowns[item.slug] && (
-                      <div className="top-14 left-0 w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md  transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
+                      <div className="w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md  transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
                        
                              <div className="flex gap-4 flex-col text-sm w-full">
-                              <div className="w-full p-1 gap-1 flex-row rounded-md border border-B300">
+                              <div className="w-full p-1 gap-1 flex-row rounded-md flex  border border-B300">
                                 {categoryDetails[item?.slug]?.regions.map((region, index) => (
                                   <div
                                     key={index}

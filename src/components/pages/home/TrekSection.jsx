@@ -1,29 +1,24 @@
-
-import { useEffect } from 'react';
-import { observeOnScroll } from '@/utils/observeOnScroll';
 import TrekTile from "@/components/tiles/TrekTile.jsx";
+import SectionGapping from '@/components/SectionGapping';
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 
 const TrekSection = ({treks, plainText, blueText }) => {
-
-    useEffect(() => {
-    observeOnScroll('.bottom_popup');
-  }, []);
 
   return (
     <div className="md:px-[4rem] bottom_popup z-40">
       <h1 className="text-2xl font-liches md:text-5xl tracking-widest font-regular px-2 md:mb-6 ">
         {plainText} <span className="text-B600 text-2xl font-liches md:text-5xl font-regular "> {blueText}</span>
       </h1>
-      <div className=" hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem]">
         {
         Array.isArray(treks) && treks.length > 0 ? (
-        treks?.map((trek, index) => (
-          <TrekTile key={index} data={trek} />
-        )) ) : (
+      <SectionGapping>
+        {treks?.map((trek, index) => (
+            <TrekTile key={index} data={trek} />
+            )) }
+      </SectionGapping>
+      ) : (
               <p className="text-gray-500">No Treks available</p>
             )}
-      </div>
       <div className="md:hidden">
          {
            Array.isArray(treks) && treks.length > 0 ? (

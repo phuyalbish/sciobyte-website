@@ -60,18 +60,6 @@ img {
   transform: scale(1);
 }
 
-/* 
-@keyframes  {
-  from {
-    opacity: 0.5;
-    scale: 0.5;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
-} */
-
 .left_popup {
   animation: left_popup_animation linear;
   animation-timeline: view();

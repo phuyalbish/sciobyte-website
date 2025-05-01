@@ -6,7 +6,7 @@ function TrekOtherInfoSection({ info }) {
     <section id="otherinfo" className="text-base italic font-lighter text-N500">
 
       <span className="font-light text-md font-liches text-black">Extra Information:</span>
-      <span dangerouslySetInnerHTML={{ __html: sanitizedContent }}   className='text-justify'/>
+      <span dangerouslySetInnerHTML={{ __html: sanitizedContent }}   className='text-justify font-manrope'/>
     
     </section>
   );

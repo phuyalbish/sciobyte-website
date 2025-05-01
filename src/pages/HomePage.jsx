@@ -17,6 +17,7 @@ function HomePage() {
 
 const [treks, setTreks] = useState([]);
 
+    const [showBanner, setShowBanner] = useState(true);
   useEffect(() => {
     (async () => {
       const response = await fetchHomeTreks();
@@ -25,11 +26,20 @@ const [treks, setTreks] = useState([]);
     })();
   }, []);
 
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowBanner(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+
   return (
     <div className="flex flex-col gap-10 md:gap-16 relative w-full scrollbar-gutter-stable ">
 
 
-      <div className="absolute top-3 -translate-x-1/2 left-1/2 p-5 bg-white/30 rounded-md z-10 backdrop-blur-md">Under Construction!</div>
+      <div className={`absolute top-[60vh] right-10 p-5 bg-white/30 rounded-md z-50 backdrop-blur-md transition-all duration-500 ${showBanner ? "scale-100": "scale-0"}` }>
+          Under Construction!
+        </div>
       <div className="flex flex-col">
 
       <SplashSection />

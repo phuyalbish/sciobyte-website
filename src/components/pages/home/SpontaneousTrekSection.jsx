@@ -1,15 +1,11 @@
 
-import { useEffect } from 'react';
-import { observeOnScroll } from '@/utils/observeOnScroll';
+
 import SopontaneousTrekTile from "@/components/tiles/SopontaneousTrekTile.jsx";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
+import SectionGapping from '@/components/SectionGapping';
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 function SpontaneousTrekSection({treks}) {
 
-
-    useEffect(() => {
-    observeOnScroll('.bottom_popup');
-  }, []);
 
 
   return (
@@ -28,13 +24,18 @@ function SpontaneousTrekSection({treks}) {
           </div>
           <div className=" text-G500  text-lg md:text-2xl">Last Moment Deals</div>
         </div>
-        <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative gap-10 justify-items-center bottom_popup">
-          {treks?.map((trek, index) => (
+          {
+        Array.isArray(treks) && treks.length > 0 ? (
+      <SectionGapping>
+        {treks?.map((trek, index) => (
             <SopontaneousTrekTile key={index} data={trek} />
-          ))}
-        </div>
+            )) }
+      </SectionGapping>
+      ) : (
+              <p className="text-gray-500">No Treks available</p>
+            )}
 
-        <div className="sm:hidden bottom_popup max-w-96">
+        <div className="sm:hidden bottom_popup">
           <EmblaCarousel>
             {treks?.map((trek, index) => (
               <div key={index} className="embla__slide min-w-full">

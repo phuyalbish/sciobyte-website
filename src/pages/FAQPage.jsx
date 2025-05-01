@@ -47,7 +47,7 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
     })();
   }, []);
   return (
-    <div className="md:px-[4rem] p-4 relative w-full  flex flex-col gap-5 pt-10 ">
+    <div className="md:px-[4rem] p-8 relative w-full  flex flex-col gap-5 pt-10 ">
 
          <div className="flex flex-col gap-2 w-full justify-center items-center   max-w-[100em] mx-auto ">
           <h1 className="text-2xl md:text-3xl  font-liches  font-semibold ">Frequently asked questions</h1>

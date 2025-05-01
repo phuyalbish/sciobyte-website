@@ -8,6 +8,7 @@ import TrekOverviewSection from "@/components/pages/indivisualtrek/TrekOverviewS
 
 import FooterVector from "@/assets/footer/FooterTrek.svg";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
+import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAnimation';
 import { scrollToSection } from "@/apis/scrollToSection.js";
 import TrekItenarySection from "@/components/pages/indivisualtrek/TrekItenarySection";
 import TrekMapSection from "@/components/pages/indivisualtrek/TrekMapSection";
@@ -205,35 +206,20 @@ function IndivisualTrekPage() {
           </div>
         </div>
       </div>
-      {/* <div className="fixed bg-B100 z-10 w-full  bottom-0 h-16 sm:hidden">
-        <div className="p-2 flex justify-end gap-16">
-          <div className="flex flex-col justify-start items-start ">
-            <div className="text-base font-light text-N400">Connect</div>
-            <div className="text-base text-N800">Send Inquiry</div>
-          </div>
-
-          <Link 
-          aria-label="Contact Page"
-          to="/contact" className="text-base font-light  bg-B400 flex gap-2 justify-center items-center px-4 md:px-0 rounded-md text-white">
-            Make a booking
-          </Link>
-        </div>
-      </div> */}
-
-
        {Array.isArray(trek?.reference) && trek.reference.length > 0 && (
           <div className="flex w-full flex-col gap-4 md:px-[4rem] px-5">
             <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
               YOU MIGHT ALSO LIKE
             </h1>
-            <div className="grid  w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-              {trek.reference.map((item, index) => (
+            
+        <SectionGappingWithoutAnimation>
+          {trek.reference.map((item, index) => (
                 <TrekTile
                   key={index}
                   data={{ ...item, image: BASE_MEDIA_URL + item.image }}
                 />
               ))}
-            </div>
+              </SectionGappingWithoutAnimation>
           </div>
         )} 
     </div>

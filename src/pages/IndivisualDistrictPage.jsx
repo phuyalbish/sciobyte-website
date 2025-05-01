@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
+import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAnimation';
 import DOMPurify from 'dompurify';
 import { fetchIndivisualDistricts } from "@/apis/districts.js";
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
@@ -40,19 +41,19 @@ function IndivisualDistrictPage() {
           {district?.name}
         </div>
 
-      <div className="text-md text-justify" dangerouslySetInnerHTML={{ __html: content }} />
+      <div className="text-md text-justify font-manrope" dangerouslySetInnerHTML={{ __html: content }} />
       </div>
        <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
         {district?.trek_count} Travel{district?.trek_count >= 2 ? "s" : ""}
       </h1>
-      <div className="grid  w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-        {district?.treks?.map((item, index) => (
+        <SectionGappingWithoutAnimation>
+          {district?.treks?.map((item, index) => (
           <TrekTile
             key={index}
             data={{ ...item, image: BASE_MEDIA_URL + item.image }}
           />
         ))}
-      </div>
+        </SectionGappingWithoutAnimation>
     </div>
   );
 }

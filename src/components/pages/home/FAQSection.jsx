@@ -45,9 +45,9 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
     })();
   }, []);
   return (
-    <div className="flex flex-col gap-2 w-full justify-center items-center   max-w-[100em] mx-auto ">
+    <div className="flex flex-col gap-2 w-full justify-center items-center  px-4 md:p-0 max-w-[100em] mx-auto ">
       <h1 className="text-2xl md:text-3xl  font-liches  font-semibold ">Frequently asked questions</h1>
-        <div className="px-2 md:p-0 flex flex-col gap-4 items-center justify-center w-full md:w-[70%]">
+        <div className=" flex flex-col gap-4 items-center justify-center w-full md:w-[70%]">
           {Array.isArray(faqs) && faqs.length > 0 ? (
             <>
               <div className="flex flex-col gap-2 w-full">

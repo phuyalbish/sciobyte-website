@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import { fetchTreks } from "@/apis/treks.js";
 
+import SectionGapping from '@/components/SectionGapping';
 const MoreToExploreSection = () => {
   const [treks, setTreks] = useState([]);
 
@@ -20,11 +21,16 @@ const MoreToExploreSection = () => {
           <div className="text-3xl sm:text-4xl md:text-5xl  mb-[3rem] font-semibold">
             Discover more to Explore
           </div>
-          <div className="flex flex-wrap gap-[1.5rem] place-items-center justify-center items-center">
-            {treks?.map((trek, index) => (
-              <TrekTile key={index} data={trek} />
-            ))}
-          </div>
+             {
+        Array.isArray(treks) && treks.length > 0 ? (
+      <SectionGapping>
+        {treks?.map((trek, index) => (
+            <TrekTile key={index} data={trek} />
+            )) }
+      </SectionGapping>
+      ) : (
+              <p className="text-gray-500">No Treks available</p>
+            )}
         </div>
       </section>
     </>

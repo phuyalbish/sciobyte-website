@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
-
+import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAnimation';
 import { fetchFavouriteTreks } from "@/apis/treks.js";
-// import { BASE_MEDIA_URL } from "@/config/baseurl.js";
-
-
 function FavoriteTreks() {
 
 const [treks, setTreks] = useState([]);
@@ -21,18 +18,22 @@ const [treks, setTreks] = useState([]);
   return (
     <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] mb-20 px-4 md:p-0">
       <div className="text-xl font-liches text-left rounded-lg font-semibold">
-         {treks?.length ? (treks?.length): ""} Liked Treks
+         {treks?.length > 1 ? (treks?.length)+" Liked Treks": "Liked Trek"} 
         </div>
-      <div className="grid  w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-             {treks?.length ? (
-            treks.map((item, index) => (
+       { Array.isArray(treks) && treks.length > 0 ? (
+        <SectionGappingWithoutAnimation>
+            {treks.map((item, index) => (
               <TrekTile key={index} data={item} />
             ))
-          ) : (
+          }
+            </SectionGappingWithoutAnimation>
+          )
+          
+          : (
             <p className="text-center">No  Liked treks found</p>
           )}
     </div>  
-    </div>
+    
   );
 }
 
