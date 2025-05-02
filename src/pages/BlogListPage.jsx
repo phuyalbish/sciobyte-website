@@ -129,6 +129,8 @@ const searchBlog = useCallback(
             onAction={(page) => handlePageChange(page, fetchBlog)}
           />
         )} */}
+
+        
       </div>
   );
 };
