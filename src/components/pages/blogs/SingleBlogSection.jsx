@@ -12,7 +12,6 @@ import {
   DescriptionSkeleton,
   LongBlogContentSkeleton,
 } from "@/components/skeleton/Skeleton.jsx";
-import { truncate } from "@/utils/truncate.js";
 import { fetchData } from "@/apis/https";
 
 const SingleBlogSection = () => {
@@ -23,7 +22,6 @@ const SingleBlogSection = () => {
     const fetchCurrentBlog = async () => {
       try {
         const data = await fetchData(`/blogs/current/`);
-        console.log(data)
         setCurrentBlog(data);
       } catch (error) {
         console.error("Error fetching current blog:", error);

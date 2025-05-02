@@ -30,6 +30,8 @@ const searchBlog = useCallback(
 
   const handlePageChange = (page, func) => {
     setCurrentPage(page);
+
+      console.log(page)
     func(page);
   };
 
@@ -37,6 +39,7 @@ const searchBlog = useCallback(
     setIsLoading(true);
     try {
       const response = await fetchData(`/blogs/?search=${text}`, page);
+      console.log(response)
       setBlogs(response?.results);
       setTotalItems(response?.count);
     } catch (error) {
@@ -64,9 +67,9 @@ const searchBlog = useCallback(
     try {
 
       const response = (queryParams != "all") ?  await fetchData(`/blogs/filter/category/?category=${queryParams}`) : fetchBlog();
-
       setBlogs(response.results);
       setTotalItems(response.count);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       console.error("Error fetching filtered blogs:", error);
     }
@@ -86,7 +89,7 @@ const searchBlog = useCallback(
   }, []);
 
   return (
-      <div className="flex flex-col gap-10 mt-5 w-full md:px-[4rem] px-5 mb-20">
+      <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] px-5 mb-20">
       <SingleBlogSection/>
         <div className="relative w-full flex gap-3 justify-start"> 
           <select
@@ -106,11 +109,7 @@ const searchBlog = useCallback(
             </select>
           <SmSearchbar text="Search Blogs" onAction={searchBlog} />
         </div>
-       <SectionGappingWithoutAnimation>
-          {blogs.map((blog, index) => (
-            <NormalBlogTile key={index} blog={blog} />
-          ))}
-          </SectionGappingWithoutAnimation>
+
         {totalItems > 0 && (
           <PaginationTile
             totalItems={totalItems}
@@ -118,6 +117,18 @@ const searchBlog = useCallback(
             onAction={(page) => handlePageChange(page, fetchBlog)}
           />
         )}
+       <SectionGappingWithoutAnimation>
+          {blogs.map((blog, index) => (
+            <NormalBlogTile key={index} blog={blog} />
+          ))}
+          </SectionGappingWithoutAnimation>
+        {/* {totalItems > 0 && (
+          <PaginationTile
+            totalItems={totalItems}
+            currentPage={currentPage}
+            onAction={(page) => handlePageChange(page, fetchBlog)}
+          />
+        )} */}
       </div>
   );
 };
