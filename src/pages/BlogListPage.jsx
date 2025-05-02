@@ -90,7 +90,7 @@ const searchBlog = useCallback(
       <SingleBlogSection/>
       <div className="flex flex-col gap-2">
         <div className="relative w-full flex gap-5 flex-wrap  justify-between"> 
-          <div className="flex gap-3 justify-between items-center"> 
+          <div className="flex gap-3 justify-between flex-wrap items-center"> 
           <div className="border border-B200 rounded-md px-2">
             <select
                 value={selectedFilters[0] || "all"}
@@ -117,8 +117,6 @@ const searchBlog = useCallback(
                       onAction={(page) => handlePageChange(page, fetchBlog)}
                     />
                   )}
-          <div></div>
-          <div></div>
         </div>
 
        <SectionGappingWithoutAnimation>
