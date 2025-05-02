@@ -149,7 +149,7 @@ const BlogDetail = () => {
               {isLoading ? (
                 <DescriptionSkeleton />
               ) : (
-                <div className="flex items-center gap-6 text-sm text-N700 mb-6">
+                <div className="flex flex-wrap items-center gap-6 text-sm text-N700 mb-6">
                   {blog?.author_name && (
                     <div className="flex items-center gap-2">
                       <AiFillEdit />

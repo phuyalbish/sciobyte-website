@@ -20,7 +20,7 @@ const SmSearchbar = ({ text = "", onAction }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex justify-between items-center  pl-2 border border-B200 rounded-md"
+      className="flex justify-between items-center bg-white pl-2 border border-B200 rounded-md"
     >
       <FaSearch className="cursor-pointer fill-N500" />
       <input

@@ -77,7 +77,7 @@ const SingleBlogSection = () => {
             </h1>
           </Link>
 
-          <div className="flex relative items-center gap-4 text-sm text-gray-600">
+          <div className="flex flex-wrap relative items-center gap-4 text-sm text-gray-600">
             {isLoading ? (
               <DescriptionSkeleton />
             ) : (
