@@ -12,9 +12,9 @@ import { useCallback } from "react";
 
 function BlogListPage(){
   const [filterOptions, setFilterOptions] = useState([]);
-  // const [totalItems, setTotalItems] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
   const [blogs, setBlogs] = useState([]);
-  // const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -33,7 +33,7 @@ const searchBlog = useCallback(
     func(page);
   };
 
-  const fetchBlog = async (text = "") => {
+  const fetchBlog = async (page=1, text = "") => {
     setIsLoading(true);
     try {
       const response = await fetchData(`/blogs/?search=${text}`, page);
@@ -86,34 +86,41 @@ const searchBlog = useCallback(
   }, []);
 
   return (
-      <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] px-5 mb-20">
+      <div className="flex flex-col gap-10 mt-5 w-full md:px-[4rem] px-5 mb-20">
       <SingleBlogSection/>
-        <div className="relative w-full flex gap-3 justify-start"> 
-          <select
-              value={selectedFilters[0] || "all"}
-              onChange={(e) => {
-                const value = e.target.value;
-                setSelectedFilters(value === "all" ? [] : [value]);
-              }}
-              className="w-fit p-2 border rounded-md outline-none"
-            >
-              <option value="all">All</option>
-              {filterOptions.map((option) => (
-                <option key={option.id} value={option.id}>
-                  {option.name}
-                </option>
-              ))}
-            </select>
-          <SmSearchbar text="Search Blogs" onAction={searchBlog} />
+      <div className="flex flex-col gap-2">
+        <div className="relative w-full flex gap-5 flex-wrap  justify-between"> 
+          <div className="flex gap-3 justify-between items-center"> 
+          <div className="border border-B200 rounded-md px-2">
+            <select
+                value={selectedFilters[0] || "all"}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setSelectedFilters(value === "all" ? [] : [value]);
+                }}
+                className="w-fit py-2 pr-2 outline-none"
+              >
+                <option value="all">All</option>
+                {filterOptions.map((option) => (
+                  <option key={option.id} value={option.id}>
+                    {option.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          <SmSearchbar text="Search Blogs" onAction={searchBlog} className="" />
+           </div>
+                  {totalItems > 0 && (
+                    <PaginationTile
+                      totalItems={totalItems}
+                      currentPage={currentPage}
+                      onAction={(page) => handlePageChange(page, fetchBlog)}
+                    />
+                  )}
+          <div></div>
+          <div></div>
         </div>
 
-        {totalItems > 0 && (
-          <PaginationTile
-            totalItems={totalItems}
-            currentPage={currentPage}
-            onAction={(page) => handlePageChange(page, fetchBlog)}
-          />
-        )}
        <SectionGappingWithoutAnimation>
           {blogs.map((blog, index) => (
             <NormalBlogTile key={index} blog={blog} />
@@ -126,6 +133,8 @@ const searchBlog = useCallback(
             onAction={(page) => handlePageChange(page, fetchBlog)}
           />
         )} */}
+
+        </div>
       </div>
   );
 };

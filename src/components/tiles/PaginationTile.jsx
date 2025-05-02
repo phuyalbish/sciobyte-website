@@ -32,11 +32,11 @@ const PaginationTile = ({ totalItems, onAction }) => {
   }, [totalItems]);
 
   return (
-    <div className="w-full flex justify-center items-center gap-2">
+    <div className="w-fit flex justify-center items-center gap-3">
       <button
         onClick={prevPage}
         disabled={currentPage === 1}
-        className="cursor-pointer text-sm p-2 rounded-l-full border bg-secondary-color hover:bg-tertiary hover:border-secondary disabled:opacity-50"
+        className="cursor-pointer text-sm  px-2 py-1 rounded-l-full border  border-B200  hover:bg-B200 hover:border-B200 disabled:opacity-50"
       >
         <FaChevronLeft size={16} />
       </button>
@@ -48,7 +48,7 @@ const PaginationTile = ({ totalItems, onAction }) => {
       <button
         onClick={nextPage}
         disabled={currentPage === totalPages}
-        className="cursor-pointer text-sm p-2 fill-light-primary-color rounded-r-full border hover:bg-tertiary hover:border-secondary disabled:opacity-50"
+        className="cursor-pointer text-sm px-2 py-1  rounded-r-full border border-B200 hover:bg-B200 hover:border-B200 disabled:opacity-50"
       >
         <FaChevronRight size={16} />
       </button>
