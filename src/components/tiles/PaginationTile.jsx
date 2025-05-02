@@ -4,13 +4,15 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Using react-i
 const PaginationTile = ({ totalItems, onAction }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(totalItems / 10);
+  const totalPages = Math.ceil(totalItems / 9);
 
   const nextPage = () => {
     if (currentPage < totalPages) {
       const next = currentPage + 1;
       setCurrentPage(next);
       onAction && onAction(next);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -19,6 +21,7 @@ const PaginationTile = ({ totalItems, onAction }) => {
       const prev = currentPage - 1;
       setCurrentPage(prev);
       onAction && onAction(prev);
+
     }
   };
 
@@ -29,7 +32,7 @@ const PaginationTile = ({ totalItems, onAction }) => {
   }, [totalItems]);
 
   return (
-    <div className="w-full flex justify-center items-center mt-5 gap-2">
+    <div className="w-full flex justify-center items-center gap-2">
       <button
         onClick={prevPage}
         disabled={currentPage === 1}
