@@ -4,6 +4,7 @@ import { FaYoutube } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { FaPlay } from "react-icons/fa";
 
+import Container from "@/components/Container.jsx";
 
   import { fetchReviews} from "@/apis/review.js";
 import EmblaReviewCarousel from "@/components/carousel/EmblaReviewCarousel";
@@ -23,10 +24,8 @@ function YTSection() {
   const [isOpenYTSection, setIsOpenYTSection] = useState(false);
   const [ytLink, setytLink] = useState("rvZaxT6L3A");
   return (
-     
-      <div id="youtube"  className="relative h-full">
-         
-        <div className="relative  z-10 bg-cover w-full h-full  pt-10 flex md:flex-row flex-col justify-start items-center md:gap-5">
+     <>
+        <div  id="youtube" className="relative  bg-cover w-full h-full   pt-10 flex md:flex-row flex-col  justify-start items-center md:gap-5">
           <img
             decoding="async"
             loading="lazy"
@@ -35,8 +34,9 @@ function YTSection() {
             className="w-full h-full object-cover absolute z-0 brightness-25"
           />
 
-          <div className="textConten md:w-7/12 z-10  flex  flex-col  gap-0 md:pl-20 justify-center w-full  self-start md:mt-10  md:items-start items-center ">
-            <div className="text-3xl sm:text-4xl md:text-5xl text-left pt-10 font-liches text-white font-bold flex flex-col">
+       <Container>  
+          <div className="z-10   flex  flex-col   justify-start w-full  self-start mt-10  md:items-start items-center ">
+            <div className="text-3xl sm:text-4xl md:text-5xl text-left  font-liches  text-white font-bold flex flex-col">
               Let&apos;s
             </div>
             <a
@@ -50,7 +50,7 @@ function YTSection() {
               <div className="font-liches">Youtube</div>
             </a>
           </div>
-          <div className="test md:mt-10">
+          <div className="md:mt-10">
           
                  {Array.isArray(reviews) && reviews.length > 0 ? (
                               <EmblaReviewCarousel>
@@ -91,7 +91,8 @@ function YTSection() {
                                        </EmblaReviewCarousel>
                                         )
                                          : ""}
-                                         </div>
+          </div>
+        </Container>
           
         </div>
         {isOpenYTSection && (
@@ -113,7 +114,8 @@ function YTSection() {
             ></iframe>
           </div>
         )}
-      </div>
+
+          </>
   );
 }
 

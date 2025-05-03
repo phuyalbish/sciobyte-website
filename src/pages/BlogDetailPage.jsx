@@ -7,6 +7,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { MdLocationOn } from "react-icons/md";
+import PageConatiner from "@/components/PageContainer.jsx";
 
 import {truncate} from "@/utils/truncate.js";
 import {
@@ -128,8 +129,9 @@ const BlogDetail = () => {
   };
 
   return (
-      <div className="flex flex-col md:flex-row gap-5 mt-5 w-full md:px-[4rem] mb-20 px-4 md:p-0">
-          <div className="flex md:w-9/12 w-full md:flex-grow-0 flex-col gap-4">
+    <PageConatiner>
+      <div className="flex flex-col md:flex-row gap-5">
+          <div className="flex md:w-9/12 w-full md:flex-grow-0 mt-5 flex-col gap-4">
             <article className="prose prose-lg max-w-none text-left">
               {isLoading ? (
                 <HeadingSkeleton />
@@ -230,6 +232,7 @@ const BlogDetail = () => {
             )}
           <GotoTop />
       </div>
+      </PageConatiner>
   );
 };
 

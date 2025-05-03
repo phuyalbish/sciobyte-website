@@ -1,11 +1,13 @@
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import SectionGapping from '@/components/SectionGapping';
 import EmblaCarousel from "@/components/carousel/EmblaCarousel";
+import Container from "@/components/Container.jsx";
 
 const TrekSection = ({treks, plainText, blueText }) => {
 
   return (
-    <div className="md:px-[4rem] p-4 bottom_popup z-40">
+    <div className="bottom_popup z-30">
+      <Container>
       <h1 className="text-2xl font-liches md:text-5xl tracking-widest font-regular px-2 md:mb-6 ">
         {plainText} <span className="text-B600 text-2xl font-liches md:text-5xl font-regular "> {blueText}</span>
       </h1>
@@ -17,7 +19,7 @@ const TrekSection = ({treks, plainText, blueText }) => {
             )) }
       </SectionGapping>
       ) : (
-              <p className="text-gray-500">No Treks available</p>
+              <p className="md:block hidden text-gray-500">No Treks available</p>
             )}
       <div className="md:hidden">
          {
@@ -33,6 +35,7 @@ const TrekSection = ({treks, plainText, blueText }) => {
               <p className="text-gray-500">No Treks available</p>
             )}
       </div>
+      </Container>
     </div>
   );
 };

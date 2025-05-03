@@ -1,9 +1,9 @@
-
+import Container from "@/components/Container.jsx";
 const HomeStay = () => {
   return (
     <>
-      <div id="booking" className="flex flex-col px-5 md:px-[4rem] max-w-[100em] mx-auto gap-5">
-        <div className="text-xl font-liches text-left rounded-lg font-semibold">
+<Container>
+        <div className="text-xl font-liches text-left rounded-lg font-semibold"  id="booking">
           Booking and Payments
         </div>
       <div className="text-left flex flex-col gap-10">
@@ -51,7 +51,7 @@ const HomeStay = () => {
             </p>  
             </div>          
       </div>
-      </div>
+      </Container>
     </>
   );
 };

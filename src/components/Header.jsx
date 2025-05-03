@@ -10,6 +10,7 @@ import categories from "@/data/Categories.json";
 import { IoIosArrowDown } from "react-icons/io";
 import { fetchIndivisualNavCategories } from "@/apis/categories.js";
 import { FaHeart } from "react-icons/fa";
+import Container from "@/components/Container.jsx";
 
 function Header({ setActiveMenu }) {
   const [isDropDown, setIsDropDown] = useState(false);
@@ -45,10 +46,8 @@ function Header({ setActiveMenu }) {
   };
 
   return (
-    <>
       <div className="bg-white  shadow-md  sticky top-0  z-50 md:relative ">
-        
-        <div className="container px-3 md:px-[4rem] max-w-[100em]  w-full mx-auto">
+        <Container>
           <header className=" z-30 text-white py-[1rem] w-full flex flex-row  justify-between">
             <Link
             aria-label="Home Page"
@@ -106,7 +105,7 @@ function Header({ setActiveMenu }) {
             </div>
             
           </header>
-        </div>
+        </Container>
         {isDropDown && (
           <div className="px-4 w-full h-fit top-16 fixed z-50 bg-white/90 backdrop-blur-sm p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
            
@@ -222,7 +221,6 @@ function Header({ setActiveMenu }) {
 
         )}
       </div>
-    </>
   );
 }
 

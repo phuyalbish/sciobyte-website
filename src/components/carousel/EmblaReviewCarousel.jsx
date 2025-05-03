@@ -44,7 +44,7 @@ const EmblaReviewCarousel = ({
           <div className="flex gap-2 pb-2">{children}</div>
         </div>
       </div>
-      <div className="w-full relative px-3 flex justify-end gap-4 items-center">
+      <div className="w-full relative md:p-0 px-3 flex justify-end gap-4 items-center">
         <button
           onClick={scrollPrev}
           disabled={!canScrollPrev}

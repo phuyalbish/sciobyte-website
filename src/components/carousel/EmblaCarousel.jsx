@@ -49,7 +49,8 @@ const EmblaCarousel = ({
         <Link aria-label="Blogs" to="/blogs" className="text-B400 ml-4 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
           See All
         </Link>}
-        <div className="flex gap-4 self-end">
+        <div></div>
+        <div className="flex gap-4 self-end px-2">
           <button
             onClick={scrollPrev}
             disabled={!canScrollPrev}

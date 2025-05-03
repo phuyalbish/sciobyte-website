@@ -1,6 +1,9 @@
+
+import PageConatiner from "@/components/PageContainer.jsx";
+
 function PrivacyPolicy() {
   return (
-    <div className="container px-10 md:px-[4rem] flex flex-col gap-[2rem] text-left mb-[2rem] items-center">
+    <PageConatiner>
       <div className="flex flex-col py-[5rem]  md:w-2/3 gap-5">
         <h3 className="font-bold text-xl font-liches ">PRIVACY POLICY</h3>
         <div>
@@ -336,7 +339,7 @@ function PrivacyPolicy() {
         </div>
        
       </div>
-    </div>
+      </PageConatiner>
   );
 }
 

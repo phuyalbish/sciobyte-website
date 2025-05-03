@@ -8,6 +8,7 @@ import {fetchData} from "@/apis/https";
 import debounce from "lodash.debounce";
 import { useCallback } from "react";
 
+import PageContainer from "@/components/PageContainer.jsx";
 
 
 function BlogListPage(){
@@ -66,7 +67,7 @@ const searchBlog = useCallback(
       const response = (queryParams != "all") ?  await fetchData(`/blogs/filter/category/?category=${queryParams}`) : fetchBlog();
       setBlogs(response.results);
       setTotalItems(response.count);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
       console.error("Error fetching filtered blogs:", error);
     }
@@ -86,19 +87,19 @@ const searchBlog = useCallback(
   }, []);
 
   return (
-      <div className="flex flex-col gap-10 mt-5 w-full md:px-[4rem] px-5 mb-20">
+    <PageContainer>
       <SingleBlogSection/>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 mb-20">
         <div className="relative w-full flex gap-5 flex-wrap  justify-between"> 
           <div className="flex gap-3 justify-between flex-wrap items-center"> 
-          <div className="border border-B200 rounded-md px-2">
+          <div className="border border-B200 bg-white rounded-md px-2">
             <select
                 value={selectedFilters[0] || "all"}
                 onChange={(e) => {
                   const value = e.target.value;
                   setSelectedFilters(value === "all" ? [] : [value]);
                 }}
-                className="w-fit py-2 pr-2 outline-none"
+                className="w-fit bg-white py-2 pr-2 outline-none"
               >
                 <option value="all">All</option>
                 {filterOptions.map((option) => (
@@ -133,7 +134,7 @@ const searchBlog = useCallback(
         )} */}
 
         </div>
-      </div>
+        </PageContainer>
   );
 };
 

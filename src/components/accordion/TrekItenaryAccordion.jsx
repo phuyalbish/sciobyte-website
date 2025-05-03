@@ -116,11 +116,11 @@ useEffect(() => {
             handleScheduleState(schedule.id);
           }}
         >
-          <div className="flex flex-col w-10 md:w-20 items-center bg-white rounded-tl-lg">
-            <div className="px-5 h-8 bg-G300 rounded-tl-lg w-full text-white items-center justify-center flex  text-base md:text-md">
+          <div className="flex flex-col  w-10 md:w-16 h-full items-center bg-white rounded-tl-lg">
+            <div className="px-5 bg-G300 h-fit rounded-tl-lg w-full text-white items-center justify-center flex  text-base md:text-md">
               Day
             </div>
-            <div className="  text-base md:text-md font-bold">{schedule.day}</div>
+            <div className="w-full h-full flex justify-center items-center text-base md:text-md font-bold">{schedule.day}</div>
           </div>
           <div className="flex justify-between   w-full h-fit gap-2 ">
             <div className="font-bold text-base md:text-md">{schedule?.heading}</div>

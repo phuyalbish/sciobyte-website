@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import TrekTile from "@/components/tiles/TrekTile.jsx";
 import { fetchTreks } from "@/apis/treks.js";
+import Container from "@/components/Container.jsx";
 
 import SectionGapping from '@/components/SectionGapping';
 const MoreToExploreSection = () => {
@@ -17,7 +18,7 @@ const MoreToExploreSection = () => {
   return (
     <>
       <section className="bg-[#B0E4DD]">
-        <div className="px-[2rem] md:px-[4rem] py-5">
+        <Container>
           <div className="text-3xl sm:text-4xl md:text-5xl  mb-[3rem] font-semibold">
             Discover more to Explore
           </div>
@@ -31,7 +32,7 @@ const MoreToExploreSection = () => {
       ) : (
               <p className="text-gray-500">No Treks available</p>
             )}
-        </div>
+        </Container>
       </section>
     </>
   );

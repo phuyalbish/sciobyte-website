@@ -1,14 +1,34 @@
 import  { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import ReviewTileCarousel from "@/components/tiles/ReviewTileCarousel";
 import ReviewTile from "@/components/tiles/ReviewTile";
 import EmblaGoogleReviewCarousel from "@/components/carousel/EmblaGoogleReviewCarousel.jsx";
 import googleImg from "@/assets/googleReviews.png"
 import { fetchGoogleReviews} from "@/apis/review.js";
+import { FaStar } from "react-icons/fa";
+import Container from "@/components/Container.jsx";
+
 function ReviewSection() {
 
 
 
   const [google_reviews, setGoogleReviews] = useState([]);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openedName, setOpenedName] = useState()
+  const [openedStar, setOpenedStar] = useState()
+  const [openedProfile, setOpenedProfile] = useState()
+  const [openedDate, setOpenedDate] = useState()
+  const [openedReviewDetail, setopenedReviewDetail] = useState()
+
+  const openPopUp = (review) => {
+    console.log(review)
+    setOpenedName(review.author_name)
+    setOpenedProfile(review.profile_photo_url)
+    setOpenedStar(review.rating)
+    setOpenedDate(review.relative_time_description)
+    setopenedReviewDetail(review.text)
+    setIsModalOpen(true)
+  }
    useEffect(() => {
     (async () => {
       const response = await fetchGoogleReviews();
@@ -19,15 +39,16 @@ function ReviewSection() {
 
   const [isGoogleReview, setGoogleReview] = useState(true);
   return (
-    <div className="bg-blue-500   md:px-[4rem] p-4 relative w-full  flex flex-col gap-5 pt-10 ">
+    <div className="bg-blue-500 py-16"> 
+    <Container>
       <div className="flex gap-2 flex-col md:flex-row items-center w-full justify-center">
         <span className="text-3xl md:text-4xl font-liches ">WHAT OUR </span><span className="text-white  text-3xl md:text-4xl font-reenie"> F. R. I. E. N. D. S </span> <span className="text-3xl md:text-4xl font-liches "> HAVE TO SAY</span>
       </div>
       <div className="relative w-full flex flex-col items-center ">
         <div className="relative w-full flex flex-row justify-center gap-5">
           <div
-            className={`flex flex-row   rounded-t-lg  rounded-b-lg md:rounded-b-none ${
-              isGoogleReview ? "bg-gray-100" : "bg-transparent"
+            className={`flex flex-row   rounded-t-lg ${
+              isGoogleReview ? "bg-white" : "bg-white"
             }`}
             onClick={() => {
               setGoogleReview(true);
@@ -106,9 +127,10 @@ function ReviewSection() {
               <EmblaGoogleReviewCarousel>
                 {google_reviews.slice(0,6).map((review, index) => (
                   <div key={index} className="embla__slide min-w-full">
-                    <ReviewTile
+                    <ReviewTileCarousel
                       key={index}
                       star={review.rating}
+                      onClickPopUp={() => openPopUp(review)}
                       profile={review?.profile_photo_url}
                       reviewDetail={review.text}
                       name={review.author_name}
@@ -138,8 +160,37 @@ function ReviewSection() {
           //   <p className="text-gray-500">No Reviews available</p>
           // )
           }
+
+
+
+      {isModalOpen && (
+        <div className="absolute inset-0 z-20 bg-white/50  rounded-xl flex items-center justify-center">
+          <div className="bg-white p-6 rounded-xl max-w-lg w-full relative">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-2 right-3 text-gray-600 hover:text-red-500 text-xl"
+            >
+              &times;
+            </button>
+            <div className="flex gap-3 mb-4 items-center">
+              <img src={openedProfile} alt={openedName} className="w-10 h-10 rounded-full object-cover" />
+              <div className="flex flex-col justify-start">
+                <div className="font-semibold text-left">{openedName}</div>
+                <div className="text-sm text-N500 text-left">{openedDate}</div>
+              </div>
+            </div>
+            <div className="flex gap-1 mb-3">
+              {Array.from({ length: openedStar || 0 }).map((_, index) => (
+                <FaStar key={index} className="text-yellow-300" size={18} />
+              ))}
+            </div>
+            <p className="text-sm leading-relaxed text-justify">{openedReviewDetail}</p>
+          </div>
+        </div>
+      )}
         </div>
       </div>
+      </Container>
     </div>
   );
 }

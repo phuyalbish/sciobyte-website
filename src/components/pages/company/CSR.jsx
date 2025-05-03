@@ -1,8 +1,9 @@
+
+import Container from "@/components/Container.jsx";
 const HomeStay = () => {
   return (
-    <>
-      <div id="csr" className="flex flex-col px-5 md:px-[4rem] max-w-[100em] mx-auto gap-5">
-        <div className="text-xl font-liches  text-left rounded-lg font-semibold">
+  <Container>
+        <div id="csr" className="text-xl font-liches  text-left rounded-lg font-semibold">
           Social Initiative
         </div >
          <p className="text-left">
@@ -17,8 +18,7 @@ const HomeStay = () => {
                   child irrespective of their socio-economic backgrounds should have a
                   fair shot at the stars.
                 </p>
-      </div>
-    </>
+</Container>
   );
 };
 

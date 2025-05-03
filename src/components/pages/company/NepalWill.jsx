@@ -1,11 +1,11 @@
 import NW from "@/assets/NW.png"
 import nepalWill from "@/assets/nepalwill.png"
+import PageContainer from "@/components/PageContainer.jsx";
+
 function NepalWill() {
   return (
-    
-      <div id="csr" className="flex flex-col md:flex-row px-5 md:px-[4rem] max-w-[100em] mx-auto gap-10">
-        
-          <div className="relative md:w-[32rem] w-full">
+    <PageContainer>
+          <div id="csr"  className="relative md:w-[32rem] w-full">
             <img
               decoding="async"
               loading="lazy"
@@ -50,8 +50,7 @@ function NepalWill() {
               difference in the lives of the children we aim to serve.
             </p>
           </div>
-        </div>
-
+</PageContainer>
   )
 }
 

@@ -1,11 +1,10 @@
 import homeStay from "@/assets/homestay.png";
 import instagramLogo from "@/assets/instagram-logo.png";
+import Container from "@/components/Container.jsx";
 
 const HomeStay = () => {
   return (
-    <>
-      <div id="homestay" className="flex flex-col px-5 md:px-[4rem] max-w-[100em] mx-auto gap-10">
-        <div className="text-2xl font-liches text-center rounded-lg font-semibold">
+    <Container>      <div id="homestay" className="text-2xl font-liches text-center rounded-lg font-semibold">
           Our Home Stay
         </div>
 
@@ -54,8 +53,8 @@ const HomeStay = () => {
             </a>
           </div>
         </div>
-      </div>
-    </>
+        </Container>
+
   );
 };
 

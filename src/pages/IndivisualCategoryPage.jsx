@@ -6,6 +6,8 @@ import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAn
 import DOMPurify from 'dompurify';
 import { fetchIndivisualCategories } from "@/apis/categories.js";
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import PageConatiner from "@/components/PageContainer.jsx";
+
 function IndivisualCategoryPage() {
   const [category, setCategory] = useState(null);
   const [content, setContent] = useState(null);
@@ -28,7 +30,7 @@ function IndivisualCategoryPage() {
   }, [id]);
 
   return (
-    <div className="flex flex-col gap-10 mt-5 w-full md:px-[4rem] px-5 mb-20">
+    <PageConatiner>
       
       <img
         decoding="async"
@@ -78,7 +80,7 @@ function IndivisualCategoryPage() {
         ))}
       </div>
       </div>
-    </div>
+    </PageConatiner>
   );
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FAQ from "@/components/accordion/FAQ.jsx";
+import PageConatiner from "@/components/PageContainer.jsx";
 
 import { fetchFAQs } from "@/apis/faqs.js";
 
@@ -47,11 +48,9 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
     })();
   }, []);
   return (
-    <div className="md:px-[4rem] p-8 relative w-full  flex flex-col gap-5 pt-10 ">
-
-         <div className="flex flex-col gap-2 w-full justify-center items-center   max-w-[100em] mx-auto ">
+    <PageConatiner>
           <h1 className="text-2xl md:text-3xl  font-liches  font-semibold ">Frequently asked questions</h1>
-            <div className="px-2 md:p-0 flex flex-col gap-4 items-center justify-center w-full md:w-[70%]">
+            <div className="flex flex-col  gap-4 items-center m-auto justify-center w-full md:w-[70%]">
               {Array.isArray(faqs) && faqs.length > 0 ? (
                 <>
                   <div className="flex flex-col gap-2 w-full">
@@ -69,8 +68,7 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
                 <p>Loading FAQs...</p>
               )}
             </div>
-        </div>
-      </div>
+    </PageConatiner>
   );
 }
 

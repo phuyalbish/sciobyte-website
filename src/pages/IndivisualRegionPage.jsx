@@ -4,6 +4,7 @@ import TrekTile from "@/components/tiles/TrekTile.jsx";
 import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAnimation';
 import DOMPurify from 'dompurify';
 import { fetchIndivisualRegions } from "@/apis/regions.js";
+import PageConatiner from "@/components/PageContainer.jsx";
 
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 function IndivisualRegionPage() {
@@ -28,7 +29,7 @@ function IndivisualRegionPage() {
   }, [id]);
 
   return (
-    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] px-5 mb-20">
+    <PageConatiner>
       {/* <BreadCrumbs travel_type={region?.category_name} name={region?.name} /> */}
       <img
         decoding="async"
@@ -56,7 +57,7 @@ function IndivisualRegionPage() {
           />
         ))}
         </SectionGappingWithoutAnimation>
-      </div>
+      </PageConatiner>
   );
 }
 

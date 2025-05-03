@@ -7,6 +7,7 @@ import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 import { Link } from "react-router-dom";
 import { observeOnScroll } from '@/utils/observeOnScroll';
 
+import Container from "@/components/Container.jsx";
 
 const NeedToKnowSection = () => {
   const [blogs, setBlogs] = useState([]);
@@ -26,7 +27,6 @@ const chunkArray = (array, size) => {
     (async () => {
       try {  
         const response = await fetchData(`/blogs/home/`);
-        console.log(response)
         setBlogs(response);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -38,7 +38,7 @@ const chunkArray = (array, size) => {
 
 
   return (
-    <section className="flex flex-col p-4 gap-4 relative w-full md:px-[4rem]">
+    <Container>
       <h1 className="font-reenie text-B500 text-2xl md:text-5xl  font-light" >
         You need to know these
       </h1>
@@ -81,7 +81,7 @@ const chunkArray = (array, size) => {
           ))}
         </EmblaCarousel>
       </div>
-    </section>
+</Container>
   );
 };
 

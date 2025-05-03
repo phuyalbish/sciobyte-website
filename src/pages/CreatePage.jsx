@@ -4,6 +4,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import { getExchangeRates } from "@/apis/exchangeRate.js";
 import FooterVector from "@/assets/footer/FooterContact.svg"
 
+import PageConatiner from "@/components/PageContainer.jsx";
+
 
 import { sendMail } from "@/apis/sendmail.js";
 function CreatePage() {
@@ -85,7 +87,7 @@ function CreatePage() {
 
   return (
     <>
-    <div className="flex flex-col gap-10 mt-5 w-full md:px-[4rem] mb-20 px-4 md:p-0">
+   <PageConatiner>
         <div className="text-center flex flex-col gap-1">
           <h1 className="text-2xl font-liches font-bold text-gray-900">Create your Trip</h1>
           <p className="text-N500">
@@ -447,7 +449,7 @@ function CreatePage() {
                   <div className="text-base font-medium">or  <a className="hover:text-G700 text-black underline underline-offset-2 cursor-pointer">Schedule a call</a></div>
           </div>
         </div>
-      </div>
+      </PageConatiner>
       <img src={FooterVector}  alt="Footer Vector Contact Page"  className="w-full" />
          
       </>

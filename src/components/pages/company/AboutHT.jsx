@@ -1,8 +1,8 @@
-
+import Container from "@/components/Container.jsx";
 const HomeStay = () => {
   return (
     <>
-      <div  className="flex flex-col px-5 md:px-[4rem] max-w-[100em] mx-auto gap-5">
+      <Container>
         <div className="text-xl font-liches text-left rounded-lg font-semibold">
           Hello Trekkers Pvt. Ltd.
         </div>
@@ -43,7 +43,7 @@ const HomeStay = () => {
             <br />
             
       </div>
-      </div>
+      </Container>
     </>
   );
 };

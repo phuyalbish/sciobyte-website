@@ -1,10 +1,10 @@
 
+import PageContainer from "@/components/PageContainer.jsx";
 
 const HomeStay = () => {
   return (
-    <>
-      <div id="why" className="flex flex-col px-5 md:px-[4rem] max-w-[100em] mx-auto gap-5">
-        <div className="text-xl font-liches text-left rounded-lg font-semibold">
+      <PageContainer>
+        <div  className="text-xl font-liches text-left rounded-lg font-semibold">
         WHY HELLO TREKKERS?
         </div>
            <div className=" text-left">
@@ -29,8 +29,7 @@ const HomeStay = () => {
               businesses.
             </p>
            </div>
-      </div>
-    </>
+           </PageContainer>
   );
 };
 

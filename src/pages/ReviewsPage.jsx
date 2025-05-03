@@ -1,6 +1,9 @@
 import  { useEffect, useState } from "react";
 import ReviewTile from "@/components/tiles/ReviewTileFull";
 import { fetchGoogleReviews} from "@/apis/review.js";
+
+import PageConatiner from "@/components/PageContainer.jsx";
+
 function ReviewSection() {
 
   const [google_reviews, setGoogleReviews] = useState([]);
@@ -13,7 +16,7 @@ function ReviewSection() {
   }, []);
 
   return (
-    <div className="md:px-[4rem] p-4 relative w-full  flex flex-col gap-5 pt-10 ">
+    <PageConatiner>
       <div className="flex gap-2 flex-col md:flex-row items-center w-full justify-center">
         <span className="text-xl md:text-2xl font-liches ">WHAT OUR FRIENDS HAVE TO SAY</span>
       </div>
@@ -34,7 +37,7 @@ function ReviewSection() {
               <p className="text-gray-500">No Reviews available</p>
             )}
         </div>
-      </div>
+        </PageConatiner>
   );
 }
 

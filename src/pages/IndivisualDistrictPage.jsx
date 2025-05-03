@@ -5,6 +5,8 @@ import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAn
 import DOMPurify from 'dompurify';
 import { fetchIndivisualDistricts } from "@/apis/districts.js";
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import PageConatiner from "@/components/PageContainer.jsx";
+
 function IndivisualDistrictPage() {
   const [district, setDistrict] = useState(null);
   const [content, setContent] = useState(null);
@@ -27,7 +29,7 @@ function IndivisualDistrictPage() {
   }, [id]);
 
   return (
-    <div className="flex flex-col gap-5 mt-5 w-full md:px-[4rem] px-5 mb-20">
+    <PageConatiner>
       {/* <BreadCrumbs travel_type={district?.caetgory_name} name={district?.name} /> */}
       <img
         decoding="async"
@@ -54,7 +56,7 @@ function IndivisualDistrictPage() {
           />
         ))}
         </SectionGappingWithoutAnimation>
-    </div>
+    </PageConatiner>
   );
 }
 
