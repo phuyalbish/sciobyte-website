@@ -35,6 +35,7 @@ function YTSection() {
           />
 
        <Container>  
+        <div className="flex flex-col md:flex-row">
           <div className="z-10   flex  flex-col   justify-start w-full  self-start mt-10  md:items-start items-center ">
             <div className="text-3xl sm:text-4xl md:text-5xl text-left  font-liches  text-white font-bold flex flex-col">
               Let&apos;s
@@ -91,6 +92,7 @@ function YTSection() {
                                        </EmblaReviewCarousel>
                                         )
                                          : ""}
+          </div>
           </div>
         </Container>
           
