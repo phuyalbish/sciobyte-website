@@ -15,6 +15,7 @@ import { fetchHomeTreks } from "@/apis/treks.js";
 
 function HomePage() {
 
+  
 const [treks, setTreks] = useState([]);
 
     const [showBanner, setShowBanner] = useState(true);
