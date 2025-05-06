@@ -152,9 +152,9 @@ useEffect(() => {
 
           <div dangerouslySetInnerHTML={{ __html: sanitizedContent }}   className='text-justify font-manrope'/>
          {schedule?.gallery?.length > 0 && (
-            <div className="flex gap-2 relative overflow-x-auto scroll-smooth snap-x snap-mandatory rounded-md h-[400px] z-0">
+            <div className="flex gap-2 relative overflow-x-auto scroll-smooth snap-x snap-mandatory rounded-md h-[400px] z-0 ">
               {schedule.gallery.map((item, index) => (
-                <div key={index} className="h-full flex items-center snap-start">
+                <div key={index} className="h-full flex items-center  snap-start shrink-0">
                   <img
                     decoding="async"
                     alt={`Trek Itinerary Gallery ${index + 1}`}
