@@ -11,7 +11,7 @@ const HomeStay = () => {
         <div className="flex flex-col md:flex-row  justify-evenly items-center w-full gap-5 ">
           <div className="w-full lg:w-1/2 flex flex-col justify-center gap-[1rem]  ">
             <h1 className="text-2xl font-semibold text-left">
-              Kritipur Comfort <span className="text-B300">Homestay</span>
+              Kirtipur Comfort <span className="text-B300">Homestay</span>
             </h1>
             <p className="text-justify">
               All Namaste! We are a warm and loving family of four – Aama, Suju,

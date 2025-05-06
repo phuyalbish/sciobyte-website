@@ -49,7 +49,7 @@ const chunkArray = (array, size) => {
           </div>
         <div
           id="blog-carousel"
-          className="flex flex-col md:w-1/2 bottom_popup"
+          className="flex flex-col md:w-1/2 right_popup"
         >
           {blogs && blogs?.length  ? (
              <EmblaCarousel ref={carouselRef} showStatus={false} showThumbs={false} link="/blogs">

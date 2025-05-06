@@ -2,7 +2,7 @@ import  {  useState, useEffect } from "react";
 import aashish from "@/assets/aashish.jpeg";
 import { FaWhatsapp } from "react-icons/fa";
 import { getExchangeRates } from "@/apis/exchangeRate.js";
-import FooterVector from "@/assets/footer/FooterContact.svg"
+import FooterVector from "@/assets/footer/FooterCreateYourTrip.svg"
 
 import PageConatiner from "@/components/PageContainer.jsx";
 

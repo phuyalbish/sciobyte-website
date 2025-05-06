@@ -47,11 +47,11 @@ const HomeStaySection = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row justify-between items-center  lg:items-end w-full gap-5 ">
-          <div className="w-full lg:w-1/2 flex flex-col justify-center  gap-4 left_popup">
+          <div className="w-full lg:w-1/2 flex flex-col justify-center  gap-4 ">
             <div className="text-xl sm:text-2xl md:text-2xl text-G700  font-semibold text-left">
-              Kritipur Comfort Homestay
+              Kirtipur Comfort Homestay
             </div>
-            <p className="text-[1rem] text-justify">
+            <p className="text-base text-justify">
               Namaste! We are a warm and loving family of four – Aama, Suju,
               Aashish, and our little one, Anahat. Since 2017, our home has been
               open to guests from around the world, and we feel truly blessed to

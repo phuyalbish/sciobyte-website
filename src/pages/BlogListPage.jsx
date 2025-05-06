@@ -7,7 +7,7 @@ import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAn
 import {fetchData} from "@/apis/https";
 import debounce from "lodash.debounce";
 import { useCallback } from "react";
-
+import FooterVector from "@/assets/footer/FooterBlog.svg";
 import PageContainer from "@/components/PageContainer.jsx";
 
 
@@ -87,6 +87,7 @@ const searchBlog = useCallback(
   }, []);
 
   return (
+    <>
     <PageContainer>
       <SingleBlogSection/>
       <div className="flex flex-col gap-2 mb-20">
@@ -135,6 +136,10 @@ const searchBlog = useCallback(
 
         </div>
         </PageContainer>
+
+
+      <img src={FooterVector}  alt="Footer Vector Home Page"  className="w-full" />
+        </>
   );
 };
 
