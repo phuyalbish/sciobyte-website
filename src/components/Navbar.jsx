@@ -4,7 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import logo from "@/assets/HTWhite.png";
 import { fetchIndivisualNavCategories } from "@/apis/categories.js";
 import SearchTrekRegionTile from "@/components/tiles/SearchTrekRegionTile.jsx";
-
+import { GoArrowUpRight } from "react-icons/go";
 import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
 import { fetchSearch } from "@/apis/search.js";
@@ -216,12 +216,12 @@ function Navbar({ activeMenu, setActiveMenu }) {
                         }}>{trek?.name}</Link>
                     ))}
 
-                  <div className="flex  w-full justify-end">
-                  <Link aria-label={`Category - ${categoryDetails[item.slug]?.slug}`} to={`/category/${categoryDetails[item.slug]?.slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
+                  <div className="flex  w-full justify-start mt-2">
+                  <Link aria-label={`Category - ${categoryDetails[item.slug]?.slug}`} to={`/category/${categoryDetails[item.slug]?.slug}`} className=" w-fit  flex flex-row justify-end items-center gap-1 text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
                     setActiveMenu({ blogs: true });
                     setDropdowns({});
                     setCompanyDropDown(false);
-                  }} >View all {categoryDetails[item?.slug]?.name}</Link>
+                  }} ><div>View all {categoryDetails[item?.slug]?.name}</div> <GoArrowUpRight className="text-base"/></Link>
                   </div>
                     </div>
                   </div>
