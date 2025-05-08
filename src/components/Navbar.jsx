@@ -190,15 +190,15 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                {dropdowns[item.slug] && categoryDetails[item.slug] && (
             
-                <div className="absolute top-11 left-0 w-full bg-white/80 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
+                <div className="absolute top-11 left-0 w-full bg-white/80 backdrop-blur-md rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
                
-                  <div className="flex gap-2  text-sm w-full ">
-                    <div className="flex flex-col flex-shrink-0 gap-2 border-black w-100 pr-2 border-0 border-r-2 ">
+                  <div className="flex gap-2 text-sm w-full flex-grow h-full">
+                    <div className="flex flex-col flex-shrink-0 gap-2 pr-0 p-2 bg-B500 rounded-md rounded-r-none w-100  h-100 mr-2">
 
                     {categoryDetails[item?.slug]?.regions?.map((region, index) => (
                     <div className= {`${
-                          searchRegionID == index ? "bg-B100" : "bg-transparent"
-                        }  hover:bg-B200 p-2 rounded  text-sm text-start cursor-pointer `} key={index} onClick={ () =>{
+                          searchRegionID == index ? "bg-white text-B500" : "bg-transparent text-white"
+                        }  hover:bg-white hover:text-B500  p-2 pr-4 rounded rounded-r-none text-sm text-start cursor-pointer `} key={index} onClick={ () =>{
                             setSearchRegionID(index)
                           }}>{region?.name} 
                           </div>
@@ -206,7 +206,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                     </div>
 
-                    <div className="px-2   justify-start gap-3  flex flex-col items-start">
+                    <div className="p-2   justify-start gap-3  flex flex-col items-start">
                     {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
                       <Link
                         aria-label={`Trek - ${trek?.slug}`} to={`/trek/${trek?.slug}`} className="w-fit text-sm text-start items-start  hover:text-G500" key={index} onClick={() => {
@@ -215,16 +215,16 @@ function Navbar({ activeMenu, setActiveMenu }) {
                           setCompanyDropDown(false);
                         }}>{trek?.name}</Link>
                     ))}
-                    </div>
-                  </div>
-                  <div className="flex w-full justify-end">
+
+                  <div className="flex  w-full justify-end">
                   <Link aria-label={`Category - ${categoryDetails[item.slug]?.slug}`} to={`/category/${categoryDetails[item.slug]?.slug}`} className=" w-fit  flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
                     setActiveMenu({ blogs: true });
                     setDropdowns({});
                     setCompanyDropDown(false);
-                  }}
-              >View all {categoryDetails[item?.slug]?.name}</Link>
-              </div>
+                  }} >View all {categoryDetails[item?.slug]?.name}</Link>
+                  </div>
+                    </div>
+                  </div>
             </div>
               )}
               </React.Fragment>
