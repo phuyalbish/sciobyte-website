@@ -67,13 +67,13 @@ function Header({ setActiveMenu }) {
             </Link>
 
             <div className="md:flex hidden items-center gap-5">
-              <a href="mailto:info@hellotrekkersnamaste.com" aria-label="email to the owner" className="flex-col justify-end items-end cursor-pointer group">
+              <a href="mailto:info@hellotrekkers.com" aria-label="email to the owner" className="flex-col justify-end items-end cursor-pointer group">
                 <div className="text-base text-N900 flex gap-2 items-center justify-end">
                   <HiOutlineMail />
                   Email us
                 </div>
                 <div className="md:text-base text-N900 font-bold group-hover:underline underline-offset-4">
-                  info@hellotrekkersnamaste.com
+                  info@hellotrekkers.com
                 </div>
               </a>
 
