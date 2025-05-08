@@ -98,14 +98,17 @@ function Footer() {
                   <img src={Location} alt="Location Image" className="w-7 aspect-square" />
                    Kirtipur, Kathmandu
                 </li>
-                <li className="flex gap-2 items-center"> 
+                {/* <li className="flex gap-2 items-center"> 
                   <img src={Email} alt="Email Icon" className="w-7 aspect-square" />
-                   info@hellotrekkers.com
-                </li>
+                   
+                </li> */}
 
                 <li className="flex gap-2 items-center"> 
                   <img src={Email} alt="Email Icon" className="w-7 aspect-square" />
-                   hellotrekkersnamaste.com
+                  <div className="flex flex-col  items-start justify-start">
+                    <div>info@hellotrekkers.com,</div>
+                    <div>hellotrekkersnamaste.com</div>
+                  </div>
                 </li>
                 <li className="flex gap-2 items-center"> 
                   <img src={Phone} alt="Phone (Office) Icon " className="w-7 aspect-square" />
