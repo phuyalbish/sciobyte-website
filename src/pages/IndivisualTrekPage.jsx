@@ -138,7 +138,7 @@ function IndivisualTrekPage() {
                 
                   <button
                   onClick={() => scrollToSection("reviews")}
-                  className="hover:underline flex"
+                  className="hover:underline"
                 >
                   Reviews
                 </button>

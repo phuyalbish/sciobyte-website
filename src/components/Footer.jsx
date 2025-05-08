@@ -100,7 +100,12 @@ function Footer() {
                 </li>
                 <li className="flex gap-2 items-center"> 
                   <img src={Email} alt="Email Icon" className="w-7 aspect-square" />
-                   info@hellotrekkers@gmail.com
+                   info@hellotrekkers.com
+                </li>
+
+                <li className="flex gap-2 items-center"> 
+                  <img src={Email} alt="Email Icon" className="w-7 aspect-square" />
+                   hellotrekkersnamaste.com
                 </li>
                 <li className="flex gap-2 items-center"> 
                   <img src={Phone} alt="Phone (Office) Icon " className="w-7 aspect-square" />
