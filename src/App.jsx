@@ -8,9 +8,12 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <PageLayout>
+      {/* <PageLayout>
         <AppRoutes />
-      </PageLayout>
+      </PageLayout> */}
+      <div className="w-full h-[100vh] flex items-center justify-center">
+            <div className="text-xl font-liches">Under Construction !</div>
+      </div>
     </Router>
   );
 }
