@@ -26,18 +26,16 @@ function Navbar({ activeMenu, setActiveMenu }) {
   const [searchData, setSearchData] = useState(null);
 
   useEffect(() => {
-    const handleOutsideNavbarClick = (event) => {
-      setDropdowns((prevDropdowns) => {
-        if (
-          Object.keys(prevDropdowns).length > 0 &&
-          navbarMenuRef.current &&
-          !navbarMenuRef.current.contains(event.target)
-        ) {
-          return {};
-        }
-        return prevDropdowns;
-      });
-    };
+     const handleOutsideNavbarClick = (event) => {
+    if (
+      navbarMenuRef.current &&
+      !navbarMenuRef.current.contains(event.target)
+    ) {
+      setActiveMenu({});
+      setDropdowns({});
+    }
+  };
+
 
     window.addEventListener("click", handleOutsideNavbarClick);
     return () => {
@@ -54,6 +52,8 @@ function Navbar({ activeMenu, setActiveMenu }) {
         buttonRef.current &&
         !buttonRef.current.contains(event.target)
       ) {
+
+        setActiveMenu({ });
         setCompanyDropDown(false);
       }
     };
