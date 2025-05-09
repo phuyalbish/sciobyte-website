@@ -14,6 +14,8 @@ import { FaHeart } from "react-icons/fa";
 
 function Navbar({ activeMenu, setActiveMenu }) {
   const [isCompanyDropDown, setCompanyDropDown] = useState(false);
+  const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
   const [showLogo, setShowLogo] = useState(false);
   const [categoryDetails, setCategoryDetails] = useState({});
   const [dropdowns, setDropdowns] = useState({});
@@ -38,11 +40,31 @@ function Navbar({ activeMenu, setActiveMenu }) {
     };
 
     window.addEventListener("click", handleOutsideNavbarClick);
-
     return () => {
       window.removeEventListener("click", handleOutsideNavbarClick);
     };
   }, []);
+
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setCompanyDropDown(false);
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside);
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+
 
   const handleSearch = async () => {
     if (searchText.trim() !== "") {
@@ -103,7 +125,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
             }}
           >
             <img
-              decoding="async" // Avoid re-fetching if data already exists
+              decoding="async"
               loading="lazy"
               src={logo}
               className={`w-8 ml-5 md:ml-0 aspect-square transition-all duration-300 ${
@@ -246,25 +268,29 @@ function Navbar({ activeMenu, setActiveMenu }) {
             </Link>
             <div className="relative">
               <button
+                ref={buttonRef}
                 className={`${
                   activeMenu["company"] ? "text-B900" : "text-white"
                 } flex items-center gap-1 transition text-sm`}
                 onClick={() => {
                   setActiveMenu({ company: true });
                   setDropdowns({});
-                  setCompanyDropDown(!isCompanyDropDown);
+                  
+                setCompanyDropDown((prev) => !prev);
                 }}
               >
                 Company <IoIosArrowDown />
               </button>
 
               {isCompanyDropDown && (
-                <div className="absolute top-11 left-0 m-auto w-64 justify-start items-start text-N900  bg-white/80 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 text-sm">
+                <div 
+                  ref={dropdownRef}
+                    className="absolute top-11 left-0 m-auto w-64 justify-start items-start text-N900  bg-white/80 backdrop-blur-md border border-white/20  p-3 rounded-md shadow-md transition-all duration-300 ease-in-out flex flex-col gap-5 text-sm">
                   
                   <Link
                   aria-label="Contact"
                     to="/contact"
-                    className="text-N900  hover:underline"
+                    className="text-N900  hover:text-G500"
 
                     onClick={() => {
                       setDropdowns({});
@@ -277,7 +303,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
 
                   aria-label="About Us"
                     to="/about"
-                    className="text-N900  hover:underline"
+                    className="text-N900  hover:text-G500"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -292,7 +318,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     to="/about/why"
                     
                   aria-label="About Us -Why Hellotrekkers"
-                    className="text-N900 hover:underline"
+                    className="text-N900 hover:text-G500"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -307,7 +333,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     to="/about/team"
                     
                   aria-label="About Us- Team"
-                    className="text-N900 hover:underline"
+                    className="text-N900 hover:text-G500"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -322,7 +348,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     to="/about/homestay"
                     
                   aria-label="About Us - Home Stay"
-                    className="text-N900 hover:underline"
+                    className="text-N900 hover:text-G500"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -337,7 +363,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     to="/about/csr"
                     
                   aria-label="About Us - CSR"
-                    className="text-N900  hover:underline"
+                    className="text-N900  hover:text-G500"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -350,7 +376,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     to="/about/booking"
                     
                   aria-label="About Us - Booking"
-                    className="text-N900 hover:underline"
+                    className="text-N900 hover:text-G500"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -364,7 +390,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     to="/privacy"
                     
                   aria-label="Privacy Policy"
-                    className="text-N900 hover:underline"
+                    className="text-N900 hover:text-G500"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});
@@ -377,7 +403,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                     to="/termsandcondition"
                     
                   aria-label="Terms And Conditions"
-                    className="text-N900 hover:underline"
+                    className="text-N900 hover:text-G500"
                     onClick={() => {
                       setActiveMenu({ company: true });
                       setDropdowns({});

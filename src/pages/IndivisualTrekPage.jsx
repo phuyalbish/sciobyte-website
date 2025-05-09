@@ -130,8 +130,8 @@ function IndivisualTrekPage() {
                   onClick={() => scrollToSection("included")}
                   className="hover:underline flex gap-1"
                 >
-                  <span className="tracking-wide font-liches font-light">What&apos;s</span>
-                  <span className=" tracking-wide font-liches font-light">Included</span>
+                  <span className="tracking-wide font-liches font-light">What&apos;s Included</span>
+                  {/* <span className=" tracking-wide font-liches font-light">Included</span> */}
                 </button>
                 )}
 

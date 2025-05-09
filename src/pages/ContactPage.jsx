@@ -91,7 +91,7 @@ function ContactPage() {
         <div className="text-center mb-12">
           <h1 className="text-3xl font-liches font-bold text-gray-900">Contact Us</h1>
           <p className="mt-2 text-gray-600">
-            Empowering individuals to create their Tales.
+            Reach out anytime, we will respond within 24 hours!
           </p>
         </div>
 

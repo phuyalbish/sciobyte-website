@@ -84,7 +84,8 @@ useEffect(() => {
           heading: "Accomodation",
             description: schedule?.accomodations?.map((accomodation, index, arr) => {
               if (arr.length === 1) return accomodation.name;
-              if (index === arr.length - 1) return ` & ${accomodation.name}`;
+              if (index === arr.length - 1) return ` or ${accomodation.name}`;
+              if (index === arr.length - 2) return `${accomodation.name}`;
               return `${accomodation.name}, `;
             }),
         },

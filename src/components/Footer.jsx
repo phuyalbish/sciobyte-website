@@ -130,7 +130,7 @@ function Footer() {
               <ul className="flex flex-col  items-start gap-4 text-white">
                 {discovery.map((item, index) => (
                   <li key={index} className=" ">
-                    <Link  aria-label={`To ${item?.name} ${index}`} to={item.url} className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
+                    <Link  aria-label={`To ${item?.name} ${index}`} to={item.url} className="line-clamp-2 items-center hover:text-black transition-all duration-500">
                       {item.name}
                     </Link>
                   </li>
@@ -146,17 +146,17 @@ function Footer() {
               </h1>
               <ul className="flex flex-col  items-start gap-4 text-white">
                   <li>
-                    <a  aria-label="Home Page" href="https://www.youtube.com/@hellotrekkers" className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
+                    <a  aria-label="Home Page" href="https://www.youtube.com/@hellotrekkers" className="line-clamp-2 items-center hover:text-black transition-all duration-500">
                       Youtube
                     </a>
                   </li>
                   <li>
-                    <a aria-label="Instagram Link" href="https://www.instagram.com/hellotrekkersnamaste" className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
+                    <a aria-label="Instagram Link" href="https://www.instagram.com/hellotrekkersnamaste" className="line-clamp-2 items-center hover:text-black transition-all duration-500">
                       Instagram
                     </a>
                   </li>
                   <li>
-                    <Link aria-label="Blogs" to="/blogs" className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
+                    <Link aria-label="Blogs" to="/blogs" className="line-clamp-2 items-center hover:text-black transition-all duration-500">
                       Blogs and Tips
                     </Link>
                   </li>
@@ -171,7 +171,7 @@ function Footer() {
               <ul className="flex flex-col  items-start gap-4 text-white">
                 {company.map((item, index) => (
                   <li key={index} className=" ">
-                    <Link   aria-label={`To ${item?.name} ${index}`}  to={item.url} className="line-clamp-2 items-center hover:text-G700 transition-all duration-500">
+                    <Link   aria-label={`To ${item?.name} ${index}`}  to={item.url} className="line-clamp-2 items-center hover:text-black transition-all duration-500">
                       {item.name}
                     </Link>
                   </li>
