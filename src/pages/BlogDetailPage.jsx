@@ -213,7 +213,7 @@ const BlogDetail = () => {
                 <LongBlogContentSkeleton />
               ) : (
                 <div
-                  className="space-y-6 text-N700 text-justify font-manrope"
+                  className="space-y-6 text-N700 text-justify custom-rich-content"
                   dangerouslySetInnerHTML={{ __html: content }}
                 ></div>
               )}

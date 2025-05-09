@@ -10,7 +10,7 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { fetchSearch } from "@/apis/search.js";
 import categories from "@/data/Categories.json";
 import Pen from "@/assets/icons/Pen.svg"
-import { FaHeart } from "react-icons/fa";
+import Heart from "@/assets/Heart.svg";
 
 function Navbar({ activeMenu, setActiveMenu }) {
   const [isCompanyDropDown, setCompanyDropDown] = useState(false);
@@ -417,9 +417,17 @@ function Navbar({ activeMenu, setActiveMenu }) {
             </div>
           </div>
 
-          <div className="relative flex gap-4  items-center">
-                 <Link  to="/liked" aria-label="Liked Page">
-                <FaHeart   className="size-6  text-red-500 hover:text-white cursor-pointer select-none"/>
+          <div className="relative flex gap-4   items-center">
+                 <Link  to="/liked" aria-label="Liked Page" className=" bg-white/60 p-3 rounded-md shadow-lg hover:bg-white">
+                
+
+                    <img
+                      decoding="async"
+                      loading="lazy"
+                      src={Heart}
+                      className={`ml-5 md:ml-0 aspect-square transition-all duration-300`}
+                      alt="Logo Image"
+                    />
                 </Link>
               <Link to="/create" aria-label="Create Your Trip"
                       className=" group flex gap-2 items-center justify-center w-40 text-sm  py-2 bg-white shadow-lg rounded-md text-B500 hover:bg-transparent border border-transparent hover:border-white hover:text-white hover:shadow-none transition-colors duration-500"

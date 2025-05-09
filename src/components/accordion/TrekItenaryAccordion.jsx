@@ -151,7 +151,7 @@ useEffect(() => {
             )}
           </div>  
 
-          <div dangerouslySetInnerHTML={{ __html: sanitizedContent }}   className='text-justify font-manrope'/>
+          <div dangerouslySetInnerHTML={{ __html: sanitizedContent }}    className='text-justify custom-rich-content'/>
          {schedule?.gallery?.length > 0 && (
             <div className="flex gap-2 relative overflow-x-auto scroll-smooth snap-x snap-mandatory rounded-md h-[400px] z-0 ">
               {schedule.gallery.map((item, index) => (

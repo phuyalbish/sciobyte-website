@@ -5,7 +5,7 @@ function TrekOverviewSection({ description }) {
     <section id="overview" className="flex flex-col gap-5">
 
           <div className="text-xl font-liches font-light">Overview</div>
-      <div dangerouslySetInnerHTML={{ __html: sanitizedContent }}  className='text-justify font-manrope'/>
+      <div dangerouslySetInnerHTML={{ __html: sanitizedContent }}  className='text-justify custom-rich-content'/>
     
     </section>
   );

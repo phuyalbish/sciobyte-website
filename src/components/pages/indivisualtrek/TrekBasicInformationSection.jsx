@@ -104,7 +104,7 @@ function TrekBasicInformationSection({
   return (
     <div className="flex flex-col gap-5  items-start">
       <div className="flex flex-col items-start justify-start">
-        <div className="text-xl lg:text-2xl tracking-wide font-light font-liches  text-left">
+        <div className="text-xl lg:text-xl tracking-wide font-light font-liches  text-left">
           {travel_name}
         </div>
 
@@ -125,7 +125,8 @@ function TrekBasicInformationSection({
         </div>
       )}
       </div>
- <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 w-full rounded-md bg-G200">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-2 gap-y-6 p-4 w-full rounded-md bg-G200">
+
         {trekBasicHeadings.map((item, index) =>
           item?.description ? (
             <div key={index} className="rounded-xl flex gap-3  items-center justify-start">

@@ -130,7 +130,14 @@ p{
   min-width: 0;
 }
 
+.custom-rich-content img {
+  border-radius: 0.375rem;
+}
 
+
+.custom-rich-content p {
+  font-family: "Manrope", sans-serif;
+}
 
 .test{
   border: 1px solid black;

@@ -91,7 +91,7 @@ function ContactPage() {
         <div className="text-center mb-12">
           <h1 className="text-3xl font-liches font-bold text-gray-900">Contact Us</h1>
           <p className="mt-2 text-gray-600">
-            Reach out anytime, we will respond within 24 hours!
+            Thankyou for reaching out. We'll respond shortly.
           </p>
         </div>
 
@@ -171,8 +171,8 @@ function ContactPage() {
             </div>
 
             <div className="mt-8 flex gap-4">
-              <button className="group flex gap-2 items-center px-4 py-2 bg-B75   hover:bg-B100 transition-colors">
-                {/* <Phone className="w-4 h-4 mr-2" /> */}
+              <a href="tel:+9779709707037" className="group flex gap-2 items-center px-4 py-2  text-black border-transparent border rounded-md bg-B100  hover:border-B500 transition-colors">
+               
                 <span className="text-B75 group-hover:text-B200">
                   <img
                     decoding="async"
@@ -184,9 +184,9 @@ function ContactPage() {
                   />
                 </span>
                 Quick Call
-              </button>
-              <button className="group flex gap-1 items-center px-4 py-2 bg-G75 rounded-md hover:bg-G100 transition-colors">
-                {/* <Mail className="w-4 h-4 mr-2" /> */}
+              </a>
+              <a href="mailto:hellotrekkersnamaste@gmail.com" className="group flex gap-2 items-center px-4 py-2  text-black border-transparent border rounded-md bg-G100  hover:border-G500 transition-colors">
+               
                 <span className="text-G75 group-hover:text-G200">
                   <img
                     decoding="async"
@@ -198,11 +198,10 @@ function ContactPage() {
                   />
                 </span>
                 Quick Email
-              </button>
+              </a>
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="bg-G50 p-8 rounded-lg w-full md:w-1/2  text-left">
             <form onSubmit={handleSubmit} className="space-y-6">
               {successMsg && (

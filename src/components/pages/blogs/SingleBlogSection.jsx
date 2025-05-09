@@ -139,8 +139,8 @@ const SingleBlogSection = () => {
           ) : (
             <>
               <div
-                className="leading-relaxed line-clamp-5 text-justify font-manrope"
-                dangerouslySetInnerHTML={{ __html: content }}
+                className="leading-relaxed line-clamp-5 text-justify custom-rich-content"
+                dangerouslySetInnerHTML={{ __html: content }} 
               ></div>
               <div className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2 text-right">
                 {sanitizedContent.length > 600 && (

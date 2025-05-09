@@ -44,7 +44,7 @@ function IndivisualCategoryPage() {
           {category?.name}
         </div>
 
-      <div className="text-md text-justify font-manrope" dangerouslySetInnerHTML={{ __html: content }} />
+      <div className="text-md text-justify custom-rich-content" dangerouslySetInnerHTML={{ __html: content }} />
       
       </div>
 
