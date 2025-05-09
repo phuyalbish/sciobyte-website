@@ -61,7 +61,7 @@ function Footer() {
   return (
     <footer className="bg-B400 flex flex-col gap-6 justify-center ">
       <Container >
-      <div className="flex justify-between items-center mb-10">
+      <div className="flex flex-col md:flex-row gap-10 justify-between items-center mb-10">
         <div className="flex flex-col  justify-start items-start gap-2 ">
           <h1 className="text-lg font-semibold  text-white">WE ARE ASSOCIATED WITH</h1>
           <div className="flex justify-center items-center gap-6 ">
@@ -96,7 +96,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 items-start">
+        <div className="flex flex-col gap-2 md:items-start">
           <div className="text-md text-white">We Accept</div>
           <div className="flex gap-2">
 
