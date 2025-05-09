@@ -214,7 +214,7 @@ function Navbar({ activeMenu, setActiveMenu }) {
                         ))}
                     </div>
 
-                    <div className="p-2   justify-start gap-3  flex flex-col items-start">
+                    <div className="p-2 pt-6 justify-start gap-3  flex flex-col items-start">
                     {trekRegionDetail?.[searchRegionID]?.treks.map((trek, index) => (
                       <Link
                         aria-label={`Trek - ${trek?.slug}`} to={`/trek/${trek?.slug}`} className="w-fit text-sm text-start items-start  hover:text-G500" key={index} onClick={() => {
