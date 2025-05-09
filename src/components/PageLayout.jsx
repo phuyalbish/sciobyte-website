@@ -10,7 +10,7 @@ export default function PageLayout({ children }) {
 
   return (
     <div className="flex relative w-full flex-col bg-gray-100">
-      <Header setActiveMenu={setActiveMenu} />
+      <Header activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       <div className="sticky  top-0 z-50">
         <Navbar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       </div>

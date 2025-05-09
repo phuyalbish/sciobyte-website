@@ -93,8 +93,6 @@ const handleSearch = async () => {
                     name={item?.name}
                     image={item?.image}
                     slug={item?.slug}
-                    category_name={item?.category_name}
-                    category_slug={item?.category_slug}
                     main_category={item?.main_category}
                     main_category_slug={item?.main_category_slug}
                   />

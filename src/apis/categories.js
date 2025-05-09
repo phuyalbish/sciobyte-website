@@ -35,3 +35,18 @@ export const fetchIndivisualNavCategories = async (id) => {
     console.log("Error while fetching type data: ", error);
   }
 };
+
+
+
+
+export const fetchTrekCategories = async () => {
+  try {
+    const response = await axios({
+      url: `${BASE_API_URL}/region/treks/nav/`,
+      method: "GET",
+    });
+    return response.data;
+  } catch (error) {
+    console.log("Error while fetching type data: ", error);
+  }
+};

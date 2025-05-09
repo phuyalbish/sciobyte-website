@@ -9,7 +9,11 @@ import Location from "@/assets/icons/Location.svg"
 import Email from "@/assets/icons/Email.svg"
 import Phone from "@/assets/icons/Phone.svg"
 import Whatsapp from "@/assets/icons/Whatsapp.svg"
+import Visa from "@/assets/Payment/Visa.svg"
+import MasterCard from "@/assets/Payment/Mastercard.svg"
+import WesternUnion from "@/assets/Payment/WesternUnion.svg"
 
+import Container from "@/components/Container.jsx";
 function Footer() {
   const discovery = [
     
@@ -55,10 +59,12 @@ function Footer() {
         },
       ]
   return (
-    <footer className="bg-B400 flex flex-col justify-center">
-        <div className="p-10 flex flex-col gap-2 px-8">
-          <h1 className="text-lg font-bold text-white">WE ARE ASSOCIATED WITH:</h1>
-          <div className="flex justify-center items-center gap-5 ">
+    <footer className="bg-B400 flex flex-col gap-6 justify-center ">
+      <Container >
+      <div className="flex justify-between items-center mb-10">
+        <div className="flex flex-col  justify-start items-start gap-2 ">
+          <h1 className="text-lg font-semibold  text-white">WE ARE ASSOCIATED WITH</h1>
+          <div className="flex justify-center items-center gap-6 ">
             <img
               decoding="async"
               loading="lazy"
@@ -90,7 +96,37 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-row px-8 justify-center md:justify-evenly items-start gap-10  flex-wrap mb-16">
+        <div className="flex flex-col gap-2 items-start">
+          <div className="text-md text-white">We Accept</div>
+          <div className="flex gap-2">
+
+            <img
+              decoding="async"
+              loading="lazy"
+              className="h-8 object-cover object-center"
+              src={Visa}
+              alt="Visa"
+            />
+            <img
+              decoding="async"
+              loading="lazy"
+              className="h-8 object-cover object-center"
+              src={MasterCard}
+              alt="MasterCard"
+            />
+            <img
+              decoding="async"
+              loading="lazy"
+              className="h-8 object-cover object-center"
+              src={WesternUnion}
+              alt="MasterCard"
+            />
+          </div>
+        </div>
+
+      </div>
+
+        <div className="flex flex-row  justify-center md:justify-between items-start gap-10  flex-wrap mb-16">
             <div className="flex flex-col md:justify-start justify-center gap-6 ">
                <img src={footerLogo} alt="Logo" />
               <ul className="flex flex-col  items-start gap-4 text-white">
@@ -180,10 +216,7 @@ function Footer() {
             </div>
             </div>
         </div>
-
-
-
-
+</Container>
 
       <div className="relative">
         <img

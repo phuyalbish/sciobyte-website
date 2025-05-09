@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Logo from "@/assets/logo.svg";
 import { Link } from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
@@ -6,44 +6,52 @@ import { IoClose } from "react-icons/io5";
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import Pen from "@/assets/icons/Pen.svg"
-import categories from "@/data/Categories.json";
 import { IoIosArrowDown } from "react-icons/io";
-import { fetchIndivisualNavCategories } from "@/apis/categories.js";
 import { FaHeart } from "react-icons/fa";
 import Container from "@/components/Container.jsx";
+import { fetchTrekCategories } from "@/apis/categories.js";
+import { GoArrowUpRight } from "react-icons/go";
 
-function Header({ setActiveMenu }) {
+function Header({ activeMenu, setActiveMenu }) {
   const [isDropDown, setIsDropDown] = useState(false);
-  const [searchRegionID, setSearchRegionID] = useState(0);
-
-  const [categoryDetails, setCategoryDetails] = useState({});
-  const [dropdowns, setDropdowns] = useState({});
- 
+    const [isTrekDropDown, setTrekDropDown] = useState(false);
+    const trekDropdownRef = useRef(null);
+    const trekButtonRef = useRef(null);
+      const [searchRegionID, setSearchRegionID] = useState(0);
   
-  const toggleDropdown = (slug) => {
-    setDropdowns((prev) => {
-      const newState = Object.keys(prev).reduce((acc, key) => {
-        acc[key] = false;
-        return acc;
-      }, {});
+    const [trekRegionDetail, setTrekRegionDetail] = useState({});
+  
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        
+        
+        if (
+          trekDropdownRef.current &&
+          !trekDropdownRef.current.contains(event.target) &&
+          trekButtonRef.current &&
+          !trekButtonRef.current.contains(event.target)
+        ) {
+          setTrekDropDown(false);
+        }
+      };
+  
+      window.addEventListener("click", handleClickOutside);
+      return () => {
+        window.removeEventListener("click", handleClickOutside);
+      };
+    }, []);
+  
 
-      return { ...newState, [slug]: !prev[slug] };
-    });
-
-       
-  const getIndivisualCategory = async (slug) => {
-    if (categoryDetails[slug]) return;
-    try {
-      const response = await fetchIndivisualNavCategories(slug);
-      setCategoryDetails((prev) => ({ ...prev, [slug]: response }));
-    } catch (error) {
-      console.error("Error fetching trek:", error);
-    }
-  };
-
-  getIndivisualCategory(slug);
-
-  };
+  
+    useEffect(() => {
+      (async () => {
+        const response = await fetchTrekCategories()
+        console.log(response)
+        setTrekRegionDetail(response);
+      })();
+    }, []);
+  
+  
 
   return (
       <div className="bg-white  shadow-md  sticky top-0  z-50 md:relative ">
@@ -109,69 +117,77 @@ function Header({ setActiveMenu }) {
         {isDropDown && (
           <div className="px-4 w-full h-fit top-16 fixed z-50 bg-white/90 backdrop-blur-sm p-5 gap-10 shadow-md transition-all duration-300 ease-in-out flex flex-col items-left">
            
-                      
-            {categories?.map((item, index) =>
-                <div
-                  key={index}
+
+
+            <div
                   className="relative flex gap-2 items-left w-full flex-col"
                 >
-                  <button
-                    className="flex items-center gap-1 transition font-bold  hover:text-B500"
-                    onClick={() => toggleDropdown(item.slug)}
-                  >
-                    {item.name}<IoIosArrowDown />
-                  </button>
 
-                {Array.isArray(categoryDetails[item?.slug]?.regions) && categoryDetails[item?.slug]?.regions.length > 0 && dropdowns[item.slug] && (
-                      <div className="w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md  transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
-                       
-                             <div className="flex gap-4 flex-col text-sm w-full">
-                              <div className="w-full p-1 gap-1 flex-row rounded-md flex  border border-B300">
-                                {categoryDetails[item?.slug]?.regions.map((region, index) => (
-                                  <div
-                                    key={index}
-                                    className={`${
-                                      searchRegionID === index ? "bg-B200" : "bg-transparent"
-                                    } hover:bg-B200 p-2 rounded flex flex-col text-sm w-fit text-start cursor-pointer`}
-                                    onClick={() => {
-                                      setSearchRegionID(index);
-                                    }}
-                                  >
-                                    {region?.name}
-                                  </div>
-                                ))}
-                              </div>
+              <button
+                ref={trekButtonRef}
+                  className={`${
+                    activeMenu["treks"] ? "text-B600" : "text-black"
+                  } flex items-center gap-1 transition font-bold text-base`}
+                  onClick={() => {
+                    setActiveMenu(() => ({ ["treks"]: true }));
+                    setTrekDropDown((prev) => !prev)
+                  }}
+                >
+                  Let's Trek <IoIosArrowDown />
+                </button>
 
-                              <div className="justify-start gap-2 flex flex-col">
-                                {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
-                                  <Link
 
-                                    aria-label={`Trek - ${trek?.slug}`}
-                                    key={index}
-                                    to={`/trek/${trek?.slug}`}
-                                    className="w-full text-start justify-start items-start text-base "
-                                    onClick={() => setIsDropDown(false)}
-                                  >
-                                    {trek?.name}
-                                  </Link>
-                                ))}
-                              </div>
-                               <div className="flex w-full justify-end">
-                                  <Link
+               {isTrekDropDown && (
+            
+                <div 
+                  ref={trekDropdownRef}
+                  className="w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md  transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
+               
+                   <div className="flex gap-4 flex-col text-sm w-full">
+                    <div className="w-full p-1  gap-2 bg-B500 flex-row rounded-md flex flex-wrap">
 
-                                   aria-label={`Category - ${item?.slug}`}
-                                    to={`/category/${categoryDetails[item.slug]?.slug}`}
-                                    className="w-fit flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"
-                                    onClick={() => setIsDropDown(false)}
-                                  >
-                                    View all {categoryDetails[item?.slug]?.name}
-                                  </Link>
-                                </div>
-                            </div>
-                       </div>
-                    )}
+                    {trekRegionDetail?.map((region, index) => (
+                    <div className= {`${
+                          searchRegionID == index ? "bg-white text-B500" : "bg-transparent text-white"
+                        }  hover:bg-white p-2 rounded-md  group flex  gap-2 items-center text-sm w-fit text-start cursor-pointer`} key={index} onClick={ () =>{
+                            setSearchRegionID(index)
+                          }}>
+                            <div className="group-hover:text-B500">{region?.name} </div>
+                            <Link  to={`/region/${region?.slug}`}
+                             onClick={() => {
+                          setTrekDropDown(null);
+                        }} 
+                            className="rounded-md p-1 h-fit bg-G300">
+
+                              <GoArrowUpRight className="text-base text-white"/>
+                            </Link>
+                          </div>
+                        ))}
+                    </div>
+
+                    <div className="p-2   justify-start gap-3  flex flex-col items-start">
+                    {trekRegionDetail?.[searchRegionID]?.treks.map((trek, index) => (
+                      <Link
+                        aria-label={`Trek - ${trek?.slug}`} to={`/trek/${trek?.slug}`} className="w-full text-start justify-start items-start text-base" key={index} onClick={() => {
+                          setActiveMenu({});
+                          setTrekDropDown(null);
+                        }}>{trek?.name}</Link>
+                    ))}
+
+                  <div className="flex  w-full justify-start mt-2">
+                        <Link aria-label="Trek Page" to="/category/treks" className=" w-fit  flex flex-row justify-end items-center gap-1 text-xs text-N500 hover:text-N900 cursor-pointer"  onClick={() => {
+                          setTrekDropDown(null);
+                        }} ><div>View all Treks</div> <GoArrowUpRight className="text-base"/>
+                        </Link>
+                  </div>
+                    </div>
+                  </div>
                 </div>
-            )}
+              )}
+              </div>
+
+
+
 
             <Link
 
@@ -180,7 +196,6 @@ function Header({ setActiveMenu }) {
               className="transition  hover:text-B500 text-left font-bold"
               onClick={() => {
                 setIsDropDown(false);
-                setDropdowns({});
               }}
             >
               Blogs and Tips
@@ -192,7 +207,6 @@ function Header({ setActiveMenu }) {
               className="transition  hover:text-B500 text-left  font-bold"
               onClick={() => {
                 setIsDropDown(false);
-                setDropdowns({});
               }}
             >
               About
@@ -204,8 +218,6 @@ function Header({ setActiveMenu }) {
                                             className=" group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-B500 shadow-lg rounded-md hover:text-B500 hover:bg-transparent border border-transparent hover:border-B500 text-white hover:shadow-none transition-colors duration-500"
                                             onClick={() => {
                                               setActiveMenu({ company: true });
-                                              setDropdowns({});
-                                              setCompanyDropDown(false);
                                             }}
                                           >
                       
@@ -225,3 +237,69 @@ function Header({ setActiveMenu }) {
 }
 
 export default Header;
+
+
+
+                      
+            // {categories?.map((item, index) =>
+            //     <div
+            //       key={index}
+            //       className="relative flex gap-2 items-left w-full flex-col"
+            //     >
+            //       <button
+            //         className="flex items-center gap-1 transition font-bold  hover:text-B500"
+            //         onClick={() => toggleDropdown(item.slug)}
+            //       >
+            //         {item.name}<IoIosArrowDown />
+            //       </button>
+
+            //     {Array.isArray(categoryDetails[item?.slug]?.regions) && categoryDetails[item?.slug]?.regions.length > 0 && dropdowns[item.slug] && (
+            //           <div className="w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md  transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
+                       
+            //                  <div className="flex gap-4 flex-col text-sm w-full">
+            //                   <div className="w-full p-1 gap-1 flex-row rounded-md flex  border border-B300">
+            //                     {categoryDetails[item?.slug]?.regions.map((region, index) => (
+            //                       <div
+            //                         key={index}
+            //                         className={`${
+            //                           searchRegionID === index ? "bg-B200" : "bg-transparent"
+            //                         } hover:bg-B200 p-2 rounded flex flex-col text-sm w-fit text-start cursor-pointer`}
+            //                         onClick={() => {
+            //                           setSearchRegionID(index);
+            //                         }}
+            //                       >
+            //                         {region?.name}
+            //                       </div>
+            //                     ))}
+            //                   </div>
+
+            //                   <div className="justify-start gap-2 flex flex-col">
+            //                     {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
+            //                       <Link
+
+            //                         aria-label={`Trek - ${trek?.slug}`}
+            //                         key={index}
+            //                         to={`/trek/${trek?.slug}`}
+            //                         className="w-full text-start justify-start items-start text-base "
+            //                         onClick={() => setIsDropDown(false)}
+            //                       >
+            //                         {trek?.name}
+            //                       </Link>
+            //                     ))}
+            //                   </div>
+            //                    <div className="flex w-full justify-end">
+            //                       <Link
+
+            //                        aria-label={`Category - ${item?.slug}`}
+            //                         to={`/category/${categoryDetails[item.slug]?.slug}`}
+            //                         className="w-fit flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"
+            //                         onClick={() => setIsDropDown(false)}
+            //                       >
+            //                         View all {categoryDetails[item?.slug]?.name}
+            //                       </Link>
+            //                     </div>
+            //                 </div>
+            //            </div>
+            //         )}
+            //     </div>
+            // )}

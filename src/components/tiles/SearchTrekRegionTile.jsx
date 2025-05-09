@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { truncate } from "@/utils/truncate.js";
 import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 
-function SearchTrekRegionTile({ name, image, slug, category_name, main_category, main_category_slug }) {
+function SearchTrekRegionTile({ name, image, slug, main_category, main_category_slug }) {
   return (
     <Link
 
@@ -20,7 +20,6 @@ function SearchTrekRegionTile({ name, image, slug, category_name, main_category,
       <div className="text-xs text-left text-N900">{truncate(name, 50)}</div>
       <div className="text-xs  text-left text-N700">
         {main_category}
-        {category_name ? ` of ${category_name}` : ""}
       </div>
     </Link>
   );
