@@ -86,8 +86,8 @@ function TrekBasicInformationSection({
 
     {
       icon: FaMountainSun,
-      heading: "Max Altitude"+ " Km",
-      description:max_altitude,
+      heading: "Max Altitude",
+      description:max_altitude+ " meter",
     },
     {
       icon: MdFastfood,
