@@ -3,20 +3,18 @@ import TrekFAQ from "@/components/accordion/TrekFAQ.jsx";
 
 function TrekFAQSection({ faqs }) {
   const [trekFAQ, setFaqs] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
-  
- const handleFaqState = (id) => {
+  const handleFaqState = (id) => {
+    setFaqs(
+      trekFAQ.map((faq) =>
+        faq.id === id
+          ? { ...faq, isOpened: !faq.isOpened }
+          : { ...faq, isOpened: false }
+      )
+    );
+  };
 
-  setFaqs(
-    trekFAQ.map((faq) => {
-      if (faq.id === id) {
-        return { ...faq, isOpened: !faq.isOpened }; 
-      } else {
-        return { ...faq, isOpened: false };
-      }
-    })
-  );
-};
   useEffect(() => {
     if (Array.isArray(faqs) && faqs.length > 0) {
       const updatedFaqs = faqs.map((faq, index) => ({
@@ -24,9 +22,10 @@ function TrekFAQSection({ faqs }) {
         isOpened: index === 0,
       }));
       setFaqs(updatedFaqs);
-
     }
   }, [faqs]);
+
+  const displayedFaqs = showAll ? trekFAQ : trekFAQ.slice(0, 6);
 
   return (
     <section id="faqs">
@@ -36,7 +35,8 @@ function TrekFAQSection({ faqs }) {
             <div className="text-xl tracking-wide font-liches font-light">
               Frequently Asked Questions
             </div>
-            {trekFAQ.map((faq, index) => (
+
+            {displayedFaqs.map((faq, index) => (
               <TrekFAQ
                 faq={faq}
                 key={index}
@@ -44,6 +44,15 @@ function TrekFAQSection({ faqs }) {
                 handleFaqState={handleFaqState}
               />
             ))}
+
+            {trekFAQ.length > 6 && (
+              <button
+                className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer w-full text-right mt-2 underline underline-offset-2"
+                onClick={() => setShowAll((prev) => !prev)}
+              >
+                {showAll ? "Show Less" : "Show All"}
+              </button>
+            )}
           </>
         )}
       </div>
