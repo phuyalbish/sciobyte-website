@@ -42,14 +42,14 @@ useEffect(() => {
         {
           icon: FaMountainSun,
           heading: "Max Altitude",
-          description: schedule?.max_altitude+"m",
+          description: schedule?.max_altitude+" meter",
         },
          ...(schedule?.max_duration > 1
           ? [{
               
               icon: GiDuration,
               heading: "Duration",
-              description:  schedule?.min_duration + " - "+ schedule?.max_duration + "Hrs",
+              description:  schedule?.min_duration + " - "+ schedule?.max_duration + " Hrs",
             }]
           : []),
 
@@ -58,7 +58,7 @@ useEffect(() => {
               
               icon: GiPathDistance,
               heading: "Distance",
-              description:  schedule?.distance  + "Kms",
+              description:  schedule?.distance  + " Km",
             }]
           : []),
 
@@ -67,7 +67,7 @@ useEffect(() => {
           ? [{
               icon: FaArrowTrendUp,
               heading: "Elevation Gain",
-              description: schedule?.elevation_gain + "m",
+              description: schedule?.elevation_gain + " meter",
             }]
           : []),
 
@@ -75,7 +75,7 @@ useEffect(() => {
           ? [{
               icon: FaArrowTrendDown,
               heading: "Elevation Loss",
-              description:  schedule?.elevation_loss + "m",
+              description:  schedule?.elevation_loss + " meter",
             }]
           : []),
        

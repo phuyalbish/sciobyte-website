@@ -40,7 +40,7 @@ function TrekBasicInformationSection({
     {
       icon: RiPinDistanceFill,
       heading: "Max Distance",
-      description: max_distance + " Kms",
+      description: max_distance + " Km",
     },
         {
       icon: GiWalkingBoot,
@@ -86,7 +86,7 @@ function TrekBasicInformationSection({
 
     {
       icon: FaMountainSun,
-      heading: "Max Altitude",
+      heading: "Max Altitude"+ " Km",
       description:max_altitude,
     },
     {
