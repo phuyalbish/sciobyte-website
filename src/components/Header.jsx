@@ -7,7 +7,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import Pen from "@/assets/icons/Pen.svg"
 import { IoIosArrowDown } from "react-icons/io";
-import { FaHeart } from "react-icons/fa";
+import Heart from "@/assets/Heart.svg";
 import Container from "@/components/Container.jsx";
 import { fetchTrekCategories } from "@/apis/categories.js";
 import { GoArrowUpRight } from "react-icons/go";
@@ -94,9 +94,16 @@ function Header({ activeMenu, setActiveMenu }) {
               </div>
             </div>
             <div className="flex gap-4 justify-center items-center md:hidden ">
-              <Link  to="/liked" aria-label="Liked Page">
-                <FaHeart   className="size-6  text-red-500 hover:text-B500  cursor-pointer select-none"/>
-              </Link>
+
+                 <Link  to="/liked" aria-label="Liked Page">
+                    <img
+                      decoding="async"
+                      loading="lazy"
+                      src={Heart}
+                      className="ml-5 md:ml-0 aspect-square transition-all duration-300"
+                      alt="Logo Image"
+                    />
+                </Link>
            <div className="md:hidden">
               {isDropDown ? (
                 <IoClose
@@ -201,7 +208,6 @@ function Header({ activeMenu, setActiveMenu }) {
               Blogs and Tips
             </Link>
             <Link
-
             aria-label="Company Page"
               to="/about"
               className="transition  hover:text-B500 text-left  font-bold"
@@ -211,9 +217,6 @@ function Header({ activeMenu, setActiveMenu }) {
             >
               About
             </Link>
-
-
-
                                     <Link to="/create" aria-label="Create Your Trip"
                                             className=" group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-B500 shadow-lg rounded-md hover:text-B500 hover:bg-transparent border border-transparent hover:border-B500 text-white hover:shadow-none transition-colors duration-500"
                                             onClick={() => {
@@ -237,69 +240,3 @@ function Header({ activeMenu, setActiveMenu }) {
 }
 
 export default Header;
-
-
-
-                      
-            // {categories?.map((item, index) =>
-            //     <div
-            //       key={index}
-            //       className="relative flex gap-2 items-left w-full flex-col"
-            //     >
-            //       <button
-            //         className="flex items-center gap-1 transition font-bold  hover:text-B500"
-            //         onClick={() => toggleDropdown(item.slug)}
-            //       >
-            //         {item.name}<IoIosArrowDown />
-            //       </button>
-
-            //     {Array.isArray(categoryDetails[item?.slug]?.regions) && categoryDetails[item?.slug]?.regions.length > 0 && dropdowns[item.slug] && (
-            //           <div className="w-full bg-white/65 backdrop-blur-md border border-white/20 p-2 rounded-md  transition-all duration-300 ease-in-out flex flex-col gap-3 text-N900 text-sm justify-start items-start">
-                       
-            //                  <div className="flex gap-4 flex-col text-sm w-full">
-            //                   <div className="w-full p-1 gap-1 flex-row rounded-md flex  border border-B300">
-            //                     {categoryDetails[item?.slug]?.regions.map((region, index) => (
-            //                       <div
-            //                         key={index}
-            //                         className={`${
-            //                           searchRegionID === index ? "bg-B200" : "bg-transparent"
-            //                         } hover:bg-B200 p-2 rounded flex flex-col text-sm w-fit text-start cursor-pointer`}
-            //                         onClick={() => {
-            //                           setSearchRegionID(index);
-            //                         }}
-            //                       >
-            //                         {region?.name}
-            //                       </div>
-            //                     ))}
-            //                   </div>
-
-            //                   <div className="justify-start gap-2 flex flex-col">
-            //                     {categoryDetails[item.slug]?.regions[searchRegionID]?.treks.map((trek, index) => (
-            //                       <Link
-
-            //                         aria-label={`Trek - ${trek?.slug}`}
-            //                         key={index}
-            //                         to={`/trek/${trek?.slug}`}
-            //                         className="w-full text-start justify-start items-start text-base "
-            //                         onClick={() => setIsDropDown(false)}
-            //                       >
-            //                         {trek?.name}
-            //                       </Link>
-            //                     ))}
-            //                   </div>
-            //                    <div className="flex w-full justify-end">
-            //                       <Link
-
-            //                        aria-label={`Category - ${item?.slug}`}
-            //                         to={`/category/${categoryDetails[item.slug]?.slug}`}
-            //                         className="w-fit flex flex-row justify-end text-xs text-N500 hover:text-N900 cursor-pointer"
-            //                         onClick={() => setIsDropDown(false)}
-            //                       >
-            //                         View all {categoryDetails[item?.slug]?.name}
-            //                       </Link>
-            //                     </div>
-            //                 </div>
-            //            </div>
-            //         )}
-            //     </div>
-            // )}

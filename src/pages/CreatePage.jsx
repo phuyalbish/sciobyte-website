@@ -91,7 +91,7 @@ function CreatePage() {
         <div className="text-center flex flex-col gap-1">
           <h1 className="text-2xl font-liches font-bold text-gray-900">Create your Trip</h1>
           <p className="text-N500">
-            Customize what works for You
+            Customize what works best for You.
           </p>
         </div>
 

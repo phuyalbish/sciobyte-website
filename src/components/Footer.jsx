@@ -142,7 +142,7 @@ function Footer() {
                 <li className="flex gap-2 items-center"> 
                   <img src={Email} alt="Email Icon" className="w-7 aspect-square" />
                   <div className="flex flex-col  items-start justify-start">
-                    <div>info@hellotrekkers.com,</div>
+                    <div>info@hellotrekkers.com</div>
                     <div>hellotrekkersnamaste@gmail.com</div>
                   </div>
                 </li>

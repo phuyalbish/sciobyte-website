@@ -91,7 +91,7 @@ function ContactPage() {
         <div className="text-center mb-12">
           <h1 className="text-3xl font-liches font-bold text-gray-900">Contact Us</h1>
           <p className="mt-2 text-gray-600">
-            Thankyou for reaching out. We'll respond shortly.
+            Thank you for reaching out. We'll respond shortly.
           </p>
         </div>
 
