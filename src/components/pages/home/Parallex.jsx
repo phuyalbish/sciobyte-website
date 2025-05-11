@@ -8,6 +8,7 @@ import img6 from "@/assets/image6.svg";
 import img7 from "@/assets/image7.svg";
 import img8 from "@/assets/image8.svg";
 import img9 from "@/assets/image9.svg";
+import img10 from "@/assets/image10.svg";
 
 export default function Parallax() {
   const { scrollY } = useScroll();
@@ -84,55 +85,11 @@ export default function Parallax() {
           />
         </div>
 
-        <div className="relative md:hidden w-full h-[50vh] overflow-hidden ">
-          <motion.img
-            src={img9}
+        <div className="relative md:hidden  w-full ">
+          <img
+            src={img10}
             alt=""
-            className="absolute  w-full"
-            style={{ y: y5, top: "170px" }}
-          />
-          <motion.img
-            src={img7}
-            alt=""
-            className="absolute  w-full"
-            style={{ y: y5, top: "170px" }}
-          />
-          <motion.img
-            src={img8}
-            alt=""
-            className="absolute  w-full"
-            style={{ y: y3, top: "190px" }}
-          />
-
-          <motion.img
-            src={img6}
-            alt=""
-            className="absolute  w-full"
-            style={{ y: y5, top: "230px" }}
-          />
-          <motion.img
-            src={img5}
-            alt=""
-            className="absolute  w-full"
-            style={{ y: y5, top: "200px" }}
-          />
-          <motion.img
-            src={img3}
-            alt=""
-            className="absolute  w-full"
-            style={{ y: y3, top: "210px" }}
-          />
-          <motion.img
-            src={img2}
-            alt=""
-            className="absolute  w-full"
-            style={{ y: y3, top: "260px" }}
-          />
-          <motion.img
-            src={img1}
-            alt=""
-            className="absolute  w-full"
-            style={{ y: y1, top: "240px" }}
+            className="w-full mt-40"
           />
         </div>
       </div>
