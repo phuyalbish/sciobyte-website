@@ -85,7 +85,7 @@ export default function Parallax() {
           />
         </div>
 
-        <div className="relative md:hidden  w-full ">
+        <div className="relative md:hidden  w-full p-0 m-0">
           <img
             src={img10}
             alt=""
