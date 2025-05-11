@@ -109,17 +109,18 @@ function TrekBasicInformationSection({
         </div>
 
       {Array.isArray(districts) && districts.length > 0 && (
-        <div className="text-md font-normal text-left flex gap-2 items-center flex-wrap">
-          <CiLocationOn />
+        <div className="text-B400 group  cursor-pointer text-sm  text-left flex gap-2 items-center flex-wrap">
+          <CiLocationOn className="size-5 transition-colors duration-500 group-hover:text-B700"/>
           {districts.map((district, index) => (
+            
             <Link
             aria-label={`District - ${district?.slug}`}
               key={district?.slug}
               to={`/district/${district?.slug}`}
-              className="hover:underline underline-offset-1"
+              className=" underline underline-offset-2  hover:text-B700 transition-colors duration-500"
             >
               {district?.name}
-              {index < districts.length - 1 && <span>,&nbsp;</span>}
+              {index < districts.length - 1 && <span>,</span>}
             </Link>
           ))}
         </div>
@@ -129,7 +130,7 @@ function TrekBasicInformationSection({
 
         {trekBasicHeadings.map((item, index) =>
           item?.description ? (
-            <div key={index} className="rounded-xl flex gap-3  items-start justify-start">
+            <div key={index} className="rounded-xl flex gap-3  items-center justify-start">
 
                   {item?.icon &&
                       React.createElement(item?.icon, {
