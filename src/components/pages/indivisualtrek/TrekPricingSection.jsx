@@ -64,9 +64,9 @@ function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars
             </div> */}
              <div onClick={toggleFavorite} className="cursor-pointer">
               {isFavorite ? (
-                <FaHeart className="text-red-500 size-6" />
+                <FaHeart className="text-blue-500 size-6" />
               ) : (
-                <FaRegHeart className="text-red-500 size-6" />
+                <FaRegHeart className="text-blue-500 size-6" />
               )}
             </div>
             <CiShare2 className="size-7 cursor-pointer" onClick={handleCopy} />
