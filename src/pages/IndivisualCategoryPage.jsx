@@ -63,7 +63,7 @@ function IndivisualCategoryPage() {
         ))}
         </SectionGappingWithoutAnimation>
       </div>
-
+{/* 
 <div className="flex flex-col gap-4">
        <h1 className="text-lg font-liches md:text-xl font-regular w-full text-left">
         {category?.region_count} Region{category?.region_count >= 2 ? "s" : ""}
@@ -79,7 +79,7 @@ function IndivisualCategoryPage() {
           />
         ))}
       </div>
-      </div>
+      </div> */}
     </PageConatiner>
   );
 }
