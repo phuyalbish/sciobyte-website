@@ -153,19 +153,19 @@ useEffect(() => {
 
           <div dangerouslySetInnerHTML={{ __html: sanitizedContent }}    className='text-justify custom-rich-content'/>
          {schedule?.gallery?.length > 0 && (
-            <div className="flex gap-2 relative overflow-x-auto scroll-smooth snap-x snap-mandatory rounded-md h-[400px] z-0 ">
-              {schedule.gallery.map((item, index) => (
-                <div key={index} className="h-full flex items-center  snap-start shrink-0">
-                  <img
-                    decoding="async"
-                    alt={`Trek Itinerary Gallery ${index + 1}`}
-                    loading="lazy"
-                    src={BASE_MEDIA_URL + item.image}
-                    className="object-cover h-full w-auto max-w-full transition-all duration-500 ease-in-out rounded-md"
-                  />
-                </div>
-              ))}
-            </div>
+           <div className="flex gap-2 relative overflow-x-auto scroll-smooth snap-x snap-mandatory rounded-md h-[400px] z-0 custom-scrollbar">
+           {schedule.gallery.map((item, index) => (
+             <div key={index} className="h-full flex items-center snap-start shrink-0">
+               <img
+                 decoding="async"
+                 alt={`Trek Itinerary Gallery ${index + 1}`}
+                 loading="lazy"
+                 src={BASE_MEDIA_URL + item.image}
+                 className="object-cover h-full w-auto max-w-full transition-all duration-500 ease-in-out rounded-md"
+               />
+             </div>
+           ))}
+         </div>
           )}
         </div>
         )}
