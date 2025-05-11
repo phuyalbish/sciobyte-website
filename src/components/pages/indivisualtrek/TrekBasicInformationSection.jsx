@@ -129,7 +129,7 @@ function TrekBasicInformationSection({
 
         {trekBasicHeadings.map((item, index) =>
           item?.description ? (
-            <div key={index} className="rounded-xl flex gap-3  items-center justify-start">
+            <div key={index} className="rounded-xl flex gap-3  items-start justify-start">
 
                   {item?.icon &&
                       React.createElement(item?.icon, {
