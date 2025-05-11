@@ -74,8 +74,8 @@ const TrekTile = ({ data }) => {
         <h2 className="font-bold text-md text-left line-clamp-2">{name}</h2>
         </div>
         <div className="flex flex-col ">
-          <div className="flex justify-between items-center mb-1 w-full">
-            <span className="text-yellow-500 text-md  flex">
+          <div className="flex sm:justify-between justify-end  items-center mb-1 w-full">
+            <span className="text-yellow-500 text-md hidden sm:flex">
               {[...Array(stars)].map((_, index) => (
                 <FaStar key={index} className="text-yellow-500" />
               ))}

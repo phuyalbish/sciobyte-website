@@ -8,7 +8,7 @@ import {fetchData} from "@/apis/https";
 import debounce from "lodash.debounce";
 import { useCallback } from "react";
 import FooterVector from "@/assets/footer/FooterBlog.svg";
-import PageContainer from "@/components/PageContainer.jsx";
+import Container from "@/components/Container.jsx";
 
 
 function BlogListPage(){
@@ -88,7 +88,7 @@ const searchBlog = useCallback(
 
   return (
     <>
-    <PageContainer>
+    <Container>
       <SingleBlogSection/>
       <div className="flex flex-col gap-2 mb-20">
         <div className="relative w-full flex gap-5 flex-wrap  justify-between"> 
@@ -135,7 +135,7 @@ const searchBlog = useCallback(
         )} */}
 
         </div>
-        </PageContainer>
+        </Container>
 
 
       <img src={FooterVector}  alt="Footer Vector Home Page"  className="w-full" />
