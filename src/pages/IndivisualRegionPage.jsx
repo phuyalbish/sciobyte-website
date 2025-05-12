@@ -6,7 +6,7 @@ import DOMPurify from 'dompurify';
 import { fetchIndivisualRegions } from "@/apis/regions.js";
 import PageConatiner from "@/components/PageContainer.jsx";
 
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 function IndivisualRegionPage() {
   const [region, setRegion] = useState(null);
   const [content, setContent] = useState(null);
@@ -34,7 +34,7 @@ function IndivisualRegionPage() {
       <img
         decoding="async"
         loading="lazy"
-        src={BASE_MEDIA_URL + region?.image}
+        src={CLOUDINARY_BASE_MEDIA_URL + region?.image}
         alt={region?.name}
         className="w-full aspect-video max-h-[60vh] object-cover rounded-md"
       />

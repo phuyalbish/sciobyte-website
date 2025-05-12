@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
+
 import {
   ImageSkeleton,
   HeadingSkeleton,
@@ -63,7 +64,7 @@ const SingleBlogSection = () => {
             decoding="async"
             loading="lazy"
             alt={currentBlog?.name}
-            src={BASE_MEDIA_URL + currentBlog?.image}
+            src={CLOUDINARY_BASE_MEDIA_URL + currentBlog?.image}
             className="w-full h-[15rem] md:h-[23rem] object-cover brightness-90 rounded-xl"
           />
         )}

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 function NavbarTrekRegionTile({ image, type, name, id, setDropdowns }) {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function NavbarTrekRegionTile({ image, type, name, id, setDropdowns }) {
       <img
         decoding="async"
         loading="lazy"
-        src={BASE_MEDIA_URL + image}
+        src={CLOUDINARY_BASE_MEDIA_URL + image}
         alt="Nav Bar Trek Region Image"
         className="w-12 h-12 aspect-square rounded-md"
       />

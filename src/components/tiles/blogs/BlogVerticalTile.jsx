@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 import {fetchData} from "@/apis/https";
 const BlogVerticalTile = () => {
 
@@ -39,7 +39,7 @@ const BlogVerticalTile = () => {
       <div className="relative h-full">
         
             <img
-              src={BASE_MEDIA_URL+blog?.image}
+              src={CLOUDINARY_BASE_MEDIA_URL+blog?.image}
               alt={blog?.heading}
               decoding="async"
               loading="lazy"

@@ -21,7 +21,6 @@ import TrekPricingSection from "@/components/pages/indivisualtrek/TrekPricingSec
 import TrekOtherInfoSection from "@/components/pages/indivisualtrek/TrekOtherInfoSection";
 import { fetchTreks } from "@/apis/treks.js";
 
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 function IndivisualTrekPage() {
   const [trek, setTrek] = useState(null);
@@ -219,7 +218,7 @@ function IndivisualTrekPage() {
           {trek.reference.map((item, index) => (
                 <TrekTile
                   key={index}
-                  data={{ ...item, image: BASE_MEDIA_URL + item.image }}
+                  data={item}
                 />
               ))}
               </SectionGappingWithoutAnimation>

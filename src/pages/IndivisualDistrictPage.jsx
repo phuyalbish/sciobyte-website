@@ -4,7 +4,7 @@ import TrekTile from "@/components/tiles/TrekTile.jsx";
 import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAnimation';
 import DOMPurify from 'dompurify';
 import { fetchIndivisualDistricts } from "@/apis/districts.js";
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 import PageConatiner from "@/components/PageContainer.jsx";
 
 function IndivisualDistrictPage() {
@@ -34,7 +34,7 @@ function IndivisualDistrictPage() {
       <img
         decoding="async"
         loading="lazy"
-        src={BASE_MEDIA_URL + district?.image}
+        src={CLOUDINARY_BASE_MEDIA_URL + district?.image}
         alt={district?.name}
         className="w-full aspect-video max-h-[60vh] object-cover rounded-md"
       />

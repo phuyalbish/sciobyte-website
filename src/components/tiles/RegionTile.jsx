@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 function RegionTile({ img, name, slug }) {
   return (
     <Link 
@@ -7,7 +8,7 @@ function RegionTile({ img, name, slug }) {
       <img
         decoding="async"
         loading="lazy"
-        src={img}
+        src={CLOUDINARY_BASE_MEDIA_URL+img}
         alt={name}
         className="w-full aspect-square rounded-md"
         

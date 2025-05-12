@@ -5,6 +5,7 @@ import difficulty_img from "@/assets/difficult.svg";
 import group from "@/assets/group.svg";
 import duration_img from "@/assets/duration.svg";
 import type_img from "@/assets/TrekType.svg";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 const JourneyDetailsPanel = ({ icon, value, type }) => {
   return (
     <div className="flex justify-between items-center gap-2   rounded-lg">
@@ -44,7 +45,7 @@ const TrekTile = ({ data }) => {
           decoding="async"
           loading="lazy"
           className=" w-full h-64 object-cover object-center group-hover:scale-110 transition-all duration-300"
-          src={image}
+          src={CLOUDINARY_BASE_MEDIA_URL+image}
           alt={name}
         />
         {tag && (

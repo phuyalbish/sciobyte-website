@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 import EmblaGalleryCarousel from "@/components/carousel/EmblaGalleryCarousel.jsx";
 function ImageSlideSection({ gallery}) {
@@ -26,7 +26,7 @@ function ImageSlideSection({ gallery}) {
                 decoding="async"
                 loading="lazy"
                 alt={`Gallery Image ${index}`}
-                src={BASE_MEDIA_URL + item.image}
+                src={CLOUDINARY_BASE_MEDIA_URL + item.image}
                 className="object-cover w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
               />
             </div>
@@ -35,7 +35,7 @@ function ImageSlideSection({ gallery}) {
               decoding="async"
               loading="lazy"
               key={index}
-              src={BASE_MEDIA_URL + item.image}
+              src={CLOUDINARY_BASE_MEDIA_URL + item.image}
 
                 alt={`Gallery Image ${index}`}
               className={`object-cover pointer-events-auto px-0.5 overflow-hidden transition-all rounded-md duration-500 ease-in-out 
@@ -68,7 +68,7 @@ function ImageSlideSection({ gallery}) {
                 key={index}
 
                 alt={`Gallery Image ${index}`}
-                src={BASE_MEDIA_URL + item.image}
+                src={CLOUDINARY_BASE_MEDIA_URL + item.image}
                 className="z-0 bg-black object-cover rounded-md w-full aspect-square overflow-hidden transition-all duration-500 ease-in-out"
               />
             </div>
@@ -79,7 +79,7 @@ function ImageSlideSection({ gallery}) {
               key={index}
 
                 alt={`Gallery Image ${index}`}
-              src={BASE_MEDIA_URL + item.image}
+              src={CLOUDINARY_BASE_MEDIA_URL + item.image}
               className={`object-cover transition-all aspect-video rounded-md duration-500 ease-in-out 
                   ${index == 0 ? "w-full" : "w-1/3 flex-grow"}`}
             />
@@ -109,7 +109,7 @@ function ImageSlideSection({ gallery}) {
                     decoding="async"
                     loading="lazy"
                     alt={`Gallery Image ${index}`}
-                    src={BASE_MEDIA_URL + item.image}
+                    src={CLOUDINARY_BASE_MEDIA_URL + item.image}
                     className="max-h-full w-auto transition-all duration-500 ease-in-out rounded-md"
                   />
                 </div>

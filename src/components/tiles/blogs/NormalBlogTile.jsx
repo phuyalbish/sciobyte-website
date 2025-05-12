@@ -6,7 +6,7 @@ import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 
 
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 import { ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
 const NormalBlogTile = ({ blog, baseUrl=false }) => {
@@ -51,7 +51,7 @@ const NormalBlogTile = ({ blog, baseUrl=false }) => {
                   Share
                 </div>
                 <img
-                src={ baseUrl ? BASE_MEDIA_URL+image:image} 
+                src={CLOUDINARY_BASE_MEDIA_URL+image} 
                   alt={heading}
                   decoding="async"
                   loading="lazy"

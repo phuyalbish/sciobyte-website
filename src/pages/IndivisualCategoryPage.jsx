@@ -5,7 +5,7 @@ import TrekTile from "@/components/tiles/TrekTile.jsx";
 import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAnimation';
 import DOMPurify from 'dompurify';
 import { fetchIndivisualCategories } from "@/apis/categories.js";
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 import PageConatiner from "@/components/PageContainer.jsx";
 
 function IndivisualCategoryPage() {
@@ -35,7 +35,7 @@ function IndivisualCategoryPage() {
       <img
         decoding="async"
         loading="lazy"
-        src={BASE_MEDIA_URL + category?.image}
+        src={CLOUDINARY_BASE_MEDIA_URL + category?.image}
         alt={category?.name}
         className="w-full aspect-video max-h-[60vh] object-cover rounded-md"
       />

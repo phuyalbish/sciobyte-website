@@ -4,7 +4,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { format } from "date-fns";
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 const BlogHorizontalTile = ({ blog }) => {
   const {
     heading,
@@ -38,7 +38,7 @@ const BlogHorizontalTile = ({ blog }) => {
             <img
               decoding="async"
               loading="lazy!"
-              src={BASE_MEDIA_URL+image}
+              src={CLOUDINARY_BASE_MEDIA_URL+image}
               className="w-full h-48 sm:h-full object-cover rounded-lg"
               alt={heading}
             />

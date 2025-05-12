@@ -8,7 +8,7 @@ import { scrollToSection } from "@/apis/scrollToSection.js";
 // import { FaStar } from "react-icons/fa";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+// import { BASE_MEDIA_URL } from "@/config/baseurl.js";
 function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars = 0 }) {
   const { id } = useParams();
 
@@ -49,7 +49,7 @@ function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars
     }
   };
   return (
-    <div className="flex flex-col w-full gap-7">
+    <div className="flex flex-col w-full gap-2 mt-5">
       <div className="flex flex-col gap-2">
         <div className="relative flex justify-between w-full items-start flex-wrap">
           <div className="flex flex-col items-start">
@@ -132,9 +132,9 @@ function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars
         </Link>
         </div>
       </div>
-      {map && (
+      {/* {map && (
         <div className="flex flex-col gap-3 ">
-        <div className="text-lg text-left font-bold">Route Map & Elevation</div>
+        <div className="text-md text-center font-bold">Route Map and Elevation</div>
         <div
           className="group w-full h-full flex items-center justify-center cursor-pointer"
           onClick={() => scrollToSection("maps")}
@@ -151,7 +151,7 @@ function TrekPricingSection({ slug, total_price, map, pricings, trek_name, stars
           />
         </div>
       </div>
-      )}
+      )} */}
     </div>
   );
 }
