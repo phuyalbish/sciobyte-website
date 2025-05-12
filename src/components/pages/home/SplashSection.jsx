@@ -1,6 +1,5 @@
 import  { useState } from "react";
 // import vid from "@/assets/SplashVid.mp4";
-import SplashVidGif from "@/assets/SplashVideo.gif";
 import imgVector from "@/assets/vectorSplashImg.svg";
 import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
@@ -37,10 +36,13 @@ const handleSearch = async () => {
   return (
     <div className="relative w-full h-full">
       <div className="absolute h-full inset-0  w-full">
-        <img 
+      <video
           className="w-full h-full object-cover pb-5 z-0 brightness-75"
-          src={SplashVidGif}
-          alt="SplashVidGif"
+          src="https://res.cloudinary.com/ddpus4suz/video/upload/v1747062872/o5hhix712ukugozt5grh.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
         />
       </div>
 
