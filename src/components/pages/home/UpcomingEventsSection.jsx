@@ -17,6 +17,7 @@ const [events, setEvents] = useState([]);
 
 
   return (
+    Array.isArray(events) && events.length > 0 ? (
     <div className="mb-20">
       <Container>
         <div className="flex flex-col mb-10">
@@ -25,15 +26,13 @@ const [events, setEvents] = useState([]);
           </div>
           <div className=""><span className="text-B500 font-dance text-2xl ">Travel with new friends,</span> <span className="text-G500 text-2xl  font-dance">create new Tales</span></div>
         </div>
-        {Array.isArray(events) && events.length > 0 ? (
-          events?.map((event, index) => (
+          {events?.map((event, index) => (
             <UpcomingEventTile key={index} data={event} />
-          ))
-        ) : (
-          <p className="md:block hidden text-gray-500">No Events available</p>
-        )}
+          ))}
       </Container>
     </div>
+
+  ) :""
   );
 };
 
