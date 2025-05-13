@@ -32,9 +32,6 @@ const [treks, setTreks] = useState([]);
     const timer = setTimeout(() => setShowBanner(false), 5000);
     return () => clearTimeout(timer);
   }, []);
-
-  console.log("Trek Data:", treks)
-
   return (
     <div className="flex flex-col gap-10 md:gap-16 relative w-full scrollbar-gutter-stable ">
       <div className="flex flex-col">

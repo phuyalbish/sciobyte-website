@@ -46,7 +46,6 @@ function Header({ activeMenu, setActiveMenu }) {
     useEffect(() => {
       (async () => {
         const response = await fetchTrekCategories()
-        console.log(response)
         setTrekRegionDetail(response);
       })();
     }, []);

@@ -21,7 +21,6 @@ function ReviewSection() {
   const [openedReviewDetail, setopenedReviewDetail] = useState()
 
   const openPopUp = (review) => {
-    console.log(review)
     setOpenedName(review.author_name)
     setOpenedProfile(review.profile_photo_url)
     setOpenedStar(review.rating)

@@ -39,8 +39,7 @@ function IndivisualTrekPage() {
     const getTrek = async () => {
       try {
         const response = await fetchIndivisualTrek(id);
-        console.log(response)
-        response.gallery = [{image:response.image},...response.gallery]
+        response.gallery = [{image:response?.image},...response?.gallery]
         setTrek(response);
 
       } catch (error) {
