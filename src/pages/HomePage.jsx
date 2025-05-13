@@ -9,6 +9,7 @@ import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
 import ReviewSection from "@/components/pages/home/ReviewSection";
 import SpontaneousTrekSection from "@/components/pages/home/SpontaneousTrekSection";
 import PreferenceSection from "@/components/pages/home/PreferenceSection";
+import UpcomingEventSection from "@/components/pages/home/UpcomingEventsSection.jsx";
 import FooterVector from "@/assets/footer/FooterHome.svg";
 import { useEffect, useState } from "react";
 import { fetchHomeTreks } from "@/apis/treks.js";
@@ -49,7 +50,7 @@ const [treks, setTreks] = useState([]);
         <YTSection />
         <ReviewSection />
       </div>
-
+        <UpcomingEventSection />
       <div className="flex flex-col w-full relative">
       <InstagramSection />
       <div className="w-full flex flex-col gap-10 bg-G200 py-6 pt-10">
