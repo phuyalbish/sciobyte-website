@@ -35,21 +35,22 @@ function IndivisualTrekPage() {
       })();
     }, []);
 
-  useEffect(() => {
-    const getTrek = async () => {
-      try {
-        const response = await fetchIndivisualTrek(id);
-        response.gallery = [{image:response?.image},...response?.gallery]
-        setTrek(response);
 
-      } catch (error) {
-        console.error("Error fetching trek:", error);
-      }
-    };
-
-    getTrek();
-  }, [id]);
-
+    useEffect(() => {
+      if (!id) return;
+  
+      const getTrek = async () => {
+        try {
+          const response = await fetchIndivisualTrek(id);
+          response.gallery = [{ image: response?.image }, ...(response?.gallery || [])];
+          setTrek(response);
+        } catch (error) {
+          console.error("Error fetching trek:", error);
+        }
+      };
+  
+      getTrek();
+    }, [id]);
   return (
     <>
     <div className="mb-10">

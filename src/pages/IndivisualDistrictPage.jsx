@@ -52,7 +52,7 @@ function IndivisualDistrictPage() {
           {district?.treks?.map((item, index) => (
           <TrekTile
             key={index}
-            data={{ ...item, image: BASE_MEDIA_URL + item.image }}
+            data={item}
           />
         ))}
         </SectionGappingWithoutAnimation>

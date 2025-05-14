@@ -20,7 +20,7 @@ import GotoTop from "@/components/GotoTop.jsx";
 import { v4 as uuidv4 } from "uuid";
 
 import "@/assets/styles/blogs.css";
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import {CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 const extractHeadings = (htmlContent) => {
   const parser = new DOMParser();
@@ -202,7 +202,7 @@ const BlogDetail = () => {
                     decoding="async"
                     loading="lazy"
                     
-                    src={BASE_MEDIA_URL + blog?.image}
+                    src={CLOUDINARY_BASE_MEDIA_URL + blog?.image}
                     alt={blog?.heading}
                     className="w-full h-full object-cover rounded-xl"
                   />
