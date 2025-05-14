@@ -91,7 +91,7 @@ function IndivisualTrekPage() {
             />
             </div>
             <div className="flex flex-col gap-10 text-left">
-              <div className="p-2 px-4 sticky overflow-x-auto top-16 md:rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-white">
+              <div className="p-2 px-4 sticky overflow-x-auto top-0 md:rounded-b-md z-20 bg-B400 flex flex-nowrap gap-7 text-md  underline-offset-4 tracking-wide font-liches font-light  text-white">
                 <button
                   onClick={() => scrollToSection("overview")}
                   className="hover:underline"

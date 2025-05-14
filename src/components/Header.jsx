@@ -53,7 +53,7 @@ function Header({ activeMenu, setActiveMenu }) {
   
 
   return (
-      <div className="bg-white  shadow-md  sticky top-0  z-50 md:relative ">
+    <>
         <Container>
           <header className=" z-30 text-white py-[1rem] w-full flex flex-row  justify-between">
             <Link
@@ -234,7 +234,7 @@ function Header({ activeMenu, setActiveMenu }) {
 
 
         )}
-      </div>
+      </>
   );
 }
 

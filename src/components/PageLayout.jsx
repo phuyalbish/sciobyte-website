@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { useLocation } from "react-router-dom";
+import {motion, useScroll, useMotionValueEvent} from "framer-motion"
 import Footer from "@/components/Footer.jsx";
 import Header from "@/components/Header.jsx";
 import Navbar from "@/components/Navbar";
@@ -7,13 +8,69 @@ import whatsapp from "@/assets/whatsapp.png";
 export default function PageLayout({ children }) {
   const [activeMenu, setActiveMenu] = useState({});
 
+  const location = useLocation();
+
+  const scrollStickyRoutes = ["/trek"];
+  const shouldUseAnimatedSticky = scrollStickyRoutes.some((path) =>
+    location.pathname.startsWith(path)
+  );
+
+  const { scrollY}  = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) =>{
+    const previous = scrollY.getPrevious();
+    if(latest > previous && latest > 1090){
+        setHidden(true)
+    }
+    else{
+      setHidden(false)
+    }
+  })
 
   return (
     <div className="flex relative w-full flex-col bg-gray-100">
-      <Header activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
-      <div className="sticky  top-0 z-50">
-        <Navbar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+
+      {shouldUseAnimatedSticky ? (
+              <motion.nav
+                variants={{
+                  visible: { y: 0 },
+                  hidden: { y: "-100%" },
+                }}
+                animate={hidden ? "hidden" : "visible"}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="sticky top-0 z-50 bg-white shadow-md md:hidden"
+              >
+                <Header activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+              </motion.nav>
+            ) : (
+            <div className={`bg-white  shadow-md  top-0  z-50 sticky md:hidden`}>
+                <Header activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+            </div>
+            )}
+
+      <div className={`bg-white  shadow-md  top-0  z-50  md:block hidden`}>
+            <Header activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       </div>
+
+
+      {shouldUseAnimatedSticky ? (
+        <motion.nav
+          variants={{
+            visible: { y: 0 },
+            hidden: { y: "-100%" },
+          }}
+          animate={hidden ? "hidden" : "visible"}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className="sticky top-0 z-50 bg-white shadow-md"
+        >
+          <Navbar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+        </motion.nav>
+      ) : (
+        <div className="sticky top-0 z-50">
+          <Navbar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+        </div>
+      )}
       <main className="flex-1  relative bg-gray-100">
         {children}
 
