@@ -16,17 +16,24 @@ export default function PageLayout({ children }) {
   );
 
   const { scrollY}  = useScroll();
-  const [hidden, setHidden] = useState(false);
-
-  useMotionValueEvent(scrollY, "change", (latest) =>{
+  const [hideHeader, setHideHeader] = useState(false);
+  const [hideNavbar, setHideNavbar] = useState(false);
+  
+  useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
-    if(latest > previous && latest > 1090){
-        setHidden(true)
+  
+    if (latest > previous && latest > 1000) {
+      setHideHeader(true);
+    } else {
+      setHideHeader(false);
     }
-    else{
-      setHidden(false)
+  
+    if (latest > previous && latest > 1090) {
+      setHideNavbar(true);
+    } else {
+      setHideNavbar(false);
     }
-  })
+  });
 
   return (
     <div className="flex relative w-full flex-col bg-gray-100">
@@ -37,7 +44,7 @@ export default function PageLayout({ children }) {
                   visible: { y: 0 },
                   hidden: { y: "-100%" },
                 }}
-                animate={hidden ? "hidden" : "visible"}
+                animate={hideHeader ? "hidden" : "visible"}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
                 className="sticky top-0 z-50 bg-white shadow-md md:hidden"
               >
@@ -60,7 +67,7 @@ export default function PageLayout({ children }) {
             visible: { y: 0 },
             hidden: { y: "-100%" },
           }}
-          animate={hidden ? "hidden" : "visible"}
+          animate={hideNavbar ? "hidden" : "visible"}
           transition={{ duration: 0.35, ease: "easeInOut" }}
           className="sticky top-0 z-50 bg-white shadow-md"
         >
