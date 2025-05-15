@@ -32,8 +32,8 @@ export default function Parallax() {
 
   return (
     <>
-      <div className="relative m-0 p-0 w-full ">
-        <div className="relative hidden  md:block w-full md:h-[40rem]   overflow-hidden ">
+      <div className="relative m-0 p-0 w-full  ">
+        <div className="relative hidden  md:block w-full md:h-[40rem] scrollbar-thumb-black scrollbar-track-black  overflow-hidden ">
           <motion.img
             src={img9}
             alt=""
