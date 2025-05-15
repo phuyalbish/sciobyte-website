@@ -43,7 +43,7 @@ const BlogVerticalTile = () => {
             <ImageSkeleton
               src={CLOUDINARY_BASE_MEDIA_URL+blog?.image}
               alt={blog?.heading}
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg w-full md:h-96 h-48"
             />
             </div>
     {blog?.category_name ? (

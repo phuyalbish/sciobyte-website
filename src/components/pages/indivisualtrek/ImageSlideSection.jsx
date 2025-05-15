@@ -3,6 +3,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
+
 import EmblaGalleryCarousel from "@/components/carousel/EmblaGalleryCarousel.jsx";
 function ImageSlideSection({ gallery}) {
   const [isOpenGallerySection, setIsOpenGallerySection] = useState(false);
@@ -30,18 +31,17 @@ function ImageSlideSection({ gallery}) {
             />
             </div>
           ) : (
-          <div className="px-0.5 relative w-full">
             <ImageSkeleton
               key={index}
               src={CLOUDINARY_BASE_MEDIA_URL + item.image}
               alt={`Gallery Image ${index}`}
-              className={`object-cover pointer-events-auto  overflow-hidden transition-all rounded-md duration-500 ease-in-out 
+              className={`object-cover pointer-events-auto  overflow-hidden transition-all mx-0.5 rounded-md duration-500 ease-in-out 
                   ${gallery?.length === 1 ? "w-full" : ""}
                   ${gallery?.length === 2 ? "w-1/2 hover:w-2/3" : ""}
                   ${gallery?.length === 3 ? "w-1/3 hover:w-2/3" : ""}
                   ${gallery?.length >= 4 ? "w-1/4 hover:w-2/4" : ""}`}
             />
-            </div>
+            
           )
         )}
       </div>
