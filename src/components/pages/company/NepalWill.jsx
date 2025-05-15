@@ -1,14 +1,14 @@
 import NW from "@/assets/NW.png"
 import nepalWill from "@/assets/nepalwill.png"
 import PageContainer from "@/components/PageContainer.jsx";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
+
 
 function NepalWill() {
   return (
     <PageContainer>
           <div id="csr"  className="relative md:w-[32rem] w-full">
-            <img
-              decoding="async"
-              loading="lazy"
+            <ImageSkeleton
               src={nepalWill}
               alt="nepal will"
               className="h-full w-full object-cover rounded-xl"

@@ -1,6 +1,8 @@
 import homeStay from "@/assets/homestay.png";
 import instagramLogo from "@/assets/instagram-logo.png";
 import Container from "@/components/Container.jsx";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
+
 
 const HomeStay = () => {
   return (
@@ -26,9 +28,7 @@ const HomeStay = () => {
           </div>
           <div className="relative md:w-[32rem] w-full">
             <div className="absolute h-full w-full bg-gradient-to-t from-black via-transparent to-transparent"></div>
-            <img
-              decoding="async"
-              loading="lazy"
+            <ImageSkeleton
               src={homeStay}
               alt="homestay"
               className="h-full w-full object-cover rounded-lg"
@@ -40,9 +40,7 @@ const HomeStay = () => {
               target="_future"
               className="absolute bottom-2 right-2  flex gap-2  items-center "
             >
-              <img
-                decoding="async"
-                loading="lazy"
+              <ImageSkeleton
                 src={instagramLogo}
                 alt="instagram Logo"
                 className="w-6"
