@@ -42,7 +42,7 @@ const handleSearch = async () => {
           src={splashImg}
           width="100%"
           height="100%" 
-          className="absolute top-0 left-0 z-0  rounded-md"
+          className="absolute  top-0 left-0 z-0  rounded-md  w-full h-full  object-cover "
         />
         )}
       <video
