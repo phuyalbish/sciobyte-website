@@ -22,13 +22,13 @@ export default function PageLayout({ children }) {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
   
-    if (latest > previous && latest > 1000) {
+    if (latest > previous && latest > 990) {
       setHideHeader(true);
     } else {
       setHideHeader(false);
     }
   
-    if (latest > previous && latest > 1090) {
+    if (latest > previous && latest > 990) {
       setHideNavbar(true);
     } else {
       setHideNavbar(false);

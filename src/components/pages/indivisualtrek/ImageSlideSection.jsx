@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 import ImageSlideSkeleton from "@/components/skeleton/ImageSlideSkeleton.jsx";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 
 import EmblaGalleryCarousel from "@/components/carousel/EmblaGalleryCarousel.jsx";
@@ -45,11 +46,11 @@ function ImageSlideSection({ gallery}) {
           )
         )}
       </div>
-      <div className="relative flex  md:hidden w-full flex-wrap gap-2">
+      <div className="relative flex justify-start  items-start md:hidden w-full flex-wrap gap-2 ">
         {gallery?.slice(0, 3).map((item, index) =>
           index == 2 ? (
             <div
-              className="relative w-1/3 flex-grow"
+              className="relative w-1/3 flex-grow h-48"
               key={index}
               onClick={() => {
                 setIsOpenGallerySection(true);
@@ -60,26 +61,22 @@ function ImageSlideSection({ gallery}) {
                   +{gallery?.length - 2}
                 </div>
               </div>
-              <img
-                decoding="async"
-                loading="lazy"
+              <ImageSkeleton
                 key={index}
 
                 alt={`Gallery Image ${index}`}
                 src={CLOUDINARY_BASE_MEDIA_URL + item.image}
-                className="z-0 bg-black object-cover rounded-md w-full aspect-square overflow-hidden transition-all duration-500 ease-in-out"
+                className="z-0 bg-black object-cover rounded-md w-full h-full aspect-square overflow-hidden transition-all duration-500 ease-in-out"
               />
             </div>
           ) : (
-            <img
-              decoding="async"
-              loading="lazy"
+            <ImageSkeleton
               key={index}
 
                 alt={`Gallery Image ${index}`}
               src={CLOUDINARY_BASE_MEDIA_URL + item.image}
               className={`object-cover transition-all aspect-video rounded-md duration-500 ease-in-out 
-                  ${index == 0 ? "w-full" : "w-1/3 flex-grow"}`}
+                  ${index == 0 ? "w-full h-48" : "w-1/3 h-48 flex-grow"}`}
             />
           )
         )}
@@ -103,9 +100,7 @@ function ImageSlideSection({ gallery}) {
               gallery?.map((item, index) => (
                <div key={index} className="embla__slide rounded-md flex justify-center items-center h-[100vh]">
                 <div className="relative h-[100vh]  max-w-[100vw] lg:h-[100vh]  rounded-md flex justify-center items-center">
-                  <img
-                    decoding="async"
-                    loading="lazy"
+                  <ImageSkeleton
                     alt={`Gallery Image ${index}`}
                     src={CLOUDINARY_BASE_MEDIA_URL + item.image}
                     className="max-h-full w-auto transition-all duration-500 ease-in-out rounded-md"
