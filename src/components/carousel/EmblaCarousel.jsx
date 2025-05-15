@@ -4,6 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
+import { GoArrowUpRight } from "react-icons/go";
 
 const EmblaCarousel = ({
   children,
@@ -46,8 +47,10 @@ const EmblaCarousel = ({
       </div>
       <div className="flex justify-between items-center w-full">
       {link && 
-        <Link aria-label="Blogs" to="/blogs" className="text-B400 ml-4 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
-          See All
+    
+        <Link aria-label="Blogs" to="/blogs" className="flex gap-1 items-center justify-center text-B400 ml-4 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+         <div> See All</div>
+       <GoArrowUpRight className="text-md"/>
         </Link>}
         <div></div>
         <div className="flex gap-4 self-end px-2">

@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
+import { GoArrowUpRight } from "react-icons/go";
 
 const EmblaCarousel = ({
   children,
@@ -46,8 +47,9 @@ const EmblaCarousel = ({
         </div>
       </div>
       <div className="w-full relative px-3 flex justify-between gap-4 items-center">
-        <a href="https://maps.app.goo.gl/Bck3AAUZQMq5qBZq7" target="_blank" aria-label="Reviews" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
-          See All
+        <a href="https://maps.app.goo.gl/Bck3AAUZQMq5qBZq7" target="_blank" aria-label="Reviews" className="flex gap-1 items-center justify-center  text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+           <div> See All</div>
+            <GoArrowUpRight className="text-md"/>
         </a>
         <div className="flex gap-2">
           <button

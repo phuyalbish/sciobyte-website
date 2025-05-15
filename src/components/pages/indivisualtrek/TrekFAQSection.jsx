@@ -50,7 +50,7 @@ function TrekFAQSection({ faqs }) {
                 className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer w-full text-right mt-2 underline underline-offset-2"
                 onClick={() => setShowAll((prev) => !prev)}
               >
-                {showAll ? "Show Less" : "Show All"}
+                {showAll ? "See Less" : "See All"}
               </button>
             )}
           </>

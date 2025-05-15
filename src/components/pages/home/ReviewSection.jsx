@@ -6,6 +6,7 @@ import googleImg from "@/assets/googleReviews.png"
 import { fetchGoogleReviews} from "@/apis/review.js";
 import { FaStar } from "react-icons/fa";
 import Container from "@/components/Container.jsx";
+import { GoArrowUpRight } from "react-icons/go";
 
 function ReviewSection() {
 
@@ -115,8 +116,9 @@ function ReviewSection() {
               </div>
               <div className="flex justify-end">
                 
-                 <a href="https://maps.app.goo.gl/Bck3AAUZQMq5qBZq7" target="_blank"  aria-label="Reviews" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
-          See All
+                 <a href="https://maps.app.goo.gl/Bck3AAUZQMq5qBZq7" target="_blank"  aria-label="Reviews" className="flex gap-1 items-center  text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+           <div> See All</div>
+                 <GoArrowUpRight className="text-md"/>
         </a>
                 </div>
         </div>

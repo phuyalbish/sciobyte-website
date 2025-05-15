@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { ImCross } from "react-icons/im";
 import { FaPlay } from "react-icons/fa";
+import { GoArrowUpRight } from "react-icons/go";
 
 import ReviewTile from "@/components/tiles/ReviewTile";
 import EmblaReviewCarousel from "@/components/carousel/EmblaReviewCarousel";
@@ -54,8 +55,9 @@ function TrekReviewsSection({reviews}) {
 
               <div className="flex justify-end">
 
-                 <a href="https://maps.app.goo.gl/Bck3AAUZQMq5qBZq7" target="_blank"  aria-label="Reviews" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
-                  See All
+                 <a href="https://maps.app.goo.gl/Bck3AAUZQMq5qBZq7" target="_blank"  aria-label="Reviews" className="flex gap-1 items-center text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+                   <div> See All</div>
+                         <GoArrowUpRight className="text-md"/>
                 </a>
                 </div>
                         </div>

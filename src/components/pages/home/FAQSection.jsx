@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FAQ from "@/components/accordion/FAQ.jsx";
+import { GoArrowUpRight } from "react-icons/go";
 
 import { Link } from "react-router-dom";
 import { fetchHomeFAQs } from "@/apis/faqs.js";
@@ -61,8 +62,9 @@ const toggleShowAll = () => setShowAll((prev) => !prev);
                 ))}
               </div>
               <div className="flex justify-end w-full">
-             <Link aria-label="Blogs" to="/faqs" className="text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
-                See All
+             <Link aria-label="Blogs" to="/faqs" className="flex gap-1 items-center justify-center text-B400 transition-colors duration-500 hover:text-B700 cursor-pointer mt-2 underline underline-offset-2">
+                 <div> See All</div>
+                  <GoArrowUpRight className="text-md"/>
             </Link>
             </div>
             </>
