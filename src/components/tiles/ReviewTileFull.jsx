@@ -1,13 +1,12 @@
 import { FaStar } from "react-icons/fa";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 function ReviewTile({ star, name, reviewDetail, profile, date }) {
   return (
     <div className="transition-all duration-300  cursor-pointer relative flex flex- shadow rounded-3xl hover:bg-B50 gap-2   box-border
        p-5 justify-start items-start">
      
       <div className="flex flex-col  w-48 justify-center items-center">
-        <img
-          decoding="async"
-          loading="lazy"
+        <ImageSkeleton
           src={profile}
           alt={name}
           className="w-20 h-20  rounded-full  object-cover z-0 "

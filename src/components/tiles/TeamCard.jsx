@@ -1,12 +1,12 @@
+
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 const TeamCard = ({ name, title, imgUrl }) => {
   return (
     <>
       <div className="bg-B100 p-4 hover:shadow-md hover:scale-105 transition-all duration-500 rounded-md flex flex-col gap-1 items-center justify-center">
         <div className="relative rounded-lg overflow-hidden">
           <div className="bg-white shadow-lg overflow-hidden aspect-square">
-            <img
-              decoding="async"
-              loading="lazy"
+            <ImageSkeleton
               src={imgUrl}
               alt="Profile"
               className="w-full h-full object-cover"

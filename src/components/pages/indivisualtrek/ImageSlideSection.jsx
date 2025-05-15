@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 import EmblaGalleryCarousel from "@/components/carousel/EmblaGalleryCarousel.jsx";
 function ImageSlideSection({ gallery}) {
@@ -9,7 +10,7 @@ function ImageSlideSection({ gallery}) {
    
        <>
 
-      <div className="w-full relative hidden md:flex h-[616px] overflow-hidden rounded-md transition-all duration-300 ease-in-out">
+      <div className="w-full relative hidden md:flex h-[35rem] overflow-hidden rounded-md transition-all duration-300 ease-in-out">
         {gallery?.slice(0, 4).map((item, index) =>
           index == 3 ? (
             <div
@@ -22,28 +23,25 @@ function ImageSlideSection({ gallery}) {
               <div className="absolute w-full h-full flex justify-center items-center p-5 bg-transparent text-transparent cursor-pointer hover:bg-white/50 hover:text-N900  font-bold">
                 +{gallery?.length - 3} Photos
               </div>
-              <img
-                decoding="async"
-                loading="lazy"
-                alt={`Gallery Image ${index}`}
-                src={CLOUDINARY_BASE_MEDIA_URL + item.image}
-                className="object-cover w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
-              />
+            <ImageSkeleton
+              alt={`Gallery Image ${index}`}
+              src={CLOUDINARY_BASE_MEDIA_URL + item.image}
+              className="object-cover w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
+            />
             </div>
           ) : (
-            <img
-              decoding="async"
-              loading="lazy"
+          <div className="px-0.5 relative w-full">
+            <ImageSkeleton
               key={index}
               src={CLOUDINARY_BASE_MEDIA_URL + item.image}
-
-                alt={`Gallery Image ${index}`}
-              className={`object-cover pointer-events-auto px-0.5 overflow-hidden transition-all rounded-md duration-500 ease-in-out 
+              alt={`Gallery Image ${index}`}
+              className={`object-cover pointer-events-auto  overflow-hidden transition-all rounded-md duration-500 ease-in-out 
                   ${gallery?.length === 1 ? "w-full" : ""}
                   ${gallery?.length === 2 ? "w-1/2 hover:w-2/3" : ""}
                   ${gallery?.length === 3 ? "w-1/3 hover:w-2/3" : ""}
                   ${gallery?.length >= 4 ? "w-1/4 hover:w-2/4" : ""}`}
             />
+            </div>
           )
         )}
       </div>

@@ -6,6 +6,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 import {
   ImageSkeleton,
@@ -57,17 +58,13 @@ const SingleBlogSection = () => {
   return (
     <article className="rounded-xl grid grid-cols-1 md:grid-cols-2 gap-[2.5rem] items-center p-[1.25rem] bg-white shadow-md overflow-hidden">
       <div className="relative h-full">
-        {isLoading ? (
-          <ImageSkeleton />
-        ) : (
-          <img
-            decoding="async"
-            loading="lazy"
+        
+          <ImageSkeleton
             alt={currentBlog?.name}
             src={CLOUDINARY_BASE_MEDIA_URL + currentBlog?.image}
             className="w-full h-[15rem] md:h-[23rem] object-cover brightness-90 rounded-xl"
           />
-        )}
+        
       </div>
 
       <div className="h-full">

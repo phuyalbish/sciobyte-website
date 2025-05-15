@@ -6,6 +6,7 @@ import group from "@/assets/group.svg";
 import duration_img from "@/assets/duration.svg";
 import type_img from "@/assets/TrekType.svg";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 const JourneyDetailsPanel = ({ icon, value, type }) => {
   return (
     <div className="flex justify-between items-center gap-2   rounded-lg">
@@ -41,9 +42,7 @@ const TrekTile = ({ data }) => {
     >
       <div className="flex flex-col gap-2 justify-start">
       <div className="relative overflow-hidden rounded-xl w-full h-64 ">
-        <img
-          decoding="async"
-          loading="lazy"
+        <ImageSkeleton
           className=" w-full h-64 object-cover object-center group-hover:scale-110 transition-all duration-300"
           src={CLOUDINARY_BASE_MEDIA_URL+image}
           alt={name}
@@ -54,9 +53,7 @@ const TrekTile = ({ data }) => {
           </span>
         )}
         {max_group_range > 1 && (
-          <img
-            decoding="async"
-            loading="lazy"
+          <ImageSkeleton
             className=" absolute top-2 right-2  h-8 w-8  rounded-xl p-1 bg-G500"
             src={group}
             alt="Group Icon"
@@ -64,9 +61,7 @@ const TrekTile = ({ data }) => {
         )}
       </div>
       {isBadged && (
-        <img
-          decoding="async"
-          loading="lazy"
+        <ImageSkeleton
           className="absolute top-48 w-12 h-12 "
           src={badge}
           alt="Badge Icon"

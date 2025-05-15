@@ -6,6 +6,8 @@ import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 import {fetchData} from "@/apis/https";
+
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 const BlogVerticalTile = () => {
 
   const [blog, setCurrentBlog] = useState(null);
@@ -38,11 +40,9 @@ const BlogVerticalTile = () => {
     <div className="relative flex flex-col gap-3  p-2 md:p-5 max-w-full m-3 rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg select-none">
       <div className="relative h-full">
         
-            <img
+            <ImageSkeleton
               src={CLOUDINARY_BASE_MEDIA_URL+blog?.image}
               alt={blog?.heading}
-              decoding="async"
-              loading="lazy"
               className="w-full md:h-96 h-48  object-cover rounded-lg"
             />
     {blog?.category_name ? (

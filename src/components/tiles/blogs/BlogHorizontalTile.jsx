@@ -5,6 +5,7 @@ import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { format } from "date-fns";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 const BlogHorizontalTile = ({ blog }) => {
   const {
     heading,
@@ -35,9 +36,7 @@ const BlogHorizontalTile = ({ blog }) => {
       <div className="relative sm:w-1/2 ">
         
           <>
-            <img
-              decoding="async"
-              loading="lazy!"
+            <ImageSkeleton
               src={CLOUDINARY_BASE_MEDIA_URL+image}
               className="w-full h-48 sm:h-full object-cover rounded-lg"
               alt={heading}

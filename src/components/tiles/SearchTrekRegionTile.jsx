@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { truncate } from "@/utils/truncate.js";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 function SearchTrekRegionTile({ name, image, slug, main_category, main_category_slug }) {
   return (
@@ -10,9 +11,7 @@ function SearchTrekRegionTile({ name, image, slug, main_category, main_category_
       to={`/${main_category_slug}/${slug}`}
       className="flex flex-col justify-left gap-1 p-2  min-w-48  max-w-48 rounded-md bg-white/50 hover:bg-white/25   hover:shadow-sm"
     >
-      <img
-        decoding="async"
-        loading="lazy"
+      <ImageSkeleton
         src={CLOUDINARY_BASE_MEDIA_URL + image}
         alt={name}
         className="w-full aspect-square object-cover rounded-md "

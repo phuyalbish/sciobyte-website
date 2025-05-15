@@ -8,13 +8,13 @@ import { MdDateRange } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
 import { MdLocationOn } from "react-icons/md";
 import PageConatiner from "@/components/PageContainer.jsx";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 import {truncate} from "@/utils/truncate.js";
 import {
   HeadingSkeleton,
   DescriptionSkeleton,
   LongBlogContentSkeleton,
-  ImageSkeleton,
 } from "@/components/skeleton/Skeleton.jsx";
 import GotoTop from "@/components/GotoTop.jsx";
 import { v4 as uuidv4 } from "uuid";
@@ -195,10 +195,8 @@ const BlogDetail = () => {
               )}
 
               <div className="aspect-[16/9] mb-8 relative">
-                {isLoading ? (
-                  <ImageSkeleton />
-                ) : (
-                  <img
+               
+                  <ImageSkeleton
                     decoding="async"
                     loading="lazy"
                     
@@ -206,7 +204,6 @@ const BlogDetail = () => {
                     alt={blog?.heading}
                     className="w-full h-full object-cover rounded-xl"
                   />
-                )}
               </div>
 
               {isLoading ? (

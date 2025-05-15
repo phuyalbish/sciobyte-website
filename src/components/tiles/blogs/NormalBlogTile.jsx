@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 import { MdDateRange, MdLocationOn } from "react-icons/md";
 import { IoMdShare } from "react-icons/io";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
-
-import { ImageSkeleton } from "@/components/skeleton/Skeleton.jsx";
 const NormalBlogTile = ({ blog, baseUrl=false }) => {
   const {
     heading,
@@ -50,11 +49,9 @@ const NormalBlogTile = ({ blog, baseUrl=false }) => {
                   <IoMdShare className="size-3.5" />
                   Share
                 </div>
-                <img
+                <ImageSkeleton
                 src={CLOUDINARY_BASE_MEDIA_URL+image} 
                   alt={heading}
-                  decoding="async"
-                  loading="lazy"
                   className=" object-cover w-full h-full group-hover:scale-105 scale-100 rounded-lg transition-all duration-500 ease-in-out"
                 />
                     {copied && (

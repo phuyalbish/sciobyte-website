@@ -1,6 +1,7 @@
 
 import { useNavigate } from "react-router-dom";
 
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 
@@ -14,9 +15,7 @@ function HeaderTrekRegionTile({ image, type, name, id, onclick }) {
         navigate(`/${type}/${id}`);
       }}
     >
-      <img
-        decoding="async"
-        loading="lazy"
+      <ImageSkeleton
         src={CLOUDINARY_BASE_MEDIA_URL + image}
         alt="header Trek Region Image"
         className="w-12 h-12 aspect-square rounded-md"

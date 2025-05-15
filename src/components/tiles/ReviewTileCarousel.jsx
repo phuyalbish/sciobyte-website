@@ -1,4 +1,5 @@
 import { FaStar } from "react-icons/fa";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 function ReviewTile({ star, name, reviewDetail, profile, date, onClickPopUp }) {
 
@@ -10,9 +11,7 @@ function ReviewTile({ star, name, reviewDetail, profile, date, onClickPopUp }) {
           className="transition-all duration-300 cursor-pointer h-full hover:shadow-md relative flex flex-col shadow rounded-3xl hover:bg-B50 gap-5 box-border p-5 justify-start items-start"
         >
           <div className="flex gap-3 justify-center items-center">
-            <img
-              decoding="async"
-              loading="lazy"
+            <ImageSkeleton
               src={profile}
               alt={name}
               className="w-12 h-12 rounded-full object-cover z-0"
