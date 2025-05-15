@@ -9,7 +9,6 @@ import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 import {
-  ImageSkeleton,
   HeadingSkeleton,
   DescriptionSkeleton,
   LongBlogContentSkeleton,

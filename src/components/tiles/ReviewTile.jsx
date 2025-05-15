@@ -13,14 +13,16 @@ function ReviewTile({ star, name, reviewDetail, profile, date }) {
           onClick={() => setIsModalOpen(true)}
           className="transition-all duration-300 cursor-pointer h-full hover:shadow-md relative flex flex-col shadow rounded-3xl hover:bg-B50 gap-5 box-border p-5 justify-start items-start"
         >
-          <div className="flex gap-3 justify-center items-center">
+          <div className="flex gap-3 justify-start w-full items-center">
+            <div className="w-12 h-12">
             <ImageSkeleton
               decoding="async"
               loading="lazy"
               src={profile}
               alt={name}
-              className="w-12 h-12 rounded-full object-cover z-0"
+              className="rounded-full object-cover z-0"
             />
+            </div>
             <div className="flex flex-col">
               <div className="text-md font-semibold text-left">{name}</div>
               <div className="text-base text-left text-N500">{date}</div>
@@ -46,7 +48,9 @@ function ReviewTile({ star, name, reviewDetail, profile, date }) {
               &times;
             </button>
             <div className="flex gap-3 mb-4 items-center">
-              <ImageSkeleton src={profile} alt={name} className="w-10 h-10 rounded-full object-cover" />
+            <div className="w-12 h-12 relative">
+              <ImageSkeleton src={profile} alt={name} className="relative rounded-full object-cover" />
+              </div>
               <div className="flex flex-col justify-start">
                 <div className="font-semibold text-left">{name}</div>
                 <div className="text-sm text-N500 text-left">{date}</div>

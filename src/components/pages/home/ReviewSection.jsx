@@ -7,6 +7,7 @@ import { fetchGoogleReviews} from "@/apis/review.js";
 import { FaStar } from "react-icons/fa";
 import Container from "@/components/Container.jsx";
 import { GoArrowUpRight } from "react-icons/go";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 function ReviewSection() {
 
@@ -54,9 +55,7 @@ function ReviewSection() {
               setGoogleReview(true);
             }}
           >
-            <img
-              decoding="async"
-              loading="lazy"
+            <ImageSkeleton
               src={googleImg}
               alt="Google Review"
               className="w-28 cursor-pointer  object-cover z-0  p-2"

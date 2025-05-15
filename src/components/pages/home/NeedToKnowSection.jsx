@@ -43,7 +43,7 @@ const chunkArray = (array, size) => {
         You need to know these
       </h1>
       <div className="relative h-full hidden md:flex justify-between    items-center">
-          <div className="relative  h-full  md:w-1/2 left_popup  ">
+          <div className="relative h-full  md:w-1/2 left_popup  ">
             <BlogVerticalTile
             />
           </div>

@@ -38,13 +38,14 @@ const BlogVerticalTile = () => {
   };
   return (
     <div className="relative flex flex-col gap-3  p-2 md:p-5 max-w-full m-3 rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-lg select-none">
-      <div className="relative h-full">
-        
+      <div className="relative h-full w-full">
+            <div className="w-full md:h-96 h-48">
             <ImageSkeleton
               src={CLOUDINARY_BASE_MEDIA_URL+blog?.image}
               alt={blog?.heading}
-              className="w-full md:h-96 h-48  object-cover rounded-lg"
+              className="object-cover rounded-lg"
             />
+            </div>
     {blog?.category_name ? (
         <Link
           
