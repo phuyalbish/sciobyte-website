@@ -7,6 +7,7 @@ import DOMPurify from 'dompurify';
 import { fetchIndivisualCategories } from "@/apis/categories.js";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 import PageConatiner from "@/components/PageContainer.jsx";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 function IndivisualCategoryPage() {
   const [category, setCategory] = useState(null);
@@ -32,9 +33,7 @@ function IndivisualCategoryPage() {
   return (
     <PageConatiner>
       
-      <img
-        decoding="async"
-        loading="lazy"
+      <ImageSkeleton
         src={CLOUDINARY_BASE_MEDIA_URL + category?.image}
         alt={category?.name}
         className="w-full aspect-video max-h-[60vh] object-cover rounded-md"

@@ -1,6 +1,5 @@
 
 import { Link } from "react-router-dom";
-
 import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 import BG from "@/assets/PreferenceBG.png"
@@ -14,7 +13,7 @@ function PreferenceTIle({ img, name, slug }) {
       <ImageSkeleton
         src={img}
         alt={`Image of ${name}`}
-        className="w-full aspect-square rounded-md group-hover:scale-105 scale-100 transition-all duration-500 ease-in-out"
+        className="w-full  aspect-square rounded-md group-hover:scale-105 scale-100 transition-all duration-500 ease-in-out"
         
       />
 

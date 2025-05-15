@@ -5,6 +5,7 @@ import SectionGappingWithoutAnimation from '@/components/SectionGappingWithoutAn
 import DOMPurify from 'dompurify';
 import { fetchIndivisualRegions } from "@/apis/regions.js";
 import PageConatiner from "@/components/PageContainer.jsx";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 function IndivisualRegionPage() {
@@ -31,9 +32,7 @@ function IndivisualRegionPage() {
   return (
     <PageConatiner>
       {/* <BreadCrumbs travel_type={region?.category_name} name={region?.name} /> */}
-      <img
-        decoding="async"
-        loading="lazy"
+      <ImageSkeleton
         src={CLOUDINARY_BASE_MEDIA_URL + region?.image}
         alt={region?.name}
         className="w-full aspect-video max-h-[60vh] object-cover rounded-md"

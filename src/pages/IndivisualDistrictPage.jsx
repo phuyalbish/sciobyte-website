@@ -6,6 +6,7 @@ import DOMPurify from 'dompurify';
 import { fetchIndivisualDistricts } from "@/apis/districts.js";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 import PageConatiner from "@/components/PageContainer.jsx";
+import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
 
 function IndivisualDistrictPage() {
   const [district, setDistrict] = useState(null);
@@ -31,9 +32,7 @@ function IndivisualDistrictPage() {
   return (
     <PageConatiner>
       {/* <BreadCrumbs travel_type={district?.caetgory_name} name={district?.name} /> */}
-      <img
-        decoding="async"
-        loading="lazy"
+      <ImageSkeleton
         src={CLOUDINARY_BASE_MEDIA_URL + district?.image}
         alt={district?.name}
         className="w-full aspect-video max-h-[60vh] object-cover rounded-md"
