@@ -7,9 +7,12 @@
     "serve": "serve -s dist -l tcp://0.0.0.0:5174"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@mantine/carousel": "^7.17.2",
     "@mantine/core": "^7.17.2",
     "@mantine/hooks": "^7.17.2",
+    "@mui/material": "^7.1.0",
     "@radix-ui/react-slot": "^1.1.2",
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.7.9",
