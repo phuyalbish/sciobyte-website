@@ -44,7 +44,7 @@ const TrekTile = ({ data }) => {
       <div className="flex flex-col gap-2 justify-start">
       <div className="relative overflow-hidden rounded-xl">
         <ImageSkeleton
-          className="w-full aspect-video object-cover object-center group-hover:scale-110 transition-all duration-300"
+          className="w-full h-full aspect-video object-cover object-center group-hover:scale-110 transition-all duration-300"
           src={CLOUDINARY_BASE_MEDIA_URL+image}
           alt={name}
         />
@@ -55,16 +55,16 @@ const TrekTile = ({ data }) => {
         )}
 
         {max_group_range > 1 && (
-          <ImageSkeleton
-            className=" absolute top-2 right-2  h-7 w-7 bg-G500 rounded-md p-1"
+          <img
+            className="absolute top-2 right-2  h-5 w-5 bg-G500 rounded p-1"
             src={group}
             alt="Group Icon"
           />
         )}
       </div>
       {isBadged && (
-        <ImageSkeleton
-          className="absolute top-36 w-12 h-12 "
+        <img
+          className="absolute top-36 w-12 h-12 z-10 "
           src={badge}
           alt="Badge Icon"
         />

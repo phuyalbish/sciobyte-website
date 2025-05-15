@@ -55,7 +55,7 @@ function ReviewSection() {
               setGoogleReview(true);
             }}
           >
-            <ImageSkeleton
+            <img
               src={googleImg}
               alt="Google Review"
               className="w-28 cursor-pointer  object-cover z-0  p-2"

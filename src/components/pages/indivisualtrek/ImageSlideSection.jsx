@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
-import ImageSkeleton from "@/components/skeleton/ImageSkeleton.jsx";
+import ImageSlideSkeleton from "@/components/skeleton/ImageSlideSkeleton.jsx";
 
 
 import EmblaGalleryCarousel from "@/components/carousel/EmblaGalleryCarousel.jsx";
@@ -24,14 +24,14 @@ function ImageSlideSection({ gallery}) {
               <div className="absolute w-full h-full flex justify-center items-center p-5 bg-transparent text-transparent cursor-pointer hover:bg-white/50 hover:text-N900  font-bold">
                 +{gallery?.length - 3} Photos
               </div>
-            <ImageSkeleton
+            <ImageSlideSkeleton
               alt={`Gallery Image ${index}`}
               src={CLOUDINARY_BASE_MEDIA_URL + item.image}
               className="object-cover w-full h-full overflow-hidden transition-all duration-500 ease-in-out"
             />
             </div>
           ) : (
-            <ImageSkeleton
+            <ImageSlideSkeleton
               key={index}
               src={CLOUDINARY_BASE_MEDIA_URL + item.image}
               alt={`Gallery Image ${index}`}
