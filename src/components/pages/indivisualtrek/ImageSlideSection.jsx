@@ -21,7 +21,7 @@ function ImageSlideSection({ gallery}) {
                 setIsOpenGallerySection(true);
               }}
             >
-              <div className="absolute w-full h-full flex justify-center items-center p-5 bg-transparent text-transparent cursor-pointer hover:bg-white/50 hover:text-N900  font-bold">
+              <div className="absolute z-20 w-full h-full flex justify-center items-center p-5 bg-transparent text-transparent cursor-pointer hover:bg-white/50 hover:text-N900  font-bold">
                 +{gallery?.length - 3} Photos
               </div>
             <ImageSlideSkeleton
