@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { truncate } from "@/utils/truncate.js";
-import { BASE_MEDIA_URL } from "@/config/baseurl.js";
+import { CLOUDINARY_BASE_MEDIA_URL } from "@/config/baseurl.js";
 
 function SearchTrekRegionTile({ name, image, slug, main_category, main_category_slug }) {
   return (
@@ -13,7 +13,7 @@ function SearchTrekRegionTile({ name, image, slug, main_category, main_category_
       <img
         decoding="async"
         loading="lazy"
-        src={BASE_MEDIA_URL + image}
+        src={CLOUDINARY_BASE_MEDIA_URL + image}
         alt={name}
         className="w-full aspect-square object-cover rounded-md "
       />
