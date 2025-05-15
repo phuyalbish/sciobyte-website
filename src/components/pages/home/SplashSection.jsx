@@ -1,5 +1,5 @@
 import  { useState } from "react";
-// import vid from "@/assets/SplashVid.mp4";
+import splashImg from "@/assets/SplashImg.webp";
 import imgVector from "@/assets/vectorSplashImg.svg";
 import { IoSearch } from "react-icons/io5";
 import { LiaTimesSolid } from "react-icons/lia";
@@ -10,6 +10,7 @@ const [isSearchTile, setIsSearchTile] = useState(false);
 const [searchText, setSearchText] = useState("");
 const [searchData, setSearchData] = useState([]);
 const [errMsg, setErrMsg] = useState("");
+const [loaded, setLoaded] = useState(false);
 
 const handleSearch = async () => {
   if (searchText.trim() !== "") {
@@ -36,13 +37,22 @@ const handleSearch = async () => {
   return (
     <div className="relative w-full h-full">
       <div className="absolute h-full inset-0  w-full">
+        {!loaded && (
+          <img
+          src={splashImg}
+          width="100%"
+          height="100%" 
+          className="absolute top-0 left-0 z-0  rounded-md"
+        />
+        )}
       <video
-          className="w-full h-full object-cover pb-5 z-0 brightness-75"
+          className={` ${!loaded ? "opacity-0" : "opacity-100"} w-full h-full  object-cover pb-5 z-0 brightness-75`}
           src="https://res.cloudinary.com/ddpus4suz/video/upload/v1747062872/o5hhix712ukugozt5grh.mp4"
           autoPlay
           muted
           loop
           playsInline
+          onLoadedData={() => setLoaded(true)}
         />
       </div>
 
