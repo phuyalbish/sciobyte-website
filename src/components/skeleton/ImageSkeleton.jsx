@@ -5,7 +5,7 @@ const ImageSkeleton = ({ src, alt, className }) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <div className={`${className} relative  z-0 transition-all duration-500`}>
+    <div className={`${className} relative rounded-md  z-0 transition-all duration-500`}>
       {!loaded && (
         <Skeleton
           variant="rectangular"
@@ -20,7 +20,7 @@ const ImageSkeleton = ({ src, alt, className }) => {
         loading="lazy"
         src={src}
         alt={alt}
-        className={` ${!loaded ? "opacity-0" : "opacity-100"} w-full h-full z-0 transition-opacity duration-500`}
+        className={` ${!loaded ? "opacity-0" : "opacity-100"} w-full h-full z-0 object-cover  rounded-md transition-opacity duration-500`}
         onLoad={() => setLoaded(true)}
       />
     </div>
