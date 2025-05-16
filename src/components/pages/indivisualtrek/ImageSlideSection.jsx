@@ -100,7 +100,7 @@ function ImageSlideSection({ gallery}) {
               gallery?.map((item, index) => (
                <div key={index} className="embla__slide rounded-md flex justify-center items-center h-[100vh]">
                 <div className="relative h-[100vh]  max-w-[100vw] lg:h-[100vh]  rounded-md flex justify-center items-center">
-                  <ImageSkeleton
+                  <img
                     alt={`Gallery Image ${index}`}
                     src={CLOUDINARY_BASE_MEDIA_URL + item.image}
                     className="max-h-full w-auto transition-all duration-500 ease-in-out rounded-md"
