@@ -404,7 +404,6 @@ function Navbar({ activeMenu, setActiveMenu }) {
               <Link to="/create" aria-label="Create Your Trip"
                       className=" group flex gap-2 items-center justify-center w-44 text-sm  p-2 bg-white shadow-lg rounded-md text-B500 hover:bg-transparent border border-transparent hover:border-white hover:text-white hover:shadow-none transition-colors duration-500"
                       onClick={() => {
-                        setActiveMenu({ company: true });
                         setCompanyDropDown(false);
                       }}
                     >

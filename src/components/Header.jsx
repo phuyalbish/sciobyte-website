@@ -214,12 +214,13 @@ function Header({ activeMenu, setActiveMenu }) {
                 setIsDropDown(false);
               }}
             >
-              About
+              Company
             </Link>
                                     <Link to="/create" aria-label="Create Your Trip"
                                             className=" group flex gap-2 items-center justify-center w-full text-sm px-4 py-2 bg-B500 shadow-lg rounded-md hover:text-B500 hover:bg-transparent border border-transparent hover:border-B500 text-white hover:shadow-none transition-colors duration-500"
                                             onClick={() => {
                                               setActiveMenu({ company: true });
+                                              setIsDropDown(false);
                                             }}
                                           >
                       

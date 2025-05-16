@@ -30,8 +30,8 @@ const GoogleReview = () => {
         </div>
       </div>
       <a  
-      
-      href="#" aria-label="To Reviews" className=" hover:underline text-[#418BE0]">
+      target="_blank"
+      href="https://maps.app.goo.gl/S6uERDHP4BocNfzw8" aria-label="To Reviews" className=" hover:underline text-[#418BE0]">
         See our Reviews
       </a>
     </div>

@@ -111,7 +111,7 @@ useEffect(() => {
     <>
       <div ref={scrollRef} className="cursor-pointer w-full mx-auto select-none  flex flex-col gap-2 ">
         <div
-          className={`${default_bg_color} ${default_hover_bg_color} sticky top-14  z-10 pt-3 rounded-md p-2 transition duration-300 ease-in-out  flex flex-row  gap-3  justify-start`}
+          className={`${default_bg_color} ${default_hover_bg_color} sticky top-12  z-10 pt-4 rounded-md p-2 transition duration-300 ease-in-out  flex flex-row  gap-3  justify-start`}
           onClick={() => {
             hasInteractedRef.current = true;
             handleScheduleState(schedule.id);

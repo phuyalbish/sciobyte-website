@@ -11,7 +11,7 @@ const TrekTile = ({ data }) => {
       <div className="flex md:flex-row flex-col  md:items-center gap-5  w-full   md:w-1/2">
 
       <div className="relative hidden md:flex flex-col  border-white min-w-28 w-fit flex-grow-0  pr-5 md:border-r-2">
-        <div className="text-3xl font-semibold font-liches">
+        <div className="text-3xl font-semibold font-liches text-G500">
           {data?.departure_date && new Date(data.departure_date).toLocaleDateString('en-US', {
             day: 'numeric',
           })}

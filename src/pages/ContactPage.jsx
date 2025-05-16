@@ -5,6 +5,7 @@ import location_img from "@/assets/location.svg";
 import phone_calling from "@/assets/phone-calling.svg";
 import whatsapp_img from "@/assets/whatsapp.svg";
 import FooterVector from "@/assets/footer/FooterContact.svg"
+import PageContainer from "@/components/PageContainer.jsx";
 import {
   emailSchema,
   nameSchema,
@@ -86,8 +87,8 @@ function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen  ">
-      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <>
+      <PageContainer>
         <div className="text-center mb-12">
           <h1 className="text-3xl font-liches font-bold text-gray-900">Contact Us</h1>
           <p className="mt-2 text-gray-600">
@@ -314,10 +315,13 @@ function ContactPage() {
             </form>
           </div>
         </div>
-      </div>
+        <div className="rounded-md relative w-full h-[30rem] overflow-hidden">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3207.5468505740937!2d85.27093623953887!3d27.67887052005231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb23641d5b8cf3%3A0xc03401fef770d287!2sHELLO%20TREKKERS%20PRIVATE%20LIMITED!5e1!3m2!1sen!2snp!4v1747366377243!5m2!1sen!2snp" className="w-full h-full rounded-md "></iframe>
+        </div>
+      </PageContainer>
       <img src={FooterVector}  alt="Footer Vector Contact Page"  className="w-full" />
          
-    </div>
+    </>
   );
 }
 

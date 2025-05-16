@@ -93,14 +93,14 @@ const searchBlog = useCallback(
       <div className="flex flex-col gap-2 mb-20">
         <div className="relative w-full flex gap-5 flex-wrap  justify-between"> 
           <div className="flex gap-3 justify-between flex-wrap items-center"> 
-          <div className="border border-B200 bg-white rounded-md px-2">
+          <div className="border border-B200 bg-G100 rounded-md px-2">
             <select
                 value={selectedFilters[0] || "all"}
                 onChange={(e) => {
                   const value = e.target.value;
                   setSelectedFilters(value === "all" ? [] : [value]);
                 }}
-                className="w-fit bg-white py-2 pr-2 outline-none"
+                className="w-fit bg-transparent py-2 pr-2 outline-none"
               >
                 <option value="all">All</option>
                 {filterOptions.map((option) => (
