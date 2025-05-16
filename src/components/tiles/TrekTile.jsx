@@ -41,7 +41,7 @@ const TrekTile = ({ data }) => {
       className="relative  bg-white  cursor-pointer group flex justify-between flex-col gap-2 rounded-lg overflow-hidden hover:shadow-lg shadow-md m-2 md:m-0  p-5 transition-all duration-500 border  border-N100  border-0.5"
     >
       <div className="flex flex-col gap-2 justify-start">
-      <div className="relative overflow-hidden  w-full h-64 ">
+      <div className="relative overflow-hidden rounded-md w-full h-64 ">
         <ImageSkeleton
           className="relative w-full h-64 object-cover object-center group-hover:scale-110 transition-all duration-300"
           src={CLOUDINARY_BASE_MEDIA_URL+image}
