@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+
+import { useLocation, Outlet } from "react-router-dom";
 import {motion, useScroll, useMotionValueEvent} from "framer-motion"
 import Footer from "@/components/Footer.jsx";
 import Header from "@/components/Header.jsx";
@@ -79,8 +80,8 @@ export default function PageLayout({ children }) {
         </div>
       )}
       <main className="flex-1  relative bg-gray-100">
-        {children}
-
+        {/* {children} */}
+<Outlet/>
         <a
 
           aria-label="Whatsapp"

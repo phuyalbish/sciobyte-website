@@ -2,15 +2,12 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/router/ScrollToTop";
 import Spinner from "@/components/skeleton/Spinner.jsx"
+import PrivateRoute from "@/router/PrivateRoute";
+import PublicRoute from "@/router/PublicRoute";
 const Company = lazy(() => import('@/pages/CompanyPage.jsx'));
-
-
-
-// const Company = lazy(() =>
-//   new Promise((resolve) =>
-//     setTimeout(() => resolve(import('@/pages/CompanyPage.jsx')), 5000) 
-//   )
-// );
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext.jsx";
+import PageLayout from "@/components/PageLayout";
 
 const CreatePage = lazy(() => import('@/pages/CreatePage.jsx'));
 const FAQPage = lazy(() => import('@/pages/FAQPage.jsx'));
@@ -26,31 +23,59 @@ const Blogs = lazy(() => import('@/pages/BlogListPage.jsx'));
 const BlogDetail = lazy(() => import('@/pages/BlogDetailPage.jsx'));
 const NotFound = lazy(() =>  import("@/pages/NotFoundPage.jsx"));
 
+
+const Login = lazy(() =>  import("@/dashboard/pages/LoginPage.jsx"));
+const Dashboard = lazy(() =>  import("@/dashboard/pages/DashboardPage.jsx"));
+
 import Home from "@/pages/HomePage.jsx";
 
 const AppRoutes = () => {
+
+
+  const { isAuthenticated } = useContext(AuthContext);
+
   return (
     <>
       <ScrollToTop />
       
       <Suspense fallback={<div className="p-10 w-full h-[100vh] bg-white flex items-center justify-center fixed inset-0 z-50 text-center"><Spinner/></div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Company />} />
-          <Route path="/about/:id" element={<Company />} />
-          <Route path="/create" element={<CreatePage />} />
-          <Route path="/faqs" element={<FAQPage />} />
-          <Route path="/liked" element={<FavouriteTreks />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/termsandcondition" element={<TermsAndCondition />} />
-          <Route path="/trek/:id" element={<IndivisualTrekPage />} />
-          <Route path="/category/:id" element={<IndivisualCategoryPage />} />
-          <Route path="/region/:id" element={<IndivisualRegionPage />} />
-          <Route path="/district/:id" element={<IndivisualDistrictPage />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blog/:slug" element={<BlogDetail />} />
-          <Route path="*" element={<NotFound />} />
+
+          <Route element={<PageLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/about" element={<Company />} />
+              <Route path="/about/:id" element={<Company />} />
+              <Route path="/create" element={<CreatePage />} />
+              <Route path="/faqs" element={<FAQPage />} />
+              <Route path="/liked" element={<FavouriteTreks />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/termsandcondition" element={<TermsAndCondition />} />
+              <Route path="/trek/:id" element={<IndivisualTrekPage />} />
+              <Route path="/category/:id" element={<IndivisualCategoryPage />} />
+              <Route path="/region/:id" element={<IndivisualRegionPage />} />
+              <Route path="/district/:id" element={<IndivisualDistrictPage />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blog/:slug" element={<BlogDetail />} />
+          </Route>
+
+          <Route element={<PublicRoute />}>
+              <Route path="/login" element={<Login />} />
+          </Route>
+
+            <Route element={<PrivateRoute condition={isAuthenticated} />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+
+            {/* <Route element={<PrivateRoute condition={isAuthenticated && isStaff} />}>
+              <Route path="/admin-tools" element={<AdminTools />} />
+            </Route>
+
+            <Route element={<PrivateRoute condition={isAuthenticated && isSuperuser} />}>
+              <Route path="/superuser-panel" element={<SuperuserPanel />} />
+            </Route> */}
+
         </Routes>
       </Suspense>
     </>
