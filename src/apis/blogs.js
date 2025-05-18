@@ -7,6 +7,7 @@ export const fetchBlogs = async () => {
       url: `${BASE_API_URL}/blogs/all/`,
       method: "GET",
     });
+
     return response;
   } catch (error) {
     console.log("Error while fetching blog data: ", error);

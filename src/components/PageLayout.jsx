@@ -6,7 +6,7 @@ import Footer from "@/components/Footer.jsx";
 import Header from "@/components/Header.jsx";
 import Navbar from "@/components/Navbar";
 import whatsapp from "@/assets/whatsapp.png";
-export default function PageLayout({ children }) {
+export default function PageLayout() {
   const [activeMenu, setActiveMenu] = useState({});
 
   const location = useLocation();

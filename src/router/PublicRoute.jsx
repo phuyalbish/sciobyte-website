@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "@/context/AuthContext.jsx";
 import { Navigate, Outlet } from "react-router-dom";
 
-const PublicRoute = ({ redirectTo = "/dashboard" }) => {
+const PublicRoute = ({ redirectTo = "/trek" }) => {
   const { isAuthenticated, loading } = useContext(AuthContext);
 
   if (loading) return <div>Loading...</div>;
