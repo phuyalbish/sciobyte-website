@@ -50,7 +50,7 @@ function LoginPage() {
       setSuccessMsg("Login successful!");
       
       setUser(response.data);
-      navigate("/dashboard/trek");
+      navigate("/dashboard");
 
     } catch (error) {
       console.error(error);

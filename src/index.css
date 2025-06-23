@@ -38,6 +38,8 @@
   --success: #00ff00;
   --danger: #ff0000;
 
+  --bg-primary:#1e1e1e;
+
 
   --font-liches:"Staatliches", sans-serif;
   --font-reenie: "Reenie Beanie", cursive;
@@ -122,11 +124,13 @@ html {
 body {
   font-family: "Manrope", sans-serif;
   color: var(--text);
+  background-color: #1e1e1e;
 }
 p{
   font-family: "Manrope", sans-serif !important;
 }
-/* font */
+
+
 .reenie-beanie {
   font-family: "Reenie Beanie";
 }

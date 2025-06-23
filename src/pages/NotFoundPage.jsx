@@ -1,5 +1,10 @@
-function NotFound() {
-  return <div>NotFound</div>;
+
+import Container from "@/components/Container.jsx";
+
+function HomePage() {
+  return (
+    <Container>Not Found</Container>
+  )
 }
 
-export default NotFound;
+export default HomePage

@@ -1,4 +1,4 @@
-name: Deploy HelloTrekkers Dev
+name: Deploy Webodle Dev
 on:
   push:
     branches: [dev]
