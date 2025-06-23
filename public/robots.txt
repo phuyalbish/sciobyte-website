@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://hellotrekkers.com/sitemap.xml
+Sitemap: https://webodle.com/sitemap.xml
