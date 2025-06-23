@@ -39,9 +39,7 @@ export default function PageLayout() {
   
         <Outlet/>
       </main>
-      <div className="bg-BGPRIMARY text-white testw">
         <Footer />
-        </div>
 
     </div>
   );
