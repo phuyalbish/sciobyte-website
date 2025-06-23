@@ -1,9 +1,0 @@
-@media (min-width: 960px) {
-    .carousel .control-dots {
-        bottom: -15px !important;
-    }
-}
-
-.carousel .control-dots .dot {
-    background: var(--B300) !important;
-}

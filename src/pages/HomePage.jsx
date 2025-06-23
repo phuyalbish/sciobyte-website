@@ -1,72 +1,29 @@
-import SplashSection from "@/components/pages/home/SplashSection";
-import TrekSection from "@/components/pages/home/TrekSection.jsx";
-import FAQSection from "@/components/pages/home/FAQSection.jsx";
-import Parallex from "@/components/pages/home/Parallex.jsx";
-import YTSection from "@/components/pages/home/YTSection.jsx";
-import HomeStaySection from "@/components/pages/home/HomeStaySection.jsx";
-import InstagramSection from "@/components/pages/home/InstagramSection";
-import NeedToKnowSection from "@/components/pages/home/NeedToKnowSection";
-import ReviewSection from "@/components/pages/home/ReviewSection";
-import SpontaneousTrekSection from "@/components/pages/home/SpontaneousTrekSection";
-import PreferenceSection from "@/components/pages/home/PreferenceSection";
-import FooterVector from "@/assets/footer/FooterHome.svg";
-import { useEffect, useState } from "react";
-import { fetchHomeTreks } from "@/apis/treks.js";
+
+import HoverableGrid from "@/components/pages/HoverableGrid.jsx";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import Logo from "@/assets/Logo.png"
 
 function HomePage() {
 
   
-const [treks, setTreks] = useState([]);
-
-    const [showBanner, setShowBanner] = useState(true);
-  useEffect(() => {
-    (async () => {
-      const response = await fetchHomeTreks();
-      const treksData = response?.data?.results;
-      setTreks(treksData);
-    })();
-  }, []);
-
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowBanner(false), 5000);
-    return () => clearTimeout(timer);
-  }, []);
-
-
   return (
-    <div className="flex flex-col gap-10 md:gap-16 relative w-full scrollbar-gutter-stable ">
-      <div className="flex flex-col">
-
-      <SplashSection />
-      <TrekSection treks={treks?.slice(0, 3)} plainText="YOUR TALE BEGINS" blueText="NOW!" />
-      </div>
-      <div className="flex flex-col w-full relative -mt-48">
-        <Parallex />
-        <PreferenceSection />
-      </div>
-      <HomeStaySection />
-      <SpontaneousTrekSection  treks={treks} />
-      <div className="flex flex-col w-full relative">
-        <YTSection />
-        <ReviewSection />
-      </div>
-
-      <div className="flex flex-col w-full relative">
-      <InstagramSection />
-      <div className="w-full flex flex-col gap-10 bg-G200 py-6 pt-10">
-        <h1 className="text-3xl font-dance md:text-5xl font-regular ">
-        Discover and Explore
-      </h1>
-      <TrekSection  treks={treks?.slice(0,3)} />
-      </div>
-      </div>
-      <NeedToKnowSection />
-      <FAQSection />
-
-      <img src={FooterVector}  alt="Footer Vector Home Page"  className="w-full" />
-    </div>
-  );
+      <div className="realtive text-white h-full w-full flex flex-col items-center justify-center">
+          <HoverableGrid/>
+          <div className="flex flex-col gap-4 items-center  justify-center fixed top-1/2 -translate-y-1/2">
+          <img src={Logo} alt="Webodle Logo"  width={100} height={100}/>
+                <div className="text-white text-lg select-none hover:text-blue-500 transition-colors duration-500 ease-in-out cursor-pointer">Webodle is under construction!</div>
+                <div className="flex gap-4 justify-center w-full">
+                      <a href="http://instagram.com/webodle" rel="noopener noreferrer"  target="_blank"><FaInstagram className="size-8 select-none hover:text-blue-500 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
+                      <a href="http://linkedin.com/company/webodleteam" rel="noopener noreferrer" target="_blank"><FaLinkedin className="size-8 select-none hover:text-blue-500 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
+                      <a href="http://youtube.com/@webodle" rel="noopener noreferrer" target="_blank"><FaYoutube className="size-8 select-none hover:text-blue-500 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
+                      <a href="https://www.facebook.com/people/Webodle/61577144436236/" rel="noopener noreferrer" target="_blank"><FaFacebook className="size-8 select-none hover:text-blue-500 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
+                </div>
+          </div>
+        </div>
+  )
 }
 
-export default HomePage;
+export default HomePage

@@ -38,6 +38,7 @@ export default {
         N800: "var(--N800)", // #333333;
         N900: "var(--N900)", // #1A1A1A;
 
+        BGPRIMARY: "var(--bg-primary)", //#1E1E1E
         
         success: "var(--success)",
         danger: "var(--danger)",
