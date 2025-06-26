@@ -4,8 +4,6 @@ import AppRoutes from "@/router/router.jsx";
 import ScrollToTop from "@/router/ScrollToTop.jsx";
 import "./App.css";
 
-import Animation from "@/data/Animation.json"
-import Lottie from "lottie-react";
 
 function App() {
   return (

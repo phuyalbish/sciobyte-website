@@ -32,14 +32,14 @@ export default function PageLayout() {
           transition={{ duration: 0.35, ease: "easeInOut" }}
           className="sticky top-0 z-50  text-white"
         >
-          <Header />
+          {/* <Header /> */}
         </motion.nav>
             
-      <main className="flex-1 -top-10 relative ">
+      <main className="flex-1  relative ">
   
         <Outlet/>
       </main>
-        <Footer />
+        {/* <Footer /> */}
 
     </div>
   );

@@ -8,6 +8,7 @@ export default function HoverableGrid() {
   const [height, setHeight] = useState(0);
   const [hoverX, setHoverX] = useState(null);
   const [hoverY, setHoverY] = useState(null);
+  const [tiltStyle, setTiltStyle] = useState({});
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,6 +28,35 @@ export default function HoverableGrid() {
     const y = Math.round(e.pageY / GRID_SPACING) * GRID_SPACING;
     setHoverX(x);
     setHoverY(y);
+
+    // Tilt effect logic
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const offsetX = e.clientX - centerX;
+      const offsetY = e.clientY - centerY;
+
+      // Max tilt angles
+      const maxTilt = 10; // degrees
+      const rotateY = (-offsetX / rect.width) * maxTilt;
+      const rotateX = (offsetY / rect.height) * maxTilt;
+
+      setTiltStyle({
+        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+        transition: "transform 0.1s ease",
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setTiltStyle({
+      transform: `rotateX(0deg) rotateY(0deg)`,
+      transition: "transform 0.5s ease",
+    });
+    setHoverX(null);
+    setHoverY(null);
   };
 
   const verticalLines = [];
@@ -60,13 +90,14 @@ export default function HoverableGrid() {
 
   return (
     <div
-    ref={containerRef}
-    className="relative w-full h-[200vh] overflow-hidden"
-    onMouseMove={handleMouseMove}
-
-  >
+      ref={containerRef}
+      className="relative w-[90vw] h-[90vh] top-[5vh] border border-white/10 overflow-hidden  rounded-md"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={tiltStyle}
+    >
       {verticalLines}
       {horizontalLines}
-      </div>
+    </div>
   );
 }
