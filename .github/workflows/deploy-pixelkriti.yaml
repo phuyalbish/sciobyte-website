@@ -1,4 +1,4 @@
-name: Deploy Webodle Dev
+name: Deploy Webodle PixelKriti
 on:
   workflow_dispatch:
 jobs:
