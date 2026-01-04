@@ -124,7 +124,7 @@ html {
 body {
   font-family: "Manrope", sans-serif;
   color: var(--text);
-  background-color: #1e1e1e;
+  background-color: black;
 }
 p{
   font-family: "Manrope", sans-serif !important;

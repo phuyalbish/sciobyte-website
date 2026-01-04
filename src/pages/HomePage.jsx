@@ -14,7 +14,7 @@ function HomePage() {
   
   return (
   <>
-  <div className="w-full h-screen flex justify-center items-center">
+  <div className="w-full h-[90vh] flex justify-center items-center">
       
           <HoverableGrid/>
           <div className="flex flex-col gap-4 items-center  justify-center absolute">
@@ -36,6 +36,21 @@ function HomePage() {
         <div className="w-full relative bg-[#EEE7D7]">
                   <img src={Curve} alt="Curve"  className="w-full"/>
                   <Container>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
+                        <div className="text-xl text-black">Amitesh</div>
                         <div className="text-xl text-black">Amitesh</div>
             </Container>      
 

@@ -91,7 +91,7 @@ export default function HoverableGrid() {
   return (
     <div
       ref={containerRef}
-      className="relative w-[90vw] h-[90vh] top-[2vh] border border-white/10 overflow-hidden  rounded-md"
+      className="relative w-[90vw] h-[85vh] border border-white/20 overflow-hidden  rounded-md"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={tiltStyle}
