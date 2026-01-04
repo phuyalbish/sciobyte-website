@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import  { useState, useEffect, useRef } from "react";
 
 const GRID_SPACING = 30;
 
@@ -68,7 +68,7 @@ export default function HoverableGrid() {
       <div
         key={`v-${x}`}
         className={`absolute top-0 h-full w-px transition-colors border-1 border-white/50 duration-150 ${
-          isHovered ? "bg-white/10" : "bg-white/5"
+          isHovered ? "bg-white/20" : "bg-white/10"
         }`}
         style={{ left: `${x}px` }}
       />
@@ -81,7 +81,7 @@ export default function HoverableGrid() {
       <div
         key={`h-${y}`}
         className={`absolute left-0 w-full h-px transition-colors border-1 border-white/50 duration-150 ${
-          isHovered ? "bg-white/10" : "bg-white/5"
+          isHovered ? "bg-white/20" : "bg-white/10"
         }`}
         style={{ top: `${y}px` }}
       />
@@ -91,7 +91,7 @@ export default function HoverableGrid() {
   return (
     <div
       ref={containerRef}
-      className="relative w-[90vw] h-[90vh] top-[5vh] border border-white/10 overflow-hidden  rounded-md"
+      className="relative w-[90vw] h-[90vh] top-[2vh] border border-white/10 overflow-hidden  rounded-md"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={tiltStyle}

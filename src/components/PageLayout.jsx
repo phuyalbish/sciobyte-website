@@ -3,7 +3,6 @@ import { useState } from "react";
 import {  Outlet } from "react-router-dom";
 import {motion, useScroll, useMotionValueEvent} from "framer-motion"
 import Footer from "@/components/Footer.jsx";
-import Header from "@/components/Header.jsx";
 export default function PageLayout() {
 
   const { scrollY}  = useScroll();
@@ -39,7 +38,7 @@ export default function PageLayout() {
   
         <Outlet/>
       </main>
-        {/* <Footer /> */}
+        <Footer />
 
     </div>
   );
