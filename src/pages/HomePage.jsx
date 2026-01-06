@@ -7,6 +7,8 @@ import { BiLogoGmail } from "react-icons/bi";
 import Logo from "@/assets/Logo.png"
 import Curve from "@/assets/Curve.png"
 import CurveWhite from "@/assets/Curve-White.png";
+import TransformDataSection from "@/components/pages/TransformDataSection";
+import DataAnalysisSection from "@/components/pages/DataAnalysisSection.jsx";
 import Container from "@/components/Container.jsx";
 
 function HomePage() {
@@ -14,6 +16,13 @@ function HomePage() {
   
   return (
   <>
+  
+  <div className="flex flex-col">
+      <div className="text-xl border border-white text-whitew-full h-30 bg-black">
+        <Container>
+        <div className="text-xl text-white">This is Header</div>
+        </Container>
+      </div>
   <div className="w-full h-[90vh] flex justify-center items-center">
       
           <HoverableGrid/>
@@ -35,28 +44,16 @@ function HomePage() {
             
         <div className="w-full relative bg-[#EEE7D7]">
                   <img src={Curve} alt="Curve"  className="w-full"/>
-                  <Container>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-                        <div className="text-xl text-black">Amitesh</div>
-            </Container>      
+                  <div className="flex flex-col gap-40  my-40">
+                        <TransformDataSection/> 
+                  <DataAnalysisSection />
+                  </div>
 
                  
         </div>  
          <img src={CurveWhite} alt="Curve WHite"  className="w-full"/> </div> 
+
+         </div>
           </>
 
   )

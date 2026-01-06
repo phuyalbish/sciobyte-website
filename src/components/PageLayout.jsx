@@ -41,7 +41,7 @@ export default function PageLayout() {
         }}
         animate={hideHeader ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="sticky top-0 z-50 text-white"
+        className="sticky top-0 z-50 text-white "
       >
         <Header />
       </motion.nav>
