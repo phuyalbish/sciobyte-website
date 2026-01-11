@@ -5,7 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Container from '@/components/Container.jsx';
 gsap.registerPlugin(ScrollTrigger);
 
-// Mock Logo
 const Logo = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%234F46E5'/%3E%3Ctext x='50' y='60' font-size='40' fill='white' text-anchor='middle' font-family='Arial'%3EW%3C/text%3E%3C/svg%3E";
 
 function ServiceSection({ data, index }) {
@@ -20,12 +19,10 @@ function ServiceSection({ data, index }) {
     const image = imageRef.current;
     const items = listItemsRef.current;
 
-    // Only apply pin and animations on desktop (768px and above)
     const mediaQuery = window.matchMedia('(min-width: 768px)');
 
     const setupAnimations = () => {
       if (mediaQuery.matches) {
-        // Pin the image while scrolling (desktop only)
         ScrollTrigger.create({
           trigger: section,
           start: 'top 20%',
@@ -34,7 +31,6 @@ function ServiceSection({ data, index }) {
           pinSpacing: false,
         });
 
-        // Animate list items one by one
         items.forEach((item) => {
           gsap.fromTo(
             item,
@@ -58,7 +54,6 @@ function ServiceSection({ data, index }) {
           );
         });
       } else {
-        // Mobile: simple fade-in without pinning
         items.forEach((item) => {
           gsap.fromTo(
             item,
@@ -84,7 +79,6 @@ function ServiceSection({ data, index }) {
 
     setupAnimations();
 
-    // Re-setup animations on resize
     const handleResize = () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       setupAnimations();
@@ -112,7 +106,7 @@ function ServiceSection({ data, index }) {
         </div>
 
         <div className="flex flex-col md:w-1/2 w-full gap-4">
-          <div className="text-2xl md:text-3xl font-bold text-gray-800">
+          <div className="text-lg md:text-3xl font-bold text-gray-800">
             {data.title}
           </div>
           <div className="text-sm md:text-md text-gray-600">

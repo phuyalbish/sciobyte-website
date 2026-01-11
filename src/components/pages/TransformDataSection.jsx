@@ -5,7 +5,6 @@ function TransformDataSection() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Initialize Lenis
     let lenis;
     
     const initLenis = async () => {
@@ -27,7 +26,6 @@ function TransformDataSection() {
 
     initLenis();
 
-    // Intersection Observer for scroll trigger
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,7 +35,7 @@ function TransformDataSection() {
         });
       },
       {
-        threshold: 0.2, // Trigger when 20% of element is visible
+        threshold: 0.2, 
         rootMargin: '-50px',
       }
     );
@@ -62,15 +60,15 @@ function TransformDataSection() {
       <Container>
         <div
           ref={sectionRef}
-          className={`w-full flex md:flex-row flex-col justify-between items-center transition-all duration-1000 ease-out ${
+          className={`w-full flex md:flex-row flex-col-reverse gap-8 justify-between items-center transition-all duration-1000 ease-out ${
             isVisible
               ? 'opacity-100 translate-y-0'
               : 'opacity-0 translate-y-20'
           }`}
         >
-          <div className="flex flex-col w-1/2 gap-4">
+          <div className="flex flex-col md:w-1/2 gap-4">
             <div
-              className={`text-3xl font-bold transition-all duration-1000 delay-100 ${
+              className={`text-lg md:text-3xl font-bold transition-all duration-1000 delay-100 ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-20'
@@ -79,7 +77,7 @@ function TransformDataSection() {
               Transform Data from Decision
             </div>
             <div
-              className={`text-md transition-all duration-1000 delay-200 ${
+              className={`text-base  md:text-md transition-all duration-1000 delay-200 ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-20'
@@ -97,10 +95,10 @@ function TransformDataSection() {
                   : 'opacity-0 translate-y-20'
               }`}
             >
-              <div className="md:text-md px-4 py-2 bg-blue-800 hover:bg-blue-900 rounded-lg text-white cursor-pointer transition-colors">
+              <div className="md:text-md text-sm px-4 py-2 bg-blue-800 hover:bg-blue-900 rounded-lg text-white cursor-pointer transition-colors">
                 Explore Services
               </div>
-              <div className="md:text-md px-4 py-2 border-2 border-blue-800 hover:bg-blue-800 rounded-lg text-blue-800 hover:text-white cursor-pointer transition-colors">
+              <div className="md:text-md text-sm px-4 py-2 border-2 border-blue-800 hover:bg-blue-800 rounded-lg text-blue-800 hover:text-white cursor-pointer transition-colors">
                 Get Started
               </div>
             </div>
