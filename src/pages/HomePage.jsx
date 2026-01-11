@@ -8,7 +8,7 @@ import Logo from "@/assets/Logo.png"
 import Curve from "@/assets/Curve.png"
 import CurveWhite from "@/assets/Curve-White.png";
 import TransformDataSection from "@/components/pages/TransformDataSection.jsx";
-import ServicesSection from "@/components/pages/ServicesSection.jsx";
+import HomeServiceSection from "@/components/pages/HomeServiceSection.jsx";
 
 function HomePage() {
 
@@ -35,11 +35,11 @@ function HomePage() {
   </div>
           <div className="flex flex-col gap-0">
             
-        <div className="w-full relative bg-[#EEE7D7]">
+        <div className="w-full relative bg-white">
                   <img src={Curve} alt="Curve"  className="w-full"/>
                   <div className="flex flex-col  my-20">
                         <TransformDataSection/> 
-                                    <ServicesSection />
+                        <HomeServiceSection />
                   </div>
 
                  

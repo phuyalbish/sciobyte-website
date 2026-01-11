@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Container from "@/components/Container.jsx";
+import ThreedPie from "@/assets/Charts/3dPie.png";
 function TransformDataSection() {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -55,7 +56,7 @@ function TransformDataSection() {
   }, []);
 
   return (
-    <div className="bg-[#EEE7D7]">
+    <div className="bg-white">
 
       <Container>
         <div
@@ -66,6 +67,18 @@ function TransformDataSection() {
               : 'opacity-0 translate-y-20'
           }`}
         >
+
+          <div
+            className={`transition-all duration-1000 delay-400 w-1/2 ${
+              isVisible
+                ? 'opacity-100 translate-y-0 scale-100'
+                : 'opacity-0 translate-y-20 scale-90'
+            }`}
+          >
+            <img src={ThreedPie} alt="3D Pie Chart"  className="w-full"/>
+            
+          </div>
+          
           <div className="flex flex-col md:w-1/2 gap-4">
             <div
               className={`text-lg md:text-3xl font-bold transition-all duration-1000 delay-100 ${
@@ -101,17 +114,6 @@ function TransformDataSection() {
               <div className="md:text-md text-sm px-4 py-2 border-2 border-blue-800 hover:bg-blue-800 rounded-lg text-blue-800 hover:text-white cursor-pointer transition-colors">
                 Get Started
               </div>
-            </div>
-          </div>
-          <div
-            className={`transition-all duration-1000 delay-400 ${
-              isVisible
-                ? 'opacity-100 translate-y-0 scale-100'
-                : 'opacity-0 translate-y-20 scale-90'
-            }`}
-          >
-            <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">
-              W
             </div>
           </div>
         </div>
