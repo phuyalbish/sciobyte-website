@@ -8,26 +8,15 @@ export default function PageLayout() {
   const { scrollY } = useScroll();
   const location = useLocation();
 
-  const isHome = location.pathname === "/";
-  const [hideHeader, setHideHeader] = useState(isHome); // hidden initially only on home
+  const [hideHeader, setHideHeader] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
-    const viewportHeight = window.innerHeight;
-
-    // 🏠 HOME PAGE LOGIC
-    if (isHome) {
-      // Before 100vh → always hidden
-      if (latest < viewportHeight) {
-        setHideHeader(true);
-        return;
-      }
-    }
 
     if (latest > previous && latest > 20) {
-      setHideHeader(true);
+      setHideHeader(true); // scrolling down
     } else {
-      setHideHeader(false);
+      setHideHeader(false); // scrolling up or at top
     }
   });
 
@@ -41,7 +30,7 @@ export default function PageLayout() {
         }}
         animate={hideHeader ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="sticky top-0 z-50 text-white "
+        className="sticky top-0 z-50 text-white"
       >
         <Header />
       </motion.nav>
