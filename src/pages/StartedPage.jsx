@@ -2,6 +2,7 @@ import Container from '@/components/Container.jsx';
 import Robot from '@/lottie/Robot.json';
 import Lottie from 'lottie-react';
 import { useState, useEffect } from 'react';
+import { LuSend } from "react-icons/lu";
 
 import services from "@/data/services.js";
 function Started() {
@@ -297,13 +298,15 @@ function Started() {
                               : ' border-gray-300 bg-gray-300 text-gray-500 cursor-not-allowed'}`}>
                           Next
                         </button>
-                      ) : (
-                        <button
-                          type="button"
+                      ) : (<button 
+
                           onClick={handleSubmit}
-                          className="md:text-base text-sm px-4 py-2 border-2 border-black bg-black hover:bg-transparent rounded-lg hover:text-black text-white transition-colors m-auto w-fit">
-                          Submit
-                        </button>
+                                            type="submit"
+                                            className="md:text-base text-sm px-4 py-2 border-2 border-black bg-black hover:bg-transparent rounded-lg hover:text-black text-white transition-colors m-auto w-fit group flex flex-row items-center gap-2 "
+                                          >
+                                            <p>Submit</p>
+                                            <LuSend className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                          </button>
                       )}
                     </div>
                   )}

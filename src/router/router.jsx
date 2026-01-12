@@ -10,7 +10,10 @@ const NotFound = lazy(() =>  import("@/pages/NotFoundPage.jsx"));
 import Home from "@/pages/HomePage.jsx";
 import Service from "@/pages/ServicePage.jsx";
 import Started from "@/pages/StartedPage.jsx";
-
+import AboutUs from "@/pages/AboutUs.jsx";
+import ContactUs from "@/pages/ContactUs.jsx";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService.jsx";
 const AppRoutes = () => {
 
 
@@ -24,6 +27,10 @@ const AppRoutes = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Service />} />
                 <Route path="/started" element={<Started />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/contact" element={<ContactUs />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
 

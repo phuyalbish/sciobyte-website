@@ -1,5 +1,6 @@
 
 import HoverableGrid from "@/components/pages/HoverableGrid.jsx";
+import Container from '@/components/Container.jsx';
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
@@ -8,6 +9,8 @@ import Logo from "@/assets/Logo.png"
 import Curve from "@/assets/Curve.png"
 import TransformDataSection from "@/components/pages/TransformDataSection.jsx";
 import HomeServiceSection from "@/components/pages/HomeServiceSection.jsx";
+import StatsSection from "@/components/pages/StatsSection.jsx";
+import AdvantageSection from "@/components/pages/AdvantageSection.jsx";
 
 function HomePage() {
 
@@ -40,6 +43,24 @@ function HomePage() {
                         <TransformDataSection/> 
                         <HomeServiceSection />
                   </div>
+                  <StatsSection/>
+                  <AdvantageSection/>
+
+
+                          <Container>
+                            <div className="flex flex-col items-center text-center">
+                              <h2 className="text-lg md:text-2xl font-bold mb-6">Ready to start your journey?</h2>
+                              <p className="text-gray-600 mb-10 max-w-xl">
+                                Our robot is waiting to guide you through our data-driven onboarding process.
+                              </p>
+                              <a 
+                                href="/started" 
+                                className="px-10 py-4 bg-black text-white font-bold hover:bg-gray-800 transition-all rounded-xl"
+                              >
+                                Get Started
+                              </a>
+                            </div>
+                          </Container>
 
                  
         </div>  

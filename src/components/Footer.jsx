@@ -4,6 +4,8 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
+
+import { LuMail, LuPhone, LuMapPin, LuSend } from "react-icons/lu";
 import CurveWhite from "@/assets/Curve-White.png";
 
 function Footer() {
@@ -13,21 +15,41 @@ function Footer() {
     <img src={CurveWhite} alt="Curve WHite"  className="w-full pb-20"/>
       <Container>
 
-        <div className="flex flex-row justify-between  flwx-wrap gap-8">
+        <div className="flex flex-row justify-between  flex-wrap gap-8">
           {/* Information */}
-          <div className="flex flex-col justify-start gap-4">
-            <div className="flex md:flex-row flex-col group justify-start items-center gap-4">
-                  <img src={Logo} alt="Webodle Logo"  width={50} height={50} className="rounded-full group-hover:opacity-70"/>
-                  <div className="text-white text-md md:text-xl select-none group-hover:opacity-70 transition-colors duration-500 ease-in-out ">ScioByte</div>
+          <div className="flex flex-col justify-start gap-4"> 
+            <div className="text-lg font-semibold mb-4 ">ScioByte</div>
+               
+                <div className="flex flex-col gap-3  text-white/80 text-sm md:text-base">
+                    <div className="flex items-center gap-3 hover:text-white transition-colors duration-300 cursor-default">
+                        <LuMapPin className="size-4 text-white" />
+                        <span>Bangalore, India</span>
+                    </div>
+                    <a href="mailto:sciobyte@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors duration-300">
+                        <LuMail className="size-4 text-white" />
+                        <span>sciobyte@gmail.com</span>
+                    </a>
+                    <a href="tel:+919175057182" className="flex items-center gap-3 hover:text-white transition-colors duration-300">
+                        <LuPhone className="size-4 text-white" />
+                        <span>+91 91750 57182</span>
+                    </a>
+                </div>
+                 <div className="flex gap-4 justify-start w-full mt-2">
+                    <a href="https://www.instagram.com/sciobyte" rel="noopener noreferrer" target="_blank">
+                        <FaInstagram className="size-6 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer" />
+                    </a>
+                    <a href="https://www.linkedin.com/company/sciobyte-india/" rel="noopener noreferrer" target="_blank">
+                        <FaLinkedin className="size-6 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer" />
+                    </a>
+                    <a href="mailto:sciobyte@gmail.com" rel="noopener noreferrer" target="_blank">
+                        <BiLogoGmail className="size-6 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer" />
+                    </a>
+                    <a href="https://wa.me/+919175057182?text=Hello%20ScioByte" rel="noopener noreferrer" target="_blank">
+                        <FaWhatsapp className="size-6 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer" />
+                    </a>
+                </div>
+
             </div>
-             <div className="text-white text-base md:text-md select-none hover:opacity-70 transition-colors duration-500 ease-in-out ">The data you know helps you grow</div>
-              <div className="flex gap-4 justify-start w-full mt-4">
-                    <a href="https://www.instagram.com/sciobyte" rel="noopener noreferrer"  target="_blank"><FaInstagram className="size-6 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
-                    <a href="https://www.linkedin.com/company/sciobyte-india/" rel="noopener noreferrer" target="_blank"><FaLinkedin className="size-6 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
-                    <a href="mailto:sciobyte@gmail.com" rel="noopener noreferrer" target="_blank"><BiLogoGmail className="size-6 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
-                    <a href="https://wa.me/+919175057182?text=Hello%20ScioByte" rel="noopener noreferrer" target="_blank"><FaWhatsapp className="size-6 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
-              </div>
-          </div>
 
           {/* Services */}
           <div className="">
