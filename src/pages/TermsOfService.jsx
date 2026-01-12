@@ -72,7 +72,7 @@ const TermsOfService = () => {
           <div className="mt-16 p-6 bg-gray-50 rounded-lg border border-gray-100 w-full">
             <h2 className="text-xs font-bold uppercase tracking-widest mb-1">Governing Law</h2>
             <p className="text-[11px] text-gray-500 mb-3">
-              By using these services, you consent to the jurisdiction of the courts in Bangalore, India for any legal matters arising from these terms.
+              By using these services, you consent to the jurisdiction of the courts in Pune, India for any legal matters arising from these terms.
             </p>
             <p className="text-[10px] text-gray-400 italic">Questions? Contact our legal desk at legal@sciobyte.com</p>
           </div>

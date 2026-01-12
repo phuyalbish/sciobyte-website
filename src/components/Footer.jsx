@@ -23,15 +23,15 @@ function Footer() {
                 <div className="flex flex-col gap-3  text-white/80 text-sm md:text-base">
                     <div className="flex items-center gap-3 hover:text-white transition-colors duration-300 cursor-default">
                         <LuMapPin className="size-4 text-white" />
-                        <span>Bangalore, India</span>
+                        <span>Pune, India</span>
                     </div>
-                    <a href="mailto:sciobyte@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors duration-300">
+                    <a href="mailto:info@sciobyte.com" className="flex items-center gap-3 hover:text-white transition-colors duration-300">
                         <LuMail className="size-4 text-white" />
-                        <span>sciobyte@gmail.com</span>
+                        <span>info@sciobyte.com</span>
                     </a>
                     <a href="tel:+919175057182" className="flex items-center gap-3 hover:text-white transition-colors duration-300">
                         <LuPhone className="size-4 text-white" />
-                        <span>+91 91750 57182</span>
+                        <span>+91 73549 62791</span>
                     </a>
                 </div>
                  <div className="flex gap-4 justify-start w-full mt-2">
@@ -41,7 +41,7 @@ function Footer() {
                     <a href="https://www.linkedin.com/company/sciobyte-india/" rel="noopener noreferrer" target="_blank">
                         <FaLinkedin className="size-6 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer" />
                     </a>
-                    <a href="mailto:sciobyte@gmail.com" rel="noopener noreferrer" target="_blank">
+                    <a href="mailto:info@sciobyte.com" rel="noopener noreferrer" target="_blank">
                         <BiLogoGmail className="size-6 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer" />
                     </a>
                     <a href="https://wa.me/+919175057182?text=Hello%20ScioByte" rel="noopener noreferrer" target="_blank">
