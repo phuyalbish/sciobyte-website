@@ -1,6 +1,6 @@
 import ServiceSection from "@/components/pages/ServiceSection.jsx";
 
-import servicesData from "@/json/services.js";
+import servicesData from "@/data/services.js";
 
 function HomeServiceSection() {
   return (

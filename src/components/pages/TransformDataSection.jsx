@@ -1,16 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from "react";
 import Container from "@/components/Container.jsx";
-import ThreedPie from "@/assets/Charts/3dPie.png";
+import useIntersectionVisible from "@/hooks/useIntersectionVisible";
+import Robot from '@/lottie/GetStarted.json';
+import Services from '@/lottie/Services.json';
+import Globe from '@/lottie/Globe.json';
+import Lottie from 'lottie-react';
+
 function TransformDataSection() {
-  const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const { ref: sectionRef, isVisible } = useIntersectionVisible({
+    threshold: 0.2,
+    rootMargin: "-50px",
+  });
 
   useEffect(() => {
     let lenis;
-    
+
     const initLenis = async () => {
-      const Lenis = (await import('lenis')).default;
-      
+      const Lenis = (await import("lenis")).default;
+
       lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -27,73 +34,47 @@ function TransformDataSection() {
 
     initLenis();
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      {
-        threshold: 0.2, 
-        rootMargin: '-50px',
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-      if (lenis) {
-        lenis.destroy();
-      }
+      if (lenis) lenis.destroy();
     };
   }, []);
 
   return (
     <div className="bg-white">
-
       <Container>
         <div
           ref={sectionRef}
           className={`w-full flex md:flex-row flex-col-reverse gap-8 justify-between items-center transition-all duration-1000 ease-out ${
-            isVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-20'
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}
         >
-
           <div
-            className={`transition-all duration-1000 delay-400 w-1/2 ${
+            className={`transition-all duration-1000 delay-400 md:w-1/3 ${
               isVisible
-                ? 'opacity-100 translate-y-0 scale-100'
-                : 'opacity-0 translate-y-20 scale-90'
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 translate-y-20 scale-90"
             }`}
           >
-            <img src={ThreedPie} alt="3D Pie Chart"  className="w-full"/>
             
+            <Lottie animationData={Globe} className="w-full h-full" loop={true} speed={0.1} />
           </div>
-          
+
           <div className="flex flex-col md:w-1/2 gap-4">
             <div
-              className={`text-lg md:text-3xl font-bold transition-all duration-1000 delay-100 ${
+              className={`text-lg md:text-3xl font-bold transition-all duration-1000 delay-100 font-liches ${
                 isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-20'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-20"
               }`}
             >
-              Transform Data from Decision
+              Transform Data into Decision
             </div>
+
             <div
-              className={`text-base  md:text-md transition-all duration-1000 delay-200 ${
+              className={`text-base md:text-md transition-all duration-1000 delay-200  ${
                 isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-20'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-20"
               }`}
             >
               Enterprise-grade analytics solutions designed for SMEs. Fast
@@ -104,21 +85,35 @@ function TransformDataSection() {
             <div
               className={`flex gap-4 transition-all duration-1000 delay-300 ${
                 isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-20'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-20"
               }`}
             >
-              <div className="md:text-md text-sm px-4 py-2 bg-blue-800 hover:bg-blue-900 rounded-lg text-white cursor-pointer transition-colors">
-                Explore Services
-              </div>
-              <div className="md:text-md text-sm px-4 py-2 border-2 border-blue-800 hover:bg-blue-800 rounded-lg text-blue-800 hover:text-white cursor-pointer transition-colors">
-                Get Started
-              </div>
+              
+              <a
+                href="/services"
+                className="md:text-base  flex flex-row items-center gap-2 text-sm px-4 py-2 border-2 border-black hover:bg-slate-100 rounded-lg text-black hover:flex-row-reverse transition-all duration-500 ease-in-out"
+             
+             >
+
+             <Lottie animationData={Services} className="w-6 h-6" loop={true} />
+               
+               <p>Explore Services</p>
+              </a>
+              <a
+                href="/started"
+                className="md:text-base flex flex-row items-center gap-2 text-sm px-4 py-2 text-black hover:bg-black/15 bg-slate-200 rounded-md transition-colors duration-500 ease-in-out"
+              
+                >
+                
+             <Lottie animationData={Robot} className="w-10" loop={true} />
+               
+               <p>Get Started</p>
+              </a>
             </div>
           </div>
         </div>
       </Container>
-
     </div>
   );
 }

@@ -1,46 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Reenie+Beanie&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --G100: #CCEEE9;
-  --G200: #99DDD3;
-  --G300: #66CBBD;
-  --G400: #33BAA7;
-  --G500: #00A991;
-  --G600: #008774;
-  --G700: #006557;
-  --G800: #00443A;
-  --G900: #00221D;
-
-  --B100: #D9E8F9;
-  --B200: #B3D1F3;
-  --B300: #8DB9EC;
-  --B400: #67A2E6;
-  --B500: #418BE0;
-  --B600: #346FB3;
-  --B700: #275386;
-  --B800: #1A385A;
-  --B900: #0D1C2D;
   
-  --N100: #e6e6e6;
-  --N200: #cccccc;
-  --N300: #b3b3b3;
-  --N400: #999999;
-  --N500: #7f7f7f;
-  --N600: #666666;
-  --N700: #4d4d4d;
-  --N800: #333333;
-  --N900: #1A1A1A;
-
   --success: #00ff00;
   --danger: #ff0000;
 
   --bg-primary:#1e1e1e;
 
-
+  --font-pat: "Patrick Hand", cursive;
   --font-liches:"Staatliches", sans-serif;
   --font-reenie: "Reenie Beanie", cursive;
   --font-manrope: "Manrope", sans-serif;
@@ -112,7 +83,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: "Manrope", sans-serif;
+  font-family:  "Patrick Hand", cursive;
   line-height: 2;
   scroll-behavior: smooth;
 }
@@ -122,12 +93,12 @@ html {
 }
 
 body {
-  font-family: "Manrope", sans-serif;
+  font-family:  "Patrick Hand", cursive;
   color: var(--text);
   background-color: black;
 }
 p{
-  font-family: "Manrope", sans-serif !important;
+  font-family:   "Patrick Hand", cursive !important;
 }
 
 

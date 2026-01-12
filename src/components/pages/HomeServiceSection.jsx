@@ -1,6 +1,6 @@
 import ServiceSection from "@/components/pages/ServiceSection.jsx";
 
-import servicesData from "@/json/services.js";
+import servicesData from "@/data/services.js";
 
 function HomeServiceSection() {
   return (
@@ -9,7 +9,8 @@ function HomeServiceSection() {
       {servicesData.filter(service => service.isShownOnHome).map((service, index) => (
         <ServiceSection key={index} data={service} index={index} />
       ))}
-      <a href="/services" className="border border-black rounded-md p-2 m-auto cursor-pointer hover:bg-black/10 hover:shadow-md">View all Services</a>
+      <a href="/services"  
+      className="md:text-base  text-sm px-4 py-2 border-2 border-black hover:bg-black rounded-lg text-black hover:text-white transition-colors m-auto w-fit">View all Services</a>
     </div>
   )
 }

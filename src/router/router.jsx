@@ -9,6 +9,7 @@ const NotFound = lazy(() =>  import("@/pages/NotFoundPage.jsx"));
 
 import Home from "@/pages/HomePage.jsx";
 import Service from "@/pages/ServicePage.jsx";
+import Started from "@/pages/StartedPage.jsx";
 
 const AppRoutes = () => {
 
@@ -22,6 +23,7 @@ const AppRoutes = () => {
             <Route element={<PageLayout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Service />} />
+                <Route path="/started" element={<Started />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
 
