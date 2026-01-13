@@ -1,8 +1,8 @@
 {
-  "name": "ScioByte",
+  "name": "sciobyte",
   "compatibility_date": "2026-01-13",
+  "main": "workers-site/index.js",
   "site": {
-    "bucket": "./dist", 
-    "entry-point": "workers-site"
+    "bucket": "./dist"            
   }
 }
