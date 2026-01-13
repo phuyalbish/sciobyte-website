@@ -23,7 +23,7 @@ function Footer() {
                 <div className="flex flex-col gap-3  text-white/80 text-sm md:text-base">
                     <div className="flex items-center gap-3 hover:text-white transition-colors duration-300 cursor-default">
                         <LuMapPin className="size-4 text-white" />
-                        <span>Pune, India</span>
+                        <span>HR32+2M Pune, Maharashtra, India</span>
                     </div>
                     <a href="mailto:info@sciobyte.com" className="flex items-center gap-3 hover:text-white transition-colors duration-300">
                         <LuMail className="size-4 text-white" />

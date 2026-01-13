@@ -143,13 +143,12 @@ const ContactUs = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}
         >
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497699.9973874144!2d77.35074421903857!3d12.95384772557775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-            className="w-full h-[400px] rounded-md shadow-lg border-0 grayscale hover:grayscale-0 transition-all duration-500"
+
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.2502428230764!2d73.80186089472004!3d18.552545503893487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfda981b0253%3A0x85c500c4836e5e95!2sSciobyte!5e1!3m2!1sen!2snp!4v1768274733987!5m2!1sen!2snp" className="w-full h-[400px] rounded-md shadow-lg border-0 grayscale hover:grayscale-0 transition-all duration-500"
             allowFullScreen="" 
             loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+            referrerPolicy="no-referrer-when-downgrade"></iframe>
+          
         </div>
       </Container>
     </div>

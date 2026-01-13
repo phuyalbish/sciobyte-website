@@ -23,10 +23,10 @@ const AboutUs = () => {
   ];
 
   const team = [
-    { name: "Alex Rivers", role: "Chief Data Architect", img: AvatarYoungBoy },
-    { name: "Sarah Chen", role: "Head of AI & ML", img: AvatarFemale },
-    { name: "Marcus Thorne", role: "Lead BI Engineer", img: WomanAvatar },
-    { name: "Elena Voss", role: "Strategic Advisory", img: Female }
+    { name: "Shubhankar", role: "Chief Data Architect", img: AvatarYoungBoy },
+    { name: "Adhiti", role: "Head of Data Analysis", img: AvatarFemale },
+    { name: "Rajat", role: "Data Science", img: AvatarYoungBoy },
+    { name: "Bishal", role: "Web Developer", img: AvatarYoungBoy }
   ];
 
   return (
