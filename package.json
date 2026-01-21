@@ -7,7 +7,6 @@
     "serve": "serve -s dist -l tcp://0.0.0.0:5173",
     "preview:worker": "npm run build && wrangler dev",
     "deploy:worker": "npm run build && wrangler deploy"
-
   },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "^0.4.1",

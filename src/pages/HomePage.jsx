@@ -31,7 +31,7 @@ function HomePage() {
                                     <a href="https://www.instagram.com/sciobyte" rel="noopener noreferrer"  target="_blank"><FaInstagram className="size-8 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
                                     <a href="https://www.linkedin.com/company/sciobyte-india/" rel="noopener noreferrer" target="_blank"><FaLinkedin className="size-8 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
                                     <a href="mailto:info@sciobyte.com" rel="noopener noreferrer" target="_blank"><BiLogoGmail className="size-8 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
-                                    <a href="https://wa.me/+919175057182?text=Hello%20ScioByte" rel="noopener noreferrer" target="_blank"><FaWhatsapp className="size-8 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
+                                    <a href="https://wa.me/+917249121882?text=Hello%20ScioByte" rel="noopener noreferrer" target="_blank"><FaWhatsapp className="size-8 select-none text-white hover:opacity-70 transition-colors duration-500 ease-in-out cursor-pointer"/></a>
                               </div>
                   </div>
             </div>

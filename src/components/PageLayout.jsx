@@ -56,7 +56,7 @@ export default function PageLayout() {
 
       {/* Floating WhatsApp Button */}
       <motion.a
-        href="https://wa.me/+919175057182?text=Hello%20ScioByte"
+        href="https://wa.me/+917249121882?text=Hello%20ScioByte"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-[60] group rounded-full transition-transform duration-300 hover:scale-110 hover:-translate-y-2 flex items-center justify-center"
